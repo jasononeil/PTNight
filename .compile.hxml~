@@ -1,0 +1,34 @@
+#######################################################################################################################
+# My Haxe compilation script.  Currently compiles to PHP.
+#######################################################################################################################
+# -main		: This is the class we're compiling
+# -php		: This if the folder to output the PHP to
+# --php-front	: This is the name of the file that -main will become (eg. Login becomes login.php)
+# -cp 		: Path to the classes we're using (you can enter multiple paths by doing this line multiple times)
+# -xml		: Outputs an XML of all the classes used so we can create our API documentation using haxedoc
+# --next	: Use this line if starting a second output
+#######################################################################################################################
+
+
+#######################################################################################################################
+# MainApp To index.php
+#######################################################################################################################
+-main MainApp
+-php php/
+--php-front index.php
+-cp src/
+-cp src/lib/
+-xml doc/output.xml
+#######################################################################################################################
+
+
+#######################################################################################################################
+# Example of second compile "MyClass" to myclass.php (make sure you uncomment it!)
+#######################################################################################################################
+#--next
+#-php php/
+#--php-front myclass.php
+#-main MyClass
+#-cp src/
+#-cp src/lib/
+#######################################################################################################################

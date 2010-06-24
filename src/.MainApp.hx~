@@ -1,0 +1,7 @@
+class MainApp
+{
+    public static function Main()
+      {
+	trace ("hey you!");
+      }
+} 
