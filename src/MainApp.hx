@@ -8,7 +8,7 @@ class MainApp
 		php.Lib.print('<pre>');
 		
 		trace("Call the dispatcher to figure out what to do...");
-		Dispatcher.dispatch();
+		Dispatcher.dispatch(php.Web.getURI());
 		
 		php.Lib.print('</pre>');
 	}

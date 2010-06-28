@@ -118,20 +118,20 @@ dt {
 This class contains all the config for your app.
 I'm not sure which package this should belong in really...
 </div><dl><dt><span class="kwd">static </span><span class="kwd">var </span>baseFilePath : <a href="String.html" class="type">String</a></dt><dd><p>Set this to the base filepath of this app on your server,
-	(include a trailing slash).</p>
+	(do not include a trailing slash).</p>
 <p>Examples:
 	<ul>
-		<li>/var/www/html/</li>
-		<li>/home/website/</li>
-		<li>/home/website/myapp/</li>
+		<li>/var/www/html</li>
+		<li>/home/website</li>
+		<li>/home/website/myapp</li>
 	</ul></p>
 <p><b>This property might not be needed... not sure yet.
-	Remember Haxe's import mechanism is alot nicer than PHPs</b></p></dd><dt><span class="kwd">static </span><span class="kwd">var </span>baseUrl : <a href="String.html" class="type">String</a></dt><dd><p>Set this to the base URL of your site, including a trailing slash.</p>
+	Remember Haxe's import mechanism is alot nicer than PHPs</b></p></dd><dt><span class="kwd">static </span><span class="kwd">var </span>baseUrl : <a href="String.html" class="type">String</a></dt><dd><p>Set this to the base URL of your site, not including a trailing slash.</p>
 <p>Examples:
 	<ul>
-		<li>http://www.mysite.com/</li>
-		<li>http://www.mysite.com/myapp/</li>
-	</ul></p></dd><dt><span class="kwd">static </span><span class="kwd">var </span>dbDatabase : <a href="String.html" class="type">String</a></dt><dd> The name of the database to use</dd><dt><span class="kwd">static </span><span class="kwd">var </span>dbPassword : <a href="String.html" class="type">String</a></dt><dd> The password to use when logging in to the database server</dd><dt><span class="kwd">static </span><span class="kwd">var </span>dbPort : <a href="Int.html" class="type">Int</a></dt><dd> The port of the database server.  Usually <i>3306</i></dd><dt><span class="kwd">static </span><span class="kwd">var </span>dbServer : <a href="String.html" class="type">String</a></dt><dd> The address of the database server.  Usually <i>localhost</i></dd><dt><span class="kwd">static </span><span class="kwd">var </span>dbUsername : <a href="String.html" class="type">String</a></dt><dd> The username to use when logging in to the database server</dd><dt><span class="kwd">static </span><span class="kwd">var </span>defaultController : <a href="Class.html" class="type">Class</a>&lt;<a href="Dynamic.html" class="type">Dynamic</a>&gt;</dt><dd> Default Controller</dd><dt><span class="kwd">static </span><span class="kwd">var </span>tablePrefix : <a href="String.html" class="type">String</a></dt><dd> If you have multiple apps (or versions of apps) on this database,
+		<li>http://www.mysite.com</li>
+		<li>http://www.mysite.com/myapp</li>
+	</ul></p></dd><dt><span class="kwd">static </span><span class="kwd">var </span>dbDatabase : <a href="String.html" class="type">String</a></dt><dd> The name of the database to use</dd><dt><span class="kwd">static </span><span class="kwd">var </span>dbPassword : <a href="String.html" class="type">String</a></dt><dd> The password to use when logging in to the database server</dd><dt><span class="kwd">static </span><span class="kwd">var </span>dbPort : <a href="Int.html" class="type">Int</a></dt><dd> The port of the database server.  Usually <i>3306</i></dd><dt><span class="kwd">static </span><span class="kwd">var </span>dbServer : <a href="String.html" class="type">String</a></dt><dd> The address of the database server.  Usually <i>localhost</i></dd><dt><span class="kwd">static </span><span class="kwd">var </span>dbUsername : <a href="String.html" class="type">String</a></dt><dd> The username to use when logging in to the database server</dd><dt><span class="kwd">static </span><span class="kwd">var </span>defaultController : <a href="Class.html" class="type">Class</a>&lt;<a href="Dynamic.html" class="type">Dynamic</a>&gt;</dt><dd> Default Controller</dd><dt><span class="kwd">static </span><span class="kwd">var </span>subDir : <a href="String.html" class="type">String</a></dt><dd> The subdirectory on the server we are in.  No trailing slash</dd><dt><span class="kwd">static </span><span class="kwd">var </span>tablePrefix : <a href="String.html" class="type">String</a></dt><dd> If you have multiple apps (or versions of apps) on this database,
 	you can specify a table prefix to keep table names from overlapping
 	each other.  For example, "myapp1.0_"</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
 

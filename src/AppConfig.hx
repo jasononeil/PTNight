@@ -24,6 +24,9 @@ class AppConfig
 	*/
 	public static var baseUrl:String = "http://localhost/hxbase/php";
 	
+	/** The subdirectory on the server we are in.  No trailing slash */
+	public static var subDir:String = "/hxbase/php";
+	
 	/** Set this to the base filepath of this app on your server,
 	(do not include a trailing slash).
 	

@@ -3,7 +3,8 @@
 class AppConfig {
 	public function __construct(){}
 	static $defaultController;
-	static $baseUrl = "http://";
+	static $baseUrl = "http://localhost/hxbase/php";
+	static $subDir = "/hxbase/php";
 	static $baseFilePath;
 	static $dbServer;
 	static $dbPort;

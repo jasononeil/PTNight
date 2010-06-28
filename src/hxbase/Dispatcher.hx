@@ -1,6 +1,5 @@
 package hxbase;
-
-import php.Web;
+using StringTools;
 
 /**
 The Dispatcher class is responsible for deciding which
@@ -12,10 +11,12 @@ This class is called on most page requests.
 class Dispatcher
 {
 	
-	public static function dispatch()
+	public static function dispatch(uri:String)
 	{
-		var uri:String = php.Web.getURI();
-		trace (uri);
+		trace ("URI " + uri);
+		
+		var request = uri.replace(AppConfig.subDir, "");
+		trace ("REQUEST " + request);
 	}
 	
 }
