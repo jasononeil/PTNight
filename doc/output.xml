@@ -1,11 +1,11 @@
 <haxe>
-	<enum path="XmlType" params="" file="/usr/lib/haxe/std/Xml.hx" module="Xml"><haxe_doc>
+	<enum path="XmlType" params="" file="/opt/haxe/std/Xml.hx" module="Xml"><haxe_doc>
 	An abstract type representing the type of the Xml
 	Node. You can compare it to [Xml] statics and can
 	use [Std.string(t)] to get a string reprensation
 	of the type.
 </haxe_doc></enum>
-	<class path="Xml" params="" file="/usr/lib/haxe/std/Xml.hx" extern="1">
+	<class path="Xml" params="" file="/opt/haxe/std/Xml.hx" extern="1">
 		<Element public="1" set="null" static="1">
 			<e path="XmlType"/>
 			<haxe_doc>
@@ -279,19 +279,19 @@
 	More API to manipulate XML are available in the [haxe.xml] package.
 </haxe_doc>
 	</class>
-	<enum path="Void" params="" file="/usr/lib/haxe/std/StdTypes.hx" module="StdTypes"><haxe_doc>
+	<enum path="Void" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes"><haxe_doc>
 	The standard Void type. Only [null] values can be of the type [Void].
 </haxe_doc></enum>
-	<class path="Float" params="" file="/usr/lib/haxe/std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>
+	<class path="Float" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>
 	The standard Float type, this is a double-precision IEEE 64bit float.
 </haxe_doc></class>
-	<class path="Int" params="" file="/usr/lib/haxe/std/StdTypes.hx" module="StdTypes" extern="1">
+	<class path="Int" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1">
 		<extends path="Float"/>
 		<haxe_doc>
 	The standard Int type. Its precision depends on the platform.
 </haxe_doc>
 	</class>
-	<typedef path="Null" params="T" file="/usr/lib/haxe/std/StdTypes.hx" module="StdTypes">
+	<typedef path="Null" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
 		<c path="Null.T"/>
 		<haxe_doc>
 	[Null] can be useful in two cases. In order to document some methods
@@ -300,18 +300,18 @@
 	can't.
 </haxe_doc>
 	</typedef>
-	<enum path="Bool" params="" file="/usr/lib/haxe/std/StdTypes.hx" module="StdTypes">
+	<enum path="Bool" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
 		<true/>
 		<false/>
 		<haxe_doc>
 	The standard Boolean type is represented as an enum with two choices.
 </haxe_doc>
 	</enum>
-	<class path="Dynamic" params="T" file="/usr/lib/haxe/std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>
+	<class path="Dynamic" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>
 	Dynamic is an internal compiler type which has special behavior.
 	See the haXe language reference for more informations.
 </haxe_doc></class>
-	<typedef path="Iterator" params="T" file="/usr/lib/haxe/std/StdTypes.hx" module="StdTypes">
+	<typedef path="Iterator" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
 		<a>
 			<next set="method"><f a=""><c path="Iterator.T"/></f></next>
 			<hasNext set="method"><f a=""><e path="Bool"/></f></hasNext>
@@ -322,18 +322,18 @@
 	documentation for more informations.
 </haxe_doc>
 	</typedef>
-	<typedef path="Iterable" params="T" file="/usr/lib/haxe/std/StdTypes.hx" module="StdTypes">
+	<typedef path="Iterable" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
 		<a><iterator set="method"><f a=""><t path="Iterator"><c path="Iterable.T"/></t></f></iterator></a>
 		<haxe_doc>
 	An Iterable is a data structure which has an iterator() method.
 	See [Lambda] for generic functions on iterable structures.
 </haxe_doc>
 	</typedef>
-	<class path="ArrayAccess" params="T" file="/usr/lib/haxe/std/StdTypes.hx" module="StdTypes" extern="1" interface="1"><haxe_doc>
+	<class path="ArrayAccess" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1" interface="1"><haxe_doc>
 	ArrayAccess is used to indicate a class that can be accessed using brackets.
 	The type parameter represent the type of the elements stored.
 </haxe_doc></class>
-	<class path="String" params="" file="/usr/lib/haxe/std/String.hx" extern="1">
+	<class path="String" params="" file="/opt/haxe/std/String.hx" extern="1">
 		<fromCharCode public="1" set="method" static="1"><f a="code">
 	<c path="Int"/>
 	<c path="String"/>
@@ -442,7 +442,7 @@
 	The basic String class.
 </haxe_doc>
 	</class>
-	<class path="php.IteratorAggregate" params="T" file="/usr/lib/haxe/std/php/IteratorAggregate.hx" extern="1" interface="1"><getIterator set="method">
+	<class path="php.IteratorAggregate" params="T" file="/opt/haxe/std/php/IteratorAggregate.hx" extern="1" interface="1"><getIterator set="method">
 	<f a=""><t path="Iterator"><c path="php.IteratorAggregate.T"/></t></f>
 	<haxe_doc> 
 		This method is not public to not induce haXe users to use it ;) 
@@ -450,7 +450,7 @@
 		The return type would be Aggregator that is unusable in haXe 
 	</haxe_doc>
 </getIterator></class>
-	<class path="haxe.Log" params="" file="/usr/lib/haxe/std/haxe/Log.hx">
+	<class path="haxe.Log" params="" file="/opt/haxe/std/haxe/Log.hx">
 		<trace public="1" set="dynamic" line="29" static="1"><f a="v:?infos">
 	<d/>
 	<t path="haxe.PosInfos"/>
@@ -458,7 +458,7 @@
 </f></trace>
 		<clear public="1" set="dynamic" line="43" static="1"><f a=""><e path="Void"/></f></clear>
 	</class>
-	<class path="Std" params="" file="/usr/lib/haxe/std/Std.hx">
+	<class path="Std" params="" file="/opt/haxe/std/Std.hx">
 		<is public="1" set="method" line="34" static="1">
 			<f a="v:t">
 				<d/>
@@ -518,7 +518,7 @@
 	The Std class provides standard methods for manipulating basic types.
 </haxe_doc>
 	</class>
-	<class path="EReg" params="" file="/usr/lib/haxe/std/EReg.hx">
+	<class path="EReg" params="" file="/opt/haxe/std/EReg.hx">
 		<r><d/></r>
 		<last><c path="String"/></last>
 		<global><e path="Bool"/></global>
@@ -625,7 +625,7 @@
 	how to use them.
 </haxe_doc>
 	</class>
-	<class path="php.PhpXml__" params="" file="/usr/lib/haxe/std/php/PhpXml__.hx">
+	<class path="php.PhpXml__" params="" file="/opt/haxe/std/php/PhpXml__.hx">
 		<Element public="1" set="null" static="1"><e path="XmlType"/></Element>
 		<PCData public="1" set="null" static="1"><e path="XmlType"/></PCData>
 		<CData public="1" set="null" static="1"><e path="XmlType"/></CData>
@@ -747,7 +747,7 @@
 		<toString public="1" set="method" line="352"><f a=""><c path="String"/></f></toString>
 		<new set="method" line="110"><f a=""><e path="Void"/></f></new>
 	</class>
-	<class path="php.PhpMath__" params="" file="/usr/lib/haxe/std/php/PhpMath__.hx">
+	<class path="php.PhpMath__" params="" file="/opt/haxe/std/php/PhpMath__.hx">
 		<PI public="1" static="1"><unknown/></PI>
 		<NaN public="1" static="1"><unknown/></NaN>
 		<POSITIVE_INFINITY public="1" static="1"><c path="Int"/></POSITIVE_INFINITY>
@@ -835,7 +835,7 @@
 </f></isFinite>
 	</class>
 	<class path="MainApp" params="" file="src/MainApp.hx"><main public="1" set="method" line="3" static="1"><f a=""><e path="Void"/></f></main></class>
-	<class path="Hash" params="T" file="/usr/lib/haxe/std/Hash.hx">
+	<class path="Hash" params="T" file="/opt/haxe/std/Hash.hx">
 		<implements path="php.IteratorAggregate"><c path="Hash.T"/></implements>
 		<h><c path="ArrayAccess"><c path="Hash.T"/></c></h>
 		<set public="1" set="method" line="63">
@@ -914,7 +914,7 @@
 	can't always be implemented efficiently.
 </haxe_doc>
 	</class>
-	<class path="php.PhpDate__" params="" file="/usr/lib/haxe/std/php/PhpDate__.hx">
+	<class path="php.PhpDate__" params="" file="/opt/haxe/std/php/PhpDate__.hx">
 		<__name__ line="29" static="1"><c path="Array"><c path="String"/></c></__name__>
 		<now public="1" set="method" line="77" static="1"><f a=""><c path="php.PhpDate__"/></f></now>
 		<fromPhpTime public="1" set="method" line="81" static="1"><f a="t">
@@ -950,20 +950,20 @@
 	<e path="Void"/>
 </f></new>
 	</class>
-	<class path="php.Boot" params="" file="/usr/lib/haxe/std/php/Boot.hx">
+	<class path="php.Boot" params="" file="/opt/haxe/std/php/Boot.hx">
 		<qtypes static="1"><unknown/></qtypes>
 		<ttypes static="1"><unknown/></ttypes>
 		<tpaths static="1"><unknown/></tpaths>
 		<skip_constructor line="7" static="1"><e path="Bool"/></skip_constructor>
 	</class>
-	<typedef path="haxe.PosInfos" params="" file="/usr/lib/haxe/std/haxe/PosInfos.hx"><a>
+	<typedef path="haxe.PosInfos" params="" file="/opt/haxe/std/haxe/PosInfos.hx"><a>
 	<methodName><c path="String"/></methodName>
 	<lineNumber><c path="Int"/></lineNumber>
 	<fileName><c path="String"/></fileName>
 	<customParams><c path="Array"><d/></c></customParams>
 	<className><c path="String"/></className>
 </a></typedef>
-	<class path="StringBuf" params="" file="/usr/lib/haxe/std/StringBuf.hx">
+	<class path="StringBuf" params="" file="/opt/haxe/std/StringBuf.hx">
 		<add public="1" get="inline" set="null" line="48">
 			<f a="?x">
 				<d/>
@@ -1012,7 +1012,7 @@
 	appending small elements together.
 </haxe_doc>
 	</class>
-	<class path="Array" params="T" file="/usr/lib/haxe/std/Array.hx" extern="1">
+	<class path="Array" params="T" file="/opt/haxe/std/Array.hx" extern="1">
 		<length public="1" set="null">
 			<c path="Int"/>
 			<haxe_doc>
