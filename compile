@@ -1,12 +1,17 @@
 #!/bin/sh
 
-#echo "Copying Include Files (css,js,tpl etc.)"
+# Copying Include Files (css,js,tpl etc.)
 rsync --delete -a includes/ php/
 
+# Compiling
 echo "Compiling haXe code"
 haxe compile.hxml
 
-#echo "Creating the documentation"
+# Dump SQL database (this gives us a flatfile backup and also keeps it in GIT)
+# Change your database name, username and password to make it work for yours.
+/usr/bin/mysqldump --create-options -B "hxbase" --force --user=hxbase --password=password > database.sql
+
+# Creating the documentation
 cd doc
 haxedoc output.xml > /dev/null
 cd ..
