@@ -37,11 +37,57 @@ Follow these and you'll be off to a good start.
 
 <b>Relationships</b>
 <ul>
-	<li>I'm not sure how these are really done yet.
-	There's a good chance I can't do this in a super
-	class anyway, because RELATIONS() is a static field
-	which cannot be inherited.</li>
-	<li>But this would be a good place to give some instructions</li>
+	<li><b>One to one</b> or <b>Belongs to</b>.
+	<br />These relationships are built in by haxe.  You'll 
+	need to include something like this:
+	<pre>static function RELATIONS() 
+{
+	return &#91{ prop : "user", key : "userId", manager : User.manager }];
+}</pre>
+
+	Basically, you need a static function, which returns 
+	an array with the details of each relationships.  The fields are:
+	<ul>
+		<li>prop: The name of the property in this object 
+		that you want to store the related object in.</li>
+		<li>key: The name of the property in this object
+		that has the key for the related object.</li>
+		<li>manager: The link to the manager for the Class 
+		of the related object.</li>
+	</ul>
+	
+	To insert multiple, do:
+	<pre>static function RELATIONS() 
+{
+	return &#91{ prop : "profile", key : "profileId", manager : Profile.manager },
+	{ prop : "mother", key : "motherId", manager : User.manager },
+	{ prop : "father", key : "fatherId", manager : User.manager }];
+}</pre>
+
+... or something to that effect.</li>
+	<li><b>Has Many</b>
+	<br />This sort of relationship doesn't come built in in haxe,
+	but wasn't very hard to get going.  I put in a bit of code like
+	this:
+	<pre>	public var todoList(getter_todoList,null):List<TodoItem>;
+	private function getter_todoList():List<TodoItem> 
+	{
+		return (id == null) ? 
+			new List<TodoItem>() : 
+			TodoItem.manager.search({ userId : id }); 
+	}</pre>
+	Just replace "todoList" with whatever you want to call
+	your list of child objects, and "TodoItem" with the 
+	Class name for the model of your child objects.
+	</li>
+	<li><b>HABTM</b>
+	<br />What?  Has And Belongs To Many, apparently.  This isn't as
+	common, sometimes seen in tags.  It's a many-to-many, (a much better name)
+	and usually needs a joining table.  I haven't gone and done these yet...
+	<br />I imagine you could do it by having a model for the joining table
+	and just doing a hasMany relationship from Model1 -> ModelJoin and from
+	ModelJoin -> Model2.  There might be a more elegant way also...</li>
+	
 </ul>
 
 <b>Automating this</b>

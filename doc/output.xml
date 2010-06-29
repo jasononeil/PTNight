@@ -304,7 +304,7 @@
 		<startTime public="1" line="10" static="1"><c path="Float"/></startTime>
 		<main public="1" set="method" line="12" static="1"><f a=""><e path="Void"/></f></main>
 		<testing public="1" set="method" line="28" static="1"><f a=""><e path="Void"/></f></testing>
-		<printStats public="1" set="method" line="70" static="1"><f a=""><e path="Void"/></f></printStats>
+		<printStats public="1" set="method" line="77" static="1"><f a=""><e path="Void"/></f></printStats>
 	</class>
 	<class path="AppConfig" params="" file="src/AppConfig.hx">
 		<defaultController public="1" line="11" static="1">
@@ -929,7 +929,7 @@ I'm not sure which package this should belong in really...
 	</class>
 	<class path="hxbase.BaseDbModel" params="" file="src/hxbase/BaseDbModel.hx">
 		<extends path="php.db.Object"/>
-		<new public="1" set="method" line="61"><f a=""><e path="Void"/></f></new>
+		<new public="1" set="method" line="107"><f a=""><e path="Void"/></f></new>
 		<haxe_doc><![CDATA[ 
 <b>Conventions</b>
 <br />This model follows a few simple conventions
@@ -966,11 +966,57 @@ Follow these and you'll be off to a good start.
 
 <b>Relationships</b>
 <ul>
-	<li>I'm not sure how these are really done yet.
-	There's a good chance I can't do this in a super
-	class anyway, because RELATIONS() is a static field
-	which cannot be inherited.</li>
-	<li>But this would be a good place to give some instructions</li>
+	<li><b>One to one</b> or <b>Belongs to</b>.
+	<br />These relationships are built in by haxe.  You'll 
+	need to include something like this:
+	<pre>static function RELATIONS() 
+{
+	return &#91{ prop : "user", key : "userId", manager : User.manager }];
+}</pre>
+
+	Basically, you need a static function, which returns 
+	an array with the details of each relationships.  The fields are:
+	<ul>
+		<li>prop: The name of the property in this object 
+		that you want to store the related object in.</li>
+		<li>key: The name of the property in this object
+		that has the key for the related object.</li>
+		<li>manager: The link to the manager for the Class 
+		of the related object.</li>
+	</ul>
+	
+	To insert multiple, do:
+	<pre>static function RELATIONS() 
+{
+	return &#91{ prop : "profile", key : "profileId", manager : Profile.manager },
+	{ prop : "mother", key : "motherId", manager : User.manager },
+	{ prop : "father", key : "fatherId", manager : User.manager }];
+}</pre>
+
+... or something to that effect.</li>
+	<li><b>Has Many</b>
+	<br />This sort of relationship doesn't come built in in haxe,
+	but wasn't very hard to get going.  I put in a bit of code like
+	this:
+	<pre>	public var todoList(getter_todoList,null):List<TodoItem>;
+	private function getter_todoList():List<TodoItem> 
+	{
+		return (id == null) ? 
+			new List<TodoItem>() : 
+			TodoItem.manager.search({ userId : id }); 
+	}</pre>
+	Just replace "todoList" with whatever you want to call
+	your list of child objects, and "TodoItem" with the 
+	Class name for the model of your child objects.
+	</li>
+	<li><b>HABTM</b>
+	<br />What?  Has And Belongs To Many, apparently.  This isn't as
+	common, sometimes seen in tags.  It's a many-to-many, (a much better name)
+	and usually needs a joining table.  I haven't gone and done these yet...
+	<br />I imagine you could do it by having a model for the joining table
+	and just doing a hasMany relationship from Model1 -> ModelJoin and from
+	ModelJoin -> Model2.  There might be a more elegant way also...</li>
+	
 </ul>
 
 <b>Automating this</b>
@@ -1333,10 +1379,12 @@ This class is called on most page requests.
 	</class>
 	<class path="models.User" params="" file="src/models/User.hx">
 		<extends path="hxbase.BaseDbModel"/>
-		<manager public="1" line="9" static="1"><c path="php.db.Manager"><c path="models.User"/></c></manager>
+		<manager public="1" line="16" static="1"><c path="php.db.Manager"><c path="models.User"/></c></manager>
 		<id public="1"><c path="Int"/></id>
 		<username public="1"><c path="String"/></username>
 		<password public="1"><c path="String"/></password>
+		<todoList public="1" get="getter_todoList" set="null"><c path="List"><c path="models.TodoItem"/></c></todoList>
+		<getter_todoList set="method" line="11"><f a=""><c path="List"><c path="models.TodoItem"/></c></f></getter_todoList>
 		<new public="1" set="method" line="3"><f a=""><e path="Void"/></f></new>
 	</class>
 	<class path="Date" params="" file="/opt/haxe/std/Date.hx" extern="1">

@@ -8,6 +8,10 @@ class models_User extends hxbase_BaseDbModel {
 	public $id;
 	public $username;
 	public $password;
+	public $todoList;
+	public function getter_todoList() {
+		return (($this->id === null) ? new HList() : models_TodoItem::$manager->search(_hx_anonymous(array("userId" => $this->id)), null));
+	}
 	public function __call($m, $a) {
 		if(isset($this->$m) && is_callable($this->$m))
 			return call_user_func_array($this->$m, $a);

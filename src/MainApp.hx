@@ -63,6 +63,13 @@ class MainApp
 			trace ("ITEM: " + item.subject + " " + item.user.username);
 		}
 		
+		// And just to check the function I'm using for hasMany is working
+		trace("Number of tasks for " + u.username + ": " + u.todoList.length);
+		for (item in u.todoList)
+		{
+			trace ("ITEM: " + item.subject + " " + item.user.username);
+		}
+		
 		// End the connection
 		DbControl.close();
 	}

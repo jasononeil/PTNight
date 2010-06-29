@@ -41,15 +41,24 @@ class MainApp {
 			;
 		}
 		}
+		haxe_Log::trace((("Number of tasks for " . $u->username) . ": ") . $u->getter_todoList()->length, _hx_anonymous(array("fileName" => "MainApp.hx", "lineNumber" => 67, "className" => "MainApp", "methodName" => "testing")));
+		$»it2 = $u->getter_todoList()->iterator();
+		while($»it2->hasNext()) {
+		$item2 = $»it2->next();
+		{
+			haxe_Log::trace((("ITEM: " . $item2->subject) . " ") . $item2->get_user()->username, _hx_anonymous(array("fileName" => "MainApp.hx", "lineNumber" => 70, "className" => "MainApp", "methodName" => "testing")));
+			;
+		}
+		}
 		hxbase_DbControl::close();
 	}
 	static function printStats() {
 		php_Lib::hprint("<pre>");
 		$memory = memory_get_peak_usage();
 		$memory = intval($memory / 1000);
-		haxe_Log::trace(("Memory usage: " . $memory) . "kb", _hx_anonymous(array("fileName" => "MainApp.hx", "lineNumber" => 76, "className" => "MainApp", "methodName" => "printStats")));
+		haxe_Log::trace(("Memory usage: " . $memory) . "kb", _hx_anonymous(array("fileName" => "MainApp.hx", "lineNumber" => 83, "className" => "MainApp", "methodName" => "printStats")));
 		$executionTime = php_Sys::time() - MainApp::$startTime;
-		haxe_Log::trace("Execution Time: " . $executionTime, _hx_anonymous(array("fileName" => "MainApp.hx", "lineNumber" => 79, "className" => "MainApp", "methodName" => "printStats")));
+		haxe_Log::trace("Execution Time: " . $executionTime, _hx_anonymous(array("fileName" => "MainApp.hx", "lineNumber" => 86, "className" => "MainApp", "methodName" => "printStats")));
 		php_Lib::hprint("</pre>");
 	}
 	function __toString() { return 'MainApp'; }
