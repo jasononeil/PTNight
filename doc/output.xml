@@ -1,4 +1,497 @@
 <haxe>
+	<class path="Enum" params="T" file="/opt/haxe/std/Enum.hx" extern="1"><haxe_doc>
+	An abstract type that represents an Enum.
+	See [Type] for the haXe Reflection API.
+</haxe_doc></class>
+	<class path="EReg" params="" file="/opt/haxe/std/EReg.hx">
+		<r><d/></r>
+		<last><c path="String"/></last>
+		<global><e path="Bool"/></global>
+		<pattern><c path="String"/></pattern>
+		<options><c path="String"/></options>
+		<re><c path="String"/></re>
+		<matches><c path="ArrayAccess"><d/></c></matches>
+		<match public="1" set="method" line="85">
+			<f a="s">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if the regular expression matches the String.
+		Updates the internal state accordingly.
+	</haxe_doc>
+		</match>
+		<matched public="1" set="method" line="125">
+			<f a="n">
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns a matched group or throw an expection if there
+		is no such group. If [n = 0], the whole matched substring
+		is returned.
+	</haxe_doc>
+		</matched>
+		<matchedLeft public="1" set="method" line="152">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns the part of the string that was as the left of
+		of the matched substring.
+	</haxe_doc>
+		</matchedLeft>
+		<matchedRight public="1" set="method" line="178">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns the part of the string that was at the right of
+		of the matched substring.
+	</haxe_doc>
+		</matchedRight>
+		<matchedPos public="1" set="method" line="210">
+			<f a=""><a>
+	<pos><c path="Int"/></pos>
+	<len><c path="Int"/></len>
+</a></f>
+			<haxe_doc>
+		Returns the position of the matched substring within the
+		original matched string.
+	</haxe_doc>
+		</matchedPos>
+		<split public="1" set="method" line="230">
+			<f a="s">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Split a string by using the regular expression to match
+		the separators.
+	</haxe_doc>
+		</split>
+		<replace public="1" set="method" line="273">
+			<f a="s:by">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Replaces a pattern by another string. The [by] format can
+		contains [$1] to [$9] that will correspond to groups matched
+		while replacing. [$$] means the [$] character.
+	</haxe_doc>
+		</replace>
+		<customReplace public="1" set="method" line="339">
+			<f a="s:f">
+				<c path="String"/>
+				<f a="">
+					<c path="EReg"/>
+					<c path="String"/>
+				</f>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		For each occurence of the pattern in the string [s], the function [f] is called and
+		can return the string that needs to be replaced. All occurences are matched anyway,
+		and setting the [g] flag might cause some incorrect behavior on some platforms.
+	</haxe_doc>
+		</customReplace>
+		<new public="1" set="method" line="52">
+			<f a="r:opt">
+				<c path="String"/>
+				<c path="String"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Creates a new regular expression with pattern [r] and
+		options [opt].
+	</haxe_doc>
+		</new>
+		<haxe_doc>
+	Regular expressions are a way to find regular patterns into
+	Strings. Have a look at the tutorial on haXe website to learn
+	how to use them.
+</haxe_doc>
+	</class>
+	<class path="php.PhpXml__" params="" file="/opt/haxe/std/php/PhpXml__.hx">
+		<Element public="1" set="null" static="1"><e path="XmlType"/></Element>
+		<PCData public="1" set="null" static="1"><e path="XmlType"/></PCData>
+		<CData public="1" set="null" static="1"><e path="XmlType"/></CData>
+		<Comment public="1" set="null" static="1"><e path="XmlType"/></Comment>
+		<DocType public="1" set="null" static="1"><e path="XmlType"/></DocType>
+		<Prolog public="1" set="null" static="1"><e path="XmlType"/></Prolog>
+		<Document public="1" set="null" static="1"><e path="XmlType"/></Document>
+		<build static="1"><c path="php.PhpXml__"/></build>
+		<__start_element_handler set="method" line="50" static="1"><f a="parser:name:attribs">
+	<d/>
+	<c path="String"/>
+	<c path="ArrayAccess"><c path="String"/></c>
+	<e path="Void"/>
+</f></__start_element_handler>
+		<__end_element_handler set="method" line="57" static="1"><f a="parser:name">
+	<d/>
+	<c path="String"/>
+	<e path="Void"/>
+</f></__end_element_handler>
+		<__character_data_handler set="method" line="61" static="1"><f a="parser:data">
+	<d/>
+	<c path="String"/>
+	<e path="Void"/>
+</f></__character_data_handler>
+		<__default_handler set="method" line="73" static="1"><f a="parser:data">
+	<d/>
+	<c path="String"/>
+	<e path="Void"/>
+</f></__default_handler>
+		<xmlChecker line="77" static="1"><c path="EReg"/></xmlChecker>
+		<parse public="1" set="method" line="79" static="1"><f a="str">
+	<c path="String"/>
+	<c path="php.PhpXml__"/>
+</f></parse>
+		<createElement public="1" set="method" line="112" static="1"><f a="name">
+	<c path="String"/>
+	<c path="php.PhpXml__"/>
+</f></createElement>
+		<createPCData public="1" set="method" line="121" static="1"><f a="data">
+	<c path="String"/>
+	<c path="php.PhpXml__"/>
+</f></createPCData>
+		<createCData public="1" set="method" line="128" static="1"><f a="data">
+	<c path="String"/>
+	<c path="php.PhpXml__"/>
+</f></createCData>
+		<createComment public="1" set="method" line="135" static="1"><f a="data">
+	<c path="String"/>
+	<c path="php.PhpXml__"/>
+</f></createComment>
+		<createDocType public="1" set="method" line="142" static="1"><f a="data">
+	<c path="String"/>
+	<c path="php.PhpXml__"/>
+</f></createDocType>
+		<createProlog public="1" set="method" line="149" static="1"><f a="data">
+	<c path="String"/>
+	<c path="php.PhpXml__"/>
+</f></createProlog>
+		<createDocument public="1" set="method" line="156" static="1"><f a=""><c path="php.PhpXml__"/></f></createDocument>
+		<nodeType public="1" set="null"><e path="XmlType"/></nodeType>
+		<nodeName public="1" get="getNodeName" set="setNodeName"><c path="String"/></nodeName>
+		<nodeValue public="1" get="getNodeValue" set="setNodeValue"><c path="String"/></nodeValue>
+		<parent public="1" get="getParent" set="null"><c path="php.PhpXml__"/></parent>
+		<_nodeName public="1"><c path="String"/></_nodeName>
+		<_nodeValue public="1"><c path="String"/></_nodeValue>
+		<_attributes public="1"><c path="Hash"><c path="String"/></c></_attributes>
+		<_children public="1"><c path="Array"><c path="php.PhpXml__"/></c></_children>
+		<_parent public="1"><c path="php.PhpXml__"/></_parent>
+		<getNodeName set="method" line="163"><f a=""><c path="String"/></f></getNodeName>
+		<setNodeName set="method" line="169"><f a="n">
+	<c path="String"/>
+	<c path="String"/>
+</f></setNodeName>
+		<getNodeValue set="method" line="175"><f a=""><c path="String"/></f></getNodeValue>
+		<setNodeValue set="method" line="181"><f a="v">
+	<c path="String"/>
+	<c path="String"/>
+</f></setNodeValue>
+		<getParent set="method" line="187"><f a=""><c path="php.PhpXml__"/></f></getParent>
+		<get public="1" set="method" line="191"><f a="att">
+	<c path="String"/>
+	<c path="String"/>
+</f></get>
+		<set public="1" set="method" line="197"><f a="att:value">
+	<c path="String"/>
+	<c path="String"/>
+	<e path="Void"/>
+</f></set>
+		<remove public="1" set="method" line="203"><f a="att">
+	<c path="String"/>
+	<e path="Void"/>
+</f></remove>
+		<exists public="1" set="method" line="209"><f a="att">
+	<c path="String"/>
+	<e path="Bool"/>
+</f></exists>
+		<attributes public="1" set="method" line="215"><f a=""><t path="Iterator"><c path="String"/></t></f></attributes>
+		<iterator public="1" set="method" line="221"><f a=""><t path="Iterator"><c path="php.PhpXml__"/></t></f></iterator>
+		<elements public="1" set="method" line="238"><f a=""><t path="Iterator"><c path="php.PhpXml__"/></t></f></elements>
+		<elementsNamed public="1" set="method" line="274"><f a="name">
+	<c path="String"/>
+	<t path="Iterator"><c path="php.PhpXml__"/></t>
+</f></elementsNamed>
+		<firstChild public="1" set="method" line="311"><f a=""><c path="php.PhpXml__"/></f></firstChild>
+		<firstElement public="1" set="method" line="317"><f a=""><c path="php.PhpXml__"/></f></firstElement>
+		<addChild public="1" set="method" line="330"><f a="x">
+	<c path="php.PhpXml__"/>
+	<e path="Void"/>
+</f></addChild>
+		<removeChild public="1" set="method" line="337"><f a="x">
+	<c path="php.PhpXml__"/>
+	<e path="Bool"/>
+</f></removeChild>
+		<insertChild public="1" set="method" line="345"><f a="x:pos">
+	<c path="php.PhpXml__"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></insertChild>
+		<toString public="1" set="method" line="352"><f a=""><c path="String"/></f></toString>
+		<new set="method" line="110"><f a=""><e path="Void"/></f></new>
+	</class>
+	<class path="php.Sys" params="" file="/opt/haxe/std/php/Sys.hx">
+		<args public="1" set="method" line="5" static="1"><f a=""><c path="Array"><c path="String"/></c></f></args>
+		<getEnv public="1" set="method" line="9" static="1"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></getEnv>
+		<putEnv public="1" set="method" line="13" static="1"><f a="s:v">
+	<c path="String"/>
+	<c path="String"/>
+	<e path="Void"/>
+</f></putEnv>
+		<sleep public="1" set="method" line="17" static="1"><f a="seconds">
+	<c path="Float"/>
+	<unknown/>
+</f></sleep>
+		<setTimeLocale public="1" set="method" line="21" static="1"><f a="loc">
+	<c path="String"/>
+	<e path="Bool"/>
+</f></setTimeLocale>
+		<getCwd public="1" set="method" line="25" static="1"><f a=""><c path="String"/></f></getCwd>
+		<setCwd public="1" set="method" line="31" static="1"><f a="s">
+	<c path="String"/>
+	<unknown/>
+</f></setCwd>
+		<systemName public="1" set="method" line="35" static="1"><f a=""><c path="String"/></f></systemName>
+		<escapeArgument public="1" set="method" line="44" static="1"><f a="arg">
+	<c path="String"/>
+	<c path="String"/>
+</f></escapeArgument>
+		<command public="1" set="method" line="58" static="1"><f a="cmd:?args">
+	<c path="String"/>
+	<c path="Array"><c path="String"/></c>
+	<c path="Int"/>
+</f></command>
+		<exit public="1" set="method" line="71" static="1"><f a="code">
+	<c path="Int"/>
+	<unknown/>
+</f></exit>
+		<time public="1" set="method" line="75" static="1"><f a=""><c path="Float"/></f></time>
+		<cpuTime public="1" set="method" line="79" static="1"><f a=""><c path="Float"/></f></cpuTime>
+		<executablePath public="1" set="method" line="83" static="1"><f a=""><c path="String"/></f></executablePath>
+		<environment public="1" set="method" line="87" static="1"><f a=""><c path="Hash"><c path="String"/></c></f></environment>
+	</class>
+	<class path="MainApp" params="" file="src/MainApp.hx">
+		<startTime public="1" line="6" static="1"><c path="Float"/></startTime>
+		<main public="1" set="method" line="8" static="1"><f a=""><e path="Void"/></f></main>
+		<printStats public="1" set="method" line="22" static="1"><f a=""><e path="Void"/></f></printStats>
+	</class>
+	<class path="AppConfig" params="" file="src/AppConfig.hx">
+		<defaultController public="1" line="11" static="1">
+			<c path="Class"><d/></c>
+			<haxe_doc> Default Controller </haxe_doc>
+		</defaultController>
+		<baseUrl public="1" line="25" static="1">
+			<c path="String"/>
+			<haxe_doc><![CDATA[ Set this to the base URL of your site, not including a trailing slash.
+	
+	Examples:
+	<ul>
+		<li>http://www.mysite.com</li>
+		<li>http://www.mysite.com/myapp</li>
+	</ul>
+	]]></haxe_doc>
+		</baseUrl>
+		<subDir public="1" line="28" static="1">
+			<c path="String"/>
+			<haxe_doc> The subdirectory on the server we are in.  No trailing slash </haxe_doc>
+		</subDir>
+		<baseFilePath public="1" static="1">
+			<c path="String"/>
+			<haxe_doc><![CDATA[ Set this to the base filepath of this app on your server,
+	(do not include a trailing slash).
+	
+	Examples:
+	<ul>
+		<li>/var/www/html</li>
+		<li>/home/website</li>
+		<li>/home/website/myapp</li>
+	</ul>
+	
+	<b>This property might not be needed... not sure yet.  
+	Remember Haxe's import mechanism is alot nicer than PHPs</b>
+	]]></haxe_doc>
+		</baseFilePath>
+		<dbServer public="1" static="1">
+			<c path="String"/>
+			<haxe_doc><![CDATA[ The address of the database server.  Usually <i>localhost</i>]]></haxe_doc>
+		</dbServer>
+		<dbPort public="1" static="1">
+			<c path="Int"/>
+			<haxe_doc><![CDATA[ The port of the database server.  Usually <i>3306</i>]]></haxe_doc>
+		</dbPort>
+		<dbDatabase public="1" static="1">
+			<c path="String"/>
+			<haxe_doc> The name of the database to use </haxe_doc>
+		</dbDatabase>
+		<dbUsername public="1" static="1">
+			<c path="String"/>
+			<haxe_doc> The username to use when logging in to the database server </haxe_doc>
+		</dbUsername>
+		<dbPassword public="1" static="1">
+			<c path="String"/>
+			<haxe_doc> The password to use when logging in to the database server </haxe_doc>
+		</dbPassword>
+		<tablePrefix public="1" static="1">
+			<c path="String"/>
+			<haxe_doc> If you have multiple apps (or versions of apps) on this database,
+	you can specify a table prefix to keep table names from overlapping
+	each other.  For example, "myapp1.0_" </haxe_doc>
+		</tablePrefix>
+		<haxe_doc>
+This class contains all the config for your app.
+I'm not sure which package this should belong in really...
+</haxe_doc>
+	</class>
+	<class path="php.NativeArray" params="" file="/opt/haxe/std/php/NativeArray.hx" extern="1"/>
+	<class path="StringTools" params="" file="/opt/haxe/std/StringTools.hx">
+		<urlEncode public="1" get="inline" set="null" line="38" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Encode an URL by using the standard format.
+	</haxe_doc>
+		</urlEncode>
+		<urlDecode public="1" get="inline" set="null" line="59" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Decode an URL using the standard format.
+	</haxe_doc>
+		</urlDecode>
+		<htmlEscape public="1" set="method" line="80" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Escape HTML special characters of the string.
+	</haxe_doc>
+		</htmlEscape>
+		<htmlUnescape public="1" get="inline" set="null" line="87" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Unescape HTML special characters of the string.
+	</haxe_doc>
+		</htmlUnescape>
+		<startsWith public="1" set="method" line="98" static="1">
+			<f a="s:start">
+				<c path="String"/>
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if the string [s] starts with the string [start].
+	</haxe_doc>
+		</startsWith>
+		<endsWith public="1" set="method" line="105" static="1">
+			<f a="s:end">
+				<c path="String"/>
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if the string [s] ends with the string [end].
+	</haxe_doc>
+		</endsWith>
+		<isSpace public="1" set="method" line="114" static="1">
+			<f a="s:pos">
+				<c path="String"/>
+				<c path="Int"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if the character in the string [s] at position [pos] is a space.
+	</haxe_doc>
+		</isSpace>
+		<ltrim public="1" get="inline" set="null" line="122" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Removes spaces at the left of the String [s].
+	</haxe_doc>
+		</ltrim>
+		<rtrim public="1" get="inline" set="null" line="141" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Removes spaces at the right of the String [s].
+	</haxe_doc>
+		</rtrim>
+		<trim public="1" get="inline" set="null" line="161" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Removes spaces at the beginning and the end of the String [s].
+	</haxe_doc>
+		</trim>
+		<rpad public="1" get="inline" set="null" line="172" static="1">
+			<f a="s:c:l">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Pad the string [s] by appending [c] at its right until it reach [l] characters.
+	</haxe_doc>
+		</rpad>
+		<lpad public="1" get="inline" set="null" line="194" static="1">
+			<f a="s:c:l">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Pad the string [s] by appending [c] at its left until it reach [l] characters.
+	</haxe_doc>
+		</lpad>
+		<replace public="1" get="inline" set="null" line="219" static="1">
+			<f a="s:sub:by">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Replace all occurences of the string [sub] in the string [s] by the string [by].
+	</haxe_doc>
+		</replace>
+		<hex public="1" set="method" line="230" static="1">
+			<f a="n:?digits">
+				<c path="Int"/>
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Encode a number into a hexadecimal representation, with an optional number of zeros for left padding.
+	</haxe_doc>
+		</hex>
+		<haxe_doc>
+	The StringTools class contains some extra functionalities for [String]
+	manipulation. It's stored in a different class in order to prevent
+	the standard [String] of being bloated and thus increasing the size of
+	each application using it.
+</haxe_doc>
+	</class>
 	<enum path="XmlType" params="" file="/opt/haxe/std/Xml.hx" module="Xml"><haxe_doc>
 	An abstract type representing the type of the Xml
 	Node. You can compare it to [Xml] statics and can
@@ -279,60 +772,215 @@
 	More API to manipulate XML are available in the [haxe.xml] package.
 </haxe_doc>
 	</class>
-	<enum path="Void" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes"><haxe_doc>
-	The standard Void type. Only [null] values can be of the type [Void].
-</haxe_doc></enum>
-	<class path="Float" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>
-	The standard Float type, this is a double-precision IEEE 64bit float.
-</haxe_doc></class>
-	<class path="Int" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1">
-		<extends path="Float"/>
+	<class path="Reflect" params="" file="/opt/haxe/std/Reflect.hx">
+		<hasField public="1" get="inline" set="null" line="35" static="1">
+			<f a="o:field">
+				<d/>
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if an object has a field set. This doesn't take into account the object prototype (class methods).
+	</haxe_doc>
+		</hasField>
+		<field public="1" set="method" line="61" static="1">
+			<f a="o:field">
+				<d/>
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>
+		Returns the field of an object, or null if [o] is not an object or doesn't have this field.
+	</haxe_doc>
+		</field>
+		<setField public="1" get="inline" set="null" line="87" static="1">
+			<f a="o:field:value">
+				<d/>
+				<c path="String"/>
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Set an object field value.
+	</haxe_doc>
+		</setField>
+		<callMethod public="1" set="method" line="106" static="1">
+			<f a="o:func:args">
+				<d/>
+				<d/>
+				<c path="Array"><d/></c>
+				<d/>
+			</f>
+			<haxe_doc>
+		Call a method with the given object and arguments.
+	</haxe_doc>
+		</callMethod>
+		<fields public="1" set="method" line="135" static="1">
+			<f a="o">
+				<d/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Returns the list of fields of an object, excluding its prototype (class methods).
+	</haxe_doc>
+		</fields>
+		<isFunction public="1" set="method" line="210" static="1">
+			<f a="f">
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if a value is a function or not.
+	</haxe_doc>
+		</isFunction>
+		<compare public="1" params="T" set="method" line="231" static="1">
+			<f a="a:b">
+				<c path="compare.T"/>
+				<c path="compare.T"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Generic comparison function, does not work for methods, see [compareMethods]
+	</haxe_doc>
+		</compare>
+		<compareMethods public="1" set="method" line="243" static="1">
+			<f a="f1:f2">
+				<d/>
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Compare two methods closures. Returns true if it's the same method of the same instance.
+		Does not work on Neko platform.
+	</haxe_doc>
+		</compareMethods>
+		<isObject public="1" set="method" line="275" static="1">
+			<f a="v">
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if a value is an object or not.
+
+	</haxe_doc>
+		</isObject>
+		<deleteField public="1" set="method" line="319" static="1">
+			<f a="o:f">
+				<d/>
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Delete an object field.
+	</haxe_doc>
+		</deleteField>
+		<copy public="1" params="T" set="method" line="349" static="1">
+			<f a="o">
+				<c path="copy.T"/>
+				<c path="copy.T"/>
+			</f>
+			<haxe_doc>
+		Make a copy of the fields of an object.
+	</haxe_doc>
+		</copy>
+		<makeVarArgs public="1" set="method" line="372" static="1">
+			<f a="f">
+				<f a="">
+					<c path="Array"><d/></c>
+					<d/>
+				</f>
+				<d/>
+			</f>
+			<haxe_doc>
+		Transform a function taking an array of arguments into a function that can
+		be called with any number of arguments.
+	</haxe_doc>
+		</makeVarArgs>
 		<haxe_doc>
-	The standard Int type. Its precision depends on the platform.
+	The Reflect API is a way to manipulate values dynamicly through an
+	abstract interface in an untyped manner. Use with care.
 </haxe_doc>
 	</class>
-	<typedef path="Null" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
-		<c path="Null.T"/>
+	<class path="haxe.Log" params="" file="/opt/haxe/std/haxe/Log.hx">
+		<trace public="1" set="dynamic" line="29" static="1"><f a="v:?infos">
+	<d/>
+	<t path="haxe.PosInfos"/>
+	<e path="Void"/>
+</f></trace>
+		<clear public="1" set="dynamic" line="43" static="1"><f a=""><e path="Void"/></f></clear>
+	</class>
+	<class path="hxbase.Dispatcher" params="" file="src/hxbase/Dispatcher.hx">
+		<dispatch public="1" set="method" line="13" static="1"><f a="request">
+	<c path="String"/>
+	<e path="Void"/>
+</f></dispatch>
+		<getRequestParts set="method" line="42" static="1"><f a="request">
+	<c path="String"/>
+	<c path="Array"><c path="String"/></c>
+</f></getRequestParts>
 		<haxe_doc>
-	[Null] can be useful in two cases. In order to document some methods
-	that accepts or can return a [null] value, or for the Flash9 compiler and AS3
-	generator to distinguish between base values that can be null and others that
-	can't.
+The Dispatcher class is responsible for deciding which
+Controller class is being requested and which action 
+should be executed.
+
+This class is called on most page requests.  
 </haxe_doc>
-	</typedef>
-	<enum path="Bool" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
-		<true/>
-		<false/>
+	</class>
+	<class path="StringBuf" params="" file="/opt/haxe/std/StringBuf.hx">
+		<add public="1" get="inline" set="null" line="48">
+			<f a="?x">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Adds the representation of any value to the string buffer.
+	</haxe_doc>
+		</add>
+		<addSub public="1" get="inline" set="null" line="61">
+			<f a="s:pos:?len">
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Adds a part of a string to the string buffer.
+	</haxe_doc>
+		</addSub>
+		<addChar public="1" get="inline" set="null" line="79">
+			<f a="c">
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Adds a character to the string buffer.
+	</haxe_doc>
+		</addChar>
+		<toString public="1" get="inline" set="null" line="95">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns the content of the string buffer.
+		The buffer is not emptied by this operation.
+	</haxe_doc>
+		</toString>
+		<b><c path="String"/></b>
+		<new public="1" set="method" line="35">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Creates a new string buffer.
+	</haxe_doc>
+		</new>
 		<haxe_doc>
-	The standard Boolean type is represented as an enum with two choices.
+	A String buffer is an efficient way to build a big string by
+	appending small elements together.
 </haxe_doc>
-	</enum>
-	<class path="Dynamic" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>
-	Dynamic is an internal compiler type which has special behavior.
-	See the haXe language reference for more informations.
-</haxe_doc></class>
-	<typedef path="Iterator" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
-		<a>
-			<next set="method"><f a=""><c path="Iterator.T"/></f></next>
-			<hasNext set="method"><f a=""><e path="Bool"/></f></hasNext>
-		</a>
-		<haxe_doc>
-	An Iterator is a structure that permits to list a given container
-	values. It can be used by your own data structures. See the haXe
-	documentation for more informations.
-</haxe_doc>
-	</typedef>
-	<typedef path="Iterable" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
-		<a><iterator set="method"><f a=""><t path="Iterator"><c path="Iterable.T"/></t></f></iterator></a>
-		<haxe_doc>
-	An Iterable is a data structure which has an iterator() method.
-	See [Lambda] for generic functions on iterable structures.
-</haxe_doc>
-	</typedef>
-	<class path="ArrayAccess" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1" interface="1"><haxe_doc>
-	ArrayAccess is used to indicate a class that can be accessed using brackets.
-	The type parameter represent the type of the elements stored.
-</haxe_doc></class>
+	</class>
+	<class path="php.Boot" params="" file="/opt/haxe/std/php/Boot.hx">
+		<qtypes static="1"><c path="Array"><unknown/></c></qtypes>
+		<ttypes static="1"><unknown/></ttypes>
+		<tpaths static="1"><unknown/></tpaths>
+		<skip_constructor line="7" static="1"><e path="Bool"/></skip_constructor>
+	</class>
 	<class path="Date" params="" file="/opt/haxe/std/Date.hx" extern="1">
 		<now public="1" set="method" static="1">
 			<f a=""><c path="Date"/></f>
@@ -438,976 +1086,36 @@
 	available in the [DateTools] class.
 </haxe_doc>
 	</class>
-	<class path="String" params="" file="/opt/haxe/std/String.hx" extern="1">
-		<fromCharCode public="1" set="method" static="1"><f a="code">
-	<c path="Int"/>
-	<c path="String"/>
-</f></fromCharCode>
-		<length public="1" set="null">
-			<c path="Int"/>
-			<haxe_doc>
-		The number of characters in the String.
-	</haxe_doc>
-		</length>
-		<toUpperCase public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>
-		Returns an String where all characters have been uppercased.
-	</haxe_doc>
-		</toUpperCase>
-		<toLowerCase public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>
-		Returns an String where all characters have been lowercased.
-	</haxe_doc>
-		</toLowerCase>
-		<charAt public="1" set="method">
-			<f a="index">
-				<c path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Returns the character at the given position.
-		Returns the empty String if outside of String bounds.
-	</haxe_doc>
-		</charAt>
-		<charCodeAt public="1" set="method">
-			<f a="index">
-				<c path="Int"/>
-				<t path="Null"><c path="Int"/></t>
-			</f>
-			<haxe_doc>
-		Returns the character code at the given position.
-		Returns [null] if outside of String bounds.
-	</haxe_doc>
-		</charCodeAt>
-		<indexOf public="1" set="method">
-			<f a="value:?startIndex">
-				<c path="String"/>
-				<c path="Int"/>
-				<c path="Int"/>
-			</f>
-			<haxe_doc>
-		Returns the index of first occurence of [value]
-		Returns [1-1] if [value] is not found.
-		The optional [startIndex] parameter allows you to specify at which character to start searching.
-		The position returned is still relative to the beginning of the string.
-	</haxe_doc>
-		</indexOf>
-		<lastIndexOf public="1" set="method">
-			<f a="value:?startIndex">
-				<c path="String"/>
-				<c path="Int"/>
-				<c path="Int"/>
-			</f>
-			<haxe_doc>
-		Similar to [indexOf] but returns the latest index.
-	</haxe_doc>
-		</lastIndexOf>
-		<split public="1" set="method">
-			<f a="delimiter">
-				<c path="String"/>
-				<c path="Array"><c path="String"/></c>
-			</f>
-			<haxe_doc>
-		Split the string using the specified delimiter.
-	</haxe_doc>
-		</split>
-		<substr public="1" set="method">
-			<f a="pos:?len">
-				<c path="Int"/>
-				<c path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Returns a part of the String, taking [len] characters starting from [pos].
-		If [len] is not specified, it takes all the remaining characters.
-	</haxe_doc>
-		</substr>
-		<toString public="1" set="method">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>
-		Returns the String itself.
-	</haxe_doc>
-		</toString>
-		<cca set="method"><f a="pos">
-	<c path="Int"/>
-	<c path="Int"/>
-</f></cca>
-		<new public="1" set="method">
-			<f a="string">
-				<c path="String"/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Creates a copy from a given String.
-	</haxe_doc>
-		</new>
-		<haxe_doc>
-	The basic String class.
-</haxe_doc>
-	</class>
-	<class path="haxe.Log" params="" file="/opt/haxe/std/haxe/Log.hx">
-		<trace public="1" set="dynamic" line="29" static="1"><f a="v:?infos">
-	<d/>
-	<t path="haxe.PosInfos"/>
-	<e path="Void"/>
-</f></trace>
-		<clear public="1" set="dynamic" line="43" static="1"><f a=""><e path="Void"/></f></clear>
-	</class>
-	<class path="php.NativeArray" params="" file="/opt/haxe/std/php/NativeArray.hx" extern="1"/>
-	<class path="php.IteratorAggregate" params="T" file="/opt/haxe/std/php/IteratorAggregate.hx" extern="1" interface="1"><getIterator set="method">
-	<f a=""><t path="Iterator"><c path="php.IteratorAggregate.T"/></t></f>
-	<haxe_doc> 
-		This method is not public to not induce haXe users to use it ;) 
-		Use iterator() instead.
-		The return type would be Aggregator that is unusable in haXe 
-	</haxe_doc>
-</getIterator></class>
-	<class path="MainApp" params="" file="src/MainApp.hx"><main public="1" set="method" line="6" static="1"><f a=""><e path="Void"/></f></main></class>
-	<class path="AppConfig" params="" file="src/AppConfig.hx">
-		<defaultController public="1" line="11" static="1">
-			<c path="Class"><d/></c>
-			<haxe_doc> Default Controller </haxe_doc>
-		</defaultController>
-		<baseUrl public="1" line="25" static="1">
-			<c path="String"/>
-			<haxe_doc><![CDATA[ Set this to the base URL of your site, not including a trailing slash.
-	
-	Examples:
-	<ul>
-		<li>http://www.mysite.com</li>
-		<li>http://www.mysite.com/myapp</li>
-	</ul>
-	]]></haxe_doc>
-		</baseUrl>
-		<subDir public="1" line="28" static="1">
-			<c path="String"/>
-			<haxe_doc> The subdirectory on the server we are in.  No trailing slash </haxe_doc>
-		</subDir>
-		<baseFilePath public="1" static="1">
-			<c path="String"/>
-			<haxe_doc><![CDATA[ Set this to the base filepath of this app on your server,
-	(do not include a trailing slash).
-	
-	Examples:
-	<ul>
-		<li>/var/www/html</li>
-		<li>/home/website</li>
-		<li>/home/website/myapp</li>
-	</ul>
-	
-	<b>This property might not be needed... not sure yet.  
-	Remember Haxe's import mechanism is alot nicer than PHPs</b>
-	]]></haxe_doc>
-		</baseFilePath>
-		<dbServer public="1" static="1">
-			<c path="String"/>
-			<haxe_doc><![CDATA[ The address of the database server.  Usually <i>localhost</i>]]></haxe_doc>
-		</dbServer>
-		<dbPort public="1" static="1">
-			<c path="Int"/>
-			<haxe_doc><![CDATA[ The port of the database server.  Usually <i>3306</i>]]></haxe_doc>
-		</dbPort>
-		<dbDatabase public="1" static="1">
-			<c path="String"/>
-			<haxe_doc> The name of the database to use </haxe_doc>
-		</dbDatabase>
-		<dbUsername public="1" static="1">
-			<c path="String"/>
-			<haxe_doc> The username to use when logging in to the database server </haxe_doc>
-		</dbUsername>
-		<dbPassword public="1" static="1">
-			<c path="String"/>
-			<haxe_doc> The password to use when logging in to the database server </haxe_doc>
-		</dbPassword>
-		<tablePrefix public="1" static="1">
-			<c path="String"/>
-			<haxe_doc> If you have multiple apps (or versions of apps) on this database,
-	you can specify a table prefix to keep table names from overlapping
-	each other.  For example, "myapp1.0_" </haxe_doc>
-		</tablePrefix>
-		<haxe_doc>
-This class contains all the config for your app.
-I'm not sure which package this should belong in really...
-</haxe_doc>
-	</class>
-	<class path="Std" params="" file="/opt/haxe/std/Std.hx">
-		<is public="1" set="method" line="34" static="1">
-			<f a="v:t">
-				<d/>
-				<d/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Tells if a value v is of the type t.
-	</haxe_doc>
-		</is>
-		<string public="1" set="method" line="54" static="1">
-			<f a="s">
-				<d/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Convert any value to a String
-	</haxe_doc>
-		</string>
-		<int public="1" get="inline" set="null" line="74" static="1">
-			<f a="x">
-				<c path="Float"/>
-				<c path="Int"/>
-			</f>
-			<haxe_doc>
-		Convert a Float to an Int, rounded down.
-	</haxe_doc>
-		</int>
-		<parseInt public="1" set="method" line="90" static="1">
-			<f a="x">
-				<c path="String"/>
-				<t path="Null"><c path="Int"/></t>
-			</f>
-			<haxe_doc>
-		Convert a String to an Int, parsing different possible representations. Returns [null] if could not be parsed.
-	</haxe_doc>
-		</parseInt>
-		<parseFloat public="1" set="method" line="131" static="1">
-			<f a="x">
-				<c path="String"/>
-				<c path="Float"/>
-			</f>
-			<haxe_doc>
-		Convert a String to a Float, parsing different possible reprensations.
-	</haxe_doc>
-		</parseFloat>
-		<random public="1" set="method" line="153" static="1">
-			<f a="x">
-				<c path="Int"/>
-				<c path="Int"/>
-			</f>
-			<haxe_doc>
-		Return a random integer between 0 included and x excluded.
-	</haxe_doc>
-		</random>
-		<haxe_doc>
-	The Std class provides standard methods for manipulating basic types.
-</haxe_doc>
-	</class>
-	<class path="EReg" params="" file="/opt/haxe/std/EReg.hx">
-		<r><d/></r>
-		<last><c path="String"/></last>
-		<global><e path="Bool"/></global>
-		<pattern><c path="String"/></pattern>
-		<options><c path="String"/></options>
-		<re><c path="String"/></re>
-		<matches><c path="ArrayAccess"><d/></c></matches>
-		<match public="1" set="method" line="85">
-			<f a="s">
-				<c path="String"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Tells if the regular expression matches the String.
-		Updates the internal state accordingly.
-	</haxe_doc>
-		</match>
-		<matched public="1" set="method" line="125">
-			<f a="n">
-				<c path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Returns a matched group or throw an expection if there
-		is no such group. If [n = 0], the whole matched substring
-		is returned.
-	</haxe_doc>
-		</matched>
-		<matchedLeft public="1" set="method" line="152">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>
-		Returns the part of the string that was as the left of
-		of the matched substring.
-	</haxe_doc>
-		</matchedLeft>
-		<matchedRight public="1" set="method" line="178">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>
-		Returns the part of the string that was at the right of
-		of the matched substring.
-	</haxe_doc>
-		</matchedRight>
-		<matchedPos public="1" set="method" line="210">
-			<f a=""><a>
-	<pos><c path="Int"/></pos>
-	<len><c path="Int"/></len>
-</a></f>
-			<haxe_doc>
-		Returns the position of the matched substring within the
-		original matched string.
-	</haxe_doc>
-		</matchedPos>
-		<split public="1" set="method" line="230">
-			<f a="s">
-				<c path="String"/>
-				<c path="Array"><c path="String"/></c>
-			</f>
-			<haxe_doc>
-		Split a string by using the regular expression to match
-		the separators.
-	</haxe_doc>
-		</split>
-		<replace public="1" set="method" line="273">
-			<f a="s:by">
-				<c path="String"/>
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Replaces a pattern by another string. The [by] format can
-		contains [$1] to [$9] that will correspond to groups matched
-		while replacing. [$$] means the [$] character.
-	</haxe_doc>
-		</replace>
-		<customReplace public="1" set="method" line="339">
-			<f a="s:f">
-				<c path="String"/>
-				<f a="">
-					<c path="EReg"/>
-					<c path="String"/>
-				</f>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		For each occurence of the pattern in the string [s], the function [f] is called and
-		can return the string that needs to be replaced. All occurences are matched anyway,
-		and setting the [g] flag might cause some incorrect behavior on some platforms.
-	</haxe_doc>
-		</customReplace>
-		<new public="1" set="method" line="52">
-			<f a="r:opt">
-				<c path="String"/>
-				<c path="String"/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Creates a new regular expression with pattern [r] and
-		options [opt].
-	</haxe_doc>
-		</new>
-		<haxe_doc>
-	Regular expressions are a way to find regular patterns into
-	Strings. Have a look at the tutorial on haXe website to learn
-	how to use them.
-</haxe_doc>
-	</class>
-	<class path="php.PhpXml__" params="" file="/opt/haxe/std/php/PhpXml__.hx">
-		<Element public="1" set="null" static="1"><e path="XmlType"/></Element>
-		<PCData public="1" set="null" static="1"><e path="XmlType"/></PCData>
-		<CData public="1" set="null" static="1"><e path="XmlType"/></CData>
-		<Comment public="1" set="null" static="1"><e path="XmlType"/></Comment>
-		<DocType public="1" set="null" static="1"><e path="XmlType"/></DocType>
-		<Prolog public="1" set="null" static="1"><e path="XmlType"/></Prolog>
-		<Document public="1" set="null" static="1"><e path="XmlType"/></Document>
-		<build static="1"><c path="php.PhpXml__"/></build>
-		<__start_element_handler set="method" line="50" static="1"><f a="parser:name:attribs">
-	<d/>
-	<c path="String"/>
-	<c path="ArrayAccess"><c path="String"/></c>
-	<e path="Void"/>
-</f></__start_element_handler>
-		<__end_element_handler set="method" line="57" static="1"><f a="parser:name">
-	<d/>
-	<c path="String"/>
-	<e path="Void"/>
-</f></__end_element_handler>
-		<__character_data_handler set="method" line="61" static="1"><f a="parser:data">
-	<d/>
-	<c path="String"/>
-	<e path="Void"/>
-</f></__character_data_handler>
-		<__default_handler set="method" line="73" static="1"><f a="parser:data">
-	<d/>
-	<c path="String"/>
-	<e path="Void"/>
-</f></__default_handler>
-		<xmlChecker line="77" static="1"><c path="EReg"/></xmlChecker>
-		<parse public="1" set="method" line="79" static="1"><f a="str">
-	<c path="String"/>
-	<c path="php.PhpXml__"/>
-</f></parse>
-		<createElement public="1" set="method" line="112" static="1"><f a="name">
-	<c path="String"/>
-	<c path="php.PhpXml__"/>
-</f></createElement>
-		<createPCData public="1" set="method" line="121" static="1"><f a="data">
-	<c path="String"/>
-	<c path="php.PhpXml__"/>
-</f></createPCData>
-		<createCData public="1" set="method" line="128" static="1"><f a="data">
-	<c path="String"/>
-	<c path="php.PhpXml__"/>
-</f></createCData>
-		<createComment public="1" set="method" line="135" static="1"><f a="data">
-	<c path="String"/>
-	<c path="php.PhpXml__"/>
-</f></createComment>
-		<createDocType public="1" set="method" line="142" static="1"><f a="data">
-	<c path="String"/>
-	<c path="php.PhpXml__"/>
-</f></createDocType>
-		<createProlog public="1" set="method" line="149" static="1"><f a="data">
-	<c path="String"/>
-	<c path="php.PhpXml__"/>
-</f></createProlog>
-		<createDocument public="1" set="method" line="156" static="1"><f a=""><c path="php.PhpXml__"/></f></createDocument>
-		<nodeType public="1" set="null"><e path="XmlType"/></nodeType>
-		<nodeName public="1" get="getNodeName" set="setNodeName"><c path="String"/></nodeName>
-		<nodeValue public="1" get="getNodeValue" set="setNodeValue"><c path="String"/></nodeValue>
-		<parent public="1" get="getParent" set="null"><c path="php.PhpXml__"/></parent>
-		<_nodeName public="1"><c path="String"/></_nodeName>
-		<_nodeValue public="1"><c path="String"/></_nodeValue>
-		<_attributes public="1"><c path="Hash"><c path="String"/></c></_attributes>
-		<_children public="1"><c path="Array"><c path="php.PhpXml__"/></c></_children>
-		<_parent public="1"><c path="php.PhpXml__"/></_parent>
-		<getNodeName set="method" line="163"><f a=""><c path="String"/></f></getNodeName>
-		<setNodeName set="method" line="169"><f a="n">
-	<c path="String"/>
-	<c path="String"/>
-</f></setNodeName>
-		<getNodeValue set="method" line="175"><f a=""><c path="String"/></f></getNodeValue>
-		<setNodeValue set="method" line="181"><f a="v">
-	<c path="String"/>
-	<c path="String"/>
-</f></setNodeValue>
-		<getParent set="method" line="187"><f a=""><c path="php.PhpXml__"/></f></getParent>
-		<get public="1" set="method" line="191"><f a="att">
-	<c path="String"/>
-	<c path="String"/>
-</f></get>
-		<set public="1" set="method" line="197"><f a="att:value">
-	<c path="String"/>
-	<c path="String"/>
-	<e path="Void"/>
-</f></set>
-		<remove public="1" set="method" line="203"><f a="att">
-	<c path="String"/>
-	<e path="Void"/>
-</f></remove>
-		<exists public="1" set="method" line="209"><f a="att">
-	<c path="String"/>
-	<e path="Bool"/>
-</f></exists>
-		<attributes public="1" set="method" line="215"><f a=""><t path="Iterator"><c path="String"/></t></f></attributes>
-		<iterator public="1" set="method" line="221"><f a=""><t path="Iterator"><c path="php.PhpXml__"/></t></f></iterator>
-		<elements public="1" set="method" line="238"><f a=""><t path="Iterator"><c path="php.PhpXml__"/></t></f></elements>
-		<elementsNamed public="1" set="method" line="274"><f a="name">
-	<c path="String"/>
-	<t path="Iterator"><c path="php.PhpXml__"/></t>
-</f></elementsNamed>
-		<firstChild public="1" set="method" line="311"><f a=""><c path="php.PhpXml__"/></f></firstChild>
-		<firstElement public="1" set="method" line="317"><f a=""><c path="php.PhpXml__"/></f></firstElement>
-		<addChild public="1" set="method" line="330"><f a="x">
-	<c path="php.PhpXml__"/>
-	<e path="Void"/>
-</f></addChild>
-		<removeChild public="1" set="method" line="337"><f a="x">
-	<c path="php.PhpXml__"/>
-	<e path="Bool"/>
-</f></removeChild>
-		<insertChild public="1" set="method" line="345"><f a="x:pos">
-	<c path="php.PhpXml__"/>
-	<c path="Int"/>
-	<e path="Void"/>
-</f></insertChild>
-		<toString public="1" set="method" line="352"><f a=""><c path="String"/></f></toString>
-		<new set="method" line="110"><f a=""><e path="Void"/></f></new>
-	</class>
-	<class path="php.PhpMath__" params="" file="/opt/haxe/std/php/PhpMath__.hx">
-		<PI public="1" static="1"><unknown/></PI>
-		<NaN public="1" static="1"><unknown/></NaN>
-		<POSITIVE_INFINITY public="1" static="1"><c path="Int"/></POSITIVE_INFINITY>
-		<NEGATIVE_INFINITY public="1" static="1"><c path="Int"/></NEGATIVE_INFINITY>
-		<abs public="1" set="method" line="34" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></abs>
-		<min public="1" set="method" line="35" static="1"><f a="a:b">
-	<unknown/>
-	<unknown/>
-	<unknown/>
-</f></min>
-		<max public="1" set="method" line="36" static="1"><f a="a:b">
-	<unknown/>
-	<unknown/>
-	<unknown/>
-</f></max>
-		<sin public="1" set="method" line="37" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></sin>
-		<cos public="1" set="method" line="38" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></cos>
-		<atan2 public="1" set="method" line="39" static="1"><f a="y:x">
-	<unknown/>
-	<unknown/>
-	<unknown/>
-</f></atan2>
-		<tan public="1" set="method" line="40" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></tan>
-		<exp public="1" set="method" line="41" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></exp>
-		<log public="1" set="method" line="42" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></log>
-		<sqrt public="1" set="method" line="43" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></sqrt>
-		<round public="1" set="method" line="44" static="1"><f a="v">
-	<c path="Float"/>
-	<unknown/>
-</f></round>
-		<floor public="1" set="method" line="45" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></floor>
-		<ceil public="1" set="method" line="46" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></ceil>
-		<atan public="1" set="method" line="47" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></atan>
-		<asin public="1" set="method" line="48" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></asin>
-		<acos public="1" set="method" line="49" static="1"><f a="v">
-	<unknown/>
-	<unknown/>
-</f></acos>
-		<pow public="1" set="method" line="50" static="1"><f a="b:e">
-	<unknown/>
-	<unknown/>
-	<unknown/>
-</f></pow>
-		<random public="1" set="method" line="51" static="1"><f a=""><unknown/></f></random>
-		<isNaN public="1" set="method" line="52" static="1"><f a="f">
-	<unknown/>
-	<unknown/>
-</f></isNaN>
-		<isFinite public="1" set="method" line="53" static="1"><f a="f">
-	<unknown/>
-	<unknown/>
-</f></isFinite>
-	</class>
-	<class path="StringTools" params="" file="/opt/haxe/std/StringTools.hx">
-		<urlEncode public="1" get="inline" set="null" line="38" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Encode an URL by using the standard format.
-	</haxe_doc>
-		</urlEncode>
-		<urlDecode public="1" get="inline" set="null" line="59" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Decode an URL using the standard format.
-	</haxe_doc>
-		</urlDecode>
-		<htmlEscape public="1" set="method" line="80" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Escape HTML special characters of the string.
-	</haxe_doc>
-		</htmlEscape>
-		<htmlUnescape public="1" get="inline" set="null" line="87" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Unescape HTML special characters of the string.
-	</haxe_doc>
-		</htmlUnescape>
-		<startsWith public="1" set="method" line="98" static="1">
-			<f a="s:start">
-				<c path="String"/>
-				<c path="String"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Tells if the string [s] starts with the string [start].
-	</haxe_doc>
-		</startsWith>
-		<endsWith public="1" set="method" line="105" static="1">
-			<f a="s:end">
-				<c path="String"/>
-				<c path="String"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Tells if the string [s] ends with the string [end].
-	</haxe_doc>
-		</endsWith>
-		<isSpace public="1" set="method" line="114" static="1">
-			<f a="s:pos">
-				<c path="String"/>
-				<c path="Int"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Tells if the character in the string [s] at position [pos] is a space.
-	</haxe_doc>
-		</isSpace>
-		<ltrim public="1" get="inline" set="null" line="122" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Removes spaces at the left of the String [s].
-	</haxe_doc>
-		</ltrim>
-		<rtrim public="1" get="inline" set="null" line="141" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Removes spaces at the right of the String [s].
-	</haxe_doc>
-		</rtrim>
-		<trim public="1" get="inline" set="null" line="161" static="1">
-			<f a="s">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Removes spaces at the beginning and the end of the String [s].
-	</haxe_doc>
-		</trim>
-		<rpad public="1" get="inline" set="null" line="172" static="1">
-			<f a="s:c:l">
-				<c path="String"/>
-				<c path="String"/>
-				<c path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Pad the string [s] by appending [c] at its right until it reach [l] characters.
-	</haxe_doc>
-		</rpad>
-		<lpad public="1" get="inline" set="null" line="194" static="1">
-			<f a="s:c:l">
-				<c path="String"/>
-				<c path="String"/>
-				<c path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Pad the string [s] by appending [c] at its left until it reach [l] characters.
-	</haxe_doc>
-		</lpad>
-		<replace public="1" get="inline" set="null" line="219" static="1">
-			<f a="s:sub:by">
-				<c path="String"/>
-				<c path="String"/>
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Replace all occurences of the string [sub] in the string [s] by the string [by].
-	</haxe_doc>
-		</replace>
-		<hex public="1" set="method" line="230" static="1">
-			<f a="n:?digits">
-				<c path="Int"/>
-				<c path="Int"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Encode a number into a hexadecimal representation, with an optional number of zeros for left padding.
-	</haxe_doc>
-		</hex>
-		<haxe_doc>
-	The StringTools class contains some extra functionalities for [String]
-	manipulation. It's stored in a different class in order to prevent
-	the standard [String] of being bloated and thus increasing the size of
-	each application using it.
-</haxe_doc>
-	</class>
-	<class path="Hash" params="T" file="/opt/haxe/std/Hash.hx">
-		<implements path="php.IteratorAggregate"><c path="Hash.T"/></implements>
-		<h><c path="ArrayAccess"><c path="Hash.T"/></c></h>
-		<set public="1" set="method" line="63">
-			<f a="key:value">
-				<c path="String"/>
-				<c path="Hash.T"/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Set a value for the given key.
-	</haxe_doc>
-		</set>
-		<get public="1" set="method" line="80">
-			<f a="key">
-				<c path="String"/>
-				<t path="Null"><c path="Hash.T"/></t>
-			</f>
-			<haxe_doc>
-		Get a value for the given key.
-	</haxe_doc>
-		</get>
-		<exists public="1" set="method" line="102">
-			<f a="key">
-				<c path="String"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Tells if a value exists for the given key.
-		In particular, it's useful to tells if a key has
-		a [null] value versus no value.
-	</haxe_doc>
-		</exists>
-		<remove public="1" set="method" line="133">
-			<f a="key">
-				<c path="String"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Removes a hashtable entry. Returns [true] if
-		there was such entry.
-	</haxe_doc>
-		</remove>
-		<keys public="1" set="method" line="165">
-			<f a=""><t path="Iterator"><c path="String"/></t></f>
-			<haxe_doc>
-		Returns an iterator of all keys in the hashtable.
-	</haxe_doc>
-		</keys>
-		<iterator public="1" set="method" line="195">
-			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
-			<haxe_doc>
-		Returns an iterator of all values in the hashtable.
-	</haxe_doc>
-		</iterator>
-		<toString public="1" set="method" line="240">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>
-		Returns an displayable representation of the hashtable content.
-	</haxe_doc>
-		</toString>
-		<getIterator set="method" line="259">
-			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
-			<haxe_doc>
-		Implement IteratorAggregate for native php iteration
-	</haxe_doc>
-		</getIterator>
-		<new public="1" set="method" line="38">
-			<f a=""><e path="Void"/></f>
-			<haxe_doc>
-		Creates a new empty hashtable.
-	</haxe_doc>
-		</new>
-		<haxe_doc>
-	Hashtable over a set of elements, using [String] as keys.
-	Other kind of keys are not possible on all platforms since they
-	can't always be implemented efficiently.
-</haxe_doc>
-	</class>
-	<class path="php.PhpDate__" params="" file="/opt/haxe/std/php/PhpDate__.hx">
-		<__name__ line="29" static="1"><c path="Array"><c path="String"/></c></__name__>
-		<now public="1" set="method" line="77" static="1"><f a=""><c path="php.PhpDate__"/></f></now>
-		<fromPhpTime public="1" set="method" line="81" static="1"><f a="t">
-	<c path="Float"/>
-	<c path="php.PhpDate__"/>
-</f></fromPhpTime>
-		<fromTime public="1" set="method" line="87" static="1"><f a="t">
-	<c path="Float"/>
-	<c path="php.PhpDate__"/>
-</f></fromTime>
-		<fromString public="1" set="method" line="93" static="1"><f a="s">
-	<c path="String"/>
-	<c path="php.PhpDate__"/>
-</f></fromString>
-		<__t><c path="Float"/></__t>
-		<getTime public="1" set="method" line="36"><f a=""><c path="Float"/></f></getTime>
-		<getPhpTime public="1" set="method" line="40"><f a=""><c path="Float"/></f></getPhpTime>
-		<getFullYear public="1" set="method" line="44"><f a=""><c path="Int"/></f></getFullYear>
-		<getMonth public="1" set="method" line="48"><f a=""><c path="Int"/></f></getMonth>
-		<getDate public="1" set="method" line="53"><f a=""><c path="Int"/></f></getDate>
-		<getHours public="1" set="method" line="57"><f a=""><c path="Int"/></f></getHours>
-		<getMinutes public="1" set="method" line="61"><f a=""><c path="Int"/></f></getMinutes>
-		<getSeconds public="1" set="method" line="65"><f a=""><c path="Int"/></f></getSeconds>
-		<getDay public="1" set="method" line="69"><f a=""><c path="Int"/></f></getDay>
-		<toString public="1" set="method" line="73"><f a=""><c path="String"/></f></toString>
-		<new public="1" set="method" line="32"><f a="year:month:day:hour:min:sec">
-	<c path="Int"/>
-	<c path="Int"/>
-	<c path="Int"/>
-	<c path="Int"/>
-	<c path="Int"/>
-	<c path="Int"/>
-	<e path="Void"/>
-</f></new>
-	</class>
-	<class path="List" params="T" file="/opt/haxe/std/List.hx">
-		<implements path="php.IteratorAggregate"><c path="List.T"/></implements>
-		<h><c path="ArrayAccess"><d/></c></h>
-		<q><c path="ArrayAccess"><d/></c></q>
-		<length public="1" set="null">
-			<c path="Int"/>
-			<haxe_doc>
-		The number of elements in this list.
-	</haxe_doc>
-		</length>
-		<add public="1" set="method" line="56">
-			<f a="item">
-				<c path="List.T"/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Add an element at the end of the list.
-	</haxe_doc>
-		</add>
-		<push public="1" set="method" line="76">
-			<f a="item">
-				<c path="List.T"/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Push an element at the beginning of the list.
-	</haxe_doc>
-		</push>
-		<first public="1" set="method" line="100">
-			<f a=""><c path="List.T"/></f>
-			<haxe_doc>
-		Returns the first element of the list, or null
-		if the list is empty.
-	</haxe_doc>
-		</first>
-		<last public="1" set="method" line="108">
-			<f a=""><c path="List.T"/></f>
-			<haxe_doc>
-		Returns the last element of the list, or null
-		if the list is empty.
-	</haxe_doc>
-		</last>
-		<pop public="1" set="method" line="118">
-			<f a=""><c path="List.T"/></f>
-			<haxe_doc>
-		Removes the first element of the list and
-		returns it or simply returns null if the
-		list is empty.
-	</haxe_doc>
-		</pop>
-		<isEmpty public="1" set="method" line="132">
+	<class path="IntIter" params="" file="/opt/haxe/std/IntIter.hx">
+		<min><c path="Int"/></min>
+		<max><c path="Int"/></max>
+		<hasNext public="1" set="method" line="46">
 			<f a=""><e path="Bool"/></f>
 			<haxe_doc>
-		Tells if a list is empty.
+		Returns true if the iterator has other items, false otherwise.
 	</haxe_doc>
-		</isEmpty>
-		<clear public="1" set="method" line="139">
-			<f a=""><e path="Void"/></f>
+		</hasNext>
+		<next public="1" set="method" line="53">
+			<f a=""><c path="Int"/></f>
 			<haxe_doc>
-		Makes the list empty.
+		Moves to the next item of the iterator.
 	</haxe_doc>
-		</clear>
-		<remove public="1" set="method" line="149">
-			<f a="v">
-				<c path="List.T"/>
-				<e path="Bool"/>
+		</next>
+		<new public="1" set="method" line="38">
+			<f a="min:max">
+				<c path="Int"/>
+				<c path="Int"/>
+				<e path="Void"/>
 			</f>
-			<haxe_doc>
-		Remove the first element that is [== v] from the list.
-		Returns [true] if an element was removed, [false] otherwise.
-	</haxe_doc>
-		</remove>
-		<iterator public="1" set="method" line="190">
-			<f a=""><t path="Iterator"><c path="List.T"/></t></f>
-			<haxe_doc>
-		Returns an iterator on the elements of the list.
-	</haxe_doc>
-		</iterator>
-		<toString public="1" set="method" line="215">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>
-		Returns a displayable representation of the String.
-	</haxe_doc>
-		</toString>
-		<join public="1" set="method" line="235">
-			<f a="sep">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Join the element of the list by using the separator [sep].
-	</haxe_doc>
-		</join>
-		<filter public="1" set="method" line="254">
-			<f a="f">
-				<f a="">
-					<c path="List.T"/>
-					<e path="Bool"/>
-				</f>
-				<c path="List"><c path="List.T"/></c>
-			</f>
-			<haxe_doc>
-		Returns a list filtered with [f]. The returned list
-		will contain all elements [x] for which [f(x) = true].
-	</haxe_doc>
-		</filter>
-		<map public="1" params="X" set="method" line="270">
-			<f a="f">
-				<f a="">
-					<c path="List.T"/>
-					<c path="map.X"/>
-				</f>
-				<c path="List"><c path="map.X"/></c>
-			</f>
-			<haxe_doc>
-		Returns a new list where all elements have been converted
-		by the function [f].
-	</haxe_doc>
-		</map>
-		<getIterator set="method" line="285">
-			<f a=""><t path="Iterator"><c path="List.T"/></t></f>
-			<haxe_doc>
-		Implement IteratorAggregate for native php iteration
-	</haxe_doc>
-		</getIterator>
-		<new public="1" set="method" line="49">
-			<f a=""><e path="Void"/></f>
-			<haxe_doc>
-		Creates a new empty list.
-	</haxe_doc>
+			<haxe_doc><![CDATA[
+		Iterate from [min] (inclusive) to [max] (exclusive).
+		If [max <= min], the iterator will not act as a countdown.
+	]]></haxe_doc>
 		</new>
 		<haxe_doc>
-	A linked-list of elements. The list is composed of two-elements arrays
-	that are chained together. It's optimized so that adding or removing an
-	element doesn't imply to copy the whole array content everytime.
+	Integer iterator. Used for interval implementation.
 </haxe_doc>
 	</class>
-	<class path="Class" params="T" file="/opt/haxe/std/Class.hx" extern="1"><haxe_doc>
-	An abstract type that represents a Class.
-	See [Type] for the haXe Reflection API.
-</haxe_doc></class>
 	<class path="php.Lib" params="" file="/opt/haxe/std/php/Lib.hx">
 		<print public="1" set="method" line="7" static="1">
 			<f a="v">
@@ -1491,12 +1199,6 @@ I'm not sure which package this should belong in really...
 	<e path="Void"/>
 </f></appendType>
 		<getClasses public="1" set="method" line="91" static="1"><f a=""><a/></f></getClasses>
-	</class>
-	<class path="php.Boot" params="" file="/opt/haxe/std/php/Boot.hx">
-		<qtypes static="1"><c path="Array"><unknown/></c></qtypes>
-		<ttypes static="1"><unknown/></ttypes>
-		<tpaths static="1"><unknown/></tpaths>
-		<skip_constructor line="7" static="1"><e path="Bool"/></skip_constructor>
 	</class>
 	<class path="php.Web" params="" file="/opt/haxe/std/php/Web.hx">
 		<getParams public="1" set="method" line="12" static="1">
@@ -1695,91 +1397,700 @@ I'm not sure which package this should belong in really...
 	client request and informations.
 </haxe_doc>
 	</class>
-	<typedef path="haxe.PosInfos" params="" file="/opt/haxe/std/haxe/PosInfos.hx"><a>
-	<methodName><c path="String"/></methodName>
-	<lineNumber><c path="Int"/></lineNumber>
-	<fileName><c path="String"/></fileName>
-	<customParams><c path="Array"><d/></c></customParams>
-	<className><c path="String"/></className>
-</a></typedef>
-	<class path="StringBuf" params="" file="/opt/haxe/std/StringBuf.hx">
-		<add public="1" get="inline" set="null" line="48">
-			<f a="?x">
+	<class path="Std" params="" file="/opt/haxe/std/Std.hx">
+		<is public="1" set="method" line="34" static="1">
+			<f a="v:t">
 				<d/>
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if a value v is of the type t.
+	</haxe_doc>
+		</is>
+		<string public="1" set="method" line="54" static="1">
+			<f a="s">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Convert any value to a String
+	</haxe_doc>
+		</string>
+		<int public="1" get="inline" set="null" line="74" static="1">
+			<f a="x">
+				<c path="Float"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Convert a Float to an Int, rounded down.
+	</haxe_doc>
+		</int>
+		<parseInt public="1" set="method" line="90" static="1">
+			<f a="x">
+				<c path="String"/>
+				<t path="Null"><c path="Int"/></t>
+			</f>
+			<haxe_doc>
+		Convert a String to an Int, parsing different possible representations. Returns [null] if could not be parsed.
+	</haxe_doc>
+		</parseInt>
+		<parseFloat public="1" set="method" line="131" static="1">
+			<f a="x">
+				<c path="String"/>
+				<c path="Float"/>
+			</f>
+			<haxe_doc>
+		Convert a String to a Float, parsing different possible reprensations.
+	</haxe_doc>
+		</parseFloat>
+		<random public="1" set="method" line="153" static="1">
+			<f a="x">
+				<c path="Int"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Return a random integer between 0 included and x excluded.
+	</haxe_doc>
+		</random>
+		<haxe_doc>
+	The Std class provides standard methods for manipulating basic types.
+</haxe_doc>
+	</class>
+	<enum path="Void" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes"><haxe_doc>
+	The standard Void type. Only [null] values can be of the type [Void].
+</haxe_doc></enum>
+	<class path="Float" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>
+	The standard Float type, this is a double-precision IEEE 64bit float.
+</haxe_doc></class>
+	<class path="Int" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1">
+		<extends path="Float"/>
+		<haxe_doc>
+	The standard Int type. Its precision depends on the platform.
+</haxe_doc>
+	</class>
+	<typedef path="Null" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
+		<c path="Null.T"/>
+		<haxe_doc>
+	[Null] can be useful in two cases. In order to document some methods
+	that accepts or can return a [null] value, or for the Flash9 compiler and AS3
+	generator to distinguish between base values that can be null and others that
+	can't.
+</haxe_doc>
+	</typedef>
+	<enum path="Bool" params="" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
+		<true/>
+		<false/>
+		<haxe_doc>
+	The standard Boolean type is represented as an enum with two choices.
+</haxe_doc>
+	</enum>
+	<class path="Dynamic" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>
+	Dynamic is an internal compiler type which has special behavior.
+	See the haXe language reference for more informations.
+</haxe_doc></class>
+	<typedef path="Iterator" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
+		<a>
+			<next set="method"><f a=""><c path="Iterator.T"/></f></next>
+			<hasNext set="method"><f a=""><e path="Bool"/></f></hasNext>
+		</a>
+		<haxe_doc>
+	An Iterator is a structure that permits to list a given container
+	values. It can be used by your own data structures. See the haXe
+	documentation for more informations.
+</haxe_doc>
+	</typedef>
+	<typedef path="Iterable" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes">
+		<a><iterator set="method"><f a=""><t path="Iterator"><c path="Iterable.T"/></t></f></iterator></a>
+		<haxe_doc>
+	An Iterable is a data structure which has an iterator() method.
+	See [Lambda] for generic functions on iterable structures.
+</haxe_doc>
+	</typedef>
+	<class path="ArrayAccess" params="T" file="/opt/haxe/std/StdTypes.hx" module="StdTypes" extern="1" interface="1"><haxe_doc>
+	ArrayAccess is used to indicate a class that can be accessed using brackets.
+	The type parameter represent the type of the elements stored.
+</haxe_doc></class>
+	<class path="php.IteratorAggregate" params="T" file="/opt/haxe/std/php/IteratorAggregate.hx" extern="1" interface="1"><getIterator set="method">
+	<f a=""><t path="Iterator"><c path="php.IteratorAggregate.T"/></t></f>
+	<haxe_doc> 
+		This method is not public to not induce haXe users to use it ;) 
+		Use iterator() instead.
+		The return type would be Aggregator that is unusable in haXe 
+	</haxe_doc>
+</getIterator></class>
+	<class path="List" params="T" file="/opt/haxe/std/List.hx">
+		<implements path="php.IteratorAggregate"><c path="List.T"/></implements>
+		<h><c path="ArrayAccess"><d/></c></h>
+		<q><c path="ArrayAccess"><d/></c></q>
+		<length public="1" set="null">
+			<c path="Int"/>
+			<haxe_doc>
+		The number of elements in this list.
+	</haxe_doc>
+		</length>
+		<add public="1" set="method" line="56">
+			<f a="item">
+				<c path="List.T"/>
 				<e path="Void"/>
 			</f>
 			<haxe_doc>
-		Adds the representation of any value to the string buffer.
+		Add an element at the end of the list.
 	</haxe_doc>
 		</add>
-		<addSub public="1" get="inline" set="null" line="61">
-			<f a="s:pos:?len">
-				<c path="String"/>
-				<c path="Int"/>
-				<c path="Int"/>
+		<push public="1" set="method" line="76">
+			<f a="item">
+				<c path="List.T"/>
 				<e path="Void"/>
 			</f>
 			<haxe_doc>
-		Adds a part of a string to the string buffer.
+		Push an element at the beginning of the list.
 	</haxe_doc>
-		</addSub>
-		<addChar public="1" get="inline" set="null" line="79">
-			<f a="c">
-				<c path="Int"/>
-				<e path="Void"/>
-			</f>
+		</push>
+		<first public="1" set="method" line="100">
+			<f a=""><c path="List.T"/></f>
 			<haxe_doc>
-		Adds a character to the string buffer.
+		Returns the first element of the list, or null
+		if the list is empty.
 	</haxe_doc>
-		</addChar>
-		<toString public="1" get="inline" set="null" line="95">
-			<f a=""><c path="String"/></f>
+		</first>
+		<last public="1" set="method" line="108">
+			<f a=""><c path="List.T"/></f>
 			<haxe_doc>
-		Returns the content of the string buffer.
-		The buffer is not emptied by this operation.
+		Returns the last element of the list, or null
+		if the list is empty.
 	</haxe_doc>
-		</toString>
-		<b><c path="String"/></b>
-		<new public="1" set="method" line="35">
+		</last>
+		<pop public="1" set="method" line="118">
+			<f a=""><c path="List.T"/></f>
+			<haxe_doc>
+		Removes the first element of the list and
+		returns it or simply returns null if the
+		list is empty.
+	</haxe_doc>
+		</pop>
+		<isEmpty public="1" set="method" line="132">
+			<f a=""><e path="Bool"/></f>
+			<haxe_doc>
+		Tells if a list is empty.
+	</haxe_doc>
+		</isEmpty>
+		<clear public="1" set="method" line="139">
 			<f a=""><e path="Void"/></f>
 			<haxe_doc>
-		Creates a new string buffer.
+		Makes the list empty.
+	</haxe_doc>
+		</clear>
+		<remove public="1" set="method" line="149">
+			<f a="v">
+				<c path="List.T"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Remove the first element that is [== v] from the list.
+		Returns [true] if an element was removed, [false] otherwise.
+	</haxe_doc>
+		</remove>
+		<iterator public="1" set="method" line="190">
+			<f a=""><t path="Iterator"><c path="List.T"/></t></f>
+			<haxe_doc>
+		Returns an iterator on the elements of the list.
+	</haxe_doc>
+		</iterator>
+		<toString public="1" set="method" line="215">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns a displayable representation of the String.
+	</haxe_doc>
+		</toString>
+		<join public="1" set="method" line="235">
+			<f a="sep">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Join the element of the list by using the separator [sep].
+	</haxe_doc>
+		</join>
+		<filter public="1" set="method" line="254">
+			<f a="f">
+				<f a="">
+					<c path="List.T"/>
+					<e path="Bool"/>
+				</f>
+				<c path="List"><c path="List.T"/></c>
+			</f>
+			<haxe_doc>
+		Returns a list filtered with [f]. The returned list
+		will contain all elements [x] for which [f(x) = true].
+	</haxe_doc>
+		</filter>
+		<map public="1" params="X" set="method" line="270">
+			<f a="f">
+				<f a="">
+					<c path="List.T"/>
+					<c path="map.X"/>
+				</f>
+				<c path="List"><c path="map.X"/></c>
+			</f>
+			<haxe_doc>
+		Returns a new list where all elements have been converted
+		by the function [f].
+	</haxe_doc>
+		</map>
+		<getIterator set="method" line="285">
+			<f a=""><t path="Iterator"><c path="List.T"/></t></f>
+			<haxe_doc>
+		Implement IteratorAggregate for native php iteration
+	</haxe_doc>
+		</getIterator>
+		<new public="1" set="method" line="49">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Creates a new empty list.
 	</haxe_doc>
 		</new>
 		<haxe_doc>
-	A String buffer is an efficient way to build a big string by
-	appending small elements together.
+	A linked-list of elements. The list is composed of two-elements arrays
+	that are chained together. It's optimized so that adding or removing an
+	element doesn't imply to copy the whole array content everytime.
 </haxe_doc>
 	</class>
-	<class path="php.Exception" params="" file="/opt/haxe/std/php/Exception.hx" extern="1">
-		<message><c path="String"/></message>
-		<code><c path="Int"/></code>
-		<file><c path="String"/></file>
-		<line><c path="Int"/></line>
-		<getMessage public="1" set="method"><f a=""><c path="String"/></f></getMessage>
-		<getCode public="1" set="method"><f a=""><c path="Int"/></f></getCode>
-		<getFile public="1" set="method"><f a=""><c path="String"/></f></getFile>
-		<getLine public="1" set="method"><f a=""><c path="Int"/></f></getLine>
-		<getTrace public="1" set="method"><f a=""><c path="Array"><c path="String"/></c></f></getTrace>
-		<getTraceAsString public="1" set="method"><f a=""><c path="String"/></f></getTraceAsString>
-		<__toString public="1" set="method"><f a=""><c path="String"/></f></__toString>
-		<new public="1" set="method"><f a="?message:?code">
+	<class path="php.PhpDate__" params="" file="/opt/haxe/std/php/PhpDate__.hx">
+		<__name__ line="29" static="1"><c path="Array"><c path="String"/></c></__name__>
+		<now public="1" set="method" line="77" static="1"><f a=""><c path="php.PhpDate__"/></f></now>
+		<fromPhpTime public="1" set="method" line="81" static="1"><f a="t">
+	<c path="Float"/>
+	<c path="php.PhpDate__"/>
+</f></fromPhpTime>
+		<fromTime public="1" set="method" line="87" static="1"><f a="t">
+	<c path="Float"/>
+	<c path="php.PhpDate__"/>
+</f></fromTime>
+		<fromString public="1" set="method" line="93" static="1"><f a="s">
 	<c path="String"/>
+	<c path="php.PhpDate__"/>
+</f></fromString>
+		<__t><c path="Float"/></__t>
+		<getTime public="1" set="method" line="36"><f a=""><c path="Float"/></f></getTime>
+		<getPhpTime public="1" set="method" line="40"><f a=""><c path="Float"/></f></getPhpTime>
+		<getFullYear public="1" set="method" line="44"><f a=""><c path="Int"/></f></getFullYear>
+		<getMonth public="1" set="method" line="48"><f a=""><c path="Int"/></f></getMonth>
+		<getDate public="1" set="method" line="53"><f a=""><c path="Int"/></f></getDate>
+		<getHours public="1" set="method" line="57"><f a=""><c path="Int"/></f></getHours>
+		<getMinutes public="1" set="method" line="61"><f a=""><c path="Int"/></f></getMinutes>
+		<getSeconds public="1" set="method" line="65"><f a=""><c path="Int"/></f></getSeconds>
+		<getDay public="1" set="method" line="69"><f a=""><c path="Int"/></f></getDay>
+		<toString public="1" set="method" line="73"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method" line="32"><f a="year:month:day:hour:min:sec">
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
 	<c path="Int"/>
 	<e path="Void"/>
 </f></new>
 	</class>
-	<class path="hxbase.Dispatcher" params="" file="src/hxbase/Dispatcher.hx">
-		<dispatch public="1" set="method" line="14" static="1"><f a="uri">
-	<c path="String"/>
-	<e path="Void"/>
-</f></dispatch>
+	<enum path="ValueType" params="" file="/opt/haxe/std/Type.hx" module="Type">
+		<TUnknown/>
+		<TObject/>
+		<TNull/>
+		<TInt/>
+		<TFunction/>
+		<TFloat/>
+		<TEnum a="e"><c path="Enum"><d/></c></TEnum>
+		<TClass a="c"><c path="Class"><d/></c></TClass>
+		<TBool/>
 		<haxe_doc>
-The Dispatcher class is responsible for deciding which
-Controller class is being requested and which action 
-should be executed.
-
-This class is called on most page requests.  
+	The diffent possible runtime types of a value.
+	See [Type] for the haXe Reflection API.
+</haxe_doc>
+	</enum>
+	<class path="Type" params="" file="/opt/haxe/std/Type.hx">
+		<getClass public="1" params="T" set="method" line="26" static="1">
+			<f a="o">
+				<c path="getClass.T"/>
+				<c path="Class"><c path="getClass.T"/></c>
+			</f>
+			<haxe_doc>
+		Returns the class of a value or [null] if this value is not a Class instance.
+	</haxe_doc>
+		</getClass>
+		<getEnum public="1" set="method" line="89" static="1">
+			<f a="o">
+				<d/>
+				<c path="Enum"><d/></c>
+			</f>
+			<haxe_doc>
+		Returns the enum of a value or [null] if this value is not an Enum instance.
+	</haxe_doc>
+		</getEnum>
+		<getSuperClass public="1" set="method" line="129" static="1">
+			<f a="c">
+				<c path="Class"><d/></c>
+				<c path="Class"><d/></c>
+			</f>
+			<haxe_doc>
+		Returns the super-class of a class, or null if no super class.
+	</haxe_doc>
+		</getSuperClass>
+		<getClassName public="1" set="method" line="152" static="1">
+			<f a="c">
+				<c path="Class"><d/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns the complete name of a class.
+	</haxe_doc>
+		</getClassName>
+		<getEnumName public="1" set="method" line="177" static="1">
+			<f a="e">
+				<c path="Enum"><d/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns the complete name of an enum.
+	</haxe_doc>
+		</getEnumName>
+		<resolveClass public="1" set="method" line="194" static="1">
+			<f a="name">
+				<c path="String"/>
+				<c path="Class"><d/></c>
+			</f>
+			<haxe_doc>
+		Evaluates a class from a name. The class must have been compiled
+		to be accessible.
+	</haxe_doc>
+		</resolveClass>
+		<resolveEnum public="1" set="method" line="256" static="1">
+			<f a="name">
+				<c path="String"/>
+				<c path="Enum"><d/></c>
+			</f>
+			<haxe_doc>
+		Evaluates an enum from a name. The enum must have been compiled
+		to be accessible.
+	</haxe_doc>
+		</resolveEnum>
+		<createInstance public="1" params="T" set="method" line="313" static="1">
+			<f a="cl:args">
+				<c path="Class"><c path="createInstance.T"/></c>
+				<c path="Array"><d/></c>
+				<c path="createInstance.T"/>
+			</f>
+			<haxe_doc>
+		Creates an instance of the given class with the list of constructor arguments.
+	</haxe_doc>
+		</createInstance>
+		<createEmptyInstance public="1" params="T" set="method" line="365" static="1">
+			<f a="cl">
+				<c path="Class"><c path="createEmptyInstance.T"/></c>
+				<c path="createEmptyInstance.T"/>
+			</f>
+			<haxe_doc>
+		Similar to [Reflect.createInstance] excepts that the constructor is not called.
+		This enables you to create an instance without any side-effect.
+	</haxe_doc>
+		</createEmptyInstance>
+		<createEnum public="1" params="T" set="method" line="421" static="1">
+			<f a="e:constr:?params">
+				<c path="Enum"><c path="createEnum.T"/></c>
+				<c path="String"/>
+				<c path="Array"><d/></c>
+				<c path="createEnum.T"/>
+			</f>
+			<haxe_doc>
+		Create an instance of an enum by using a constructor name and parameters.
+	</haxe_doc>
+		</createEnum>
+		<createEnumIndex public="1" params="T" set="method" line="442" static="1">
+			<f a="e:index:?params">
+				<c path="Enum"><c path="createEnumIndex.T"/></c>
+				<c path="Int"/>
+				<c path="Array"><d/></c>
+				<c path="createEnumIndex.T"/>
+			</f>
+			<haxe_doc>
+		Create an instance of an enum by using a constructor index and parameters.
+	</haxe_doc>
+		</createEnumIndex>
+		<getInstanceFields public="1" set="method" line="467" static="1">
+			<f a="c">
+				<c path="Class"><d/></c>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Returns the list of instance fields.
+	</haxe_doc>
+		</getInstanceFields>
+		<getClassFields public="1" set="method" line="516" static="1">
+			<f a="c">
+				<c path="Class"><d/></c>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Returns the list of a class static fields.
+	</haxe_doc>
+		</getClassFields>
+		<getEnumConstructs public="1" set="method" line="559" static="1">
+			<f a="e">
+				<c path="Enum"><d/></c>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Returns all the available constructor names for an enum.
+	</haxe_doc>
+		</getEnumConstructs>
+		<typeof public="1" set="method" line="580" static="1">
+			<f a="v">
+				<d/>
+				<e path="ValueType"/>
+			</f>
+			<haxe_doc>
+		Returns the runtime type of a value.
+	</haxe_doc>
+		</typeof>
+		<enumEq public="1" params="T" set="method" line="703" static="1">
+			<f a="a:b">
+				<c path="enumEq.T"/>
+				<c path="enumEq.T"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Recursively compare two enums constructors and parameters.
+	</haxe_doc>
+		</enumEq>
+		<enumConstructor public="1" set="method" line="775" static="1">
+			<f a="e">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns the constructor of an enum
+	</haxe_doc>
+		</enumConstructor>
+		<enumParameters public="1" set="method" line="790" static="1">
+			<f a="e">
+				<d/>
+				<c path="Array"><d/></c>
+			</f>
+			<haxe_doc>
+		Returns the parameters of an enum
+	</haxe_doc>
+		</enumParameters>
+		<enumIndex public="1" get="inline" set="null" line="810" static="1">
+			<f a="e">
+				<d/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Returns the index of the constructor of an enum
+	</haxe_doc>
+		</enumIndex>
+		<haxe_doc>
+	The haXe Reflection API enables you to retreive informations about any value,
+	Classes and Enums at runtime.
+</haxe_doc>
+	</class>
+	<class path="php.PhpMath__" params="" file="/opt/haxe/std/php/PhpMath__.hx">
+		<PI public="1" static="1"><unknown/></PI>
+		<NaN public="1" static="1"><unknown/></NaN>
+		<POSITIVE_INFINITY public="1" static="1"><c path="Int"/></POSITIVE_INFINITY>
+		<NEGATIVE_INFINITY public="1" static="1"><c path="Int"/></NEGATIVE_INFINITY>
+		<abs public="1" set="method" line="34" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></abs>
+		<min public="1" set="method" line="35" static="1"><f a="a:b">
+	<unknown/>
+	<unknown/>
+	<unknown/>
+</f></min>
+		<max public="1" set="method" line="36" static="1"><f a="a:b">
+	<unknown/>
+	<unknown/>
+	<unknown/>
+</f></max>
+		<sin public="1" set="method" line="37" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></sin>
+		<cos public="1" set="method" line="38" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></cos>
+		<atan2 public="1" set="method" line="39" static="1"><f a="y:x">
+	<unknown/>
+	<unknown/>
+	<unknown/>
+</f></atan2>
+		<tan public="1" set="method" line="40" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></tan>
+		<exp public="1" set="method" line="41" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></exp>
+		<log public="1" set="method" line="42" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></log>
+		<sqrt public="1" set="method" line="43" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></sqrt>
+		<round public="1" set="method" line="44" static="1"><f a="v">
+	<c path="Float"/>
+	<unknown/>
+</f></round>
+		<floor public="1" set="method" line="45" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></floor>
+		<ceil public="1" set="method" line="46" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></ceil>
+		<atan public="1" set="method" line="47" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></atan>
+		<asin public="1" set="method" line="48" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></asin>
+		<acos public="1" set="method" line="49" static="1"><f a="v">
+	<unknown/>
+	<unknown/>
+</f></acos>
+		<pow public="1" set="method" line="50" static="1"><f a="b:e">
+	<unknown/>
+	<unknown/>
+	<unknown/>
+</f></pow>
+		<random public="1" set="method" line="51" static="1"><f a=""><unknown/></f></random>
+		<isNaN public="1" set="method" line="52" static="1"><f a="f">
+	<unknown/>
+	<unknown/>
+</f></isNaN>
+		<isFinite public="1" set="method" line="53" static="1"><f a="f">
+	<unknown/>
+	<unknown/>
+</f></isFinite>
+	</class>
+	<class path="Class" params="T" file="/opt/haxe/std/Class.hx" extern="1"><haxe_doc>
+	An abstract type that represents a Class.
+	See [Type] for the haXe Reflection API.
+</haxe_doc></class>
+	<class path="String" params="" file="/opt/haxe/std/String.hx" extern="1">
+		<fromCharCode public="1" set="method" static="1"><f a="code">
+	<c path="Int"/>
+	<c path="String"/>
+</f></fromCharCode>
+		<length public="1" set="null">
+			<c path="Int"/>
+			<haxe_doc>
+		The number of characters in the String.
+	</haxe_doc>
+		</length>
+		<toUpperCase public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns an String where all characters have been uppercased.
+	</haxe_doc>
+		</toUpperCase>
+		<toLowerCase public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns an String where all characters have been lowercased.
+	</haxe_doc>
+		</toLowerCase>
+		<charAt public="1" set="method">
+			<f a="index">
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns the character at the given position.
+		Returns the empty String if outside of String bounds.
+	</haxe_doc>
+		</charAt>
+		<charCodeAt public="1" set="method">
+			<f a="index">
+				<c path="Int"/>
+				<t path="Null"><c path="Int"/></t>
+			</f>
+			<haxe_doc>
+		Returns the character code at the given position.
+		Returns [null] if outside of String bounds.
+	</haxe_doc>
+		</charCodeAt>
+		<indexOf public="1" set="method">
+			<f a="value:?startIndex">
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Returns the index of first occurence of [value]
+		Returns [1-1] if [value] is not found.
+		The optional [startIndex] parameter allows you to specify at which character to start searching.
+		The position returned is still relative to the beginning of the string.
+	</haxe_doc>
+		</indexOf>
+		<lastIndexOf public="1" set="method">
+			<f a="value:?startIndex">
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Similar to [indexOf] but returns the latest index.
+	</haxe_doc>
+		</lastIndexOf>
+		<split public="1" set="method">
+			<f a="delimiter">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Split the string using the specified delimiter.
+	</haxe_doc>
+		</split>
+		<substr public="1" set="method">
+			<f a="pos:?len">
+				<c path="Int"/>
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Returns a part of the String, taking [len] characters starting from [pos].
+		If [len] is not specified, it takes all the remaining characters.
+	</haxe_doc>
+		</substr>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns the String itself.
+	</haxe_doc>
+		</toString>
+		<cca set="method"><f a="pos">
+	<c path="Int"/>
+	<c path="Int"/>
+</f></cca>
+		<new public="1" set="method">
+			<f a="string">
+				<c path="String"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Creates a copy from a given String.
+	</haxe_doc>
+		</new>
+		<haxe_doc>
+	The basic String class.
 </haxe_doc>
 	</class>
 	<class path="Array" params="T" file="/opt/haxe/std/Array.hx" extern="1">
@@ -1932,6 +2243,110 @@ This class is called on most page requests.
 	An Array is a storage for values. You can access it using indexes or
 	with its API. On the server side, it's often better to use a [List] which
 	is less memory and CPU consuming, unless you really need indexed access.
+</haxe_doc>
+	</class>
+	<typedef path="haxe.PosInfos" params="" file="/opt/haxe/std/haxe/PosInfos.hx"><a>
+	<methodName><c path="String"/></methodName>
+	<lineNumber><c path="Int"/></lineNumber>
+	<fileName><c path="String"/></fileName>
+	<customParams><c path="Array"><d/></c></customParams>
+	<className><c path="String"/></className>
+</a></typedef>
+	<class path="php.Exception" params="" file="/opt/haxe/std/php/Exception.hx" extern="1">
+		<message><c path="String"/></message>
+		<code><c path="Int"/></code>
+		<file><c path="String"/></file>
+		<line><c path="Int"/></line>
+		<getMessage public="1" set="method"><f a=""><c path="String"/></f></getMessage>
+		<getCode public="1" set="method"><f a=""><c path="Int"/></f></getCode>
+		<getFile public="1" set="method"><f a=""><c path="String"/></f></getFile>
+		<getLine public="1" set="method"><f a=""><c path="Int"/></f></getLine>
+		<getTrace public="1" set="method"><f a=""><c path="Array"><c path="String"/></c></f></getTrace>
+		<getTraceAsString public="1" set="method"><f a=""><c path="String"/></f></getTraceAsString>
+		<__toString public="1" set="method"><f a=""><c path="String"/></f></__toString>
+		<new public="1" set="method"><f a="?message:?code">
+	<c path="String"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></new>
+	</class>
+	<class path="Hash" params="T" file="/opt/haxe/std/Hash.hx">
+		<implements path="php.IteratorAggregate"><c path="Hash.T"/></implements>
+		<h><c path="ArrayAccess"><c path="Hash.T"/></c></h>
+		<set public="1" set="method" line="63">
+			<f a="key:value">
+				<c path="String"/>
+				<c path="Hash.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Set a value for the given key.
+	</haxe_doc>
+		</set>
+		<get public="1" set="method" line="80">
+			<f a="key">
+				<c path="String"/>
+				<t path="Null"><c path="Hash.T"/></t>
+			</f>
+			<haxe_doc>
+		Get a value for the given key.
+	</haxe_doc>
+		</get>
+		<exists public="1" set="method" line="102">
+			<f a="key">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if a value exists for the given key.
+		In particular, it's useful to tells if a key has
+		a [null] value versus no value.
+	</haxe_doc>
+		</exists>
+		<remove public="1" set="method" line="133">
+			<f a="key">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Removes a hashtable entry. Returns [true] if
+		there was such entry.
+	</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="165">
+			<f a=""><t path="Iterator"><c path="String"/></t></f>
+			<haxe_doc>
+		Returns an iterator of all keys in the hashtable.
+	</haxe_doc>
+		</keys>
+		<iterator public="1" set="method" line="195">
+			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
+			<haxe_doc>
+		Returns an iterator of all values in the hashtable.
+	</haxe_doc>
+		</iterator>
+		<toString public="1" set="method" line="240">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns an displayable representation of the hashtable content.
+	</haxe_doc>
+		</toString>
+		<getIterator set="method" line="259">
+			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
+			<haxe_doc>
+		Implement IteratorAggregate for native php iteration
+	</haxe_doc>
+		</getIterator>
+		<new public="1" set="method" line="38">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Creates a new empty hashtable.
+	</haxe_doc>
+		</new>
+		<haxe_doc>
+	Hashtable over a set of elements, using [String] as keys.
+	Other kind of keys are not possible on all platforms since they
+	can't always be implemented efficiently.
 </haxe_doc>
 	</class>
 	<class path="@Main" params="" file=""><init line="1" static="1"><e path="Void"/></init></class>
