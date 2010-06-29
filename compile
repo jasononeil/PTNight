@@ -1,9 +1,10 @@
 #!/bin/sh
-echo "Compiling haXe code"
-haxe compile.hxml
 
 #echo "Copying Include Files (css,js,tpl etc.)"
-rsync --delete -a includes/* php/
+rsync --delete -a includes/ php/
+
+echo "Compiling haXe code"
+haxe compile.hxml
 
 #echo "Creating the documentation"
 cd doc
