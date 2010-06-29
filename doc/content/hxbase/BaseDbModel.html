@@ -1,0 +1,167 @@
+<html>
+
+<head>
+<title>HxBase API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+
+<div class="title">HxBase API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>hxbase.BaseDbModel</div><div class="extends">extends <a href="../php/db/Object.html" class="type">php.db.Object</a></div><div class="importmod">import hxbase.BaseDBModel</div><div class="classdoc"><p><b>Conventions</b>
+<br />This model follows a few simple conventions
+<ul>
+	<li>The database details will already be defined in AppConfig.</li>
+	<li>The database table will have the same name as this class.</li>
+	<li>The primary id will be a column called 'id'.</li>
+</ul>
+Follow these and you'll be off to a good start.</p>
+<p><b>Various Variable Names</b>
+<ul>
+	<li>When you extend this class, you'll need to define a public
+	variable for each column in your table.</li>
+	<li>Basic definitions are public and non-static, like:
+	<br />public var name : String;</li>
+	<li>How you know which type to use:
+		<ul>
+			<li>Int: TINYINT SHORT LONG INT24</li>
+			<li>Float: LONGLONG, DECIMAL, FLOAT, DOUBLE</li>
+			<li>Bool: TINYINT(1)</li>
+			<li>Date: DATE, DATETIME</li>
+			<li>String: <All Others> (note - BLOB can contain \0)</li>
+		</ul>
+	</li>
+</ul></p>
+<p><b>The Manager</b>
+<ul>
+	<li>You use the manager to perform searches and SELECT statements, basically</li>
+	<li>You'll have to add this line right before the end of your class definition:
+	<br />public static var manager = new php.db.Manager<MyModelName>(MyModelName);</li>
+</ul></p>
+<p><b>Relationships</b>
+<ul>
+	<li>I'm not sure how these are really done yet.
+	There's a good chance I can't do this in a super
+	class anyway, because RELATIONS() is a static field
+	which cannot be inherited.</li>
+	<li>But this would be a good place to give some instructions</li>
+</ul></p>
+<p><b>Automating this</b></p>
+<p>Boring!  Typing in all this stuff could probably be automated
+to be read directly from the database...</p>
+<p><b>Validation</b></p>
+<p>I'm still going to have to think about this</p>
+<p><b>General Usage</b></p>
+<p>Have a look at <a href="http://haxe.org/doc/neko/spod">the haxe SPOD tutorial</a>,
+because that's what all this is based on.</p></div><dl><dt><span class="kwd">function </span>new() : <a href="../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

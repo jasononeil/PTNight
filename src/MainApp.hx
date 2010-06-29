@@ -1,5 +1,6 @@
 import hxbase.Dispatcher;
 import AppConfig;
+import hxbase.BaseDBModel;
 
 class MainApp
 {

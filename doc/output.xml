@@ -232,6 +232,31 @@
 		<toString public="1" set="method" line="352"><f a=""><c path="String"/></f></toString>
 		<new set="method" line="110"><f a=""><e path="Void"/></f></new>
 	</class>
+	<class path="php.db.Connection" params="" file="/opt/haxe/std/php/db/Connection.hx" interface="1">
+		<request public="1" set="method"><f a="s">
+	<c path="String"/>
+	<c path="php.db.ResultSet"/>
+</f></request>
+		<close public="1" set="method"><f a=""><e path="Void"/></f></close>
+		<escape public="1" set="method"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></escape>
+		<quote public="1" set="method"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></quote>
+		<addValue public="1" set="method"><f a="s:v">
+	<c path="StringBuf"/>
+	<d/>
+	<e path="Void"/>
+</f></addValue>
+		<lastInsertId public="1" set="method"><f a=""><c path="Int"/></f></lastInsertId>
+		<dbName public="1" set="method"><f a=""><c path="String"/></f></dbName>
+		<startTransaction public="1" set="method"><f a=""><e path="Void"/></f></startTransaction>
+		<commit public="1" set="method"><f a=""><e path="Void"/></f></commit>
+		<rollback public="1" set="method"><f a=""><e path="Void"/></f></rollback>
+	</class>
 	<class path="php.Sys" params="" file="/opt/haxe/std/php/Sys.hx">
 		<args public="1" set="method" line="5" static="1"><f a=""><c path="Array"><c path="String"/></c></f></args>
 		<getEnv public="1" set="method" line="9" static="1"><f a="s">
@@ -276,9 +301,9 @@
 		<environment public="1" set="method" line="87" static="1"><f a=""><c path="Hash"><c path="String"/></c></f></environment>
 	</class>
 	<class path="MainApp" params="" file="src/MainApp.hx">
-		<startTime public="1" line="6" static="1"><c path="Float"/></startTime>
-		<main public="1" set="method" line="8" static="1"><f a=""><e path="Void"/></f></main>
-		<printStats public="1" set="method" line="22" static="1"><f a=""><e path="Void"/></f></printStats>
+		<startTime public="1" line="7" static="1"><c path="Float"/></startTime>
+		<main public="1" set="method" line="9" static="1"><f a=""><e path="Void"/></f></main>
+		<printStats public="1" set="method" line="23" static="1"><f a=""><e path="Void"/></f></printStats>
 	</class>
 	<class path="AppConfig" params="" file="src/AppConfig.hx">
 		<defaultController public="1" line="11" static="1">
@@ -1121,6 +1146,104 @@ This class is called on most page requests.
 	Integer iterator. Used for interval implementation.
 </haxe_doc>
 	</class>
+	<class path="php.db.Object" params="" file="/opt/haxe/std/php/db/Object.hx">
+		<__cache__><c path="php.db.Object"/></__cache__>
+		<__noupdate__><e path="Bool"/></__noupdate__>
+		<__manager__><a>
+	<objectToString set="method"><f a="o">
+	<c path="php.db.Object"/>
+	<c path="String"/>
+</f></objectToString>
+	<doUpdate set="method"><f a="o">
+	<c path="php.db.Object"/>
+	<e path="Void"/>
+</f></doUpdate>
+	<doSync set="method"><f a="o">
+	<c path="php.db.Object"/>
+	<e path="Void"/>
+</f></doSync>
+	<doInsert set="method"><f a="o">
+	<c path="php.db.Object"/>
+	<e path="Void"/>
+</f></doInsert>
+	<doDelete set="method"><f a="o">
+	<c path="php.db.Object"/>
+	<e path="Void"/>
+</f></doDelete>
+</a></__manager__>
+		<__init_object set="method" line="59"><f a=""><e path="Void"/></f></__init_object>
+		<insert public="1" set="method" line="71"><f a=""><e path="Void"/></f></insert>
+		<update public="1" set="method" line="75"><f a=""><e path="Void"/></f></update>
+		<sync public="1" set="method" line="80"><f a=""><e path="Void"/></f></sync>
+		<delete public="1" set="method" line="84"><f a=""><e path="Void"/></f></delete>
+		<toString public="1" set="method" line="88"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method" line="55"><f a=""><e path="Void"/></f></new>
+		<haxe_doc>
+	SPOD Object : the persistent object base type. See the tutorial on haXe
+	website to learn how to use SPOD.
+</haxe_doc>
+	</class>
+	<class path="hxbase.BaseDbModel" params="" file="src/hxbase/BaseDBModel.hx" module="hxbase.BaseDBModel">
+		<extends path="php.db.Object"/>
+		<new public="1" set="method" line="60"><f a=""><e path="Void"/></f></new>
+		<haxe_doc><![CDATA[ 
+<b>Conventions</b>
+<br />This model follows a few simple conventions
+<ul>
+	<li>The database details will already be defined in AppConfig.</li>
+	<li>The database table will have the same name as this class.</li>
+	<li>The primary id will be a column called 'id'.</li>
+</ul>
+Follow these and you'll be off to a good start.
+
+<b>Various Variable Names</b>
+<ul>
+	<li>When you extend this class, you'll need to define a public 
+	variable for each column in your table.</li>
+	<li>Basic definitions are public and non-static, like:
+	<br />public var name : String;</li>
+	<li>How you know which type to use:
+		<ul>
+			<li>Int: TINYINT SHORT LONG INT24</li>
+			<li>Float: LONGLONG, DECIMAL, FLOAT, DOUBLE</li>
+			<li>Bool: TINYINT(1)</li>
+			<li>Date: DATE, DATETIME</li>
+			<li>String: <All Others> (note - BLOB can contain \0)</li>
+		</ul>
+	</li>
+</ul>
+
+<b>The Manager</b>
+<ul>
+	<li>You use the manager to perform searches and SELECT statements, basically</li>
+	<li>You'll have to add this line right before the end of your class definition:
+	<br />public static var manager = new php.db.Manager<MyModelName>(MyModelName);</li>
+</ul>
+
+<b>Relationships</b>
+<ul>
+	<li>I'm not sure how these are really done yet.
+	There's a good chance I can't do this in a super
+	class anyway, because RELATIONS() is a static field
+	which cannot be inherited.</li>
+	<li>But this would be a good place to give some instructions</li>
+</ul>
+
+<b>Automating this</b>
+
+Boring!  Typing in all this stuff could probably be automated 
+to be read directly from the database...
+
+<b>Validation</b>
+
+I'm still going to have to think about this
+
+<b>General Usage</b>
+
+Have a look at <a href="http://haxe.org/doc/neko/spod">the haxe SPOD tutorial</a>,
+because that's what all this is based on.
+]]></haxe_doc>
+	</class>
 	<class path="php.Lib" params="" file="/opt/haxe/std/php/Lib.hx">
 		<print public="1" set="method" line="7" static="1">
 			<f a="v">
@@ -1898,6 +2021,25 @@ This class is called on most page requests.
 	Classes and Enums at runtime.
 </haxe_doc>
 	</class>
+	<class path="php.db.ResultSet" params="" file="/opt/haxe/std/php/db/ResultSet.hx" interface="1">
+		<length public="1" get="getLength" set="null"><c path="Int"/></length>
+		<nfields public="1" get="getNFields" set="null"><c path="Int"/></nfields>
+		<hasNext public="1" set="method"><f a=""><e path="Bool"/></f></hasNext>
+		<next public="1" set="method"><f a=""><d/></f></next>
+		<results public="1" set="method"><f a=""><c path="List"><d/></c></f></results>
+		<getResult public="1" set="method"><f a="n">
+	<c path="Int"/>
+	<c path="String"/>
+</f></getResult>
+		<getIntResult public="1" set="method"><f a="n">
+	<c path="Int"/>
+	<c path="Int"/>
+</f></getIntResult>
+		<getFloatResult public="1" set="method"><f a="n">
+	<c path="Int"/>
+	<c path="Float"/>
+</f></getFloatResult>
+	</class>
 	<class path="php.PhpMath__" params="" file="/opt/haxe/std/php/PhpMath__.hx">
 		<PI public="1" static="1"><unknown/></PI>
 		<NaN public="1" static="1"><unknown/></NaN>
@@ -1989,6 +2131,247 @@ This class is called on most page requests.
 	An abstract type that represents a Class.
 	See [Type] for the haXe Reflection API.
 </haxe_doc></class>
+	<class path="Hash" params="T" file="/opt/haxe/std/Hash.hx">
+		<implements path="php.IteratorAggregate"><c path="Hash.T"/></implements>
+		<h><c path="ArrayAccess"><c path="Hash.T"/></c></h>
+		<set public="1" set="method" line="63">
+			<f a="key:value">
+				<c path="String"/>
+				<c path="Hash.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Set a value for the given key.
+	</haxe_doc>
+		</set>
+		<get public="1" set="method" line="80">
+			<f a="key">
+				<c path="String"/>
+				<t path="Null"><c path="Hash.T"/></t>
+			</f>
+			<haxe_doc>
+		Get a value for the given key.
+	</haxe_doc>
+		</get>
+		<exists public="1" set="method" line="102">
+			<f a="key">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if a value exists for the given key.
+		In particular, it's useful to tells if a key has
+		a [null] value versus no value.
+	</haxe_doc>
+		</exists>
+		<remove public="1" set="method" line="133">
+			<f a="key">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Removes a hashtable entry. Returns [true] if
+		there was such entry.
+	</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="165">
+			<f a=""><t path="Iterator"><c path="String"/></t></f>
+			<haxe_doc>
+		Returns an iterator of all keys in the hashtable.
+	</haxe_doc>
+		</keys>
+		<iterator public="1" set="method" line="195">
+			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
+			<haxe_doc>
+		Returns an iterator of all values in the hashtable.
+	</haxe_doc>
+		</iterator>
+		<toString public="1" set="method" line="240">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns an displayable representation of the hashtable content.
+	</haxe_doc>
+		</toString>
+		<getIterator set="method" line="259">
+			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
+			<haxe_doc>
+		Implement IteratorAggregate for native php iteration
+	</haxe_doc>
+		</getIterator>
+		<new public="1" set="method" line="38">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Creates a new empty hashtable.
+	</haxe_doc>
+		</new>
+		<haxe_doc>
+	Hashtable over a set of elements, using [String] as keys.
+	Other kind of keys are not possible on all platforms since they
+	can't always be implemented efficiently.
+</haxe_doc>
+	</class>
+	<class path="php.db.Manager" params="T" file="/opt/haxe/std/php/db/Manager.hx">
+		<cnx public="1" set="setConnection" static="1"><c path="php.db.Connection"/></cnx>
+		<object_cache line="38" static="1"><c path="Hash"><c path="php.db.Object"/></c></object_cache>
+		<cache_field line="39" static="1"><c path="String"/></cache_field>
+		<FOR_UPDATE line="40" static="1"><c path="String"/></FOR_UPDATE>
+		<managers public="1" line="42" static="1"><c path="Hash"><c path="php.db.Manager"><d/></c></c></managers>
+		<setConnection set="dynamic" line="44" static="1"><f a="c">
+	<c path="php.db.Connection"/>
+	<c path="php.db.Connection"/>
+</f></setConnection>
+		<initialize public="1" set="method" line="440" static="1">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+	* Left for compability with neko SPOD
+	</haxe_doc>
+		</initialize>
+		<cleanup public="1" set="method" line="444" static="1"><f a=""><e path="Void"/></f></cleanup>
+		<table_name><c path="String"/></table_name>
+		<table_fields><c path="List"><c path="String"/></c></table_fields>
+		<table_keys><c path="Array"><c path="String"/></c></table_keys>
+		<cls><d/></cls>
+		<get public="1" set="method" line="116"><f a="id:?lock">
+	<c path="Int"/>
+	<e path="Bool"/>
+	<c path="php.db.Manager.T"/>
+</f></get>
+		<getWithKeys public="1" set="method" line="138"><f a="keys:?lock">
+	<a/>
+	<e path="Bool"/>
+	<c path="php.db.Manager.T"/>
+</f></getWithKeys>
+		<delete public="1" set="method" line="154"><f a="x">
+	<a/>
+	<e path="Void"/>
+</f></delete>
+		<search public="1" set="method" line="163"><f a="x:?lock">
+	<a/>
+	<e path="Bool"/>
+	<c path="List"><c path="php.db.Manager.T"/></c>
+</f></search>
+		<addCondition set="method" line="176"><f a="s:x">
+	<c path="StringBuf"/>
+	<a/>
+	<e path="Void"/>
+</f></addCondition>
+		<all public="1" set="method" line="197"><f a="?lock">
+	<e path="Bool"/>
+	<c path="List"><c path="php.db.Manager.T"/></c>
+</f></all>
+		<count public="1" set="method" line="203"><f a="?x">
+	<a/>
+	<c path="Int"/>
+</f></count>
+		<quote public="1" set="method" line="212"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></quote>
+		<result public="1" set="method" line="216"><f a="sql">
+	<c path="String"/>
+	<d/>
+</f></result>
+		<results public="1" params="T" set="method" line="220"><f a="sql">
+	<c path="String"/>
+	<c path="List"><c path="results.T"/></c>
+</f></results>
+		<doInsert set="method" line="226"><f a="x">
+	<c path="php.db.Manager.T"/>
+	<e path="Void"/>
+</f></doInsert>
+		<doUpdate set="method" line="259"><f a="x">
+	<c path="php.db.Manager.T"/>
+	<e path="Void"/>
+</f></doUpdate>
+		<doDelete set="method" line="288"><f a="x">
+	<c path="php.db.Manager.T"/>
+	<e path="Void"/>
+</f></doDelete>
+		<doSync set="method" line="298"><f a="i">
+	<c path="php.db.Manager.T"/>
+	<e path="Void"/>
+</f></doSync>
+		<objectToString set="method" line="312"><f a="it">
+	<c path="php.db.Manager.T"/>
+	<c path="String"/>
+</f></objectToString>
+		<cacheObject set="method" line="337"><f a="x:lock">
+	<c path="php.db.Manager.T"/>
+	<e path="Bool"/>
+	<c path="php.db.Manager.T"/>
+</f></cacheObject>
+		<make set="method" line="350"><f a="x">
+	<c path="php.db.Manager.T"/>
+	<e path="Void"/>
+</f></make>
+		<unmake set="method" line="353"><f a="x">
+	<c path="php.db.Manager.T"/>
+	<e path="Void"/>
+</f></unmake>
+		<quoteField set="method" line="356"><f a="f">
+	<c path="String"/>
+	<c path="String"/>
+</f></quoteField>
+		<addKeys set="method" line="363"><f a="s:x">
+	<c path="StringBuf"/>
+	<a/>
+	<e path="Void"/>
+</f></addKeys>
+		<execute set="method" line="379"><f a="sql">
+	<c path="String"/>
+	<c path="php.db.ResultSet"/>
+</f></execute>
+		<select set="method" line="383"><f a="cond">
+	<c path="String"/>
+	<c path="String"/>
+</f></select>
+		<selectReadOnly set="method" line="393"><f a="cond">
+	<c path="String"/>
+	<c path="String"/>
+</f></selectReadOnly>
+		<object public="1" set="method" line="402"><f a="sql:lock">
+	<c path="String"/>
+	<e path="Bool"/>
+	<c path="php.db.Manager.T"/>
+</f></object>
+		<objects public="1" set="method" line="414"><f a="sql:lock">
+	<c path="String"/>
+	<e path="Bool"/>
+	<c path="List"><c path="php.db.Manager.T"/></c>
+</f></objects>
+		<dbClass public="1" set="method" line="431"><f a=""><c path="Class"><d/></c></f></dbClass>
+		<initRelation set="method" line="448"><f a="o:r">
+	<d/>
+	<a>
+		<prop><c path="String"/></prop>
+		<manager><c path="php.db.Manager"><c path="php.db.Object"/></c></manager>
+		<lock><e path="Bool"/></lock>
+		<key><c path="String"/></key>
+	</a>
+	<e path="Void"/>
+</f></initRelation>
+		<makeCacheKey set="method" line="467"><f a="x">
+	<c path="php.db.Manager.T"/>
+	<c path="String"/>
+</f></makeCacheKey>
+		<addToCache set="method" line="486"><f a="x">
+	<c path="php.db.Manager.T"/>
+	<e path="Void"/>
+</f></addToCache>
+		<getFromCache set="method" line="490"><f a="x:lock">
+	<c path="php.db.Manager.T"/>
+	<e path="Bool"/>
+	<c path="php.db.Manager.T"/>
+</f></getFromCache>
+		<new public="1" set="method" line="57"><f a="classval">
+	<c path="Class"><c path="php.db.Object"/></c>
+	<e path="Void"/>
+</f></new>
+		<haxe_doc>
+	SPOD Manager : the persistent object database manager. See the tutorial on
+	haXe website to learn how to use SPOD.
+</haxe_doc>
+	</class>
 	<class path="String" params="" file="/opt/haxe/std/String.hx" extern="1">
 		<fromCharCode public="1" set="method" static="1"><f a="code">
 	<c path="Int"/>
@@ -2274,85 +2657,6 @@ This class is called on most page requests.
 	<c path="Int"/>
 	<e path="Void"/>
 </f></new>
-	</class>
-	<class path="Hash" params="T" file="/opt/haxe/std/Hash.hx">
-		<implements path="php.IteratorAggregate"><c path="Hash.T"/></implements>
-		<h><c path="ArrayAccess"><c path="Hash.T"/></c></h>
-		<set public="1" set="method" line="63">
-			<f a="key:value">
-				<c path="String"/>
-				<c path="Hash.T"/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Set a value for the given key.
-	</haxe_doc>
-		</set>
-		<get public="1" set="method" line="80">
-			<f a="key">
-				<c path="String"/>
-				<t path="Null"><c path="Hash.T"/></t>
-			</f>
-			<haxe_doc>
-		Get a value for the given key.
-	</haxe_doc>
-		</get>
-		<exists public="1" set="method" line="102">
-			<f a="key">
-				<c path="String"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Tells if a value exists for the given key.
-		In particular, it's useful to tells if a key has
-		a [null] value versus no value.
-	</haxe_doc>
-		</exists>
-		<remove public="1" set="method" line="133">
-			<f a="key">
-				<c path="String"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Removes a hashtable entry. Returns [true] if
-		there was such entry.
-	</haxe_doc>
-		</remove>
-		<keys public="1" set="method" line="165">
-			<f a=""><t path="Iterator"><c path="String"/></t></f>
-			<haxe_doc>
-		Returns an iterator of all keys in the hashtable.
-	</haxe_doc>
-		</keys>
-		<iterator public="1" set="method" line="195">
-			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
-			<haxe_doc>
-		Returns an iterator of all values in the hashtable.
-	</haxe_doc>
-		</iterator>
-		<toString public="1" set="method" line="240">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>
-		Returns an displayable representation of the hashtable content.
-	</haxe_doc>
-		</toString>
-		<getIterator set="method" line="259">
-			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
-			<haxe_doc>
-		Implement IteratorAggregate for native php iteration
-	</haxe_doc>
-		</getIterator>
-		<new public="1" set="method" line="38">
-			<f a=""><e path="Void"/></f>
-			<haxe_doc>
-		Creates a new empty hashtable.
-	</haxe_doc>
-		</new>
-		<haxe_doc>
-	Hashtable over a set of elements, using [String] as keys.
-	Other kind of keys are not possible on all platforms since they
-	can't always be implemented efficiently.
-</haxe_doc>
 	</class>
 	<class path="@Main" params="" file=""><init line="1" static="1"><e path="Void"/></init></class>
 </haxe>
