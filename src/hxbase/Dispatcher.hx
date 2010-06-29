@@ -9,7 +9,9 @@ This class is called on most page requests.
 */
 class Dispatcher
 {
-	
+	/** Takes a request query (usually from the URL) decides
+	which controller class to use, passing any extra parameters
+	to it as necessary. */
 	public static function dispatch(request:String)
 	{
 		// Get the various parts of the input
