@@ -49,19 +49,19 @@ class AppConfig
 	=====================================*/
 	
 	/** The address of the database server.  Usually <i>localhost</i>*/
-	public static var dbServer:String;
+	public static var dbServer:String = "localhost";
 	
 	/** The port of the database server.  Usually <i>3306</i>*/
-	public static var dbPort:Int;
+	public static var dbPort:Int = 3306;
 	
 	/** The name of the database to use */
-	public static var dbDatabase:String;
+	public static var dbDatabase:String = "hxbase";
 	
 	/** The username to use when logging in to the database server */
-	public static var dbUsername:String;
+	public static var dbUsername:String = "hxbase";
 	
 	/** The password to use when logging in to the database server */
-	public static var dbPassword:String;
+	public static var dbPassword:String = "password";
 	
 	/** If you have multiple apps (or versions of apps) on this database,
 	you can specify a table prefix to keep table names from overlapping

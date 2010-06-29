@@ -40,7 +40,7 @@ CREATE TABLE `TodoItem` (
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`,`priority`),
   CONSTRAINT `TodoItem_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,6 +49,7 @@ CREATE TABLE `TodoItem` (
 
 LOCK TABLES `TodoItem` WRITE;
 /*!40000 ALTER TABLE `TodoItem` DISABLE KEYS */;
+INSERT INTO `TodoItem` VALUES (2,1,'Todo number 0','You better get moving before number 1 comes along',5,0.13),(3,1,'Todo number 1','You better get moving before number 2 comes along',5,0.15),(4,1,'Todo number 2','You better get moving before number 3 comes along',5,0.72),(5,1,'Todo number 3','You better get moving before number 4 comes along',5,0.45),(6,1,'Todo number 4','You better get moving before number 5 comes along',5,0.04);
 /*!40000 ALTER TABLE `TodoItem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +66,7 @@ CREATE TABLE `User` (
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,6 +75,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
+INSERT INTO `User` VALUES (1,'jason','5f4dcc3b5aa765d61d8327deb882cf99');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -86,4 +88,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-06-29 16:32:41
+-- Dump completed on 2010-06-29 17:25:37

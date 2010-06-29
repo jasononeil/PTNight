@@ -1,6 +1,9 @@
 import hxbase.Dispatcher;
+import hxbase.DbControl;
 import AppConfig;
-import hxbase.BaseDBModel;
+
+import models.User;
+import models.TodoItem;
 
 class MainApp
 {
@@ -12,12 +15,56 @@ class MainApp
 		
 		trace("Call the dispatcher to figure out what to do...");
 		
-		var params:Hash<Dynamic> = php.Web.getParams();
-		var request:String = params.get("request");
-		Dispatcher.dispatch(request);
+		// Pass control off to the dispatcher, 
+		// (which will find the appropriate Controller)
+		//Dispatcher.dispatch(request);
+		
+		testing();
 		
 		php.Lib.print('</pre>');
 		printStats();
+	}
+	
+	public static function testing()
+	{
+		// Connect
+		DbControl.connect();
+		trace (DbControl.cnx);
+		
+		// Add a user
+		var u = User.manager.search({username:'jason'}).first();
+		if (u == null)
+		{
+			u = new User();
+			u.username = "jason";
+			u.password = haxe.Md5.encode("password");
+			u.insert();
+			trace ('Inserted, id is ' + u.id);
+		}
+		else
+		{
+			trace ('User already there.  Id is ' + u.id);
+		}
+		
+		// Add another todo item to the pile
+		var count = TodoItem.manager.count();
+		var t = new TodoItem();
+		t.userId = u.id; // Fails is it's not valid. Hooray!
+		t.subject = "Todo number " + count;
+		t.text = "You better get moving before number " + (count + 1) + " comes along";
+		t.priority = 5;
+		t.completion = Std.random(100) / 100;
+		t.insert();
+		
+		// And print the list.
+		var todoList = TodoItem.manager.all();
+		for (item in todoList)
+		{
+			trace ("ITEM: " + item.subject);
+		}
+		
+		// End the connection
+		DbControl.close();
 	}
 	
 	public static function printStats()
@@ -29,7 +76,7 @@ class MainApp
 		trace ("Memory usage: " + memory + "kb");
 		#end
 		var executionTime:Float = php.Sys.time() - startTime;
-		trace ("CPU Time: " + executionTime);
+		trace ("Execution Time: " + executionTime);
 		php.Lib.print('</pre>');
 	}
 } 

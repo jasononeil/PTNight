@@ -114,7 +114,7 @@ dt {
 
 <div class="title">HxBase API Documentation</div>
 
-<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>hxbase.BaseDbModel</div><div class="extends">extends <a href="../php/db/Object.html" class="type">php.db.Object</a></div><div class="importmod">import hxbase.BaseDBModel</div><div class="classdoc"><p><b>Conventions</b>
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>hxbase.BaseDbModel</div><div class="extends">extends <a href="../php/db/Object.html" class="type">php.db.Object</a></div><div class="classdoc"><p><b>Conventions</b>
 <br />This model follows a few simple conventions
 <ul>
 	<li>The database details will already be defined in AppConfig.</li>
@@ -142,7 +142,7 @@ Follow these and you'll be off to a good start.</p>
 <ul>
 	<li>You use the manager to perform searches and SELECT statements, basically</li>
 	<li>You'll have to add this line right before the end of your class definition:
-	<br />public static var manager = new php.db.Manager<MyModelName>(MyModelName);</li>
+	<br />public static var manager = new php.db.Manager< MyModelName >(MyModelName);</li>
 </ul></p>
 <p><b>Relationships</b>
 <ul>
