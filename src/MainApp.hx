@@ -60,7 +60,7 @@ class MainApp
 		var todoList = TodoItem.manager.all();
 		for (item in todoList)
 		{
-			trace ("ITEM: " + item.subject);
+			trace ("ITEM: " + item.subject + " " + item.user.username);
 		}
 		
 		// End the connection

@@ -40,7 +40,7 @@ CREATE TABLE `TodoItem` (
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`,`priority`),
   CONSTRAINT `TodoItem_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `User` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +49,7 @@ CREATE TABLE `TodoItem` (
 
 LOCK TABLES `TodoItem` WRITE;
 /*!40000 ALTER TABLE `TodoItem` DISABLE KEYS */;
-INSERT INTO `TodoItem` VALUES (2,1,'Todo number 0','You better get moving before number 1 comes along',5,0.13),(3,1,'Todo number 1','You better get moving before number 2 comes along',5,0.15),(4,1,'Todo number 2','You better get moving before number 3 comes along',5,0.72),(5,1,'Todo number 3','You better get moving before number 4 comes along',5,0.45),(6,1,'Todo number 4','You better get moving before number 5 comes along',5,0.04);
+INSERT INTO `TodoItem` VALUES (11,2,'Todo number 1','You better get moving before number 2 comes along',5,0.53),(12,2,'Todo number 2','You better get moving before number 3 comes along',5,0.42),(13,2,'Todo number 3','You better get moving before number 4 comes along',5,0.31),(14,2,'Todo number 4','You better get moving before number 5 comes along',5,0.75),(15,2,'Todo number 5','You better get moving before number 6 comes along',5,0.94),(16,2,'Todo number 6','You better get moving before number 7 comes along',5,0.93),(17,2,'Todo number 7','You better get moving before number 8 comes along',5,0.87),(18,2,'Todo number 8','You better get moving before number 9 comes along',5,0.85),(19,2,'Todo number 9','You better get moving before number 10 comes along',5,0.63),(20,2,'Todo number 10','You better get moving before number 11 comes along',5,0.53),(21,2,'Todo number 11','You better get moving before number 12 comes along',5,0.4),(22,2,'Todo number 12','You better get moving before number 13 comes along',5,0.2),(23,2,'Todo number 13','You better get moving before number 14 comes along',5,0.33),(24,2,'Todo number 14','You better get moving before number 15 comes along',5,0.86),(25,2,'Todo number 15','You better get moving before number 16 comes along',5,0.81),(26,2,'Todo number 16','You better get moving before number 17 comes along',5,0.63),(27,2,'Todo number 17','You better get moving before number 18 comes along',5,0.97),(28,2,'Todo number 18','You better get moving before number 19 comes along',5,0.96),(29,2,'Todo number 19','You better get moving before number 20 comes along',5,0.03),(30,2,'Todo number 20','You better get moving before number 21 comes along',5,0.18),(31,2,'Todo number 21','You better get moving before number 22 comes along',5,0.48),(32,2,'Todo number 22','You better get moving before number 23 comes along',5,0),(33,2,'Todo number 22','You better get moving before number 23 comes along',5,0.49),(34,2,'Todo number 23','You better get moving before number 24 comes along',5,0.32);
 /*!40000 ALTER TABLE `TodoItem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +66,7 @@ CREATE TABLE `User` (
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +75,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,'jason','5f4dcc3b5aa765d61d8327deb882cf99');
+INSERT INTO `User` VALUES (2,'jason','5f4dcc3b5aa765d61d8327deb882cf99');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -88,4 +88,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-06-29 17:25:37
+-- Dump completed on 2010-06-29 17:50:18

@@ -1316,13 +1316,19 @@ This class is called on most page requests.
 	</class>
 	<class path="models.TodoItem" params="" file="src/models/TodoItem.hx">
 		<extends path="hxbase.BaseDbModel"/>
-		<manager public="1" line="12" static="1"><c path="php.db.Manager"><c path="models.TodoItem"/></c></manager>
+		<RELATIONS set="method" line="14" static="1"><f a=""><c path="Array"><a>
+	<prop><c path="String"/></prop>
+	<manager><c path="php.db.Manager"><c path="models.User"/></c></manager>
+	<key><c path="String"/></key>
+</a></c></f></RELATIONS>
+		<manager public="1" line="20" static="1"><c path="php.db.Manager"><c path="models.TodoItem"/></c></manager>
 		<id public="1"><c path="Int"/></id>
 		<userId public="1"><c path="Int"/></userId>
 		<subject public="1"><c path="String"/></subject>
 		<text public="1"><c path="String"/></text>
 		<priority public="1"><c path="Int"/></priority>
 		<completion public="1"><c path="Float"/></completion>
+		<user public="1" get="get_user" set="set_user"><c path="models.User"/></user>
 		<new public="1" set="method" line="3"><f a=""><e path="Void"/></f></new>
 	</class>
 	<class path="models.User" params="" file="src/models/User.hx">

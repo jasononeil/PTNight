@@ -37,7 +37,7 @@ class MainApp {
 		while($»it->hasNext()) {
 		$item = $»it->next();
 		{
-			haxe_Log::trace("ITEM: " . $item->subject, _hx_anonymous(array("fileName" => "MainApp.hx", "lineNumber" => 63, "className" => "MainApp", "methodName" => "testing")));
+			haxe_Log::trace((("ITEM: " . $item->subject) . " ") . $item->get_user()->username, _hx_anonymous(array("fileName" => "MainApp.hx", "lineNumber" => 63, "className" => "MainApp", "methodName" => "testing")));
 			;
 		}
 		}
