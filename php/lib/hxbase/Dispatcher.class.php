@@ -14,6 +14,16 @@ class hxbase_Dispatcher {
 			$controllerClass = AppConfig::$defaultController;
 		}
 		haxe_Log::trace("We're going to load " . $controllerClass, _hx_anonymous(array("fileName" => "Dispatcher.hx", "lineNumber" => 41, "className" => "hxbase.Dispatcher", "methodName" => "dispatch")));
+		{
+			$_g = 0; $_g1 = Type::getClassFields($controllerClass);
+			while($_g < $_g1->length) {
+				$field = $_g1[$_g];
+				++$_g;
+				haxe_Log::trace("Fields in Class: " . $field, _hx_anonymous(array("fileName" => "Dispatcher.hx", "lineNumber" => 44, "className" => "hxbase.Dispatcher", "methodName" => "dispatch")));
+				unset($field);
+			}
+		}
+		_hx_qtype("Lambda");
 	}
 	static function getRequestParts($request) {
 		if(substr($request, strlen($request) - 1, 1) == "/") {

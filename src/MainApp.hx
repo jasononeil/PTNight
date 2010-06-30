@@ -17,9 +17,10 @@ class MainApp
 		
 		// Pass control off to the dispatcher, 
 		// (which will find the appropriate Controller)
-		//Dispatcher.dispatch(request);
+		var request:String = php.Web.getParams().get("request");
+		Dispatcher.dispatch(request);
 		
-		testing();
+		//testing();
 		
 		php.Lib.print('</pre>');
 		printStats();

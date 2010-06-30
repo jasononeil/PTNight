@@ -303,8 +303,8 @@
 	<class path="MainApp" params="" file="src/MainApp.hx">
 		<startTime public="1" line="10" static="1"><c path="Float"/></startTime>
 		<main public="1" set="method" line="12" static="1"><f a=""><e path="Void"/></f></main>
-		<testing public="1" set="method" line="28" static="1"><f a=""><e path="Void"/></f></testing>
-		<printStats public="1" set="method" line="77" static="1"><f a=""><e path="Void"/></f></printStats>
+		<testing public="1" set="method" line="29" static="1"><f a=""><e path="Void"/></f></testing>
+		<printStats public="1" set="method" line="78" static="1"><f a=""><e path="Void"/></f></printStats>
 	</class>
 	<class path="AppConfig" params="" file="src/AppConfig.hx">
 		<defaultController public="1" line="11" static="1">
@@ -374,6 +374,150 @@ I'm not sure which package this should belong in really...
 </haxe_doc>
 	</class>
 	<class path="php.NativeArray" params="" file="/opt/haxe/std/php/NativeArray.hx" extern="1"/>
+	<class path="StringTools" params="" file="/opt/haxe/std/StringTools.hx">
+		<urlEncode public="1" get="inline" set="null" line="38" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Encode an URL by using the standard format.
+	</haxe_doc>
+		</urlEncode>
+		<urlDecode public="1" get="inline" set="null" line="59" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Decode an URL using the standard format.
+	</haxe_doc>
+		</urlDecode>
+		<htmlEscape public="1" set="method" line="80" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Escape HTML special characters of the string.
+	</haxe_doc>
+		</htmlEscape>
+		<htmlUnescape public="1" get="inline" set="null" line="87" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Unescape HTML special characters of the string.
+	</haxe_doc>
+		</htmlUnescape>
+		<startsWith public="1" set="method" line="98" static="1">
+			<f a="s:start">
+				<c path="String"/>
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if the string [s] starts with the string [start].
+	</haxe_doc>
+		</startsWith>
+		<endsWith public="1" set="method" line="105" static="1">
+			<f a="s:end">
+				<c path="String"/>
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if the string [s] ends with the string [end].
+	</haxe_doc>
+		</endsWith>
+		<isSpace public="1" set="method" line="114" static="1">
+			<f a="s:pos">
+				<c path="String"/>
+				<c path="Int"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if the character in the string [s] at position [pos] is a space.
+	</haxe_doc>
+		</isSpace>
+		<ltrim public="1" get="inline" set="null" line="122" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Removes spaces at the left of the String [s].
+	</haxe_doc>
+		</ltrim>
+		<rtrim public="1" get="inline" set="null" line="141" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Removes spaces at the right of the String [s].
+	</haxe_doc>
+		</rtrim>
+		<trim public="1" get="inline" set="null" line="161" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Removes spaces at the beginning and the end of the String [s].
+	</haxe_doc>
+		</trim>
+		<rpad public="1" get="inline" set="null" line="172" static="1">
+			<f a="s:c:l">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Pad the string [s] by appending [c] at its right until it reach [l] characters.
+	</haxe_doc>
+		</rpad>
+		<lpad public="1" get="inline" set="null" line="194" static="1">
+			<f a="s:c:l">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Pad the string [s] by appending [c] at its left until it reach [l] characters.
+	</haxe_doc>
+		</lpad>
+		<replace public="1" get="inline" set="null" line="219" static="1">
+			<f a="s:sub:by">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Replace all occurences of the string [sub] in the string [s] by the string [by].
+	</haxe_doc>
+		</replace>
+		<hex public="1" set="method" line="230" static="1">
+			<f a="n:?digits">
+				<c path="Int"/>
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Encode a number into a hexadecimal representation, with an optional number of zeros for left padding.
+	</haxe_doc>
+		</hex>
+		<haxe_doc>
+	The StringTools class contains some extra functionalities for [String]
+	manipulation. It's stored in a different class in order to prevent
+	the standard [String] of being bloated and thus increasing the size of
+	each application using it.
+</haxe_doc>
+	</class>
 	<class path="php.db._Mysql.MysqlConnection" params="" file="/opt/haxe/std/php/db/Mysql.hx" private="1" module="php.db.Mysql">
 		<implements path="php.db.Connection"/>
 		<c><e path="Void"/></c>
@@ -1045,7 +1189,7 @@ because that's what all this is based on.
 	which controller class to use, passing any extra parameters
 	to it as necessary. </haxe_doc>
 		</dispatch>
-		<getRequestParts set="method" line="44" static="1"><f a="request">
+		<getRequestParts set="method" line="49" static="1"><f a="request">
 	<c path="String"/>
 	<c path="Array"><c path="String"/></c>
 </f></getRequestParts>
@@ -1380,7 +1524,7 @@ This class is called on most page requests.
 	</class>
 	<class path="models.User" params="" file="src/models/User.hx">
 		<extends path="hxbase.BaseDbModel"/>
-		<manager public="1" line="16" static="1"><c path="php.db.Manager"><c path="models.User"/></c></manager>
+		<manager public="1" line="18" static="1"><c path="php.db.Manager"><c path="models.User"/></c></manager>
 		<id public="1"><c path="Int"/></id>
 		<username public="1"><c path="String"/></username>
 		<password public="1"><c path="String"/></password>
@@ -1523,6 +1667,287 @@ This class is called on most page requests.
 	Integer iterator. Used for interval implementation.
 </haxe_doc>
 	</class>
+	<class path="php.Lib" params="" file="/opt/haxe/std/php/Lib.hx">
+		<print public="1" set="method" line="7" static="1">
+			<f a="v">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Print the specified value on the default output.
+	</haxe_doc>
+		</print>
+		<println public="1" set="method" line="14" static="1">
+			<f a="v">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Print the specified value on the default output followed by a newline character.
+	</haxe_doc>
+		</println>
+		<dump public="1" set="method" line="19" static="1"><f a="v">
+	<d/>
+	<e path="Void"/>
+</f></dump>
+		<serialize public="1" set="method" line="27" static="1">
+			<f a="v">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Serialize using native PHP serialization. This will return a Binary string that can be
+		stored for long term usage.
+	</haxe_doc>
+		</serialize>
+		<unserialize public="1" set="method" line="34" static="1">
+			<f a="s">
+				<c path="String"/>
+				<d/>
+			</f>
+			<haxe_doc>
+		Unserialize a string using native PHP serialization. See [serialize].
+	</haxe_doc>
+		</unserialize>
+		<extensionLoaded public="1" set="method" line="38" static="1"><f a="name">
+	<c path="String"/>
+	<unknown/>
+</f></extensionLoaded>
+		<isCli public="1" set="method" line="42" static="1"><f a=""><e path="Bool"/></f></isCli>
+		<printFile public="1" set="method" line="46" static="1"><f a="file">
+	<c path="String"/>
+	<unknown/>
+</f></printFile>
+		<toPhpArray public="1" get="inline" set="null" line="50" static="1"><f a="a">
+	<c path="Array"><d/></c>
+	<c path="php.NativeArray"/>
+</f></toPhpArray>
+		<toHaxeArray public="1" get="inline" set="null" line="54" static="1"><f a="a">
+	<c path="php.NativeArray"/>
+	<c path="Array"><d/></c>
+</f></toHaxeArray>
+		<hashOfAssociativeArray public="1" params="T" set="method" line="58" static="1"><f a="arr">
+	<c path="php.NativeArray"/>
+	<c path="Hash"><c path="hashOfAssociativeArray.T"/></c>
+</f></hashOfAssociativeArray>
+		<associativeArrayOfHash public="1" set="method" line="64" static="1"><f a="hash">
+	<c path="Hash"><d/></c>
+	<c path="php.NativeArray"/>
+</f></associativeArrayOfHash>
+		<rethrow public="1" get="inline" set="null" line="71" static="1">
+			<f a="e">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		For neko compatibility only.
+	</haxe_doc>
+		</rethrow>
+		<appendType set="method" line="80" static="1"><f a="o:path:t">
+	<d/>
+	<c path="Array"><c path="String"/></c>
+	<d/>
+	<e path="Void"/>
+</f></appendType>
+		<getClasses public="1" set="method" line="91" static="1"><f a=""><a/></f></getClasses>
+	</class>
+	<class path="php.Web" params="" file="/opt/haxe/std/php/Web.hx">
+		<getParams public="1" set="method" line="12" static="1">
+			<f a=""><c path="Hash"><c path="String"/></c></f>
+			<haxe_doc>
+		Returns the GET and POST parameters.
+	</haxe_doc>
+		</getParams>
+		<getParamValues public="1" set="method" line="40" static="1">
+			<f a="param">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Returns an Array of Strings built using GET / POST values.
+		If you have in your URL the parameters [a[]=foo;a[]=hello;a[5]=bar;a[3]=baz] then
+		[php.Web.getParamValues("a")] will return [["foo","hello",null,"baz",null,"bar"]]
+	</haxe_doc>
+		</getParamValues>
+		<getHostName public="1" get="inline" set="null" line="79" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns the local server host name
+	</haxe_doc>
+		</getHostName>
+		<getClientIP public="1" get="inline" set="null" line="86" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Surprisingly returns the client IP address.
+	</haxe_doc>
+		</getClientIP>
+		<getURI public="1" set="method" line="93" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns the original request URL (before any server internal redirections)
+	</haxe_doc>
+		</getURI>
+		<redirect public="1" set="method" line="101" static="1">
+			<f a="url">
+				<c path="String"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Tell the client to redirect to the given url ("Location" header)
+	</haxe_doc>
+		</redirect>
+		<setHeader public="1" get="inline" set="null" line="109" static="1">
+			<f a="h:v">
+				<c path="String"/>
+				<c path="String"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Set an output header value. If some data have been printed, the headers have
+		already been sent so this will raise an exception.
+	</haxe_doc>
+		</setHeader>
+		<setReturnCode public="1" set="method" line="117" static="1">
+			<f a="r">
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Set the HTTP return code. Same remark as setHeader.
+		See status code explanation here: http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+	</haxe_doc>
+		</setReturnCode>
+		<getClientHeader public="1" set="method" line="168" static="1">
+			<f a="k">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Retrieve a client header value sent with the request.
+	</haxe_doc>
+		</getClientHeader>
+		<_client_headers static="1"><c path="List"><a>
+	<value><c path="String"/></value>
+	<header><c path="String"/></header>
+</a></c></_client_headers>
+		<getClientHeaders public="1" set="method" line="183" static="1">
+			<f a=""><c path="List"><a>
+	<value><c path="String"/></value>
+	<header><c path="String"/></header>
+</a></c></f>
+			<haxe_doc>
+		Retrieve all the client headers.
+	</haxe_doc>
+		</getClientHeaders>
+		<getParamsString public="1" get="inline" set="null" line="199" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns all the GET parameters String
+	</haxe_doc>
+		</getParamsString>
+		<getPostData public="1" set="method" line="211" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns all the POST data. POST Data is always parsed as
+		being application/x-www-form-urlencoded and is stored into
+		the getParams hashtable. POST Data is maximimized to 256K
+		unless the content type is multipart/form-data. In that
+		case, you will have to use [getMultipart] or [parseMultipart]
+		methods.
+	</haxe_doc>
+		</getPostData>
+		<getCookies public="1" set="method" line="229" static="1">
+			<f a=""><c path="Hash"><unknown/></c></f>
+			<haxe_doc>
+		Returns an hashtable of all Cookies sent by the client.
+		Modifying the hashtable will not modify the cookie, use setCookie instead.
+	</haxe_doc>
+		</getCookies>
+		<setCookie public="1" set="method" line="237" static="1">
+			<f a="key:value:?expire:?domain:?path:?secure">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="Date"/>
+				<c path="String"/>
+				<c path="String"/>
+				<e path="Bool"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Set a Cookie value in the HTTP headers. Same remark as setHeader.
+	</haxe_doc>
+		</setCookie>
+		<addPair set="method" line="245" static="1"><f a="name:value">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="String"/>
+</f></addPair>
+		<getAuthorization public="1" set="method" line="253" static="1">
+			<f a=""><a>
+	<user><c path="String"/></user>
+	<pass><c path="String"/></pass>
+</a></f>
+			<haxe_doc>
+		Returns an object with the authorization sent by the client (Basic scheme only).
+	</haxe_doc>
+		</getAuthorization>
+		<getCwd public="1" get="inline" set="null" line="262" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Get the current script directory in the local filesystem.
+	</haxe_doc>
+		</getCwd>
+		<getMultipart public="1" set="method" line="270" static="1">
+			<f a="maxSize">
+				<c path="Int"/>
+				<c path="Hash"><c path="String"/></c>
+			</f>
+			<haxe_doc>
+		Get the multipart parameters as an hashtable. The data
+		cannot exceed the maximum size specified.
+	</haxe_doc>
+		</getMultipart>
+		<parseMultipart public="1" set="method" line="299" static="1">
+			<f a="onPart:onData">
+				<f a=":">
+					<c path="String"/>
+					<c path="String"/>
+					<e path="Void"/>
+				</f>
+				<f a="::">
+					<c path="String"/>
+					<c path="Int"/>
+					<c path="Int"/>
+					<e path="Void"/>
+				</f>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Parse the multipart data. Call [onPart] when a new part is found
+		with the part name and the filename if present
+		and [onData] when some part data is readed. You can this way
+		directly save the data on hard drive in the case of a file upload.
+	</haxe_doc>
+		</parseMultipart>
+		<flush public="1" get="inline" set="null" line="335" static="1">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Flush the data sent to the client. By default on Apache, outgoing data is buffered so
+		this can be useful for displaying some long operation progress.
+	</haxe_doc>
+		</flush>
+		<getMethod public="1" set="method" line="342" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Get the HTTP method used by the client.
+	</haxe_doc>
+		</getMethod>
+		<isModNeko public="1" set="null" static="1"><e path="Bool"/></isModNeko>
+		<haxe_doc>
+	This class is used for accessing the local Web server and the current
+	client request and informations.
+</haxe_doc>
+	</class>
 	<class path="Std" params="" file="/opt/haxe/std/Std.hx">
 		<is public="1" set="method" line="34" static="1">
 			<f a="v:t">
@@ -1637,6 +2062,162 @@ This class is called on most page requests.
 	ArrayAccess is used to indicate a class that can be accessed using brackets.
 	The type parameter represent the type of the elements stored.
 </haxe_doc></class>
+	<class path="Lambda" params="" file="/opt/haxe/std/Lambda.hx">
+		<array public="1" params="A" set="method" line="35" static="1">
+			<f a="it">
+				<t path="Iterable"><c path="array.A"/></t>
+				<c path="Array"><c path="array.A"/></c>
+			</f>
+			<haxe_doc>
+		Creates an [Array] from an [Iterable]
+	</haxe_doc>
+		</array>
+		<list public="1" params="A" set="method" line="48" static="1">
+			<f a="it">
+				<t path="Iterable"><c path="list.A"/></t>
+				<c path="List"><c path="list.A"/></c>
+			</f>
+			<haxe_doc>
+		Creates a [List] from an [Iterable]
+	</haxe_doc>
+		</list>
+		<map public="1" params="A:B" set="method" line="62" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="map.A"/></t>
+				<f a="">
+					<c path="map.A"/>
+					<c path="map.B"/>
+				</f>
+				<c path="List"><c path="map.B"/></c>
+			</f>
+			<haxe_doc>
+		Creates a new [Iterable] by appling the function 'f' to all
+		elements of the iterator 'it'.
+	</haxe_doc>
+		</map>
+		<mapi public="1" params="A:B" set="method" line="75" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="mapi.A"/></t>
+				<f a=":">
+					<c path="Int"/>
+					<c path="mapi.A"/>
+					<c path="mapi.B"/>
+				</f>
+				<c path="List"><c path="mapi.B"/></c>
+			</f>
+			<haxe_doc>
+		Similar to [map], but also pass an index for each item iterated.
+	</haxe_doc>
+		</mapi>
+		<has public="1" params="A" set="method" line="93" static="1">
+			<f a="it:elt:?cmp">
+				<t path="Iterable"><c path="has.A"/></t>
+				<c path="has.A"/>
+				<f a=":">
+					<c path="has.A"/>
+					<c path="has.A"/>
+					<e path="Bool"/>
+				</f>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if the element is part of an iterable. The comparison
+		is made using the [==] operator. Optionally you can pass as
+		a third parameter a function that performs the comparison.
+		That function must take as arguments the two items to
+		compare and returns a boolean value.
+	</haxe_doc>
+		</has>
+		<exists public="1" params="A" set="method" line="112" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="exists.A"/></t>
+				<f a="">
+					<c path="exists.A"/>
+					<e path="Bool"/>
+				</f>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if at least one element of the iterable is found by using the specific function.
+	</haxe_doc>
+		</exists>
+		<foreach public="1" params="A" set="method" line="125" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="foreach.A"/></t>
+				<f a="">
+					<c path="foreach.A"/>
+					<e path="Bool"/>
+				</f>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if all elements of the iterable have the specified property defined by [f].
+	</haxe_doc>
+		</foreach>
+		<iter public="1" params="A" set="method" line="138" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="iter.A"/></t>
+				<f a="">
+					<c path="iter.A"/>
+					<e path="Void"/>
+				</f>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Call the function 'f' on all elements of the [Iterable] 'it'.
+	</haxe_doc>
+		</iter>
+		<filter public="1" params="A" set="method" line="149" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="filter.A"/></t>
+				<f a="">
+					<c path="filter.A"/>
+					<e path="Bool"/>
+				</f>
+				<c path="List"><c path="filter.A"/></c>
+			</f>
+			<haxe_doc>
+		Return the list of elements matching the function 'f'
+	</haxe_doc>
+		</filter>
+		<fold public="1" params="A:B" set="method" line="163" static="1">
+			<f a="it:f:first">
+				<t path="Iterable"><c path="fold.A"/></t>
+				<f a=":">
+					<c path="fold.A"/>
+					<c path="fold.B"/>
+					<c path="fold.B"/>
+				</f>
+				<c path="fold.B"/>
+				<c path="fold.B"/>
+			</f>
+			<haxe_doc>
+		Functional 'fold' using an [Iterable]
+	</haxe_doc>
+		</fold>
+		<count public="1" params="A" set="method" line="175" static="1">
+			<f a="it">
+				<t path="Iterable"><c path="count.A"/></t>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Count the number of elements in an [Iterable]
+	</haxe_doc>
+		</count>
+		<empty public="1" set="method" line="188" static="1">
+			<f a="it">
+				<t path="Iterable"><d/></t>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if an iterable does not contain any element.
+	</haxe_doc>
+		</empty>
+		<haxe_doc>
+	The [Lambda] class is a collection of functional methods in order to
+	use functional-style programming with haXe.
+</haxe_doc>
+	</class>
 	<class path="hxbase.DbControl" params="" file="src/hxbase/DbControl.hx">
 		<cnx public="1" line="5" static="1"><c path="php.db.Connection"/></cnx>
 		<connect public="1" set="method" line="7" static="1"><f a=""><e path="Void"/></f></connect>
@@ -1778,90 +2359,6 @@ This class is called on most page requests.
 	that are chained together. It's optimized so that adding or removing an
 	element doesn't imply to copy the whole array content everytime.
 </haxe_doc>
-	</class>
-	<class path="php.Lib" params="" file="/opt/haxe/std/php/Lib.hx">
-		<print public="1" set="method" line="7" static="1">
-			<f a="v">
-				<d/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Print the specified value on the default output.
-	</haxe_doc>
-		</print>
-		<println public="1" set="method" line="14" static="1">
-			<f a="v">
-				<d/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Print the specified value on the default output followed by a newline character.
-	</haxe_doc>
-		</println>
-		<dump public="1" set="method" line="19" static="1"><f a="v">
-	<d/>
-	<e path="Void"/>
-</f></dump>
-		<serialize public="1" set="method" line="27" static="1">
-			<f a="v">
-				<d/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Serialize using native PHP serialization. This will return a Binary string that can be
-		stored for long term usage.
-	</haxe_doc>
-		</serialize>
-		<unserialize public="1" set="method" line="34" static="1">
-			<f a="s">
-				<c path="String"/>
-				<d/>
-			</f>
-			<haxe_doc>
-		Unserialize a string using native PHP serialization. See [serialize].
-	</haxe_doc>
-		</unserialize>
-		<extensionLoaded public="1" set="method" line="38" static="1"><f a="name">
-	<c path="String"/>
-	<unknown/>
-</f></extensionLoaded>
-		<isCli public="1" set="method" line="42" static="1"><f a=""><e path="Bool"/></f></isCli>
-		<printFile public="1" set="method" line="46" static="1"><f a="file">
-	<c path="String"/>
-	<unknown/>
-</f></printFile>
-		<toPhpArray public="1" get="inline" set="null" line="50" static="1"><f a="a">
-	<c path="Array"><d/></c>
-	<c path="php.NativeArray"/>
-</f></toPhpArray>
-		<toHaxeArray public="1" get="inline" set="null" line="54" static="1"><f a="a">
-	<c path="php.NativeArray"/>
-	<c path="Array"><d/></c>
-</f></toHaxeArray>
-		<hashOfAssociativeArray public="1" params="T" set="method" line="58" static="1"><f a="arr">
-	<c path="php.NativeArray"/>
-	<c path="Hash"><c path="hashOfAssociativeArray.T"/></c>
-</f></hashOfAssociativeArray>
-		<associativeArrayOfHash public="1" set="method" line="64" static="1"><f a="hash">
-	<c path="Hash"><d/></c>
-	<c path="php.NativeArray"/>
-</f></associativeArrayOfHash>
-		<rethrow public="1" get="inline" set="null" line="71" static="1">
-			<f a="e">
-				<d/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		For neko compatibility only.
-	</haxe_doc>
-		</rethrow>
-		<appendType set="method" line="80" static="1"><f a="o:path:t">
-	<d/>
-	<c path="Array"><c path="String"/></c>
-	<d/>
-	<e path="Void"/>
-</f></appendType>
-		<getClasses public="1" set="method" line="91" static="1"><f a=""><a/></f></getClasses>
 	</class>
 	<class path="php.PhpDate__" params="" file="/opt/haxe/std/php/PhpDate__.hx">
 		<__name__ line="29" static="1"><c path="Array"><c path="String"/></c></__name__>
