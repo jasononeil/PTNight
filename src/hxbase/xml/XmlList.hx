@@ -4,8 +4,8 @@ the same functions as XmlNode, which will now apply to all items in the
 list.  Pretty neato hey!
 ***********************************************************************/
 
-package jasononeil.xml;
-import jasononeil.xml.XmlNode;
+package hxbase.xml;
+import hxbase.xml.XmlNode;
 
 class XmlList extends List<XmlNode>
 {

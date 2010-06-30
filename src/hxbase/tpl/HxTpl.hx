@@ -35,33 +35,16 @@ Next
 ***********************************************************************/
 
 
-package jasononeil.tpl;
+package hxbase.tpl;
 
-#if neko
-import neko.Lib;
-import neko.io.File;
-#elseif php
 import php.Lib;
 import php.io.File;
-#end
 import haxe.xml.Fast;
 import StringTools;
 
-import jasononeil.xml.XmlNode;
-import jasononeil.xml.XmlList;
+import hxbase.xml.XmlNode;
+import hxbase.xml.XmlList;
 
-/**
- * A base Singleton [IFacade] implementation.
- * 
- * <p>In PureMVC, the [Facade] class assumes these 
- * responsibilities:</p>
- * <ul>
- * <li>Initializing the [Model], [View] and [Controller] Singletons.</li> 
- * <li>Providing all the methods defined by the [IModel, IView, & IController] interfaces.</li>
- * <li>Providing the ability to override the specific [Model], [View] and [Controller] Singletons created.</li> 
- * <li>Providing a single point of contact to the application for registering [Commands] and notifying [Observers]</li>
- * </ul>
- */
 class HxTpl
 {
 	private var templateString:String;

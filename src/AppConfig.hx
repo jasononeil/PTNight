@@ -8,7 +8,7 @@ class AppConfig
 	App config
 	=====================================*/
 	/** Default Controller */
-	public static var defaultController:Class<Dynamic> = MainApp;
+	public static var defaultController:Class<Dynamic> = hxbase.BaseController;
 	
 	/*=====================================
 	Filesystem / URL config

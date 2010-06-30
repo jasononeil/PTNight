@@ -2,9 +2,9 @@
 
 class hxbase_BaseController {
 	public function __construct($args) {
-		;
-		;
-	}
+		if( !php_Boot::$skip_constructor ) {
+		hxbase_Log::error("This is where you're up to", _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 20, "className" => "hxbase.BaseController", "methodName" => "new")));
+	}}
 	public $isCacheable;
 	public $output;
 	public function toString() {

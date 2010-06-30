@@ -1,5 +1,8 @@
 package hxbase;
 
+// Import all of our controllers here...
+import hxbase.BaseController;
+
 /**
 The Dispatcher class is responsible for deciding which
 Controller class is being requested and which action 
@@ -23,11 +26,13 @@ class Dispatcher
 		// See if mysite is a controller
 		trace ("Seeing if " + firstPart + " is a controller");
 		var controllerClass = Type.resolveClass(firstPart);
+		
 		if (controllerClass != null)
 		{
 			// We have the Controller class, so git rid of that
 			// from our list of parameters.
 			parts.shift();
+			trace ("Apparently it is...");
 		}
 		else
 		{

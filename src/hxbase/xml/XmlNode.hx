@@ -35,11 +35,11 @@
 //  And one day it'll be worth testing this on other platforms, particularly JS.  Flash also.  Not sure about neko/cpp
 //
 
-package jasononeil.xml;
+package hxbase.xml;
 import Xml;
 import haxe.xml.Fast;
-import jasononeil.xml.XmlList;
-import jasononeil.util.Misc;
+import hxbase.xml.XmlList;
+import hxbase.Log;
 
 class XmlNode
 {
@@ -385,7 +385,7 @@ trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/he
 		}
 		
 		// clear the whitespace (should make this optional.  especially considering it's probably dodgy)
-		this.clearWhitespace();
+		this.clearWhitespace(); 
 	}
 	
 	/*
@@ -413,9 +413,9 @@ trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/he
 		
 		returnObj = (this.isDocument) ? parsedObj : parsedObj.firstChild;
 		
-		Misc.assert (this.type == returnObj.type, "The duplicate object doesn't have the same type, when it should.");
-		Misc.assert (this.numChildren == returnObj.numChildren, "The duplicate object has less children than the original.");
-		Misc.assert (this.name == returnObj.name, "The duplicate object has a different name property to the original.");
+		Log.assert (this.type == returnObj.type, "The duplicate object doesn't have the same type, when it should.");
+		Log.assert (this.numChildren == returnObj.numChildren, "The duplicate object has less children than the original.");
+		Log.assert (this.name == returnObj.name, "The duplicate object has a different name property to the original.");
 		
 		return returnObj;
 	}
@@ -1120,7 +1120,7 @@ trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/he
 		if (this.xml.parent == otherNode.xml.parent)
 		{
 			// check if it's before or after
-			if (this.index < otherNode.index)
+			if (otherNode.index > this.index)
 			{
 				// lower index means this one comes before the otherNode, therefore
 				positionOfOtherNode = XmlNodePosition.FOLLOWING;
@@ -1154,7 +1154,7 @@ trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/he
 				var isOtherNodeDeeperThanThis:Bool;
 				var thisDepth:Int = this.depth;
 				var otherDepth:Int = otherNode.depth;
-				isOtherNodeDeeperThanThis = (thisDepth < otherDepth);
+				isOtherNodeDeeperThanThis = (otherDepth > thisDepth);
 				
 				if (isOtherNodeDeeperThanThis)
 				{

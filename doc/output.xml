@@ -3,6 +3,89 @@
 	An abstract type that represents an Enum.
 	See [Type] for the haXe Reflection API.
 </haxe_doc></class>
+	<class path="haxe.xml._Fast.NodeAccess" params="" file="/opt/haxe/std/haxe/xml/Fast.hx" private="1" module="haxe.xml.Fast">
+		<__x><c path="Xml"/></__x>
+		<resolve public="1" set="method" line="35"><f a="name">
+	<c path="String"/>
+	<c path="haxe.xml.Fast"/>
+</f></resolve>
+		<new public="1" set="method" line="31"><f a="x">
+	<c path="Xml"/>
+	<e path="Void"/>
+</f></new>
+		<haxe_dynamic><c path="haxe.xml.Fast"/></haxe_dynamic>
+	</class>
+	<class path="haxe.xml._Fast.AttribAccess" params="" file="/opt/haxe/std/haxe/xml/Fast.hx" private="1" module="haxe.xml.Fast">
+		<__x><c path="Xml"/></__x>
+		<resolve public="1" set="method" line="54"><f a="name">
+	<c path="String"/>
+	<c path="String"/>
+</f></resolve>
+		<new public="1" set="method" line="50"><f a="x">
+	<c path="Xml"/>
+	<e path="Void"/>
+</f></new>
+		<haxe_dynamic><c path="String"/></haxe_dynamic>
+	</class>
+	<class path="haxe.xml._Fast.HasAttribAccess" params="" file="/opt/haxe/std/haxe/xml/Fast.hx" private="1" module="haxe.xml.Fast">
+		<__x><c path="Xml"/></__x>
+		<resolve public="1" set="method" line="73"><f a="name">
+	<c path="String"/>
+	<e path="Bool"/>
+</f></resolve>
+		<new public="1" set="method" line="69"><f a="x">
+	<c path="Xml"/>
+	<e path="Void"/>
+</f></new>
+		<haxe_dynamic><e path="Bool"/></haxe_dynamic>
+	</class>
+	<class path="haxe.xml._Fast.HasNodeAccess" params="" file="/opt/haxe/std/haxe/xml/Fast.hx" private="1" module="haxe.xml.Fast">
+		<__x><c path="Xml"/></__x>
+		<resolve public="1" set="method" line="89"><f a="name">
+	<c path="String"/>
+	<e path="Bool"/>
+</f></resolve>
+		<new public="1" set="method" line="85"><f a="x">
+	<c path="Xml"/>
+	<e path="Void"/>
+</f></new>
+		<haxe_dynamic><e path="Bool"/></haxe_dynamic>
+	</class>
+	<class path="haxe.xml._Fast.NodeListAccess" params="" file="/opt/haxe/std/haxe/xml/Fast.hx" private="1" module="haxe.xml.Fast">
+		<__x><c path="Xml"/></__x>
+		<resolve public="1" set="method" line="103"><f a="name">
+	<c path="String"/>
+	<c path="List"><c path="haxe.xml.Fast"/></c>
+</f></resolve>
+		<new public="1" set="method" line="99"><f a="x">
+	<c path="Xml"/>
+	<e path="Void"/>
+</f></new>
+		<haxe_dynamic><c path="List"><c path="haxe.xml.Fast"/></c></haxe_dynamic>
+	</class>
+	<class path="haxe.xml.Fast" params="" file="/opt/haxe/std/haxe/xml/Fast.hx">
+		<x public="1" set="null"><c path="Xml"/></x>
+		<name public="1" get="getName" set="null"><c path="String"/></name>
+		<innerData public="1" get="getInnerData" set="null"><c path="String"/></innerData>
+		<innerHTML public="1" get="getInnerHTML" set="null"><c path="String"/></innerHTML>
+		<node public="1" set="null"><c path="haxe.xml._Fast.NodeAccess"/></node>
+		<nodes public="1" set="null"><c path="haxe.xml._Fast.NodeListAccess"/></nodes>
+		<att public="1" set="null"><c path="haxe.xml._Fast.AttribAccess"/></att>
+		<has public="1" set="null"><c path="haxe.xml._Fast.HasAttribAccess"/></has>
+		<hasNode public="1" set="null"><c path="haxe.xml._Fast.HasNodeAccess"/></hasNode>
+		<elements public="1" get="getElements" set="null"><t path="Iterator"><c path="haxe.xml.Fast"/></t></elements>
+		<getName set="method" line="136"><f a=""><c path="String"/></f></getName>
+		<getInnerData set="method" line="140"><f a=""><c path="String"/></f></getInnerData>
+		<getInnerHTML set="method" line="152"><f a=""><c path="String"/></f></getInnerHTML>
+		<getElements set="method" line="159"><f a=""><a>
+	<next><f a=""><c path="haxe.xml.Fast"/></f></next>
+	<hasNext><f a=""><e path="Bool"/></f></hasNext>
+</a></f></getElements>
+		<new public="1" set="method" line="125"><f a="x">
+	<c path="Xml"/>
+	<e path="Void"/>
+</f></new>
+	</class>
 	<class path="EReg" params="" file="/opt/haxe/std/EReg.hx">
 		<r><d/></r>
 		<last><c path="String"/></last>
@@ -232,6 +315,83 @@
 		<toString public="1" set="method" line="352"><f a=""><c path="String"/></f></toString>
 		<new set="method" line="110"><f a=""><e path="Void"/></f></new>
 	</class>
+	<class path="haxe.io.BytesBuffer" params="" file="/opt/haxe/std/haxe/io/BytesBuffer.hx">
+		<b><c path="String"/></b>
+		<addByte public="1" get="inline" set="null" line="55"><f a="byte">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></addByte>
+		<add public="1" get="inline" set="null" line="69"><f a="src">
+	<c path="haxe.io.Bytes"/>
+	<e path="Void"/>
+</f></add>
+		<addBytes public="1" get="inline" set="null" line="84"><f a="src:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></addBytes>
+		<getBytes public="1" set="method" line="106">
+			<f a=""><c path="haxe.io.Bytes"/></f>
+			<haxe_doc>
+		Returns either a copy or a reference of the current bytes.
+		Once called, the buffer can no longer be used.
+	</haxe_doc>
+		</getBytes>
+		<new public="1" set="method" line="41"><f a=""><e path="Void"/></f></new>
+	</class>
+	<class path="haxe.io.Input" params="" file="/opt/haxe/std/haxe/io/Input.hx">
+		<bigEndian public="1" set="setEndian"><e path="Bool"/></bigEndian>
+		<readByte public="1" set="method" line="35"><f a=""><c path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="44"><f a="s:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></readBytes>
+		<close public="1" set="method" line="65"><f a=""><e path="Void"/></f></close>
+		<setEndian set="method" line="68"><f a="b">
+	<e path="Bool"/>
+	<e path="Bool"/>
+</f></setEndian>
+		<readAll public="1" set="method" line="75"><f a="?bufsize">
+	<c path="Int"/>
+	<c path="haxe.io.Bytes"/>
+</f></readAll>
+		<readFullBytes public="1" set="method" line="96"><f a="s:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></readFullBytes>
+		<read public="1" set="method" line="104"><f a="nbytes">
+	<c path="Int"/>
+	<c path="haxe.io.Bytes"/>
+</f></read>
+		<readUntil public="1" set="method" line="116"><f a="end">
+	<c path="Int"/>
+	<c path="String"/>
+</f></readUntil>
+		<readLine public="1" set="method" line="124"><f a=""><c path="String"/></f></readLine>
+		<readFloat public="1" set="method" line="141"><f a=""><c path="Float"/></f></readFloat>
+		<readDouble public="1" set="method" line="155"><f a=""><c path="Float"/></f></readDouble>
+		<readInt8 public="1" set="method" line="169"><f a=""><c path="Int"/></f></readInt8>
+		<readInt16 public="1" set="method" line="176"><f a=""><c path="Int"/></f></readInt16>
+		<readUInt16 public="1" set="method" line="185"><f a=""><c path="Int"/></f></readUInt16>
+		<readInt24 public="1" set="method" line="191"><f a=""><c path="Int"/></f></readInt24>
+		<readUInt24 public="1" set="method" line="201"><f a=""><c path="Int"/></f></readUInt24>
+		<readInt31 public="1" set="method" line="208"><f a=""><c path="Int"/></f></readInt31>
+		<readUInt30 public="1" set="method" line="225"><f a=""><c path="Int"/></f></readUInt30>
+		<readInt32 public="1" set="method" line="234"><f a=""><c path="haxe.Int32"/></f></readInt32>
+		<readString public="1" set="method" line="242"><f a="len">
+	<c path="Int"/>
+	<c path="String"/>
+</f></readString>
+		<haxe_doc>
+	An Input is an abstract reader. See other classes in the [haxe.io] package
+	for several possible implementations.
+</haxe_doc>
+	</class>
 	<class path="php.db.Connection" params="" file="/opt/haxe/std/php/db/Connection.hx" interface="1">
 		<request public="1" set="method"><f a="s">
 	<c path="String"/>
@@ -257,54 +417,45 @@
 		<commit public="1" set="method"><f a=""><e path="Void"/></f></commit>
 		<rollback public="1" set="method"><f a=""><e path="Void"/></f></rollback>
 	</class>
-	<class path="php.Sys" params="" file="/opt/haxe/std/php/Sys.hx">
-		<args public="1" set="method" line="5" static="1"><f a=""><c path="Array"><c path="String"/></c></f></args>
-		<getEnv public="1" set="method" line="9" static="1"><f a="s">
-	<c path="String"/>
-	<c path="String"/>
-</f></getEnv>
-		<putEnv public="1" set="method" line="13" static="1"><f a="s:v">
-	<c path="String"/>
-	<c path="String"/>
-	<e path="Void"/>
-</f></putEnv>
-		<sleep public="1" set="method" line="17" static="1"><f a="seconds">
-	<c path="Float"/>
-	<unknown/>
-</f></sleep>
-		<setTimeLocale public="1" set="method" line="21" static="1"><f a="loc">
-	<c path="String"/>
-	<e path="Bool"/>
-</f></setTimeLocale>
-		<getCwd public="1" set="method" line="25" static="1"><f a=""><c path="String"/></f></getCwd>
-		<setCwd public="1" set="method" line="31" static="1"><f a="s">
-	<c path="String"/>
-	<unknown/>
-</f></setCwd>
-		<systemName public="1" set="method" line="35" static="1"><f a=""><c path="String"/></f></systemName>
-		<escapeArgument public="1" set="method" line="44" static="1"><f a="arg">
-	<c path="String"/>
-	<c path="String"/>
-</f></escapeArgument>
-		<command public="1" set="method" line="58" static="1"><f a="cmd:?args">
-	<c path="String"/>
-	<c path="Array"><c path="String"/></c>
-	<c path="Int"/>
-</f></command>
-		<exit public="1" set="method" line="71" static="1"><f a="code">
-	<c path="Int"/>
-	<unknown/>
-</f></exit>
-		<time public="1" set="method" line="75" static="1"><f a=""><c path="Float"/></f></time>
-		<cpuTime public="1" set="method" line="79" static="1"><f a=""><c path="Float"/></f></cpuTime>
-		<executablePath public="1" set="method" line="83" static="1"><f a=""><c path="String"/></f></executablePath>
-		<environment public="1" set="method" line="87" static="1"><f a=""><c path="Hash"><c path="String"/></c></f></environment>
-	</class>
-	<class path="MainApp" params="" file="src/MainApp.hx">
-		<startTime public="1" line="11" static="1"><c path="Float"/></startTime>
-		<main public="1" set="method" line="13" static="1"><f a=""><e path="Void"/></f></main>
-		<testing public="1" set="method" line="30" static="1"><f a=""><e path="Void"/></f></testing>
-		<printStats public="1" set="method" line="79" static="1"><f a=""><e path="Void"/></f></printStats>
+	<class path="hxbase.BaseController" params="" file="src/hxbase/BaseController.hx">
+		<isCacheable public="1" set="null">
+			<e path="Bool"/>
+			<haxe_doc> Can this controller be cached?  (Read only)
+	In your Controller Class definition, set this to true or false </haxe_doc>
+		</isCacheable>
+		<output><c path="String"/></output>
+		<toString public="1" set="method" line="36">
+			<f a=""><c path="String"/></f>
+			<haxe_doc><![CDATA[ The toString() method should give the output from the various
+	actions we've called.  This means elsewhere you'll be able to use:
+	<pre>	myController = new MyController(args);
+	php.Lib.print(myController);</pre>
+	to print all the output.]]></haxe_doc>
+		</toString>
+		<print set="method" line="42">
+			<f a="str">
+				<unknown/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc> In your methods, use print() to write to the output </haxe_doc>
+		</print>
+		<clearOutput set="method" line="48">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc> In your methods, if you want to clear the output, use this </haxe_doc>
+		</clearOutput>
+		<new public="1" set="method" line="18">
+			<f a="args">
+				<c path="Array"><c path="String"/></c>
+				<e path="Void"/>
+			</f>
+			<haxe_doc> The new() constructor will probably be called by the Dispatcher
+	if it decides this is the Controller to use.  The constructor should
+	take the arguments, decide on which "action" (method) should be called,
+	and call it.  </haxe_doc>
+		</new>
+		<haxe_doc>
+Your controllers should inherit from this base class.
+</haxe_doc>
 	</class>
 	<class path="AppConfig" params="" file="src/AppConfig.hx">
 		<defaultController public="1" line="11" static="1">
@@ -373,7 +524,382 @@ This class contains all the config for your app.
 I'm not sure which package this should belong in really...
 </haxe_doc>
 	</class>
+	<class path="php.IteratorAggregate" params="T" file="/opt/haxe/std/php/IteratorAggregate.hx" extern="1" interface="1"><getIterator set="method">
+	<f a=""><t path="Iterator"><c path="php.IteratorAggregate.T"/></t></f>
+	<haxe_doc> 
+		This method is not public to not induce haXe users to use it ;) 
+		Use iterator() instead.
+		The return type would be Aggregator that is unusable in haXe 
+	</haxe_doc>
+</getIterator></class>
+	<class path="List" params="T" file="/opt/haxe/std/List.hx">
+		<implements path="php.IteratorAggregate"><c path="List.T"/></implements>
+		<h><c path="ArrayAccess"><d/></c></h>
+		<q><c path="ArrayAccess"><d/></c></q>
+		<length public="1" set="null">
+			<c path="Int"/>
+			<haxe_doc>
+		The number of elements in this list.
+	</haxe_doc>
+		</length>
+		<add public="1" set="method" line="56">
+			<f a="item">
+				<c path="List.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Add an element at the end of the list.
+	</haxe_doc>
+		</add>
+		<push public="1" set="method" line="76">
+			<f a="item">
+				<c path="List.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Push an element at the beginning of the list.
+	</haxe_doc>
+		</push>
+		<first public="1" set="method" line="100">
+			<f a=""><c path="List.T"/></f>
+			<haxe_doc>
+		Returns the first element of the list, or null
+		if the list is empty.
+	</haxe_doc>
+		</first>
+		<last public="1" set="method" line="108">
+			<f a=""><c path="List.T"/></f>
+			<haxe_doc>
+		Returns the last element of the list, or null
+		if the list is empty.
+	</haxe_doc>
+		</last>
+		<pop public="1" set="method" line="118">
+			<f a=""><c path="List.T"/></f>
+			<haxe_doc>
+		Removes the first element of the list and
+		returns it or simply returns null if the
+		list is empty.
+	</haxe_doc>
+		</pop>
+		<isEmpty public="1" set="method" line="132">
+			<f a=""><e path="Bool"/></f>
+			<haxe_doc>
+		Tells if a list is empty.
+	</haxe_doc>
+		</isEmpty>
+		<clear public="1" set="method" line="139">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Makes the list empty.
+	</haxe_doc>
+		</clear>
+		<remove public="1" set="method" line="149">
+			<f a="v">
+				<c path="List.T"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Remove the first element that is [== v] from the list.
+		Returns [true] if an element was removed, [false] otherwise.
+	</haxe_doc>
+		</remove>
+		<iterator public="1" set="method" line="190">
+			<f a=""><t path="Iterator"><c path="List.T"/></t></f>
+			<haxe_doc>
+		Returns an iterator on the elements of the list.
+	</haxe_doc>
+		</iterator>
+		<toString public="1" set="method" line="215">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns a displayable representation of the String.
+	</haxe_doc>
+		</toString>
+		<join public="1" set="method" line="235">
+			<f a="sep">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>
+		Join the element of the list by using the separator [sep].
+	</haxe_doc>
+		</join>
+		<filter public="1" set="method" line="254">
+			<f a="f">
+				<f a="">
+					<c path="List.T"/>
+					<e path="Bool"/>
+				</f>
+				<c path="List"><c path="List.T"/></c>
+			</f>
+			<haxe_doc>
+		Returns a list filtered with [f]. The returned list
+		will contain all elements [x] for which [f(x) = true].
+	</haxe_doc>
+		</filter>
+		<map public="1" params="X" set="method" line="270">
+			<f a="f">
+				<f a="">
+					<c path="List.T"/>
+					<c path="map.X"/>
+				</f>
+				<c path="List"><c path="map.X"/></c>
+			</f>
+			<haxe_doc>
+		Returns a new list where all elements have been converted
+		by the function [f].
+	</haxe_doc>
+		</map>
+		<getIterator set="method" line="285">
+			<f a=""><t path="Iterator"><c path="List.T"/></t></f>
+			<haxe_doc>
+		Implement IteratorAggregate for native php iteration
+	</haxe_doc>
+		</getIterator>
+		<new public="1" set="method" line="49">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Creates a new empty list.
+	</haxe_doc>
+		</new>
+		<haxe_doc>
+	A linked-list of elements. The list is composed of two-elements arrays
+	that are chained together. It's optimized so that adding or removing an
+	element doesn't imply to copy the whole array content everytime.
+</haxe_doc>
+	</class>
+	<class path="hxbase.xml.XmlList" params="" file="src/hxbase/xml/XmlList.hx">
+		<extends path="List"><c path="hxbase.xml.XmlNode"/></extends>
+		<addList public="1" set="method" line="43">
+			<f a="listToAdd">
+				<c path="List"><c path="hxbase.xml.XmlNode"/></c>
+				<c path="hxbase.xml.XmlList"/>
+			</f>
+			<haxe_doc><![CDATA[
+	Append an existing XmlList to this XmlList.
+	
+	Parameters:
+		The child object to add. 
+	
+	Returns:
+		<b>this</b>, the parent object, so we can chain 
+		               methods together. 
+	]]></haxe_doc>
+		</addList>
+		<filterByFunction public="1" set="method" line="56">
+			<f a="f">
+				<f a="">
+					<c path="hxbase.xml.XmlNode"/>
+					<e path="Bool"/>
+				</f>
+				<c path="hxbase.xml.XmlList"/>
+			</f>
+			<haxe_doc>
+	Filter this list by a function.  
+	The function should take an XmlNode and return true/false.
+	</haxe_doc>
+		</filterByFunction>
+		<filterByAttribute public="1" set="method" line="69">
+			<f a="attName:attValue">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="hxbase.xml.XmlList"/>
+			</f>
+			<haxe_doc>
+	Return a subset of this list containing only nodes that have the matching attribute
+	
+	You could possibly do regexp matches here, just check for a string that's "~/something/"
+	</haxe_doc>
+		</filterByAttribute>
+		<filterByTagName public="1" set="method" line="80">
+			<f a="tagName">
+				<c path="String"/>
+				<c path="hxbase.xml.XmlList"/>
+			</f>
+			<haxe_doc>
+	Return a subset of this list containing only elements with this name
+	</haxe_doc>
+		</filterByTagName>
+		<getAt public="1" set="method" line="96">
+			<f a="index">
+				<c path="Int"/>
+				<c path="hxbase.xml.XmlNode"/>
+			</f>
+			<haxe_doc>
+	Get the XmlNode at a specific index (0 based, I believe)
+	</haxe_doc>
+		</getAt>
+		<indexOf public="1" set="method" line="126"><f a="childToSearchFor">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="Int"/>
+</f></indexOf>
+		<toString public="1" set="method" line="191" override="1"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method" line="15">
+			<f a="?node:?list">
+				<c path="hxbase.xml.XmlNode"/>
+				<c path="hxbase.xml.XmlList"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+	New Constructor that allows us to create an empty list, create one with one XmlNode element, or clone an existing list
+	</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[
+A flat list of XmlNode objects.  Basically just List<XmlNode>, but with
+the same functions as XmlNode, which will now apply to all items in the
+list.  Pretty neato hey!
+*********************************************************************]]></haxe_doc>
+	</class>
+	<class path="php.Sys" params="" file="/opt/haxe/std/php/Sys.hx">
+		<args public="1" set="method" line="5" static="1"><f a=""><c path="Array"><c path="String"/></c></f></args>
+		<getEnv public="1" set="method" line="9" static="1"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></getEnv>
+		<putEnv public="1" set="method" line="13" static="1"><f a="s:v">
+	<c path="String"/>
+	<c path="String"/>
+	<e path="Void"/>
+</f></putEnv>
+		<sleep public="1" set="method" line="17" static="1"><f a="seconds">
+	<c path="Float"/>
+	<unknown/>
+</f></sleep>
+		<setTimeLocale public="1" set="method" line="21" static="1"><f a="loc">
+	<c path="String"/>
+	<e path="Bool"/>
+</f></setTimeLocale>
+		<getCwd public="1" set="method" line="25" static="1"><f a=""><c path="String"/></f></getCwd>
+		<setCwd public="1" set="method" line="31" static="1"><f a="s">
+	<c path="String"/>
+	<unknown/>
+</f></setCwd>
+		<systemName public="1" set="method" line="35" static="1"><f a=""><c path="String"/></f></systemName>
+		<escapeArgument public="1" set="method" line="44" static="1"><f a="arg">
+	<c path="String"/>
+	<c path="String"/>
+</f></escapeArgument>
+		<command public="1" set="method" line="58" static="1"><f a="cmd:?args">
+	<c path="String"/>
+	<c path="Array"><c path="String"/></c>
+	<c path="Int"/>
+</f></command>
+		<exit public="1" set="method" line="71" static="1"><f a="code">
+	<c path="Int"/>
+	<unknown/>
+</f></exit>
+		<time public="1" set="method" line="75" static="1"><f a=""><c path="Float"/></f></time>
+		<cpuTime public="1" set="method" line="79" static="1"><f a=""><c path="Float"/></f></cpuTime>
+		<executablePath public="1" set="method" line="83" static="1"><f a=""><c path="String"/></f></executablePath>
+		<environment public="1" set="method" line="87" static="1"><f a=""><c path="Hash"><c path="String"/></c></f></environment>
+	</class>
+	<class path="MainApp" params="" file="src/MainApp.hx">
+		<startTime public="1" line="12" static="1"><c path="Float"/></startTime>
+		<main public="1" set="method" line="14" static="1"><f a=""><e path="Void"/></f></main>
+		<testing public="1" set="method" line="32" static="1"><f a=""><e path="Void"/></f></testing>
+		<printStats public="1" set="method" line="81" static="1"><f a=""><e path="Void"/></f></printStats>
+	</class>
 	<class path="php.NativeArray" params="" file="/opt/haxe/std/php/NativeArray.hx" extern="1"/>
+	<class path="php.db._Mysql.MysqlConnection" params="" file="/opt/haxe/std/php/db/Mysql.hx" private="1" module="php.db.Mysql">
+		<implements path="php.db.Connection"/>
+		<c><e path="Void"/></c>
+		<close public="1" set="method" line="37"><f a=""><e path="Void"/></f></close>
+		<request public="1" set="method" line="42"><f a="s">
+	<c path="String"/>
+	<c path="php.db.ResultSet"/>
+</f></request>
+		<escape public="1" set="method" line="49"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></escape>
+		<quote public="1" set="method" line="53"><f a="s">
+	<c path="String"/>
+	<c path="String"/>
+</f></quote>
+		<addValue public="1" set="method" line="57"><f a="s:v">
+	<c path="StringBuf"/>
+	<d/>
+	<e path="Void"/>
+</f></addValue>
+		<lastInsertId public="1" set="method" line="66"><f a=""><c path="Int"/></f></lastInsertId>
+		<dbName public="1" set="method" line="70"><f a=""><c path="String"/></f></dbName>
+		<startTransaction public="1" set="method" line="74"><f a=""><e path="Void"/></f></startTransaction>
+		<commit public="1" set="method" line="78"><f a=""><e path="Void"/></f></commit>
+		<rollback public="1" set="method" line="82"><f a=""><e path="Void"/></f></rollback>
+		<new public="1" set="method" line="33"><f a="c">
+	<e path="Void"/>
+	<e path="Void"/>
+</f></new>
+	</class>
+	<class path="php.db.ResultSet" params="" file="/opt/haxe/std/php/db/ResultSet.hx" interface="1">
+		<length public="1" get="getLength" set="null"><c path="Int"/></length>
+		<nfields public="1" get="getNFields" set="null"><c path="Int"/></nfields>
+		<hasNext public="1" set="method"><f a=""><e path="Bool"/></f></hasNext>
+		<next public="1" set="method"><f a=""><d/></f></next>
+		<results public="1" set="method"><f a=""><c path="List"><d/></c></f></results>
+		<getResult public="1" set="method"><f a="n">
+	<c path="Int"/>
+	<c path="String"/>
+</f></getResult>
+		<getIntResult public="1" set="method"><f a="n">
+	<c path="Int"/>
+	<c path="Int"/>
+</f></getIntResult>
+		<getFloatResult public="1" set="method"><f a="n">
+	<c path="Int"/>
+	<c path="Float"/>
+</f></getFloatResult>
+	</class>
+	<class path="php.db._Mysql.MysqlResultSet" params="" file="/opt/haxe/std/php/db/Mysql.hx" private="1" module="php.db.Mysql">
+		<implements path="php.db.ResultSet"/>
+		<length public="1" get="getLength" set="null"><c path="Int"/></length>
+		<nfields public="1" get="getNFields" set="null"><c path="Int"/></nfields>
+		<__r><e path="Void"/></__r>
+		<cache><d/></cache>
+		<getLength set="method" line="98"><f a=""><c path="Int"/></f></getLength>
+		<_nfields><c path="Int"/></_nfields>
+		<getNFields set="method" line="107"><f a=""><c path="Int"/></f></getNFields>
+		<_fieldsDesc><c path="Array"><d/></c></_fieldsDesc>
+		<getFieldsDescription set="method" line="114"><f a=""><c path="Array"><d/></c></f></getFieldsDescription>
+		<convert set="method" line="128"><f a="v:type">
+	<c path="String"/>
+	<c path="String"/>
+	<d/>
+</f></convert>
+		<hasNext public="1" set="method" line="142"><f a=""><e path="Bool"/></f></hasNext>
+		<cRow><c path="ArrayAccess"><c path="String"/></c></cRow>
+		<fetchRow set="method" line="149"><f a=""><e path="Bool"/></f></fetchRow>
+		<next public="1" set="method" line="154"><f a=""><d/></f></next>
+		<results public="1" set="method" line="169"><f a=""><c path="List"><d/></c></f></results>
+		<getResult public="1" set="method" line="176"><f a="n">
+	<c path="Int"/>
+	<c path="String"/>
+</f></getResult>
+		<getIntResult public="1" set="method" line="183"><f a="n">
+	<c path="Int"/>
+	<c path="Int"/>
+</f></getIntResult>
+		<getFloatResult public="1" set="method" line="187"><f a="n">
+	<c path="Int"/>
+	<c path="Float"/>
+</f></getFloatResult>
+		<new public="1" set="method" line="94"><f a="r">
+	<e path="Void"/>
+	<e path="Void"/>
+</f></new>
+	</class>
+	<class path="php.db.Mysql" params="" file="/opt/haxe/std/php/db/Mysql.hx"><connect public="1" set="method" line="194" static="1"><f a="params">
+	<a>
+		<user><c path="String"/></user>
+		<socket><c path="String"/></socket>
+		<port><c path="Int"/></port>
+		<pass><c path="String"/></pass>
+		<host><c path="String"/></host>
+		<database><c path="String"/></database>
+	</a>
+	<c path="php.db.Connection"/>
+</f></connect></class>
 	<class path="StringTools" params="" file="/opt/haxe/std/StringTools.hx">
 		<urlEncode public="1" get="inline" set="null" line="38" static="1">
 			<f a="s">
@@ -518,105 +1044,6 @@ I'm not sure which package this should belong in really...
 	each application using it.
 </haxe_doc>
 	</class>
-	<class path="php.db._Mysql.MysqlConnection" params="" file="/opt/haxe/std/php/db/Mysql.hx" private="1" module="php.db.Mysql">
-		<implements path="php.db.Connection"/>
-		<c><e path="Void"/></c>
-		<close public="1" set="method" line="37"><f a=""><e path="Void"/></f></close>
-		<request public="1" set="method" line="42"><f a="s">
-	<c path="String"/>
-	<c path="php.db.ResultSet"/>
-</f></request>
-		<escape public="1" set="method" line="49"><f a="s">
-	<c path="String"/>
-	<c path="String"/>
-</f></escape>
-		<quote public="1" set="method" line="53"><f a="s">
-	<c path="String"/>
-	<c path="String"/>
-</f></quote>
-		<addValue public="1" set="method" line="57"><f a="s:v">
-	<c path="StringBuf"/>
-	<d/>
-	<e path="Void"/>
-</f></addValue>
-		<lastInsertId public="1" set="method" line="66"><f a=""><c path="Int"/></f></lastInsertId>
-		<dbName public="1" set="method" line="70"><f a=""><c path="String"/></f></dbName>
-		<startTransaction public="1" set="method" line="74"><f a=""><e path="Void"/></f></startTransaction>
-		<commit public="1" set="method" line="78"><f a=""><e path="Void"/></f></commit>
-		<rollback public="1" set="method" line="82"><f a=""><e path="Void"/></f></rollback>
-		<new public="1" set="method" line="33"><f a="c">
-	<e path="Void"/>
-	<e path="Void"/>
-</f></new>
-	</class>
-	<class path="php.db.ResultSet" params="" file="/opt/haxe/std/php/db/ResultSet.hx" interface="1">
-		<length public="1" get="getLength" set="null"><c path="Int"/></length>
-		<nfields public="1" get="getNFields" set="null"><c path="Int"/></nfields>
-		<hasNext public="1" set="method"><f a=""><e path="Bool"/></f></hasNext>
-		<next public="1" set="method"><f a=""><d/></f></next>
-		<results public="1" set="method"><f a=""><c path="List"><d/></c></f></results>
-		<getResult public="1" set="method"><f a="n">
-	<c path="Int"/>
-	<c path="String"/>
-</f></getResult>
-		<getIntResult public="1" set="method"><f a="n">
-	<c path="Int"/>
-	<c path="Int"/>
-</f></getIntResult>
-		<getFloatResult public="1" set="method"><f a="n">
-	<c path="Int"/>
-	<c path="Float"/>
-</f></getFloatResult>
-	</class>
-	<class path="php.db._Mysql.MysqlResultSet" params="" file="/opt/haxe/std/php/db/Mysql.hx" private="1" module="php.db.Mysql">
-		<implements path="php.db.ResultSet"/>
-		<length public="1" get="getLength" set="null"><c path="Int"/></length>
-		<nfields public="1" get="getNFields" set="null"><c path="Int"/></nfields>
-		<__r><e path="Void"/></__r>
-		<cache><d/></cache>
-		<getLength set="method" line="98"><f a=""><c path="Int"/></f></getLength>
-		<_nfields><c path="Int"/></_nfields>
-		<getNFields set="method" line="107"><f a=""><c path="Int"/></f></getNFields>
-		<_fieldsDesc><c path="Array"><d/></c></_fieldsDesc>
-		<getFieldsDescription set="method" line="114"><f a=""><c path="Array"><d/></c></f></getFieldsDescription>
-		<convert set="method" line="128"><f a="v:type">
-	<c path="String"/>
-	<c path="String"/>
-	<d/>
-</f></convert>
-		<hasNext public="1" set="method" line="142"><f a=""><e path="Bool"/></f></hasNext>
-		<cRow><c path="ArrayAccess"><c path="String"/></c></cRow>
-		<fetchRow set="method" line="149"><f a=""><e path="Bool"/></f></fetchRow>
-		<next public="1" set="method" line="154"><f a=""><d/></f></next>
-		<results public="1" set="method" line="169"><f a=""><c path="List"><d/></c></f></results>
-		<getResult public="1" set="method" line="176"><f a="n">
-	<c path="Int"/>
-	<c path="String"/>
-</f></getResult>
-		<getIntResult public="1" set="method" line="183"><f a="n">
-	<c path="Int"/>
-	<c path="Int"/>
-</f></getIntResult>
-		<getFloatResult public="1" set="method" line="187"><f a="n">
-	<c path="Int"/>
-	<c path="Float"/>
-</f></getFloatResult>
-		<new public="1" set="method" line="94"><f a="r">
-	<e path="Void"/>
-	<e path="Void"/>
-</f></new>
-	</class>
-	<class path="php.db.Mysql" params="" file="/opt/haxe/std/php/db/Mysql.hx"><connect public="1" set="method" line="194" static="1"><f a="params">
-	<a>
-		<user><c path="String"/></user>
-		<socket><c path="String"/></socket>
-		<port><c path="Int"/></port>
-		<pass><c path="String"/></pass>
-		<host><c path="String"/></host>
-		<database><c path="String"/></database>
-	</a>
-	<c path="php.db.Connection"/>
-</f></connect></class>
 	<enum path="XmlType" params="" file="/opt/haxe/std/Xml.hx" module="Xml"><haxe_doc>
 	An abstract type representing the type of the Xml
 	Node. You can compare it to [Xml] statics and can
@@ -1034,6 +1461,362 @@ I'm not sure which package this should belong in really...
 </f></trace>
 		<clear public="1" set="dynamic" line="43" static="1"><f a=""><e path="Void"/></f></clear>
 	</class>
+	<class path="hxbase.tpl.HxTpl" params="" file="src/hxbase/tpl/HxTpl.hx">
+		<templateString><c path="String"/></templateString>
+		<templateXML><c path="hxbase.xml.XmlNode"/></templateXML>
+		<ready><e path="Bool"/></ready>
+		<output><c path="String"/></output>
+		<assignedVariables><c path="Hash"><c path="String"/></c></assignedVariables>
+		<switches><c path="Hash"><e path="Bool"/></c></switches>
+		<loopCount><c path="Hash"><c path="Int"/></c></loopCount>
+		<includeURLs><c path="Hash"><c path="String"/></c></includeURLs>
+		<blocks><c path="Hash"><c path="hxbase.tpl.HxTpl"/></c></blocks>
+		<loadTemplateFromString public="1" set="method" line="120">
+			<f a="tpl">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>*********************************************************************
+	Function: loadTemplateFromString
+	************************************************************************
+	
+	Sets the template to be used for this object, based on a string.  
+	This could be based off an included file, a template from a database, 
+	a block of an existing template, or user inputted data.  Any valid XML will do.
+	
+	Parameters:
+		tpl:String - The string to use as a template. 
+		
+	Returns:
+		(Bool) Should: True if the template is a valid XML String, 
+		  False otherwise.  Reality: Always returns true.
+		
+	*********************************************************************</haxe_doc>
+		</loadTemplateFromString>
+		<loadTemplateFromFile public="1" set="method" line="145">
+			<f a="url">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>*********************************************************************
+	Function: loadTemplateFromFile
+	************************************************************************
+	
+	Loads a template for this object from a file.  
+	
+	Parameters:
+		url:String - The url or path to the root directory for this filesystem
+		
+	Returns:
+		(Bool) Should: True if the template is valid, False otherwise.  
+		  Reality: Always returns true.
+		
+	*********************************************************************</haxe_doc>
+		</loadTemplateFromFile>
+		<getOutput public="1" set="method" line="173">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>*********************************************************************
+	Function: getOutput
+	************************************************************************
+	Processes the template and returns a string with the full XML output.
+	
+	Please note this does not actually print the template to the browser etc. 
+	It is up to the class calling the template to take this output and do that.
+		
+	Returns:
+		(String) Full XML Output, the end product of the template
+	*********************************************************************</haxe_doc>
+		</getOutput>
+		<assign public="1" set="method" line="215">
+			<f a="name:value:?useHTMLEncode">
+				<c path="String"/>
+				<c path="String"/>
+				<e path="Bool"/>
+				<c path="hxbase.tpl.HxTpl"/>
+			</f>
+			<haxe_doc><![CDATA[*********************************************************************
+	Function: assign
+	************************************************************************
+	Assign a simple variable name and value.
+	An example might be helpful.  If we call
+	
+	eg - 	my_tpl.assign("title", "Cheesecakes");
+	
+	Then in the template, any reference to either
+	
+	eg - 	{title} OR <hxVar name="title">Default Title</hxVar>
+	
+	Will be replaced with "Cheesecakes".  Simple, no?  
+	
+	Also, because this object returns itself, statements can be 
+	chained together.  
+	
+	eg -	my_tpl.assign("page", "Five Fruits").assign("url","fruit.html");
+	
+	Parameters:
+		name:String - The name of the template variable we are assigning.
+		  You can use Uppercase and Lowercase letters, numbers and 
+		  decimal points.
+		
+		value:String - The text to replace it with.  
+		
+		useHTMLEncode:Bool - Do we encode this string for HTML?  
+		  If *true*, all & < > etc. will be turned into HTML entities.
+		  Defaults is *true*
+		
+	Returns:
+		(HxTpl) Returns this template object, so we can chain together 
+		assign statements.
+	*********************************************************************]]></haxe_doc>
+		</assign>
+		<assignObject public="1" set="method" line="279">
+			<f a="name:obj:?useHTMLEncode">
+				<c path="String"/>
+				<d/>
+				<e path="Bool"/>
+				<c path="hxbase.tpl.HxTpl"/>
+			</f>
+			<haxe_doc><![CDATA[*********************************************************************
+	Function: assignObject
+	************************************************************************
+	Assign a simple object containing name value pairs to a template variable.
+	An example might be helpful.  If we call
+	
+	> tpl.assignObject('page', 
+	>	{
+	>		title		:'New Website',
+	>		url		:'http://google.com/myhouse.html'
+	>	});
+	
+	Then they will correspond with atemplate like this -
+	
+	> title: {page.title}
+	> url:   {page.url}
+	
+	You can also go multiple levels deep.
+	
+	> tpl.assignObject('page', 
+	>	{
+	>		url		:'http://google.com/myhouse.html',
+	>		urlParts	:
+	>				{
+	>				protocol : 'http://',
+	>				domain : 'google.com',
+	>				filename : 'myhouse',
+	>				extension : '.html'
+	>				}
+	>	});
+	
+	And then access that with
+	
+	> {page.urlParts.protocol}, {page.urlParts.domain} etc.
+	
+	As with assign(), assignObject() returns the template object, so you can
+	chain together assign commands.
+	
+	Parameters:
+		name:String - The name of the template variable we are assigning.
+		  You can use Uppercase and Lowercase letters, numbers and 
+		  decimal points.
+		
+		obj:Dynamic - An object consisting of name:value pairs, possibly
+		  multiple levels deep. 
+		
+		useHTMLEncode:Bool - Do we encode this string for HTML?  
+		  If *true*, all & < > etc. will be turned into HTML entities.
+		  Defaults is *true*
+		
+	Returns:
+		(HxTpl) Returns this template object, so we can chain together 
+		assign statements.
+	*********************************************************************]]></haxe_doc>
+		</assignObject>
+		<setSwitch public="1" set="method" line="366">
+			<f a="name:?value">
+				<c path="String"/>
+				<e path="Bool"/>
+				<c path="hxbase.tpl.HxTpl"/>
+			</f>
+			<haxe_doc><![CDATA[*********************************************************************
+	Function: setSwitch
+	************************************************************************
+	
+	Define whether a switch will be visible or not.  This returns the block
+	inside the switch, so you can assign variables to that block.
+	
+	Example:
+	
+	We'll start with this template.
+	
+	> <h1>Result:</h1>
+	> 
+	> <p>{message}</p>
+	>
+	> <hxSwitch name="error">
+	>    <p><b>Error:</b> {message}</p>
+	> </hxSwitch>
+	>
+	> <hxSwitch name="theHiddenSection">
+	>    The secret of life is something about the number 42
+	> </hxSwitch>
+	>
+	
+	Now we run this script.
+	
+	> var tpl:HxTpl;	// pretend we've loaded the template above
+	> tpl.assign("message", "Notice that this message is only affecting the current block, not the block underneath");
+	> 
+	> var errBlock:HxTpl;
+	> errBlock = tpl.setSwitch("error", true);
+	> errBlock.assign("message", "The problem is that you're too cool for school.");
+	>
+	> // if we uncommented the next line, it would show "theHiddenSection"
+	> // tpl.setSwitch("theHiddenSection", true);
+	
+	And it produces this output
+	
+	> <h1>Result:</h1>
+	> 
+	> <p>Notice that this message is only affecting the current block, not the block underneath</p>
+	>
+	> 
+	>    <p><b>Error:</b> The problem is that you're too cool for school.</p>
+	> 
+	
+	Parameters:
+		name:String - The name of the template switch that we're 
+		  looking for.
+		
+		value:Bool - True to show the switch, false to hide it.  
+		
+	Returns:
+		(HxTpl) Returns a template object of the switch template block, 
+		so we can assign variables specifically for the switch.
+	*********************************************************************]]></haxe_doc>
+		</setSwitch>
+		<newLoop public="1" set="method" line="396">
+			<f a="name">
+				<c path="String"/>
+				<c path="hxbase.tpl.HxTpl"/>
+			</f>
+			<haxe_doc>*********************************************************************
+	Function: newLoop
+	************************************************************************
+	
+	Create a new instance of a template loop (hxLoop).  No examples yet 
+	sorry, though it should work mostly as you'd expect.
+	
+	Parameters:
+		name:String - The name of the template loop that we're 
+		  looking for.
+		
+	Returns:
+		(HxTpl) Returns a template object of the loop template block, 
+		so we can assign variables specifically for this instance
+		of the loop.
+	*********************************************************************</haxe_doc>
+		</newLoop>
+		<useListInLoop public="1" set="method" line="444">
+			<f a="list:loopName:varName:?useHTMLEncode">
+				<c path="List"><d/></c>
+				<c path="String"/>
+				<c path="String"/>
+				<e path="Bool"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[*********************************************************************
+	Function: useListInLoop
+	************************************************************************
+	
+	This is a shortcut to get a list of objects to each have their own 
+	template block.
+	
+	It essentially is just running this code:
+	
+	> for (obj in list)
+	> {
+	> 	loopTpl = this.newLoop(loopName);
+	> 	loopTpl.assignObject(varName, obj, useHTMLEncode);
+	> }
+	
+	Parameters:
+		list:List - A list of objects containing variables to be 
+		            assigned.  A new loop will be created for every 
+		            item in the list.
+		loopName:String - The name of the template loop (hxLoop) to use.
+		varName:String - The name of the template variable that the 
+		                 object should be assigned to.
+		useHTMLEncode:Bool - Use HTML Encoding on the data?
+		
+	Returns:
+		(nothing yet)
+	*********************************************************************]]></haxe_doc>
+		</useListInLoop>
+		<include public="1" set="method" line="458"><f a="name:?url">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="hxbase.tpl.HxTpl"/>
+</f></include>
+		<processXML set="method" line="488"><f a="xmlElement">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="String"/>
+</f></processXML>
+		<processXML_element set="method" line="514"><f a="elm">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="String"/>
+</f></processXML_element>
+		<processXML_element_regularElement set="method" line="539"><f a="elm">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="String"/>
+</f></processXML_element_regularElement>
+		<processXML_element_hxVar set="method" line="564"><f a="elm">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="String"/>
+</f></processXML_element_hxVar>
+		<processXML_element_templateBlock set="method" line="592"><f a="elm">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="String"/>
+</f></processXML_element_templateBlock>
+		<processXML_element_templateBlock_hxSwitch set="method" line="621"><f a="elm_in:blockName">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="String"/>
+	<c path="String"/>
+</f></processXML_element_templateBlock_hxSwitch>
+		<processXML_element_templateBlock_hxLoop set="method" line="639"><f a="elm_in:blockName">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="String"/>
+	<c path="String"/>
+</f></processXML_element_templateBlock_hxLoop>
+		<processXML_element_templateBlock_hxInclude set="method" line="670"><f a="elm_in:blockName">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="String"/>
+	<c path="String"/>
+</f></processXML_element_templateBlock_hxInclude>
+		<processXML_textnode set="method" line="708"><f a="str_in">
+	<c path="String"/>
+	<c path="String"/>
+</f></processXML_textnode>
+		<getBlock set="method" line="727"><f a="name">
+	<c path="String"/>
+	<c path="hxbase.tpl.HxTpl"/>
+</f></getBlock>
+		<new public="1" set="method" line="83">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc><![CDATA[
+	 * Constructor. 
+	 * 
+	 * <p>Initializes the template object</p>
+	 ]]></haxe_doc>
+		</new>
+		<haxe_doc>*********************************************************************
+   Class: HxTpl
+   Package: jasononeil.tpl   
+   
+   A very simple templating class that processes live using any string, 
+   rather than requiring pre-processing.  This would allow you to load 
+   templates from a database, a file, or even user input.
+*********************************************************************</haxe_doc>
+	</class>
 	<class path="php.db.Object" params="" file="/opt/haxe/std/php/db/Object.hx">
 		<__cache__><c path="php.db.Object"/></__cache__>
 		<__noupdate__><e path="Bool"/></__noupdate__>
@@ -1180,7 +1963,7 @@ because that's what all this is based on.
 ]]></haxe_doc>
 	</class>
 	<class path="hxbase.Dispatcher" params="" file="src/hxbase/Dispatcher.hx">
-		<dispatch public="1" set="method" line="15" static="1">
+		<dispatch public="1" set="method" line="18" static="1">
 			<f a="request">
 				<c path="String"/>
 				<e path="Void"/>
@@ -1189,7 +1972,7 @@ because that's what all this is based on.
 	which controller class to use, passing any extra parameters
 	to it as necessary. </haxe_doc>
 		</dispatch>
-		<getRequestParts set="method" line="47" static="1"><f a="request">
+		<getRequestParts set="method" line="52" static="1"><f a="request">
 	<c path="String"/>
 	<c path="Array"><c path="String"/></c>
 </f></getRequestParts>
@@ -1250,54 +2033,656 @@ This class is called on most page requests.
 	appending small elements together.
 </haxe_doc>
 	</class>
-	<class path="hxbase.BaseController" params="" file="src/hxbase/BaseController.hx">
-		<isCacheable public="1" set="null">
-			<e path="Bool"/>
-			<haxe_doc> Can this controller be cached?  (Read only)
-	In your Controller Class definition, set this to true or false </haxe_doc>
-		</isCacheable>
-		<output><c path="String"/></output>
-		<toString public="1" set="method" line="28">
-			<f a=""><c path="String"/></f>
-			<haxe_doc><![CDATA[ The toString() method should give the output from the various
-	actions we've called.  This means elsewhere you'll be able to use:
-	<pre>	myController = new MyController(args);
-	php.Lib.print(myController);</pre>
-	to print all the output.]]></haxe_doc>
-		</toString>
-		<print set="method" line="33"><f a="str">
-	<unknown/>
-	<e path="Void"/>
-</f></print>
-		<clearOutput set="method" line="38"><f a=""><e path="Void"/></f></clearOutput>
-		<new public="1" set="method" line="18">
-			<f a="args">
-				<c path="Array"><c path="String"/></c>
-				<e path="Void"/>
-			</f>
-			<haxe_doc> The new() constructor will probably be called by the Dispatcher
-	if it decides this is the Controller to use.  The constructor should
-	take the arguments, decide on which "action" (method) should be called,
-	and call it.  </haxe_doc>
-		</new>
-		<haxe_doc>
-Your controllers should inherit from this base class.
-</haxe_doc>
-	</class>
 	<class path="php.Boot" params="" file="/opt/haxe/std/php/Boot.hx">
 		<qtypes static="1"><c path="Array"><unknown/></c></qtypes>
 		<ttypes static="1"><unknown/></ttypes>
 		<tpaths static="1"><unknown/></tpaths>
 		<skip_constructor line="7" static="1"><e path="Bool"/></skip_constructor>
 	</class>
-	<class path="php.IteratorAggregate" params="T" file="/opt/haxe/std/php/IteratorAggregate.hx" extern="1" interface="1"><getIterator set="method">
-	<f a=""><t path="Iterator"><c path="php.IteratorAggregate.T"/></t></f>
-	<haxe_doc> 
-		This method is not public to not induce haXe users to use it ;) 
-		Use iterator() instead.
-		The return type would be Aggregator that is unusable in haXe 
+	<class path="haxe.Int32" params="" file="/opt/haxe/std/haxe/Int32.hx">
+		<make public="1" get="inline" set="null" line="33" static="1"><f a="a:b">
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="haxe.Int32"/>
+</f></make>
+		<ofInt public="1" get="inline" set="null" line="41" static="1"><f a="x">
+	<c path="Int"/>
+	<c path="haxe.Int32"/>
+</f></ofInt>
+		<toInt public="1" get="inline" set="null" line="49" static="1"><f a="x">
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+</f></toInt>
+		<toNativeInt public="1" get="inline" set="null" line="62" static="1"><f a="x">
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+</f></toNativeInt>
+		<add public="1" get="inline" set="null" line="70" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></add>
+		<sub public="1" get="inline" set="null" line="78" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></sub>
+		<mul public="1" get="inline" set="null" line="86" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></mul>
+		<div public="1" get="inline" set="null" line="94" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></div>
+		<mod public="1" get="inline" set="null" line="102" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></mod>
+		<shl public="1" get="inline" set="null" line="110" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+	<c path="haxe.Int32"/>
+</f></shl>
+		<shr public="1" get="inline" set="null" line="118" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+	<c path="haxe.Int32"/>
+</f></shr>
+		<ushr public="1" get="inline" set="null" line="126" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+	<c path="haxe.Int32"/>
+</f></ushr>
+		<and public="1" get="inline" set="null" line="134" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></and>
+		<or public="1" get="inline" set="null" line="142" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></or>
+		<xor public="1" get="inline" set="null" line="150" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></xor>
+		<neg public="1" get="inline" set="null" line="158" static="1"><f a="a">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></neg>
+		<complement public="1" get="inline" set="null" line="166" static="1"><f a="a">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></complement>
+		<compare public="1" get="inline" set="null" line="174" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+</f></compare>
+	</class>
+	<class path="hxbase.xml.XmlNode" params="" file="src/hxbase/xml/XmlNode.hx">
+		<xml public="1" get="getter_xml" set="null">
+			<c path="Xml"/>
+			<haxe_doc> A reference to the internal Xml object we're using.  (Read Only) </haxe_doc>
+		</xml>
+		<fast public="1" get="getter_fast" set="null">
+			<c path="haxe.xml.Fast"/>
+			<haxe_doc> A reference to the internal Fast object we're using.  (Read Only) </haxe_doc>
+		</fast>
+		<name public="1" get="getter_name" set="setter_name">
+			<c path="String"/>
+			<haxe_doc> The name of the current Element node.  
+	  If the node is not an Element, then this will return the node type.</haxe_doc>
+		</name>
+		<value public="1" get="getter_value" set="setter_value">
+			<c path="String"/>
+			<haxe_doc> The value of the current node.  
+	  Does not work on Document or Element nodes.  </haxe_doc>
+		</value>
+		<type public="1" get="getter_type" set="null">
+			<e path="XmlType"/>
+			<haxe_doc>
+	  Variable: type
+	  (String) The type of the current node.  (Read Only)
+	  
+	  Will be one of Cdata, PCData, Prolog, DocType, Document, Comment or Element
 	</haxe_doc>
-</getIterator></class>
+		</type>
+		<isCData public="1" get="testIsCData" set="null">
+			<e path="Bool"/>
+			<haxe_doc>
+		  Variable: isCData
+		  (Bool) Is this a CData node?
+		</haxe_doc>
+		</isCData>
+		<isPCData public="1" get="testIsPCData" set="null">
+			<e path="Bool"/>
+			<haxe_doc>
+		  Variable: isPCData
+		  (Bool) Is this a PCData node?
+		</haxe_doc>
+		</isPCData>
+		<isProlog public="1" get="testIsProlog" set="null">
+			<e path="Bool"/>
+			<haxe_doc>
+		  Variable: isProlog
+		  (Bool) Is this a Prolog node?
+		</haxe_doc>
+		</isProlog>
+		<isDocType public="1" get="testIsDocType" set="null">
+			<e path="Bool"/>
+			<haxe_doc>
+		  Variable: isDocType
+		  (Bool) Is this a DocType node?
+		</haxe_doc>
+		</isDocType>
+		<isDocument public="1" get="testIsDocument" set="null">
+			<e path="Bool"/>
+			<haxe_doc>
+		  Variable: isDocument
+		  (Bool) Is this a Document node?
+		</haxe_doc>
+		</isDocument>
+		<isComment public="1" get="testIsComment" set="null">
+			<e path="Bool"/>
+			<haxe_doc>
+		  Variable: isComment
+		  (Bool) Is this a Comment node?
+		</haxe_doc>
+		</isComment>
+		<isElement public="1" get="testIsElement" set="null">
+			<e path="Bool"/>
+			<haxe_doc>
+		  Variable: isElement
+		  (Bool) Is this a Element node?
+		</haxe_doc>
+		</isElement>
+		<isText public="1" get="testIsText" set="null">
+			<e path="Bool"/>
+			<haxe_doc>
+		  Variable: isText
+		  (Bool) Is this a text node, that is, CData OR PCData?
+		</haxe_doc>
+		</isText>
+		<index public="1" get="getter_index" set="null">
+			<c path="Int"/>
+			<haxe_doc>
+	  Variable: index
+	  (Int) The index of this node in relation to it's siblings.
+	  
+	  The first child of a parent has index 1, the last child has index
+	  parent.numChildren.  
+	  
+	  Returns 0 if this object doesn't have a parent.
+	</haxe_doc>
+		</index>
+		<numChildren public="1" get="getter_numChildren" set="null">
+			<c path="Int"/>
+			<haxe_doc>
+	  Variable: numChildren
+	  (Int) The number of children this node has.
+	  
+	  Returns 0 if this object isn't a parent.
+	</haxe_doc>
+		</numChildren>
+		<parent public="1" get="getter_parent" set="null">
+			<c path="hxbase.xml.XmlNode"/>
+			<haxe_doc><![CDATA[
+	  Variable: parent
+	  (<XmlNode>) Shortcut for this.getParent(); (Read Only)
+	]]></haxe_doc>
+		</parent>
+		<document public="1" get="getter_document" set="null">
+			<c path="hxbase.xml.XmlNode"/>
+			<haxe_doc>
+	Get's the root document node.  
+	(Not the document element, the node, which the element is contained in)
+	</haxe_doc>
+		</document>
+		<depth public="1" get="getter_depth" set="null">
+			<c path="Int"/>
+			<haxe_doc>
+	Shortcut for this.getDepthFromDocument().  Immediate childs of document node return 1, grandchildren 2, etc.
+	</haxe_doc>
+		</depth>
+		<children public="1" get="getter_children" set="null">
+			<c path="hxbase.xml.XmlList"/>
+			<haxe_doc><![CDATA[
+	  Variable: children
+	  (<XmlList>) Shortcut for this.getChildren(); (Read Only)
+	]]></haxe_doc>
+		</children>
+		<firstChild public="1" get="getter_firstChild" set="null">
+			<c path="hxbase.xml.XmlNode"/>
+			<haxe_doc><![CDATA[
+	  Variable: firstChild
+	  (<XmlNode>) Shortcut for this.getFirstChild(); (Read Only)
+	]]></haxe_doc>
+		</firstChild>
+		<lastChild public="1" get="getter_lastChild" set="null">
+			<c path="hxbase.xml.XmlNode"/>
+			<haxe_doc><![CDATA[
+	  Variable: lastChild
+	  (<XmlNode>) Shortcut for this.getLastChild(); (Read Only)
+	]]></haxe_doc>
+		</lastChild>
+		<ancestors public="1" get="getter_ancestors" set="null">
+			<c path="hxbase.xml.XmlList"/>
+			<haxe_doc><![CDATA[
+	  Variable: ancestors
+	  (<XmlList>) Shortcut for this.getAncestors(); (Read Only)
+	]]></haxe_doc>
+		</ancestors>
+		<descendants public="1" get="getter_descendants" set="null">
+			<c path="hxbase.xml.XmlList"/>
+			<haxe_doc><![CDATA[
+	  Variable: descendants
+	  (<XmlList>) Shortcut for this.getDescendants(); (Read Only)
+	]]></haxe_doc>
+		</descendants>
+		<siblings public="1" get="getter_siblings" set="null">
+			<c path="hxbase.xml.XmlList"/>
+			<haxe_doc><![CDATA[
+	  Variable: siblings
+	  (<XmlList>) Shortcut for this.getSiblings(); (Read Only)
+	]]></haxe_doc>
+		</siblings>
+		<next public="1" get="getter_next" set="null">
+			<c path="hxbase.xml.XmlNode"/>
+			<haxe_doc><![CDATA[
+	  Variable: next
+	  (<XmlNode>) Shortcut for this.getNext(); (Read Only)
+	]]></haxe_doc>
+		</next>
+		<prev public="1" get="getter_prev" set="null">
+			<c path="hxbase.xml.XmlNode"/>
+			<haxe_doc><![CDATA[
+	  Variable: prev
+	  (<XmlNode>) Shortcut for this.getPrev(); (Read Only)
+	]]></haxe_doc>
+		</prev>
+		<siblingsBefore public="1" get="getter_siblingsBefore" set="null">
+			<c path="hxbase.xml.XmlList"/>
+			<haxe_doc><![CDATA[
+	  Variable: siblingsBefore
+	  (<XmlList>) Shortcut for this.getSiblingsBefore(); (Read Only)
+	]]></haxe_doc>
+		</siblingsBefore>
+		<siblingsAfter public="1" get="getter_siblingsAfter" set="null">
+			<c path="hxbase.xml.XmlList"/>
+			<haxe_doc><![CDATA[
+	  Variable: siblingsAfter
+	  (<XmlList>) Shortcut for this.getSiblingsAfter(); (Read Only)
+	]]></haxe_doc>
+		</siblingsAfter>
+		<innerXML public="1" get="getter_innerXml" set="setter_innerXml">
+			<c path="String"/>
+			<haxe_doc><![CDATA[
+	  Variable: innerXML
+	  (String) Gets and sets the inner XML.
+	  
+	  The innerXML is anything between the main tags.
+	  
+	  > trace (xml);        	// "&lt;h1&gt;Old &lt;b&gt;Title&lt;/b&gt;&lt;/h1&gt;"
+	  > trace (xml.innerHTML);	// "Old &lt;b&gt;Title&lt;/b&gt;"
+	  >
+	  > xml.innerHTML = "New <i>Title</i>";
+	  >
+	  > trace (xml);       		// "&lt;h1&gt;New &lt;i&gt;Title&lt;/i&gt;&lt;/h1&gt;"
+	  
+	]]></haxe_doc>
+		</innerXML>
+		<outerXML public="1" get="getter_outerXml" set="setter_outerXml">
+			<c path="String"/>
+			<haxe_doc><![CDATA[
+	  Variable: outerXML
+	  (String) Gets and sets the outer XML.
+	  
+	  <pre>
+trace (body);           	// "&lt;body&gt;&lt;h1 class="title"&gt;Old Title&lt;/h1&gt;&lt;/body&gt;"
+trace (header);         	// "&lt;h1 class="title"&gt;Old Title&lt;/h1&gt;"
+trace (header.outerXML);	// "&lt;h1 class="title"&gt;Old Title&lt;/h1&gt;"
+header.outerXML = "&lt;header size='1'&gt;New Title&lt;/header&gt;";
+trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/header&gt;&lt;/body&gt;"
+</pre>
+	  
+	  Please note that after setting outerXML, this object is no longer useful.
+	  There are reasons for this, mainly we don't know how many nodes have been inserted
+	  And we can only wrap one at a time, so which one do we choose?
+	  
+	  You will have to find the object again, like this
+	  
+	  &gt; header = body.firstChild;
+	  &gt; header.outerXML = "&lt;h2&gt;New Header&lt;/h2&gt;";
+	  &gt; header = body.firstChild;
+	  &gt; header.setAtt("class", "pageHead");
+	  
+	  I should set it up to latch on to the first child, but haven't done so yet.
+	  
+	]]></haxe_doc>
+		</outerXML>
+		<innerText public="1" get="getter_innerText" set="setter_innerXml"><c path="String"/></innerText>
+		<x><c path="Xml"/></x>
+		<f><c path="haxe.xml.Fast"/></f>
+		<copy public="1" set="method" line="406"><f a=""><c path="hxbase.xml.XmlNode"/></f></copy>
+		<addChildAt public="1" set="method" line="455"><f a="child:?index">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="Int"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></addChildAt>
+		<appendChild public="1" set="method" line="496"><f a="child">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></appendChild>
+		<prependChild public="1" set="method" line="522"><f a="child">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></prependChild>
+		<addChildBefore public="1" set="method" line="548"><f a="newChild:existingChild">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></addChildBefore>
+		<addChildAfter public="1" set="method" line="575"><f a="newChild:existingChild">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></addChildAfter>
+		<addThisTo public="1" set="method" line="612"><f a="newParent:?pos">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="Int"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></addThisTo>
+		<removeChild public="1" set="method" line="658"><f a="child">
+	<c path="hxbase.xml.XmlNode"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></removeChild>
+		<removeChildAt public="1" set="method" line="685"><f a="pos">
+	<c path="Int"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></removeChildAt>
+		<removeChildren public="1" set="method" line="732"><f a="children">
+	<c path="hxbase.xml.XmlList"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></removeChildren>
+		<clearWhitespace public="1" set="method" line="748">
+			<f a=""><c path="Int"/></f>
+			<haxe_doc>
+	collapseWhitespace() will go through all child text nodes (not descendants yet)
+	and delete any whitespace-only nodes.  
+	
+	Returns the number of nodes deleted in the process.
+	</haxe_doc>
+		</clearWhitespace>
+		<empty public="1" set="method" line="792"><f a=""><c path="hxbase.xml.XmlNode"/></f></empty>
+		<hasAtt public="1" set="method" line="817"><f a="attName">
+	<c path="String"/>
+	<e path="Bool"/>
+</f></hasAtt>
+		<getAtt public="1" set="method" line="831"><f a="attName">
+	<c path="String"/>
+	<c path="String"/>
+</f></getAtt>
+		<setAtt public="1" set="method" line="849"><f a="attName:attValue">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></setAtt>
+		<getAttList public="1" set="method" line="858"><f a=""><c path="List"><c path="String"/></c></f></getAttList>
+		<getParent public="1" set="method" line="879"><f a=""><c path="hxbase.xml.XmlNode"/></f></getParent>
+		<getDocument public="1" set="method" line="891"><f a=""><c path="hxbase.xml.XmlNode"/></f></getDocument>
+		<getDepthFromDocument public="1" set="method" line="909">
+			<f a=""><c path="Int"/></f>
+			<haxe_doc> Count the depth from the document.  Ie. An immediate child is 1, a granchild is 2 etc. </haxe_doc>
+		</getDepthFromDocument>
+		<getNthParent public="1" set="method" line="925"><f a="n">
+	<c path="Int"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></getNthParent>
+		<getAncestors public="1" set="method" line="931"><f a="?nameFilter:?limit">
+	<c path="String"/>
+	<c path="Int"/>
+	<c path="hxbase.xml.XmlList"/>
+</f></getAncestors>
+		<getChildren public="1" set="method" line="948"><f a="?nameFilter:?limit">
+	<c path="String"/>
+	<c path="Int"/>
+	<c path="hxbase.xml.XmlList"/>
+</f></getChildren>
+		<getChildAt public="1" set="method" line="966"><f a="index">
+	<c path="Int"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></getChildAt>
+		<getFirstChild public="1" set="method" line="971"><f a=""><c path="hxbase.xml.XmlNode"/></f></getFirstChild>
+		<getLastChild public="1" set="method" line="976"><f a=""><c path="hxbase.xml.XmlNode"/></f></getLastChild>
+		<getDescendants public="1" set="method" line="988">
+			<f a=""><c path="hxbase.xml.XmlList"/></f>
+			<haxe_doc>
+	Get all descendants as an XmlList.  
+	
+	By default this doesn't do any filtering.  
+	You can run filters on the resulting XmlList though
+	</haxe_doc>
+		</getDescendants>
+		<getSiblings public="1" set="method" line="1010">
+			<f a=""><c path="hxbase.xml.XmlList"/></f>
+			<haxe_doc>
+	Get all Sibling nodes.  This doesn't do any filtering, but you can filter the resulting list though.
+	</haxe_doc>
+		</getSiblings>
+		<getNext public="1" set="method" line="1028"><f a=""><c path="hxbase.xml.XmlNode"/></f></getNext>
+		<getPrev public="1" set="method" line="1042"><f a=""><c path="hxbase.xml.XmlNode"/></f></getPrev>
+		<getSiblingsBefore public="1" set="method" line="1056"><f a=""><c path="hxbase.xml.XmlList"/></f></getSiblingsBefore>
+		<getSiblingsAfter public="1" set="method" line="1076"><f a=""><c path="hxbase.xml.XmlList"/></f></getSiblingsAfter>
+		<getElementsById public="1" set="method" line="1104">
+			<f a="id_in">
+				<c path="String"/>
+				<c path="hxbase.xml.XmlList"/>
+			</f>
+			<haxe_doc>
+	Designed to be like Javascripts document.getElementById();
+	
+	Will find any child (or descendant) element with an attribute ID that matches.  
+	Note this is different to javascript - this will not just give you the first result,
+	but will give you all matching results.  If you just want the first one you can use
+	
+	myElement = getElementById("myID")[0];
+	</haxe_doc>
+		</getElementsById>
+		<getElementsByTagName public="1" set="method" line="1109"><f a="name_in">
+	<c path="String"/>
+	<c path="hxbase.xml.XmlList"/>
+</f></getElementsByTagName>
+		<compareDocumentPosition public="1" set="method" line="1114"><f a="otherNode">
+	<c path="hxbase.xml.XmlNode"/>
+	<e path="hxbase.xml.XmlNodePosition"/>
+</f></compareDocumentPosition>
+		<isDescendantOf public="1" set="method" line="1180">
+			<f a="otherNode">
+				<c path="hxbase.xml.XmlNode"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+	Test if this is a child of another node.  I'm using this in compareDocumentPosition, but I guess it could be useful for someone else...
+	</haxe_doc>
+		</isDescendantOf>
+		<setInnerXML public="1" set="method" line="1201"><f a="str">
+	<c path="String"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></setInnerXML>
+		<setOuterXML public="1" set="method" line="1207"><f a="str">
+	<c path="String"/>
+	<c path="hxbase.xml.XmlNode"/>
+</f></setOuterXML>
+		<toString public="1" set="method" line="1213"><f a=""><c path="String"/></f></toString>
+		<iterator public="1" set="method" line="1218"><f a=""><t path="Iterator"><c path="hxbase.xml.XmlNode"/></t></f></iterator>
+		<getter_xml set="method" line="1232"><f a=""><c path="Xml"/></f></getter_xml>
+		<getter_fast set="method" line="1241"><f a=""><c path="haxe.xml.Fast"/></f></getter_fast>
+		<getter_name set="method" line="1250"><f a=""><c path="String"/></f></getter_name>
+		<setter_name set="method" line="1255"><f a="newName">
+	<c path="String"/>
+	<c path="String"/>
+</f></setter_name>
+		<getter_type set="method" line="1261"><f a=""><e path="XmlType"/></f></getter_type>
+		<testIsCData set="method" line="1267"><f a=""><e path="Bool"/></f></testIsCData>
+		<testIsComment set="method" line="1268"><f a=""><e path="Bool"/></f></testIsComment>
+		<testIsDocType set="method" line="1269"><f a=""><e path="Bool"/></f></testIsDocType>
+		<testIsDocument set="method" line="1270"><f a=""><e path="Bool"/></f></testIsDocument>
+		<testIsElement set="method" line="1271"><f a=""><e path="Bool"/></f></testIsElement>
+		<testIsPCData set="method" line="1272"><f a=""><e path="Bool"/></f></testIsPCData>
+		<testIsProlog set="method" line="1273"><f a=""><e path="Bool"/></f></testIsProlog>
+		<testIsText set="method" line="1274"><f a=""><e path="Bool"/></f></testIsText>
+		<getter_value set="method" line="1276"><f a=""><c path="String"/></f></getter_value>
+		<setter_value set="method" line="1283"><f a="v">
+	<c path="String"/>
+	<c path="String"/>
+</f></setter_value>
+		<getter_parent set="method" line="1296"><f a=""><c path="hxbase.xml.XmlNode"/></f></getter_parent>
+		<getter_document set="method" line="1301"><f a=""><c path="hxbase.xml.XmlNode"/></f></getter_document>
+		<getter_depth set="method" line="1306"><f a=""><c path="Int"/></f></getter_depth>
+		<getter_children set="method" line="1311"><f a=""><c path="hxbase.xml.XmlList"/></f></getter_children>
+		<getter_firstChild set="method" line="1316"><f a=""><c path="hxbase.xml.XmlNode"/></f></getter_firstChild>
+		<getter_lastChild set="method" line="1321"><f a=""><c path="hxbase.xml.XmlNode"/></f></getter_lastChild>
+		<getter_ancestors set="method" line="1326"><f a=""><c path="hxbase.xml.XmlList"/></f></getter_ancestors>
+		<getter_descendants set="method" line="1331"><f a=""><c path="hxbase.xml.XmlList"/></f></getter_descendants>
+		<getter_siblings set="method" line="1336"><f a=""><c path="hxbase.xml.XmlList"/></f></getter_siblings>
+		<getter_next set="method" line="1341"><f a=""><c path="hxbase.xml.XmlNode"/></f></getter_next>
+		<getter_prev set="method" line="1346"><f a=""><c path="hxbase.xml.XmlNode"/></f></getter_prev>
+		<getter_siblingsBefore set="method" line="1351"><f a=""><c path="hxbase.xml.XmlList"/></f></getter_siblingsBefore>
+		<getter_siblingsAfter set="method" line="1356"><f a=""><c path="hxbase.xml.XmlList"/></f></getter_siblingsAfter>
+		<getter_index set="method" line="1361"><f a=""><c path="Int"/></f></getter_index>
+		<getter_numChildren set="method" line="1376"><f a=""><c path="Int"/></f></getter_numChildren>
+		<getter_innerXml set="method" line="1381"><f a=""><c path="String"/></f></getter_innerXml>
+		<setter_innerXml set="method" line="1386"><f a="str">
+	<c path="String"/>
+	<c path="String"/>
+</f></setter_innerXml>
+		<getter_outerXml set="method" line="1401"><f a=""><c path="String"/></f></getter_outerXml>
+		<setter_outerXml set="method" line="1413"><f a="str">
+	<c path="String"/>
+	<c path="String"/>
+</f></setter_outerXml>
+		<getter_innerText set="method" line="1453"><f a=""><c path="String"/></f></getter_innerText>
+		<new public="1" set="method" line="356">
+			<f a="?str_in:?xml_in:?advXmlItem_in">
+				<c path="String"/>
+				<c path="Xml"/>
+				<c path="hxbase.xml.XmlNode"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[*********************************************************************
+	Constructor: new()
+	
+	Constructs an XmlNode object.
+	
+	It can be constructed based on a string, a HaXe Xml object, or an 
+	existing XmlNode object.  Please note, the parameters are optional,
+	and so you can enter any single one of them, rather than having to 
+	remember the order.
+	
+	It would be nice in this situation to use different constructor methods
+	Java style.  Oh well.
+	
+	Constructing by string:
+	
+	If you pass the new() constructor a String, it will use Xml.Parse() 
+	to create a new set of nodes.  If the stringi s not valid XML, an 
+	"Xml parse error" will be thrown, and the script will fail.  (We 
+	should probably be a little nicer).
+	
+	When constructing from a string, a Document node is created.  Any other
+	nodes (elements, text nodes, etc) are childs of this document node.
+	
+	Constructing by Xml object:
+	
+	If you pass the new() constructor an Xml object, then it wraps this
+	with XmlNode functionality.  Please note this will not create a new
+	node in the XML document, merely wrap our functionality around an 
+	existing node.
+	
+	Constructing by an existing XmlNode object:
+	
+	If you pass the new() constructor an existing XmlNode, it will use
+	the <XmlNode.copy()> method of the existing object to create the new
+	object.
+	
+	
+	
+	
+	So an example or two:
+	
+	> // Declare the object we'll be using
+	> var objFromString:XmlNode;
+	> var objFromXml:XmlNode;
+	> var objFromXml:XmlNode;
+	>
+	> // Initialise the string object
+	> objFromString = new XmlNode("<myElement>Hey!</myElement>");
+	> trace (objFromString)				// <myElement>Hey!</myElement>
+	> trace (objFromString.type)			// Document
+	> trace (objFromString.firstChild.type) 	// Element
+	> trace (objFromString.firstChild.name) 	// myElement
+	>
+	> // Then construct from an XML object
+	> 
+	> // And then from an existing XmlNode object.
+	>
+	
+	Parameters:
+
+		str_in - Initialise an XmlNode object from a string.  
+		xml_in - Create a new XmlNode object, based on an existing Xml
+		         object.  This won't duplicate the existing node, rather
+		         it will wrap the XmlNode functionality around that 
+		         node.
+		advXmlItem_in - Create a new XmlNode object, copying 
+		                an existing object.  This will duplicate the XML
+		                node.
+
+	Returns:
+
+		(<XmlNode>) The object that has been created.
+
+	*********************************************************************]]></haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[   
+   This class aims to provide a much easier way to navigate and manipulate
+   XML in haxe.  This implementation should be platform independent, though
+   I haven't done the testing yet.
+   
+   The idea is, if all platforms can implement the same XML class, then
+   the code portability is going to be even higher.  Which is sweet!
+   
+   I've tried to copy alot of the functionality from libraries like jquery.
+   So at the moment most functions return themselves, so they can be chained
+   together.  For example:
+   
+   | bodyElm.setInnerHTML("&lt;h1&gt;Inner HTML of Body&lt;/h1&gt;").firstChild.setAtt("class","Title");
+   
+   Should produce...
+   
+   | &lt;body&gt;&lt;h1 class="Title"&gt;Inner HTML of Body&lt;/h1&gt;
+]]></haxe_doc>
+	</class>
+	<enum path="hxbase.xml.XmlNodePosition" params="" file="src/hxbase/xml/XmlNode.hx" module="hxbase.xml.XmlNode">
+		<PRECEDING><haxe_doc> The elements either don't belong to the same document or MAYBE are in unrelated parts of the DOM tree </haxe_doc></PRECEDING>
+		<FOLLOWING><haxe_doc> The elements are siblings, and this element we're testing against comes after </haxe_doc></FOLLOWING>
+		<DISCONNECTED/>
+		<CONTAINS><haxe_doc> The elements are siblings, and the element we're testing against comes first </haxe_doc></CONTAINS>
+		<CONTAINED_BY><haxe_doc> The element we're testing against is a parent of this element </haxe_doc></CONTAINED_BY>
+		<haxe_doc>
+XmlNodePosition is used to describe the relationship between two nodes.  
+It is used by XmlNode.compareDocumentPosition()
+
+Please note haxedoc seems to have screwed up the order of the descriptions below.
+</haxe_doc>
+	</enum>
 	<class path="Hash" params="T" file="/opt/haxe/std/Hash.hx">
 		<implements path="php.IteratorAggregate"><c path="Hash.T"/></implements>
 		<h><c path="ArrayAccess"><c path="Hash.T"/></c></h>
@@ -1565,6 +2950,155 @@ Your controllers should inherit from this base class.
 		<todoList public="1" get="getter_todoList" set="null"><c path="List"><c path="models.TodoItem"/></c></todoList>
 		<getter_todoList set="method" line="11"><f a=""><c path="List"><c path="models.TodoItem"/></c></f></getter_todoList>
 		<new public="1" set="method" line="3"><f a=""><e path="Void"/></f></new>
+	</class>
+	<class path="haxe.io.Output" params="" file="/opt/haxe/std/haxe/io/Output.hx">
+		<bigEndian public="1" set="setEndian"><e path="Bool"/></bigEndian>
+		<writeByte public="1" set="method" line="37"><f a="c">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeByte>
+		<writeBytes public="1" set="method" line="41"><f a="s:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></writeBytes>
+		<flush public="1" set="method" line="64"><f a=""><e path="Void"/></f></flush>
+		<close public="1" set="method" line="67"><f a=""><e path="Void"/></f></close>
+		<setEndian set="method" line="70"><f a="b">
+	<e path="Bool"/>
+	<e path="Bool"/>
+</f></setEndian>
+		<write public="1" set="method" line="77"><f a="s">
+	<c path="haxe.io.Bytes"/>
+	<e path="Void"/>
+</f></write>
+		<writeFullBytes public="1" set="method" line="88"><f a="s:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeFullBytes>
+		<writeFloat public="1" set="method" line="96"><f a="x">
+	<c path="Float"/>
+	<e path="Void"/>
+</f></writeFloat>
+		<writeDouble public="1" set="method" line="108"><f a="x">
+	<c path="Float"/>
+	<e path="Void"/>
+</f></writeDouble>
+		<writeInt8 public="1" set="method" line="120"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeInt8>
+		<writeInt16 public="1" set="method" line="126"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeInt16>
+		<writeUInt16 public="1" set="method" line="131"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeUInt16>
+		<writeInt24 public="1" set="method" line="142"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeInt24>
+		<writeUInt24 public="1" set="method" line="147"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeUInt24>
+		<writeInt31 public="1" set="method" line="160"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeInt31>
+		<writeUInt30 public="1" set="method" line="177"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeUInt30>
+		<writeInt32 public="1" set="method" line="192"><f a="x">
+	<c path="haxe.Int32"/>
+	<e path="Void"/>
+</f></writeInt32>
+		<prepare public="1" set="method" line="212">
+			<f a="nbytes">
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Inform that we are about to write at least a specified number of bytes.
+		The underlying implementation can allocate proper working space depending
+		on this information, or simply ignore it. This is not a mandatory call
+		but a tip and is only used in some specific cases.
+	</haxe_doc>
+		</prepare>
+		<writeInput public="1" set="method" line="215"><f a="i:?bufsize">
+	<c path="haxe.io.Input"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeInput>
+		<writeString public="1" set="method" line="237"><f a="s">
+	<c path="String"/>
+	<e path="Void"/>
+</f></writeString>
+		<haxe_doc>
+	An Output is an abstract write. A specific output implementation will only
+	have to override the [writeChar] and maybe the [write], [flush] and [close]
+	methods. See [File.write] and [String.write] for two ways of creating an
+	Output.
+</haxe_doc>
+	</class>
+	<class path="haxe.io.Bytes" params="" file="/opt/haxe/std/haxe/io/Bytes.hx">
+		<alloc public="1" set="method" line="211" static="1"><f a="length">
+	<c path="Int"/>
+	<c path="haxe.io.Bytes"/>
+</f></alloc>
+		<ofString public="1" set="method" line="239" static="1"><f a="s">
+	<c path="String"/>
+	<c path="haxe.io.Bytes"/>
+</f></ofString>
+		<ofData public="1" set="method" line="278" static="1"><f a="b">
+	<t path="haxe.io.BytesData"/>
+	<c path="haxe.io.Bytes"/>
+</f></ofData>
+		<length public="1" set="null"><c path="Int"/></length>
+		<b><t path="haxe.io.BytesData"/></b>
+		<get public="1" get="inline" set="null" line="37"><f a="pos">
+	<c path="Int"/>
+	<c path="Int"/>
+</f></get>
+		<set public="1" get="inline" set="null" line="51"><f a="pos:v">
+	<c path="Int"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></set>
+		<blit public="1" set="method" line="65"><f a="pos:src:srcpos:len">
+	<c path="Int"/>
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></blit>
+		<sub public="1" set="method" line="93"><f a="pos:len">
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="haxe.io.Bytes"/>
+</f></sub>
+		<compare public="1" set="method" line="112"><f a="other">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+</f></compare>
+		<readString public="1" set="method" line="148"><f a="pos:len">
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="String"/>
+</f></readString>
+		<toString public="1" set="method" line="192"><f a=""><c path="String"/></f></toString>
+		<getData public="1" get="inline" set="null" line="207"><f a=""><t path="haxe.io.BytesData"/></f></getData>
+		<new set="method" line="32"><f a="length:b">
+	<c path="Int"/>
+	<t path="haxe.io.BytesData"/>
+	<e path="Void"/>
+</f></new>
 	</class>
 	<class path="Date" params="" file="/opt/haxe/std/Date.hx" extern="1">
 		<now public="1" set="method" static="1">
@@ -1982,6 +3516,69 @@ Your controllers should inherit from this base class.
 	client request and informations.
 </haxe_doc>
 	</class>
+	<enum path="php.io.FileHandle" params="" file="/opt/haxe/std/php/io/File.hx" module="php.io.File"/>
+	<enum path="php.io.FileSeek" params="" file="/opt/haxe/std/php/io/File.hx" module="php.io.File">
+		<SeekEnd/>
+		<SeekCur/>
+		<SeekBegin/>
+	</enum>
+	<class path="php.io.File" params="" file="/opt/haxe/std/php/io/File.hx">
+		<getContent public="1" set="method" line="41" static="1"><f a="path">
+	<c path="String"/>
+	<c path="String"/>
+</f></getContent>
+		<getBytes public="1" set="method" line="45" static="1"><f a="path">
+	<c path="String"/>
+	<c path="haxe.io.Bytes"/>
+</f></getBytes>
+		<putContent public="1" set="method" line="49" static="1"><f a="path:content">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="String"/>
+</f></putContent>
+		<read public="1" set="method" line="53" static="1"><f a="path:binary">
+	<c path="String"/>
+	<e path="Bool"/>
+	<c path="php.io.FileInput"/>
+</f></read>
+		<write public="1" set="method" line="57" static="1"><f a="path:binary">
+	<c path="String"/>
+	<e path="Bool"/>
+	<c path="php.io.FileOutput"/>
+</f></write>
+		<append public="1" set="method" line="61" static="1"><f a="path:binary">
+	<c path="String"/>
+	<e path="Bool"/>
+	<c path="php.io.FileOutput"/>
+</f></append>
+		<copy public="1" set="method" line="65" static="1"><f a="src:dst">
+	<c path="String"/>
+	<c path="String"/>
+	<unknown/>
+</f></copy>
+		<stdin public="1" set="method" line="69" static="1"><f a=""><c path="php.io.FileInput"/></f></stdin>
+		<stdout public="1" set="method" line="73" static="1"><f a=""><c path="php.io.FileOutput"/></f></stdout>
+		<stderr public="1" set="method" line="77" static="1"><f a=""><c path="php.io.FileOutput"/></f></stderr>
+		<getChar public="1" set="method" line="81" static="1"><f a="echo">
+	<e path="Bool"/>
+	<c path="Int"/>
+</f></getChar>
+		<haxe_doc>
+	API for reading and writing to files.
+</haxe_doc>
+	</class>
+	<enum path="haxe.io.Error" params="" file="/opt/haxe/std/haxe/io/Error.hx">
+		<Overflow><haxe_doc> An integer value is outside its allowed range </haxe_doc></Overflow>
+		<OutsideBounds><haxe_doc> An operation on Bytes is outside of its valid range </haxe_doc></OutsideBounds>
+		<Custom a="e">
+			<d/>
+			<haxe_doc> Other errors </haxe_doc>
+		</Custom>
+		<Blocked><haxe_doc> The IO is set into nonblocking mode and some data cannot be read or written </haxe_doc></Blocked>
+		<haxe_doc>
+	The possible IO errors that can occur
+</haxe_doc>
+	</enum>
 	<class path="Std" params="" file="/opt/haxe/std/Std.hx">
 		<is public="1" set="method" line="34" static="1">
 			<f a="v:t">
@@ -2096,147 +3693,166 @@ Your controllers should inherit from this base class.
 	ArrayAccess is used to indicate a class that can be accessed using brackets.
 	The type parameter represent the type of the elements stored.
 </haxe_doc></class>
+	<class path="Lambda" params="" file="/opt/haxe/std/Lambda.hx">
+		<array public="1" params="A" set="method" line="35" static="1">
+			<f a="it">
+				<t path="Iterable"><c path="array.A"/></t>
+				<c path="Array"><c path="array.A"/></c>
+			</f>
+			<haxe_doc>
+		Creates an [Array] from an [Iterable]
+	</haxe_doc>
+		</array>
+		<list public="1" params="A" set="method" line="48" static="1">
+			<f a="it">
+				<t path="Iterable"><c path="list.A"/></t>
+				<c path="List"><c path="list.A"/></c>
+			</f>
+			<haxe_doc>
+		Creates a [List] from an [Iterable]
+	</haxe_doc>
+		</list>
+		<map public="1" params="A:B" set="method" line="62" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="map.A"/></t>
+				<f a="">
+					<c path="map.A"/>
+					<c path="map.B"/>
+				</f>
+				<c path="List"><c path="map.B"/></c>
+			</f>
+			<haxe_doc>
+		Creates a new [Iterable] by appling the function 'f' to all
+		elements of the iterator 'it'.
+	</haxe_doc>
+		</map>
+		<mapi public="1" params="A:B" set="method" line="75" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="mapi.A"/></t>
+				<f a=":">
+					<c path="Int"/>
+					<c path="mapi.A"/>
+					<c path="mapi.B"/>
+				</f>
+				<c path="List"><c path="mapi.B"/></c>
+			</f>
+			<haxe_doc>
+		Similar to [map], but also pass an index for each item iterated.
+	</haxe_doc>
+		</mapi>
+		<has public="1" params="A" set="method" line="93" static="1">
+			<f a="it:elt:?cmp">
+				<t path="Iterable"><c path="has.A"/></t>
+				<c path="has.A"/>
+				<f a=":">
+					<c path="has.A"/>
+					<c path="has.A"/>
+					<e path="Bool"/>
+				</f>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if the element is part of an iterable. The comparison
+		is made using the [==] operator. Optionally you can pass as
+		a third parameter a function that performs the comparison.
+		That function must take as arguments the two items to
+		compare and returns a boolean value.
+	</haxe_doc>
+		</has>
+		<exists public="1" params="A" set="method" line="112" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="exists.A"/></t>
+				<f a="">
+					<c path="exists.A"/>
+					<e path="Bool"/>
+				</f>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if at least one element of the iterable is found by using the specific function.
+	</haxe_doc>
+		</exists>
+		<foreach public="1" params="A" set="method" line="125" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="foreach.A"/></t>
+				<f a="">
+					<c path="foreach.A"/>
+					<e path="Bool"/>
+				</f>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if all elements of the iterable have the specified property defined by [f].
+	</haxe_doc>
+		</foreach>
+		<iter public="1" params="A" set="method" line="138" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="iter.A"/></t>
+				<f a="">
+					<c path="iter.A"/>
+					<e path="Void"/>
+				</f>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Call the function 'f' on all elements of the [Iterable] 'it'.
+	</haxe_doc>
+		</iter>
+		<filter public="1" params="A" set="method" line="149" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="filter.A"/></t>
+				<f a="">
+					<c path="filter.A"/>
+					<e path="Bool"/>
+				</f>
+				<c path="List"><c path="filter.A"/></c>
+			</f>
+			<haxe_doc>
+		Return the list of elements matching the function 'f'
+	</haxe_doc>
+		</filter>
+		<fold public="1" params="A:B" set="method" line="163" static="1">
+			<f a="it:f:first">
+				<t path="Iterable"><c path="fold.A"/></t>
+				<f a=":">
+					<c path="fold.A"/>
+					<c path="fold.B"/>
+					<c path="fold.B"/>
+				</f>
+				<c path="fold.B"/>
+				<c path="fold.B"/>
+			</f>
+			<haxe_doc>
+		Functional 'fold' using an [Iterable]
+	</haxe_doc>
+		</fold>
+		<count public="1" params="A" set="method" line="175" static="1">
+			<f a="it">
+				<t path="Iterable"><c path="count.A"/></t>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>
+		Count the number of elements in an [Iterable]
+	</haxe_doc>
+		</count>
+		<empty public="1" set="method" line="188" static="1">
+			<f a="it">
+				<t path="Iterable"><d/></t>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if an iterable does not contain any element.
+	</haxe_doc>
+		</empty>
+		<haxe_doc>
+	The [Lambda] class is a collection of functional methods in order to
+	use functional-style programming with haXe.
+</haxe_doc>
+	</class>
 	<class path="hxbase.DbControl" params="" file="src/hxbase/DbControl.hx">
 		<cnx public="1" line="5" static="1"><c path="php.db.Connection"/></cnx>
 		<connect public="1" set="method" line="7" static="1"><f a=""><e path="Void"/></f></connect>
 		<close public="1" set="method" line="37" static="1"><f a=""><e path="Void"/></f></close>
-	</class>
-	<class path="List" params="T" file="/opt/haxe/std/List.hx">
-		<implements path="php.IteratorAggregate"><c path="List.T"/></implements>
-		<h><c path="ArrayAccess"><d/></c></h>
-		<q><c path="ArrayAccess"><d/></c></q>
-		<length public="1" set="null">
-			<c path="Int"/>
-			<haxe_doc>
-		The number of elements in this list.
-	</haxe_doc>
-		</length>
-		<add public="1" set="method" line="56">
-			<f a="item">
-				<c path="List.T"/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Add an element at the end of the list.
-	</haxe_doc>
-		</add>
-		<push public="1" set="method" line="76">
-			<f a="item">
-				<c path="List.T"/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Push an element at the beginning of the list.
-	</haxe_doc>
-		</push>
-		<first public="1" set="method" line="100">
-			<f a=""><c path="List.T"/></f>
-			<haxe_doc>
-		Returns the first element of the list, or null
-		if the list is empty.
-	</haxe_doc>
-		</first>
-		<last public="1" set="method" line="108">
-			<f a=""><c path="List.T"/></f>
-			<haxe_doc>
-		Returns the last element of the list, or null
-		if the list is empty.
-	</haxe_doc>
-		</last>
-		<pop public="1" set="method" line="118">
-			<f a=""><c path="List.T"/></f>
-			<haxe_doc>
-		Removes the first element of the list and
-		returns it or simply returns null if the
-		list is empty.
-	</haxe_doc>
-		</pop>
-		<isEmpty public="1" set="method" line="132">
-			<f a=""><e path="Bool"/></f>
-			<haxe_doc>
-		Tells if a list is empty.
-	</haxe_doc>
-		</isEmpty>
-		<clear public="1" set="method" line="139">
-			<f a=""><e path="Void"/></f>
-			<haxe_doc>
-		Makes the list empty.
-	</haxe_doc>
-		</clear>
-		<remove public="1" set="method" line="149">
-			<f a="v">
-				<c path="List.T"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Remove the first element that is [== v] from the list.
-		Returns [true] if an element was removed, [false] otherwise.
-	</haxe_doc>
-		</remove>
-		<iterator public="1" set="method" line="190">
-			<f a=""><t path="Iterator"><c path="List.T"/></t></f>
-			<haxe_doc>
-		Returns an iterator on the elements of the list.
-	</haxe_doc>
-		</iterator>
-		<toString public="1" set="method" line="215">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>
-		Returns a displayable representation of the String.
-	</haxe_doc>
-		</toString>
-		<join public="1" set="method" line="235">
-			<f a="sep">
-				<c path="String"/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>
-		Join the element of the list by using the separator [sep].
-	</haxe_doc>
-		</join>
-		<filter public="1" set="method" line="254">
-			<f a="f">
-				<f a="">
-					<c path="List.T"/>
-					<e path="Bool"/>
-				</f>
-				<c path="List"><c path="List.T"/></c>
-			</f>
-			<haxe_doc>
-		Returns a list filtered with [f]. The returned list
-		will contain all elements [x] for which [f(x) = true].
-	</haxe_doc>
-		</filter>
-		<map public="1" params="X" set="method" line="270">
-			<f a="f">
-				<f a="">
-					<c path="List.T"/>
-					<c path="map.X"/>
-				</f>
-				<c path="List"><c path="map.X"/></c>
-			</f>
-			<haxe_doc>
-		Returns a new list where all elements have been converted
-		by the function [f].
-	</haxe_doc>
-		</map>
-		<getIterator set="method" line="285">
-			<f a=""><t path="Iterator"><c path="List.T"/></t></f>
-			<haxe_doc>
-		Implement IteratorAggregate for native php iteration
-	</haxe_doc>
-		</getIterator>
-		<new public="1" set="method" line="49">
-			<f a=""><e path="Void"/></f>
-			<haxe_doc>
-		Creates a new empty list.
-	</haxe_doc>
-		</new>
-		<haxe_doc>
-	A linked-list of elements. The list is composed of two-elements arrays
-	that are chained together. It's optimized so that adding or removing an
-	element doesn't imply to copy the whole array content everytime.
-</haxe_doc>
 	</class>
 	<class path="php.PhpDate__" params="" file="/opt/haxe/std/php/PhpDate__.hx">
 		<__name__ line="29" static="1"><c path="Array"><c path="String"/></c></__name__>
@@ -2273,6 +3889,36 @@ Your controllers should inherit from this base class.
 	<c path="Int"/>
 	<e path="Void"/>
 </f></new>
+	</class>
+	<class path="php.io.FileOutput" params="" file="/opt/haxe/std/php/io/FileOutput.hx">
+		<extends path="haxe.io.Output"/>
+		<__f><e path="php.io.FileHandle"/></__f>
+		<writeByte public="1" set="method" line="38" override="1"><f a="c">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeByte>
+		<writeBytes public="1" set="method" line="44" override="1"><f a="b:p:l">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></writeBytes>
+		<flush public="1" set="method" line="52" override="1"><f a=""><e path="Void"/></f></flush>
+		<close public="1" set="method" line="57" override="1"><f a=""><e path="Void"/></f></close>
+		<seek public="1" set="method" line="62"><f a="p:pos">
+	<c path="Int"/>
+	<e path="php.io.FileSeek"/>
+	<e path="Void"/>
+</f></seek>
+		<tell public="1" set="method" line="73"><f a=""><c path="Int"/></f></tell>
+		<eof public="1" set="method" line="79"><f a=""><e path="Bool"/></f></eof>
+		<new public="1" set="method" line="34"><f a="f">
+	<e path="php.io.FileHandle"/>
+	<e path="Void"/>
+</f></new>
+		<haxe_doc>
+	Use [php.io.File.write] to create a [FileOutput]
+</haxe_doc>
 	</class>
 	<enum path="ValueType" params="" file="/opt/haxe/std/Type.hx" module="Type">
 		<TUnknown/>
@@ -2475,6 +4121,14 @@ Your controllers should inherit from this base class.
 	Classes and Enums at runtime.
 </haxe_doc>
 	</class>
+	<class path="haxe.io.Eof" params="" file="/opt/haxe/std/haxe/io/Eof.hx">
+		<toString set="method" line="33"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method" line="31"><f a=""><e path="Void"/></f></new>
+		<haxe_doc>
+	This exception is raised when reading while data is no longer available in the [Input].
+</haxe_doc>
+	</class>
+	<class path="php.NativeString" params="" file="/opt/haxe/std/php/NativeString.hx" extern="1"/>
 	<class path="php.PhpMath__" params="" file="/opt/haxe/std/php/PhpMath__.hx">
 		<PI public="1" static="1"><unknown/></PI>
 		<NaN public="1" static="1"><unknown/></NaN>
@@ -2561,6 +4215,31 @@ Your controllers should inherit from this base class.
 	<unknown/>
 	<unknown/>
 </f></isFinite>
+	</class>
+	<class path="php.io.FileInput" params="" file="/opt/haxe/std/php/io/FileInput.hx">
+		<extends path="haxe.io.Input"/>
+		<__f><e path="php.io.FileHandle"/></__f>
+		<readByte public="1" set="method" line="39" override="1"><f a=""><c path="Int"/></f></readByte>
+		<readBytes public="1" set="method" line="46" override="1"><f a="s:p:l">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></readBytes>
+		<close public="1" set="method" line="55" override="1"><f a=""><e path="Void"/></f></close>
+		<seek public="1" set="method" line="60"><f a="p:pos">
+	<c path="Int"/>
+	<e path="php.io.FileSeek"/>
+	<e path="Void"/>
+</f></seek>
+		<tell public="1" set="method" line="71"><f a=""><c path="Int"/></f></tell>
+		<new public="1" set="method" line="35"><f a="f">
+	<e path="php.io.FileHandle"/>
+	<e path="Void"/>
+</f></new>
+		<haxe_doc>
+	Use [php.io.File.read] to create a [FileInput]
+</haxe_doc>
 	</class>
 	<class path="Class" params="T" file="/opt/haxe/std/Class.hx" extern="1"><haxe_doc>
 	An abstract type that represents a Class.
@@ -2861,5 +4540,51 @@ Your controllers should inherit from this base class.
 	<e path="Void"/>
 </f></new>
 	</class>
+	<typedef path="haxe.io.BytesData" params="" file="/opt/haxe/std/haxe/io/BytesData.hx"><c path="php.NativeString"/></typedef>
+	<class path="hxbase.Log" params="" file="src/hxbase/Log.hx">
+		<log public="1" set="method" line="7" static="1">
+			<f a="type:msg:pos">
+				<e path="hxbase.LogType"/>
+				<c path="String"/>
+				<t path="haxe.PosInfos"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc> This is not made to be called directly.  
+	Use trace, info, warning or error instead. </haxe_doc>
+		</log>
+		<trace public="1" set="method" line="19" static="1"><f a="v:?pos">
+	<d/>
+	<t path="haxe.PosInfos"/>
+	<e path="Void"/>
+</f></trace>
+		<info public="1" set="method" line="24" static="1"><f a="info:?pos">
+	<c path="String"/>
+	<t path="haxe.PosInfos"/>
+	<e path="Void"/>
+</f></info>
+		<warning public="1" set="method" line="29" static="1"><f a="warning:?pos">
+	<c path="String"/>
+	<t path="haxe.PosInfos"/>
+	<e path="Void"/>
+</f></warning>
+		<error public="1" set="method" line="34" static="1"><f a="error:?pos">
+	<c path="String"/>
+	<t path="haxe.PosInfos"/>
+	<e path="Void"/>
+</f></error>
+		<assert public="1" set="method" line="40" static="1"><f a="cond:?desc:?pos">
+	<e path="Bool"/>
+	<c path="String"/>
+	<t path="haxe.PosInfos"/>
+	<e path="Void"/>
+</f></assert>
+	</class>
+	<enum path="hxbase.LogType" params="" file="src/hxbase/Log.hx" module="hxbase.Log">
+		<Warning/>
+		<Trace/>
+		<Info/>
+		<Error/>
+		<AssertionFailed/>
+	</enum>
 	<class path="@Main" params="" file=""><init line="1" static="1"><e path="Void"/></init></class>
 </haxe>

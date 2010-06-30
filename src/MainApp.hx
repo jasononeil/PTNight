@@ -5,6 +5,7 @@ import AppConfig;
 import models.User;
 import models.TodoItem;
 import hxbase.BaseController;
+import hxbase.Log;
 
 class MainApp
 {
@@ -12,6 +13,7 @@ class MainApp
 	
 	public static function main()
 	{
+		haxe.Log.trace = hxbase.Log.trace;
 		php.Lib.print('<pre>');
 		
 		trace("Call the dispatcher to figure out what to do...");

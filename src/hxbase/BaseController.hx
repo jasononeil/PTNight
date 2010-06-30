@@ -1,5 +1,5 @@
 package hxbase;
-
+import hxbase.tpl.HxTpl;
 /**
 Your controllers should inherit from this base class.
 */
@@ -17,7 +17,15 @@ class BaseController
 	and call it.  */
 	public function new(args:Array<String>)
 	{
-		
+		hxbase.Log.error("This is where you're up to");
+		// NEXT:
+		// Have code here to pick the appropriate action
+		// This will use REFLECT to see what's available
+		// And read a variable to see what the default is
+		// Each action should be:
+		//	function myAction(args:Array<String>):Void
+		//  and sets the "output" string.
+		// ALSO: Decide where template codes
 	}
 	
 	/** The toString() method should give the output from the various
