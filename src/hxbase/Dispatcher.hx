@@ -38,12 +38,10 @@ class Dispatcher
 		}
 		
 		// Now pass control to whichever controller class we have
+		// (first check it has a 
 		trace ("We're going to load " + controllerClass);
-		for (field in Type.getClassFields(controllerClass))
-		{
-			trace ("Fields in Class: " + field);
-		}
-		Lambda;
+		Type.createInstance(controllerClass, parts);
+		
 	}
 	
 	private static function getRequestParts(request:String):Array<String>

@@ -4,6 +4,7 @@ import AppConfig;
 
 import models.User;
 import models.TodoItem;
+import hxbase.BaseController;
 
 class MainApp
 {
