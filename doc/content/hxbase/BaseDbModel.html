@@ -175,8 +175,8 @@ Follow these and you'll be off to a good start.</p>
 	<br />This sort of relationship doesn't come built in in haxe,
 	but wasn't very hard to get going.  I put in a bit of code like
 	this:
-	<pre>	public var todoList(getter_todoList,null):List<TodoItem>;
-	private function getter_todoList():List<TodoItem>
+	<pre>	public var todoList(getter_todoList,null):List< TodoItem >;
+	private function getter_todoList():List< TodoItem >
 	{
 		return (id == null) ?
 			new List<TodoItem>() :
@@ -186,13 +186,14 @@ Follow these and you'll be off to a good start.</p>
 	your list of child objects, and "TodoItem" with the
 	Class name for the model of your child objects.
 	</li>
-	<li><b>HABTM</b>
-	<br />What?  Has And Belongs To Many, apparently.  This isn't as
-	common, sometimes seen in tags.  It's a many-to-many, (a much better name)
+	<li><b>Many To Many</b>
+	<br />This isn't as common, sometimes seen in tags.  It's a many-to-many,
 	and usually needs a joining table.  I haven't gone and done these yet...
 	<br />I imagine you could do it by having a model for the joining table
 	and just doing a hasMany relationship from Model1 -> ModelJoin and from
-	ModelJoin -> Model2.  There might be a more elegant way also...</li></p>
+	ModelJoin -> Model2.  The SimpleSQL book I was reading seemed to suggest
+	this, with the model for the Join table containing a hasMany relationship
+	to both other models.</li></p>
 <p></ul></p>
 <p><b>Automating this</b></p>
 <p>Boring!  Typing in all this stuff could probably be automated
