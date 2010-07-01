@@ -114,7 +114,7 @@ dt {
 
 <div class="title">HxBase API Documentation</div>
 
-<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>hxbase.BaseController</div><div class="classdoc">
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>hxbase.BaseController</div><div class="implements">implements <a href="../haxe/rtti/Infos.html" class="type">haxe.rtti.Infos</a></div><div class="classdoc">
 Your controllers should inherit from this base class.
 </div><dl><dt><span class="kwd">var </span>isCacheable(default,null) : <a href="../Bool.html" class="type">Bool</a></dt><dd> Can this controller be cached?  (Read only)
 	In your Controller Class definition, set this to true or false</dd><dt><span class="kwd">function </span>new(args : <a href="../Array.html" class="type">Array</a>&lt;<a href="../String.html" class="type">String</a>&gt;) : <a href="../Void.html" class="type">Void</a></dt><dd> The new() constructor will probably be called by the Dispatcher
@@ -124,7 +124,8 @@ Your controllers should inherit from this base class.
 	actions we've called.  This means elsewhere you'll be able to use:
 	<pre>	myController = new MyController(args);
 	php.Lib.print(myController);</pre>
-	to print all the output.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+	to print all the output.</dd><dt><span class="kwd">static </span><span class="kwd">var </span>__rtti : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>aliases : <a href="../Array.html" class="type">Array</a>&lt;Unknown&gt;</dt><dd> Create a static array "aliases" with any alternate URL requests
+	that you want to point to this controller.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
 
 </div>
 

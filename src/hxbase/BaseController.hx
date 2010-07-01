@@ -1,15 +1,21 @@
 package hxbase;
 import hxbase.tpl.HxTpl;
+import hxbase.Dispatcher;
+
 /**
 Your controllers should inherit from this base class.
 */
-class BaseController
+class BaseController implements haxe.rtti.Infos
 {
 	/** Can this controller be cached?  (Read only)
 	In your Controller Class definition, set this to true or false */
 	public var isCacheable(default,null):Bool;
 	
 	private var output:String;
+	
+	/** Create a static array "aliases" with any alternate URL requests
+	that you want to point to this controller.  */
+	static public var aliases = [];
 	
 	/** The new() constructor will probably be called by the Dispatcher
 	if it decides this is the Controller to use.  The constructor should
