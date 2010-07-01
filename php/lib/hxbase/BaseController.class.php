@@ -31,19 +31,39 @@ class hxbase_BaseController {
 	public $isCacheable;
 	public $actions;
 	public $output;
+	public $view;
 	public function defaultAction($args, $action) {
-		haxe_Log::trace("default action is: " . $action, _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 71, "className" => "hxbase.BaseController", "methodName" => "defaultAction")));
+		haxe_Log::trace("default action is: " . $action, _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 68, "className" => "hxbase.BaseController", "methodName" => "defaultAction")));
 		$action = strtolower($action);
 		if($this->actions->exists($action)) {
-			haxe_Log::trace("and it exists", _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 75, "className" => "hxbase.BaseController", "methodName" => "defaultAction")));
+			haxe_Log::trace("and it exists", _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 72, "className" => "hxbase.BaseController", "methodName" => "defaultAction")));
 			Reflect::callMethod($this, $this->actions->get($action), $args);
 		}
 	}
-	public function doNothing($myString) {
-		haxe_Log::trace("Value: " . $myString, _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 82, "className" => "hxbase.BaseController", "methodName" => "doNothing")));
+	public function loadTemplate($str, $pos) {
+		$templatePath = null;
+		if($str !== null) {
+			$templatePath = $str;
+		}
+		else {
+			$controller = strtolower(str_replace("Controller", "", $pos->className));
+			$action = strtolower($pos->methodName);
+			$templatePath = ((("views/" . $controller) . "/") . $action) . ".tpl";
+		}
+		$this->view = new hxbase_tpl_HxTpl();
+		$this->view->loadTemplateFromFile($templatePath);
+	}
+	public function printTemplate() {
+		$this->clearOutput();
+		if($this->view !== null) {
+			$this->hprint($this->view->getOutput());
+		}
+		else {
+			hxbase_Log::error("Trying to printTemplate() when loadTemplate() hasn't run yet.", _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 111, "className" => "hxbase.BaseController", "methodName" => "printTemplate")));
+		}
 	}
 	public function toString() {
-		return $this->output;
+		return $this->view->getOutput();
 	}
 	public function hprint($str) {
 		$this->output = $this->output . Std::string($str);

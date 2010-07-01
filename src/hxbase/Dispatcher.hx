@@ -49,7 +49,10 @@ class Dispatcher
 		
 		// Now pass control to whichever controller class we have
 		trace ("We're going to load " + controllerClass);
-		Type.createInstance(controllerClass, [parts]);
+		
+		var controller:BaseController = Type.createInstance(controllerClass, [parts]);
+		php.Lib.print(controller);
+		
 	}
 	
 	/** Each controller should register itself here.  

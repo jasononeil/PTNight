@@ -1,6 +1,6 @@
 package hxbase;
 import hxbase.tpl.HxTpl;
-import hxbase.Dispatcher;
+using StringTools;
 
 /**
 Your controllers should inherit from this base class.
@@ -12,15 +12,12 @@ class BaseController
 	public var isCacheable(default,null):Bool;
 	private var actions:Hash<String>;
 	private var output:String;
+	private var view:HxTpl;
 	
 	/** Create a static array "aliases" with any alternate URL requests
 	that you want to point to this controller.  */
 	static public var aliases = [];
 	
-	/** The default action to use if one is not given. 
-	This action should usually be fine to run without any
-	parameters.  */
-	//private static var defaultAction = doNothing;
 	
 	/** The new() constructor will probably be called by the Dispatcher
 	if it decides this is the Controller to use.  The constructor should
@@ -77,12 +74,43 @@ class BaseController
 		}
 	}
 	
-	public function doNothing(myString:String):Void
+	/** Load the template.  Either pass the file path to load,
+	or else use convention (views/controller/action.tpl).
+	This may have to be re-thought if we want to allow loading
+	templates from databases. */
+	private function loadTemplate(?str:String = null, ?pos:haxe.PosInfos)
 	{
-		trace("Value: " + myString);
+		// Find the path for the view template
+		var templatePath:String;
+		if (str != null) 
+		{
+			// use the one the user specified
+			templatePath = str; 
+		}
+		else 
+		{
+			// none specified.  Use convention to decide.
+			var controller = pos.className.replace("Controller","").toLowerCase();
+			var action = pos.methodName.toLowerCase();
+			templatePath = "views/" + controller + "/" + action + ".tpl";
+		}
+		
+		view = new HxTpl();
+		view.loadTemplateFromFile(templatePath);
 	}
 	
-	
+	private function printTemplate()
+	{
+		clearOutput();
+		if (view != null)
+		{
+			print(view.getOutput());
+		}
+		else
+		{
+			Log.error("Trying to printTemplate() when loadTemplate() hasn't run yet.");
+		}
+	}
 	
 	/** The toString() method should give the output from the various
 	actions we've called.  This means elsewhere you'll be able to use:
@@ -91,7 +119,7 @@ class BaseController
 	to print all the output.*/
 	public function toString():String
 	{
-		return output;
+		return view.getOutput();
 	}
 	
 	/** In your methods, use print() to write to the output */

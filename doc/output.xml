@@ -418,7 +418,7 @@
 		<rollback public="1" set="method"><f a=""><e path="Void"/></f></rollback>
 	</class>
 	<class path="hxbase.BaseController" params="" file="src/hxbase/BaseController.hx">
-		<aliases public="1" line="18" static="1">
+		<aliases public="1" line="19" static="1">
 			<c path="Array"><unknown/></c>
 			<haxe_doc> Create a static array "aliases" with any alternate URL requests
 	that you want to point to this controller.  </haxe_doc>
@@ -430,16 +430,25 @@
 		</isCacheable>
 		<actions><c path="Hash"><c path="String"/></c></actions>
 		<output><c path="String"/></output>
-		<defaultAction public="1" set="method" line="69"><f a="args:?action">
+		<view><c path="hxbase.tpl.HxTpl"/></view>
+		<defaultAction public="1" set="method" line="66"><f a="args:?action">
 	<c path="Array"><c path="String"/></c>
 	<c path="String"/>
 	<e path="Void"/>
 </f></defaultAction>
-		<doNothing public="1" set="method" line="80"><f a="myString">
-	<c path="String"/>
-	<e path="Void"/>
-</f></doNothing>
-		<toString public="1" set="method" line="92">
+		<loadTemplate set="method" line="81">
+			<f a="?str:?pos">
+				<c path="String"/>
+				<t path="haxe.PosInfos"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc> Load the template.  Either pass the file path to load,
+	or else use convention (views/controller/action.tpl).
+	This may have to be re-thought if we want to allow loading
+	templates from databases. </haxe_doc>
+		</loadTemplate>
+		<printTemplate set="method" line="102"><f a=""><e path="Void"/></f></printTemplate>
+		<toString public="1" set="method" line="120">
 			<f a=""><c path="String"/></f>
 			<haxe_doc><![CDATA[ The toString() method should give the output from the various
 	actions we've called.  This means elsewhere you'll be able to use:
@@ -447,18 +456,18 @@
 	php.Lib.print(myController);</pre>
 	to print all the output.]]></haxe_doc>
 		</toString>
-		<print set="method" line="98">
+		<print set="method" line="126">
 			<f a="str">
-				<unknown/>
+				<c path="String"/>
 				<e path="Void"/>
 			</f>
 			<haxe_doc> In your methods, use print() to write to the output </haxe_doc>
 		</print>
-		<clearOutput set="method" line="104">
+		<clearOutput set="method" line="132">
 			<f a=""><e path="Void"/></f>
 			<haxe_doc> In your methods, if you want to clear the output, use this </haxe_doc>
 		</clearOutput>
-		<new public="1" set="method" line="29">
+		<new public="1" set="method" line="26">
 			<f a="args">
 				<c path="Array"><c path="String"/></c>
 				<e path="Void"/>
@@ -2071,7 +2080,7 @@ because that's what all this is based on.
 	which controller class to use, passing any extra parameters
 	to it as necessary. </haxe_doc>
 		</dispatch>
-		<registerController public="1" set="method" line="65" static="1">
+		<registerController public="1" set="method" line="68" static="1">
 			<f a="url:controller">
 				<c path="String"/>
 				<c path="Class"><d/></c>
@@ -2088,7 +2097,7 @@ because that's what all this is based on.
 	<b>This should be done through the <i>aliases</i> array in your controller</b>
 	]]></haxe_doc>
 		</registerController>
-		<getRequestParts set="method" line="70" static="1"><f a="request">
+		<getRequestParts set="method" line="73" static="1"><f a="request">
 	<c path="String"/>
 	<c path="Array"><c path="String"/></c>
 </f></getRequestParts>
