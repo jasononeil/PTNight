@@ -3,10 +3,29 @@
 class hxbase_BaseController {
 	public function __construct($args) {
 		if( !php_Boot::$skip_constructor ) {
-		hxbase_Log::error("This is where you're up to", _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 26, "className" => "hxbase.BaseController", "methodName" => "new")));
+		$this->actions = new Hash();
+		$fields = Type::getInstanceFields(Type::getClass($this));
+		{
+			$_g = 0;
+			while($_g < $fields->length) {
+				$field = $fields[$_g];
+				++$_g;
+				if(Reflect::isFunction(Reflect::field($this, $field))) {
+					if($field != "hprint" && $field != "toString" && $field != "clearOutput") {
+						$this->actions->set($field, Reflect::field($this, $field));
+					}
+				}
+				unset($field);
+			}
+		}
+		haxe_Log::trace("number of actions available: " . Lambda::count($this->actions), _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 51, "className" => "hxbase.BaseController", "methodName" => "new")));
 	}}
 	public $isCacheable;
+	public $actions;
 	public $output;
+	public function doNothing($args) {
+		;
+	}
 	public function toString() {
 		return $this->output;
 	}
