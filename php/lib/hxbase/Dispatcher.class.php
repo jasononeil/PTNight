@@ -18,7 +18,7 @@ class hxbase_Dispatcher {
 			$parts->push("");
 		}
 		haxe_Log::trace("We're going to load " . $controllerClass, _hx_anonymous(array("fileName" => "Dispatcher.hx", "lineNumber" => 51, "className" => "hxbase.Dispatcher", "methodName" => "dispatch")));
-		Type::createInstance($controllerClass, $parts);
+		Type::createInstance($controllerClass, new _hx_array(array($parts)));
 	}
 	static function registerController($url, $controller) {
 		hxbase_Dispatcher::$controllerRegistry->set($url, $controller);

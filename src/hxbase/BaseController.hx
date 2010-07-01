@@ -20,7 +20,7 @@ class BaseController
 	/** The default action to use if one is not given. 
 	This action should usually be fine to run without any
 	parameters.  */
-	//private dynamic function defaultAction() {}
+	//private static var defaultAction = doNothing;
 	
 	/** The new() constructor will probably be called by the Dispatcher
 	if it decides this is the Controller to use.  The constructor should
@@ -36,34 +36,53 @@ class BaseController
 		// and takes out the functions that are our actions
 		//
 		actions = new Hash();
-		var fields:Array<String> = Type.getInstanceFields(Type.getClass(this));
+		var thisClass = Type.getClass(this);
+		var fields:Array<String> = Type.getInstanceFields(thisClass);
 		for (field in fields)
 		{
 			if (Reflect.isFunction(Reflect.field(this,field)))
 			{
 				if (field != "hprint" && field != "toString" && field != "clearOutput")
 				{
-					actions.set(field, Reflect.field(this,field));
+					actions.set(field.toLowerCase(), Reflect.field(this,field));
 				}
 			}
 		}
 		
-		trace ('number of actions available: ' + Lambda.count(actions));
 		
-		// NEXT:
-		// Have code here to pick the appropriate action
-		// This will use REFLECT to see what's available
-		// And read a variable to see what the default is
-		// Each action should be:
-		//	function myAction(args:Array<String>):Void
-		//  and sets the "output" string.
-		// ALSO: Decide where template codes
+		// If first part is one of our actions, then load that action
+		var firstArg = args[0];
+		if (actions.exists(firstArg))
+		{
+			// how can we make sure the arguments are of correct type?
+			// I think HaxIgniter might do this so take a look at that?
+			args.shift();
+			Reflect.callMethod(this,actions.get(firstArg),args);
+		}
+		else
+		{
+			// use the default one...
+			this.defaultAction(args);
+		}
 	}
 	
-	public function doNothing(args:Array<String>):Void
+	public function defaultAction(args:Array<String>, ?action:String)
 	{
-	
+		trace ('default action is: ' + action);
+		action = action.toLowerCase();
+		if (actions.exists(action))
+		{
+			trace ('and it exists');
+			Reflect.callMethod(this,actions.get(action),args);
+		}
 	}
+	
+	public function doNothing(myString:String):Void
+	{
+		trace("Value: " + myString);
+	}
+	
+	
 	
 	/** The toString() method should give the output from the various
 	actions we've called.  This means elsewhere you'll be able to use:

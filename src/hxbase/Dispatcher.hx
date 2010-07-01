@@ -49,7 +49,7 @@ class Dispatcher
 		
 		// Now pass control to whichever controller class we have
 		trace ("We're going to load " + controllerClass);
-		Type.createInstance(controllerClass, parts);
+		Type.createInstance(controllerClass, [parts]);
 	}
 	
 	/** Each controller should register itself here.  
