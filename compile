@@ -3,6 +3,9 @@
 # Copying Include Files (css,js,tpl etc.)
 rsync --delete -a includes/ php/
 
+# Some pre-processing.  (Registering Controllers etc)
+neko tools/registercontrollers.n src/controllers/
+
 # Compiling
 echo "Compiling haXe code"
 haxe compile.hxml
