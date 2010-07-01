@@ -1,0 +1,10 @@
+ #!/bin/sh
+
+# Compiling
+echo "Compiling haXe code"
+haxe buildtools.hxml
+
+# Creating the documentation
+#cd doc
+#haxedoc output.xml > /dev/null
+#cd ..
