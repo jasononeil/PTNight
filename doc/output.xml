@@ -418,13 +418,18 @@
 		<rollback public="1" set="method"><f a=""><e path="Void"/></f></rollback>
 	</class>
 	<class path="hxbase.BaseController" params="" file="src/hxbase/BaseController.hx">
+		<aliases public="1" line="18" static="1">
+			<c path="Array"><unknown/></c>
+			<haxe_doc> Create a static array "aliases" with any alternate URL requests
+	that you want to point to this controller.  </haxe_doc>
+		</aliases>
 		<isCacheable public="1" set="null">
 			<e path="Bool"/>
 			<haxe_doc> Can this controller be cached?  (Read only)
 	In your Controller Class definition, set this to true or false </haxe_doc>
 		</isCacheable>
 		<output><c path="String"/></output>
-		<toString public="1" set="method" line="36">
+		<toString public="1" set="method" line="42">
 			<f a=""><c path="String"/></f>
 			<haxe_doc><![CDATA[ The toString() method should give the output from the various
 	actions we've called.  This means elsewhere you'll be able to use:
@@ -432,18 +437,18 @@
 	php.Lib.print(myController);</pre>
 	to print all the output.]]></haxe_doc>
 		</toString>
-		<print set="method" line="42">
+		<print set="method" line="48">
 			<f a="str">
 				<unknown/>
 				<e path="Void"/>
 			</f>
 			<haxe_doc> In your methods, use print() to write to the output </haxe_doc>
 		</print>
-		<clearOutput set="method" line="48">
+		<clearOutput set="method" line="54">
 			<f a=""><e path="Void"/></f>
 			<haxe_doc> In your methods, if you want to clear the output, use this </haxe_doc>
 		</clearOutput>
-		<new public="1" set="method" line="18">
+		<new public="1" set="method" line="24">
 			<f a="args">
 				<c path="Array"><c path="String"/></c>
 				<e path="Void"/>
@@ -797,8 +802,8 @@ list.  Pretty neato hey!
 	<class path="MainApp" params="" file="src/MainApp.hx">
 		<startTime public="1" line="12" static="1"><c path="Float"/></startTime>
 		<main public="1" set="method" line="14" static="1"><f a=""><e path="Void"/></f></main>
-		<testing public="1" set="method" line="32" static="1"><f a=""><e path="Void"/></f></testing>
-		<printStats public="1" set="method" line="81" static="1"><f a=""><e path="Void"/></f></printStats>
+		<testing public="1" set="method" line="30" static="1"><f a=""><e path="Void"/></f></testing>
+		<printStats public="1" set="method" line="79" static="1"><f a=""><e path="Void"/></f></printStats>
 	</class>
 	<class path="php.NativeArray" params="" file="/opt/haxe/std/php/NativeArray.hx" extern="1"/>
 	<class path="php.db._Mysql.MysqlConnection" params="" file="/opt/haxe/std/php/db/Mysql.hx" private="1" module="php.db.Mysql">
@@ -1817,6 +1822,10 @@ list.  Pretty neato hey!
    templates from a database, a file, or even user input.
 *********************************************************************</haxe_doc>
 	</class>
+	<class path="controllers.ControllerRegistry" params="" file="src/controllers/ControllerRegistry.hx">
+		<registerAll public="1" set="method" line="8" static="1"><f a=""><e path="Void"/></f></registerAll>
+		<haxe_doc> This whole class is auto-generated from registercontrollers.n in tools. </haxe_doc>
+	</class>
 	<class path="php.db.Object" params="" file="/opt/haxe/std/php/db/Object.hx">
 		<__cache__><c path="php.db.Object"/></__cache__>
 		<__noupdate__><e path="Bool"/></__noupdate__>
@@ -1962,8 +1971,88 @@ Have a look at <a href="http://haxe.org/doc/neko/spod">the haxe SPOD tutorial</a
 because that's what all this is based on.
 ]]></haxe_doc>
 	</class>
+	<class path="Hash" params="T" file="/opt/haxe/std/Hash.hx">
+		<implements path="php.IteratorAggregate"><c path="Hash.T"/></implements>
+		<h><c path="ArrayAccess"><c path="Hash.T"/></c></h>
+		<set public="1" set="method" line="63">
+			<f a="key:value">
+				<c path="String"/>
+				<c path="Hash.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>
+		Set a value for the given key.
+	</haxe_doc>
+		</set>
+		<get public="1" set="method" line="80">
+			<f a="key">
+				<c path="String"/>
+				<t path="Null"><c path="Hash.T"/></t>
+			</f>
+			<haxe_doc>
+		Get a value for the given key.
+	</haxe_doc>
+		</get>
+		<exists public="1" set="method" line="102">
+			<f a="key">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Tells if a value exists for the given key.
+		In particular, it's useful to tells if a key has
+		a [null] value versus no value.
+	</haxe_doc>
+		</exists>
+		<remove public="1" set="method" line="133">
+			<f a="key">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>
+		Removes a hashtable entry. Returns [true] if
+		there was such entry.
+	</haxe_doc>
+		</remove>
+		<keys public="1" set="method" line="165">
+			<f a=""><t path="Iterator"><c path="String"/></t></f>
+			<haxe_doc>
+		Returns an iterator of all keys in the hashtable.
+	</haxe_doc>
+		</keys>
+		<iterator public="1" set="method" line="195">
+			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
+			<haxe_doc>
+		Returns an iterator of all values in the hashtable.
+	</haxe_doc>
+		</iterator>
+		<toString public="1" set="method" line="240">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>
+		Returns an displayable representation of the hashtable content.
+	</haxe_doc>
+		</toString>
+		<getIterator set="method" line="259">
+			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
+			<haxe_doc>
+		Implement IteratorAggregate for native php iteration
+	</haxe_doc>
+		</getIterator>
+		<new public="1" set="method" line="38">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>
+		Creates a new empty hashtable.
+	</haxe_doc>
+		</new>
+		<haxe_doc>
+	Hashtable over a set of elements, using [String] as keys.
+	Other kind of keys are not possible on all platforms since they
+	can't always be implemented efficiently.
+</haxe_doc>
+	</class>
 	<class path="hxbase.Dispatcher" params="" file="src/hxbase/Dispatcher.hx">
-		<dispatch public="1" set="method" line="18" static="1">
+		<controllerRegistry line="14" static="1"><c path="Hash"><c path="Class"><d/></c></c></controllerRegistry>
+		<dispatch public="1" set="method" line="19" static="1">
 			<f a="request">
 				<c path="String"/>
 				<e path="Void"/>
@@ -1972,7 +2061,24 @@ because that's what all this is based on.
 	which controller class to use, passing any extra parameters
 	to it as necessary. </haxe_doc>
 		</dispatch>
-		<getRequestParts set="method" line="52" static="1"><f a="request">
+		<registerController public="1" set="method" line="65" static="1">
+			<f a="url:controller">
+				<c path="String"/>
+				<c path="Class"><d/></c>
+				<e path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[ Each controller should register itself here.  
+	By default, controllers will register a lower-case version of their
+	name, without the word controller.  "PeopleController" becomes "people", 
+	etc.  Now that controller can be accessed through "http://mysite.com/people/".
+	You could add a custom URL scheme by registering your controller again, but
+	with a different alias.  Eg. registerController("members", PeopleController)
+	would allow you to access the controller at "http://mysite.com/members/" 
+	
+	<b>This should be done through the <i>aliases</i> array in your controller</b>
+	]]></haxe_doc>
+		</registerController>
+		<getRequestParts set="method" line="70" static="1"><f a="request">
 	<c path="String"/>
 	<c path="Array"><c path="String"/></c>
 </f></getRequestParts>
@@ -2683,85 +2789,6 @@ It is used by XmlNode.compareDocumentPosition()
 Please note haxedoc seems to have screwed up the order of the descriptions below.
 </haxe_doc>
 	</enum>
-	<class path="Hash" params="T" file="/opt/haxe/std/Hash.hx">
-		<implements path="php.IteratorAggregate"><c path="Hash.T"/></implements>
-		<h><c path="ArrayAccess"><c path="Hash.T"/></c></h>
-		<set public="1" set="method" line="63">
-			<f a="key:value">
-				<c path="String"/>
-				<c path="Hash.T"/>
-				<e path="Void"/>
-			</f>
-			<haxe_doc>
-		Set a value for the given key.
-	</haxe_doc>
-		</set>
-		<get public="1" set="method" line="80">
-			<f a="key">
-				<c path="String"/>
-				<t path="Null"><c path="Hash.T"/></t>
-			</f>
-			<haxe_doc>
-		Get a value for the given key.
-	</haxe_doc>
-		</get>
-		<exists public="1" set="method" line="102">
-			<f a="key">
-				<c path="String"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Tells if a value exists for the given key.
-		In particular, it's useful to tells if a key has
-		a [null] value versus no value.
-	</haxe_doc>
-		</exists>
-		<remove public="1" set="method" line="133">
-			<f a="key">
-				<c path="String"/>
-				<e path="Bool"/>
-			</f>
-			<haxe_doc>
-		Removes a hashtable entry. Returns [true] if
-		there was such entry.
-	</haxe_doc>
-		</remove>
-		<keys public="1" set="method" line="165">
-			<f a=""><t path="Iterator"><c path="String"/></t></f>
-			<haxe_doc>
-		Returns an iterator of all keys in the hashtable.
-	</haxe_doc>
-		</keys>
-		<iterator public="1" set="method" line="195">
-			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
-			<haxe_doc>
-		Returns an iterator of all values in the hashtable.
-	</haxe_doc>
-		</iterator>
-		<toString public="1" set="method" line="240">
-			<f a=""><c path="String"/></f>
-			<haxe_doc>
-		Returns an displayable representation of the hashtable content.
-	</haxe_doc>
-		</toString>
-		<getIterator set="method" line="259">
-			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
-			<haxe_doc>
-		Implement IteratorAggregate for native php iteration
-	</haxe_doc>
-		</getIterator>
-		<new public="1" set="method" line="38">
-			<f a=""><e path="Void"/></f>
-			<haxe_doc>
-		Creates a new empty hashtable.
-	</haxe_doc>
-		</new>
-		<haxe_doc>
-	Hashtable over a set of elements, using [String] as keys.
-	Other kind of keys are not possible on all platforms since they
-	can't always be implemented efficiently.
-</haxe_doc>
-	</class>
 	<class path="php.db.Manager" params="T" file="/opt/haxe/std/php/db/Manager.hx">
 		<cnx public="1" set="setConnection" static="1"><c path="php.db.Connection"/></cnx>
 		<object_cache line="38" static="1"><c path="Hash"><c path="php.db.Object"/></c></object_cache>
@@ -4514,6 +4541,14 @@ Please note haxedoc seems to have screwed up the order of the descriptions below
 	with its API. On the server side, it's often better to use a [List] which
 	is less memory and CPU consuming, unless you really need indexed access.
 </haxe_doc>
+	</class>
+	<class path="controllers.TestController" params="" file="src/controllers/TestController.hx">
+		<extends path="hxbase.BaseController"/>
+		<aliases public="1" line="5" static="1"><c path="Array"><c path="String"/></c></aliases>
+		<new public="1" set="method" line="3"><f a="args">
+	<c path="Array"><c path="String"/></c>
+	<e path="Void"/>
+</f></new>
 	</class>
 	<typedef path="haxe.PosInfos" params="" file="/opt/haxe/std/haxe/PosInfos.hx"><a>
 	<methodName><c path="String"/></methodName>

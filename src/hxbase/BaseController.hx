@@ -5,7 +5,7 @@ import hxbase.Dispatcher;
 /**
 Your controllers should inherit from this base class.
 */
-class BaseController implements haxe.rtti.Infos
+class BaseController
 {
 	/** Can this controller be cached?  (Read only)
 	In your Controller Class definition, set this to true or false */

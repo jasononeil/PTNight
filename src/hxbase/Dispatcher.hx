@@ -1,7 +1,6 @@
 package hxbase;
 
-// Import all of our controllers here...
-import hxbase.BaseController;
+import controllers.ControllerRegistry;
 
 /**
 The Dispatcher class is responsible for deciding which
@@ -12,11 +11,16 @@ This class is called on most page requests.
 */
 class Dispatcher
 {
+	private static var controllerRegistry:Hash<Class<Dynamic>> = new Hash();
+	
 	/** Takes a request query (usually from the URL) decides
 	which controller class to use, passing any extra parameters
 	to it as necessary. */
 	public static function dispatch(request:String)
 	{
+		// Register all of our controllers
+		ControllerRegistry.registerAll();
+		
 		// Get the various parts of the input
 		var parts:Array<String> = getRequestParts(request);
 		
@@ -24,15 +28,13 @@ class Dispatcher
 		var firstPart:String = parts[0];
 		
 		// See if mysite is a controller
-		trace ("Seeing if " + firstPart + " is a controller");
-		var controllerClass = Type.resolveClass(firstPart);
+		var controllerClass = controllerRegistry.get(firstPart);
 		
 		if (controllerClass != null)
 		{
 			// We have the Controller class, so git rid of that
 			// from our list of parameters.
 			parts.shift();
-			trace ("Apparently it is...");
 		}
 		else
 		{
@@ -42,11 +44,27 @@ class Dispatcher
 			controllerClass = AppConfig.defaultController;
 		}
 		
+		// just check our parts aren't empty
+		if (parts.length == 0) parts.push("");
+		
 		// Now pass control to whichever controller class we have
-		// (first check it has a 
 		trace ("We're going to load " + controllerClass);
 		Type.createInstance(controllerClass, parts);
-		
+	}
+	
+	/** Each controller should register itself here.  
+	By default, controllers will register a lower-case version of their
+	name, without the word controller.  "PeopleController" becomes "people", 
+	etc.  Now that controller can be accessed through "http://mysite.com/people/".
+	You could add a custom URL scheme by registering your controller again, but
+	with a different alias.  Eg. registerController("members", PeopleController)
+	would allow you to access the controller at "http://mysite.com/members/" 
+	
+	<b>This should be done through the <i>aliases</i> array in your controller</b>
+	*/
+	public static function registerController(url:String, controller:Class<Dynamic>)
+	{
+		controllerRegistry.set(url, controller);
 	}
 	
 	private static function getRequestParts(request:String):Array<String>

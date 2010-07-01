@@ -16,8 +16,6 @@ class MainApp
 		haxe.Log.trace = hxbase.Log.trace;
 		php.Lib.print('<pre>');
 		
-		trace("Call the dispatcher to figure out what to do...");
-		
 		// Pass control off to the dispatcher, 
 		// (which will find the appropriate Controller)
 		var request:String = php.Web.getParams().get("request");

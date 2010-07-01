@@ -2,20 +2,26 @@
 
 class hxbase_Dispatcher {
 	public function __construct(){}
+	static $controllerRegistry;
 	static function dispatch($request) {
+		controllers_ControllerRegistry::registerAll();
 		$parts = hxbase_Dispatcher::getRequestParts($request);
 		$firstPart = $parts[0];
-		haxe_Log::trace(("Seeing if " . $firstPart) . " is a controller", _hx_anonymous(array("fileName" => "Dispatcher.hx", "lineNumber" => 27, "className" => "hxbase.Dispatcher", "methodName" => "dispatch")));
-		$controllerClass = Type::resolveClass($firstPart);
+		$controllerClass = hxbase_Dispatcher::$controllerRegistry->get($firstPart);
 		if($controllerClass !== null) {
 			$parts->shift();
-			haxe_Log::trace("Apparently it is...", _hx_anonymous(array("fileName" => "Dispatcher.hx", "lineNumber" => 35, "className" => "hxbase.Dispatcher", "methodName" => "dispatch")));
 		}
 		else {
 			$controllerClass = AppConfig::$defaultController;
 		}
-		haxe_Log::trace("We're going to load " . $controllerClass, _hx_anonymous(array("fileName" => "Dispatcher.hx", "lineNumber" => 47, "className" => "hxbase.Dispatcher", "methodName" => "dispatch")));
+		if($parts->length === 0) {
+			$parts->push("");
+		}
+		haxe_Log::trace("We're going to load " . $controllerClass, _hx_anonymous(array("fileName" => "Dispatcher.hx", "lineNumber" => 51, "className" => "hxbase.Dispatcher", "methodName" => "dispatch")));
 		Type::createInstance($controllerClass, $parts);
+	}
+	static function registerController($url, $controller) {
+		hxbase_Dispatcher::$controllerRegistry->set($url, $controller);
 	}
 	static function getRequestParts($request) {
 		if(substr($request, strlen($request) - 1, 1) == "/") {
@@ -25,3 +31,4 @@ class hxbase_Dispatcher {
 	}
 	function __toString() { return 'hxbase.Dispatcher'; }
 }
+hxbase_Dispatcher::$controllerRegistry = new Hash();
