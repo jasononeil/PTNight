@@ -1,5 +1,6 @@
 import hxbase.Dispatcher;
 import hxbase.DbControl;
+import hxbase.tpl.HxTpl;
 import AppConfig;
 
 import models.User;
@@ -25,6 +26,18 @@ class MainApp
 		
 		php.Lib.print('</pre>');
 		printStats();
+	}
+	
+	/** This allows you to set a site-wide HTML template for your App.
+	You can also set a template for each controller, but if that is not
+	there it will full back to this.  Should this stuff be kept in
+	AppConfig instead?    */
+	public static var pageTemplateFile(default,null):String;
+	public static function initiatePageTemplate():HxTpl
+	{
+		var template = new HxTpl();
+		template.loadTemplateFromFile(pageTemplateFile);
+		return template;
 	}
 	
 	public static function testing()

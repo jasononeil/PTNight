@@ -12,7 +12,25 @@ class BaseController
 	public var isCacheable(default,null):Bool;
 	private var actions:Hash<String>;
 	private var output:String;
+	
+	/** View is the bit of the template specific to this action */
 	private var view:HxTpl;
+	/** Template is the overall HTML of the page.  Either a site wide 
+	or controller wide template.  */
+	private var template:HxTpl;
+	
+	/** If all your actions in this controller sit inside a specific
+	template, add this template here.  The specific actions will show
+	up inside the &gthxInclude name="content">.  If you do use a 
+	pageTemplateFile, you can initialise it (assign values, loops,
+	other includes etc) in the initiatePageTemplate() function, which
+	you override for your controller.  */
+	private var pageTemplateFile:String;
+	private function initiatePageTemplate()
+	{
+		template = new HxTpl();
+		template.loadTemplateFromFile(pageTemplateFile);
+	}
 	
 	/** Create a static array "aliases" with any alternate URL requests
 	that you want to point to this controller.  */
@@ -39,9 +57,15 @@ class BaseController
 		{
 			if (Reflect.isFunction(Reflect.field(this,field)))
 			{
-				if (field != "hprint" && field != "toString" && field != "clearOutput")
+				if (field != "hprint" 
+				&& field != "toString" 
+				&& field != "clearOutput"
+				&& field != "loadTemplate"
+				&& field != "initiatePageTemplate"
+				&& field != "printTemplate")
 				{
 					actions.set(field.toLowerCase(), Reflect.field(this,field));
+					trace ('Actions are: ' + field.toLowerCase());
 				}
 			}
 		}
@@ -81,22 +105,43 @@ class BaseController
 	private function loadTemplate(?str:String = null, ?pos:haxe.PosInfos)
 	{
 		// Find the path for the view template
-		var templatePath:String;
+		var viewPath:String;
 		if (str != null) 
 		{
 			// use the one the user specified
-			templatePath = str; 
+			viewPath = str; 
 		}
 		else 
 		{
 			// none specified.  Use convention to decide.
 			var controller = pos.className.replace("Controller","").toLowerCase();
 			var action = pos.methodName.toLowerCase();
-			templatePath = "views/" + controller + "/" + action + ".tpl";
+			viewPath = "views/" + controller + "/" + action + ".tpl";
 		}
 		
-		view = new HxTpl();
-		view.loadTemplateFromFile(templatePath);
+		// Now decide if we have the view by itself, or if it sits in a template.
+		// Priority: 1) Controller template 2) App template 3) By itself
+		template = null;
+		if (this.pageTemplateFile != null)
+		{
+			// Use the template for this controller
+			initiatePageTemplate();
+			view = template.include("content",viewPath);
+		}
+		else if (MainApp.pageTemplateFile != null)
+		{
+			// Use the template for the App
+			template = MainApp.initiatePageTemplate();
+			view = template.include("content",viewPath);
+		}
+		else
+		{
+			// Just use the view by itself
+			view = new HxTpl();
+			view.loadTemplateFromFile(viewPath);
+			template = view; // for all purposes, they're the same now.
+		}
+		
 	}
 	
 	private function printTemplate()
@@ -104,6 +149,7 @@ class BaseController
 		clearOutput();
 		if (view != null)
 		{
+			
 			print(view.getOutput());
 		}
 		else

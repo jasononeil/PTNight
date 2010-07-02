@@ -29,7 +29,8 @@ class SessionHandler
 	
 	public function check():Void
 	{
-		// this doesn't do a return value, instead it'll throw errors if something goes wrong.
+		// this doesn't do a return value, instead it'll 
+		// throw errors if something goes wrong.
 		// note, an error may also be thrown in the checkSecurity() method
 		if (Session.exists('SESSION.active'))
 		{

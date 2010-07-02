@@ -12,8 +12,9 @@ class hxbase_BaseController {
 				$field = $fields[$_g];
 				++$_g;
 				if(Reflect::isFunction(Reflect::field($this, $field))) {
-					if($field != "hprint" && $field != "toString" && $field != "clearOutput") {
+					if($field != "hprint" && $field != "toString" && $field != "clearOutput" && $field != "loadTemplate" && $field != "initiatePageTemplate" && $field != "printTemplate") {
 						$this->actions->set(strtolower($field), Reflect::field($this, $field));
+						haxe_Log::trace("Actions are: " . strtolower($field), _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 68, "className" => "hxbase.BaseController", "methodName" => "new")));
 					}
 				}
 				unset($field);
@@ -32,26 +33,46 @@ class hxbase_BaseController {
 	public $actions;
 	public $output;
 	public $view;
+	public $template;
+	public $pageTemplateFile;
+	public function initiatePageTemplate() {
+		$this->template = new hxbase_tpl_HxTpl();
+		$this->template->loadTemplateFromFile($this->pageTemplateFile);
+	}
 	public function defaultAction($args, $action) {
-		haxe_Log::trace("default action is: " . $action, _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 68, "className" => "hxbase.BaseController", "methodName" => "defaultAction")));
+		haxe_Log::trace("default action is: " . $action, _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 92, "className" => "hxbase.BaseController", "methodName" => "defaultAction")));
 		$action = strtolower($action);
 		if($this->actions->exists($action)) {
-			haxe_Log::trace("and it exists", _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 72, "className" => "hxbase.BaseController", "methodName" => "defaultAction")));
+			haxe_Log::trace("and it exists", _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 96, "className" => "hxbase.BaseController", "methodName" => "defaultAction")));
 			Reflect::callMethod($this, $this->actions->get($action), $args);
 		}
 	}
 	public function loadTemplate($str, $pos) {
-		$templatePath = null;
+		$viewPath = null;
 		if($str !== null) {
-			$templatePath = $str;
+			$viewPath = $str;
 		}
 		else {
 			$controller = strtolower(str_replace("Controller", "", $pos->className));
 			$action = strtolower($pos->methodName);
-			$templatePath = ((("views/" . $controller) . "/") . $action) . ".tpl";
+			$viewPath = ((("views/" . $controller) . "/") . $action) . ".tpl";
 		}
-		$this->view = new hxbase_tpl_HxTpl();
-		$this->view->loadTemplateFromFile($templatePath);
+		$this->template = null;
+		if($this->pageTemplateFile !== null) {
+			$this->initiatePageTemplate();
+			$this->view = $this->template->hinclude("content", $viewPath);
+		}
+		else {
+			if(MainApp::$pageTemplateFile !== null) {
+				$this->template = MainApp::initiatePageTemplate();
+				$this->view = $this->template->hinclude("content", $viewPath);
+			}
+			else {
+				$this->view = new hxbase_tpl_HxTpl();
+				$this->view->loadTemplateFromFile($viewPath);
+				$this->template = $this->view;
+			}
+		}
 	}
 	public function printTemplate() {
 		$this->clearOutput();
@@ -59,7 +80,7 @@ class hxbase_BaseController {
 			$this->hprint($this->view->getOutput());
 		}
 		else {
-			hxbase_Log::error("Trying to printTemplate() when loadTemplate() hasn't run yet.", _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 111, "className" => "hxbase.BaseController", "methodName" => "printTemplate")));
+			hxbase_Log::error("Trying to printTemplate() when loadTemplate() hasn't run yet.", _hx_anonymous(array("fileName" => "BaseController.hx", "lineNumber" => 157, "className" => "hxbase.BaseController", "methodName" => "printTemplate")));
 		}
 	}
 	public function toString() {

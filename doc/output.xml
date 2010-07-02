@@ -418,7 +418,7 @@
 		<rollback public="1" set="method"><f a=""><e path="Void"/></f></rollback>
 	</class>
 	<class path="hxbase.BaseController" params="" file="src/hxbase/BaseController.hx">
-		<aliases public="1" line="19" static="1">
+		<aliases public="1" line="37" static="1">
 			<c path="Array"><unknown/></c>
 			<haxe_doc> Create a static array "aliases" with any alternate URL requests
 	that you want to point to this controller.  </haxe_doc>
@@ -430,13 +430,31 @@
 		</isCacheable>
 		<actions><c path="Hash"><c path="String"/></c></actions>
 		<output><c path="String"/></output>
-		<view><c path="hxbase.tpl.HxTpl"/></view>
-		<defaultAction public="1" set="method" line="66"><f a="args:?action">
+		<view>
+			<c path="hxbase.tpl.HxTpl"/>
+			<haxe_doc> View is the bit of the template specific to this action </haxe_doc>
+		</view>
+		<template>
+			<c path="hxbase.tpl.HxTpl"/>
+			<haxe_doc> Template is the overall HTML of the page.  Either a site wide 
+	or controller wide template.  </haxe_doc>
+		</template>
+		<pageTemplateFile>
+			<c path="String"/>
+			<haxe_doc><![CDATA[ If all your actions in this controller sit inside a specific
+	template, add this template here.  The specific actions will show
+	up inside the &gthxInclude name="content">.  If you do use a 
+	pageTemplateFile, you can initialise it (assign values, loops,
+	other includes etc) in the initiatePageTemplate() function, which
+	you override for your controller.  ]]></haxe_doc>
+		</pageTemplateFile>
+		<initiatePageTemplate set="method" line="29"><f a=""><e path="Void"/></f></initiatePageTemplate>
+		<defaultAction public="1" set="method" line="90"><f a="args:?action">
 	<c path="Array"><c path="String"/></c>
 	<c path="String"/>
 	<e path="Void"/>
 </f></defaultAction>
-		<loadTemplate set="method" line="81">
+		<loadTemplate set="method" line="105">
 			<f a="?str:?pos">
 				<c path="String"/>
 				<t path="haxe.PosInfos"/>
@@ -447,8 +465,8 @@
 	This may have to be re-thought if we want to allow loading
 	templates from databases. </haxe_doc>
 		</loadTemplate>
-		<printTemplate set="method" line="102"><f a=""><e path="Void"/></f></printTemplate>
-		<toString public="1" set="method" line="120">
+		<printTemplate set="method" line="147"><f a=""><e path="Void"/></f></printTemplate>
+		<toString public="1" set="method" line="166">
 			<f a=""><c path="String"/></f>
 			<haxe_doc><![CDATA[ The toString() method should give the output from the various
 	actions we've called.  This means elsewhere you'll be able to use:
@@ -456,18 +474,18 @@
 	php.Lib.print(myController);</pre>
 	to print all the output.]]></haxe_doc>
 		</toString>
-		<print set="method" line="126">
+		<print set="method" line="172">
 			<f a="str">
 				<c path="String"/>
 				<e path="Void"/>
 			</f>
 			<haxe_doc> In your methods, use print() to write to the output </haxe_doc>
 		</print>
-		<clearOutput set="method" line="132">
+		<clearOutput set="method" line="178">
 			<f a=""><e path="Void"/></f>
 			<haxe_doc> In your methods, if you want to clear the output, use this </haxe_doc>
 		</clearOutput>
-		<new public="1" set="method" line="26">
+		<new public="1" set="method" line="44">
 			<f a="args">
 				<c path="Array"><c path="String"/></c>
 				<e path="Void"/>
@@ -819,10 +837,18 @@ list.  Pretty neato hey!
 		<environment public="1" set="method" line="87" static="1"><f a=""><c path="Hash"><c path="String"/></c></f></environment>
 	</class>
 	<class path="MainApp" params="" file="src/MainApp.hx">
-		<startTime public="1" line="12" static="1"><c path="Float"/></startTime>
-		<main public="1" set="method" line="14" static="1"><f a=""><e path="Void"/></f></main>
-		<testing public="1" set="method" line="30" static="1"><f a=""><e path="Void"/></f></testing>
-		<printStats public="1" set="method" line="79" static="1"><f a=""><e path="Void"/></f></printStats>
+		<startTime public="1" line="13" static="1"><c path="Float"/></startTime>
+		<main public="1" set="method" line="15" static="1"><f a=""><e path="Void"/></f></main>
+		<pageTemplateFile public="1" set="null" static="1">
+			<c path="String"/>
+			<haxe_doc> This allows you to set a site-wide HTML template for your App.
+	You can also set a template for each controller, but if that is not
+	there it will full back to this.  Should this stuff be kept in
+	AppConfig instead?    </haxe_doc>
+		</pageTemplateFile>
+		<initiatePageTemplate public="1" set="method" line="36" static="1"><f a=""><c path="hxbase.tpl.HxTpl"/></f></initiatePageTemplate>
+		<testing public="1" set="method" line="43" static="1"><f a=""><e path="Void"/></f></testing>
+		<printStats public="1" set="method" line="92" static="1"><f a=""><e path="Void"/></f></printStats>
 	</class>
 	<class path="php.NativeArray" params="" file="/opt/haxe/std/php/NativeArray.hx" extern="1"/>
 	<class path="php.db._Mysql.MysqlConnection" params="" file="/opt/haxe/std/php/db/Mysql.hx" private="1" module="php.db.Mysql">
