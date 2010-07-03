@@ -1,12 +1,17 @@
 import hxbase.Dispatcher;
 import hxbase.DbControl;
-import hxbase.tpl.HxTpl;
 import AppConfig;
-
-import models.User;
-import models.TodoItem;
-import hxbase.BaseController;
 import hxbase.Log;
+import hxbase.tpl.HxTpl;
+
+import models.Class_join_Student;
+import models.Parent;
+import models.Student;
+import models.Parent_join_Student;
+import models.Class;
+import models.Teacher;
+import models.Timeslot;
+import models.Interview;
 
 class MainApp
 {
@@ -15,14 +20,13 @@ class MainApp
 	public static function main()
 	{
 		haxe.Log.trace = hxbase.Log.trace;
+		trace ("FATTY");
 		php.Lib.print('<pre>');
 		
 		// Pass control off to the dispatcher, 
 		// (which will find the appropriate Controller)
 		var request:String = php.Web.getParams().get("request");
 		Dispatcher.dispatch(request);
-		
-		//testing();
 		
 		php.Lib.print('</pre>');
 		printStats();
@@ -38,55 +42,6 @@ class MainApp
 		var template = new HxTpl();
 		template.loadTemplateFromFile(pageTemplateFile);
 		return template;
-	}
-	
-	public static function testing()
-	{
-		// Connect
-		DbControl.connect();
-		trace (DbControl.cnx);
-		
-		// Add a user
-		var u = User.manager.search({username:'jason'}).first();
-		if (u == null)
-		{
-			u = new User();
-			u.username = "jason";
-			u.password = haxe.Md5.encode("password");
-			u.insert();
-			trace ('Inserted, id is ' + u.id);
-		}
-		else
-		{
-			trace ('User already there.  Id is ' + u.id);
-		}
-		
-		// Add another todo item to the pile
-		var count = TodoItem.manager.count();
-		var t = new TodoItem();
-		t.userId = u.id; // Fails is it's not valid. Hooray!
-		t.subject = "Todo number " + count;
-		t.text = "You better get moving before number " + (count + 1) + " comes along";
-		t.priority = 5;
-		t.completion = Std.random(100) / 100;
-		t.insert();
-		
-		// And print the list.
-		var todoList = TodoItem.manager.all();
-		for (item in todoList)
-		{
-			trace ("ITEM: " + item.subject + " " + item.user.username);
-		}
-		
-		// And just to check the function I'm using for hasMany is working
-		trace("Number of tasks for " + u.username + ": " + u.todoList.length);
-		for (item in u.todoList)
-		{
-			trace ("ITEM: " + item.subject + " " + item.user.username);
-		}
-		
-		// End the connection
-		DbControl.close();
 	}
 	
 	public static function printStats()

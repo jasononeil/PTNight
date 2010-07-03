@@ -8,7 +8,7 @@ class AppConfig
 	App config
 	=====================================*/
 	/** Default Controller */
-	public static var defaultController:Class<Dynamic> = controllers.UsersController;
+	public static var defaultController:Class<Dynamic> = controllers.AdminController;
 	
 	/*=====================================
 	Filesystem / URL config
@@ -22,10 +22,10 @@ class AppConfig
 		<li>http://www.mysite.com/myapp</li>
 	</ul>
 	*/
-	public static var baseUrl:String = "http://localhost/hxbase/php";
+	public static var baseUrl:String = "http://localhost/ptinterviews/php";
 	
 	/** The subdirectory on the server we are in.  No trailing slash */
-	public static var subDir:String = "/hxbase/php";
+	public static var subDir:String = "/ptinterviews/php";
 	
 	/** Set this to the base filepath of this app on your server,
 	(do not include a trailing slash).
@@ -55,10 +55,10 @@ class AppConfig
 	public static var dbPort:Int = 3306;
 	
 	/** The name of the database to use */
-	public static var dbDatabase:String = "hxbase";
+	public static var dbDatabase:String = "ptinterviews";
 	
 	/** The username to use when logging in to the database server */
-	public static var dbUsername:String = "hxbase";
+	public static var dbUsername:String = "ptinterviews";
 	
 	/** The password to use when logging in to the database server */
 	public static var dbPassword:String = "password";

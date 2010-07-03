@@ -2,7 +2,7 @@
 RewriteEngine on
 
 #Sub-dir e.g: /cmsms
-RewriteBase /hxbase/php/
+#RewriteBase /hxbase/php/
 
 # 301 Redirect all requests that don't contain a dot or trailing slash to
 # include a trailing slash

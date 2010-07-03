@@ -82,8 +82,7 @@ class BaseController
 		else
 		{
 			// use the default one...
-			trace ('try the default one: ' + this.defaultAction());
-			Reflect.callMethod(this,this.defaultAction(),args);
+			Reflect.callMethod(this,this.getDefaultAction(),args);
 		}
 	}
 	
@@ -93,7 +92,7 @@ class BaseController
 	super.defaultAction(args,"myDefaultAction");
 	
 	or something like that.*/
-	public function defaultAction()
+	public function getDefaultAction()
 	{
 		return function () {};
 	}
