@@ -113,7 +113,10 @@ class BaseController
 		else 
 		{
 			// none specified.  Use convention to decide.
-			var controller = pos.className.replace("Controller","").toLowerCase();
+			var controller = pos.className.replace("Controller","")
+							.replace(".", "/")
+							.replace("controllers/", "")
+							.toLowerCase();
 			var action = pos.methodName.toLowerCase();
 			viewPath = "views/" + controller + "/" + action + ".tpl";
 		}
@@ -148,8 +151,7 @@ class BaseController
 		clearOutput();
 		if (view != null)
 		{
-			
-			print(view.getOutput());
+			print(template.getOutput());
 		}
 		else
 		{
