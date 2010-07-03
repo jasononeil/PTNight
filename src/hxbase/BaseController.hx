@@ -65,7 +65,6 @@ class BaseController
 				&& field != "printTemplate")
 				{
 					actions.set(field.toLowerCase(), Reflect.field(this,field));
-					trace ('Actions are: ' + field.toLowerCase());
 				}
 			}
 		}
@@ -83,19 +82,20 @@ class BaseController
 		else
 		{
 			// use the default one...
-			this.defaultAction(args);
+			trace ('try the default one: ' + this.defaultAction());
+			Reflect.callMethod(this,this.defaultAction(),args);
 		}
 	}
 	
-	public function defaultAction(args:Array<String>, ?action:String)
+	/** Override this method to set your default action.  
+	Your override method should call:
+	
+	super.defaultAction(args,"myDefaultAction");
+	
+	or something like that.*/
+	public function defaultAction()
 	{
-		trace ('default action is: ' + action);
-		action = action.toLowerCase();
-		if (actions.exists(action))
-		{
-			trace ('and it exists');
-			Reflect.callMethod(this,actions.get(action),args);
-		}
+		return function () {};
 	}
 	
 	/** Load the template.  Either pass the file path to load,

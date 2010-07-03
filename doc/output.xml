@@ -449,11 +449,15 @@
 	you override for your controller.  ]]></haxe_doc>
 		</pageTemplateFile>
 		<initiatePageTemplate set="method" line="29"><f a=""><e path="Void"/></f></initiatePageTemplate>
-		<defaultAction public="1" set="method" line="90"><f a="args:?action">
-	<c path="Array"><c path="String"/></c>
-	<c path="String"/>
-	<e path="Void"/>
-</f></defaultAction>
+		<defaultAction public="1" set="method" line="96">
+			<f a=""><f a=""><e path="Void"/></f></f>
+			<haxe_doc> Override this method to set your default action.  
+	Your override method should call:
+	
+	super.defaultAction(args,"myDefaultAction");
+	
+	or something like that.</haxe_doc>
+		</defaultAction>
 		<loadTemplate set="method" line="105">
 			<f a="?str:?pos">
 				<c path="String"/>
@@ -498,6 +502,16 @@
 		<haxe_doc>
 Your controllers should inherit from this base class.
 </haxe_doc>
+	</class>
+	<class path="controllers.UsersController" params="" file="src/controllers/UsersController.hx">
+		<extends path="hxbase.BaseController"/>
+		<aliases public="1" line="5" static="1"><c path="Array"><c path="String"/></c></aliases>
+		<getDefaultAction set="method" line="7"><f a=""><f a=""><e path="Void"/></f></f></getDefaultAction>
+		<list set="method" line="12"><f a=""><e path="Void"/></f></list>
+		<new public="1" set="method" line="3"><f a="args">
+	<c path="Array"><c path="String"/></c>
+	<e path="Void"/>
+</f></new>
 	</class>
 	<class path="AppConfig" params="" file="src/AppConfig.hx">
 		<defaultController public="1" line="11" static="1">
@@ -4586,24 +4600,6 @@ Please note haxedoc seems to have screwed up the order of the descriptions below
 	with its API. On the server side, it's often better to use a [List] which
 	is less memory and CPU consuming, unless you really need indexed access.
 </haxe_doc>
-	</class>
-	<class path="controllers.TestController" params="" file="src/controllers/TestController.hx">
-		<extends path="hxbase.BaseController"/>
-		<aliases public="1" line="5" static="1"><c path="Array"><c path="String"/></c></aliases>
-		<defaultAction public="1" set="method" line="6" override="1"><f a="args:?action">
-	<c path="Array"><c path="String"/></c>
-	<c path="String"/>
-	<e path="Void"/>
-</f></defaultAction>
-		<testAction public="1" set="method" line="9"><f a=""><e path="Void"/></f></testAction>
-		<myWeirdDefault public="1" set="method" line="14"><f a="str">
-	<c path="String"/>
-	<e path="Void"/>
-</f></myWeirdDefault>
-		<new public="1" set="method" line="3"><f a="args">
-	<c path="Array"><c path="String"/></c>
-	<e path="Void"/>
-</f></new>
 	</class>
 	<typedef path="haxe.PosInfos" params="" file="/opt/haxe/std/haxe/PosInfos.hx"><a>
 	<methodName><c path="String"/></methodName>

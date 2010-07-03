@@ -3,14 +3,14 @@
 class controllers_ControllerRegistry {
 	public function __construct(){}
 	static function registerAll() {
-		hxbase_Dispatcher::registerController("test", _hx_qtype("controllers.TestController"));
-		if(Lambda::has(Type::getClassFields(_hx_qtype("controllers.TestController")), "aliases", null)) {
+		hxbase_Dispatcher::registerController("users", _hx_qtype("controllers.UsersController"));
+		if(Lambda::has(Type::getClassFields(_hx_qtype("controllers.UsersController")), "aliases", null)) {
 			{
-				$_g = 0; $_g1 = controllers_TestController::$aliases;
+				$_g = 0; $_g1 = controllers_UsersController::$aliases;
 				while($_g < $_g1->length) {
 					$alias = $_g1[$_g];
 					++$_g;
-					hxbase_Dispatcher::registerController($alias, _hx_qtype("controllers.TestController"));
+					hxbase_Dispatcher::registerController($alias, _hx_qtype("controllers.UsersController"));
 					unset($alias);
 				}
 			}

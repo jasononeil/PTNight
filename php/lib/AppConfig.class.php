@@ -14,4 +14,4 @@ class AppConfig {
 	static $tablePrefix;
 	function __toString() { return 'AppConfig'; }
 }
-AppConfig::$defaultController = _hx_qtype("hxbase.BaseController");
+AppConfig::$defaultController = _hx_qtype("controllers.UsersController");
