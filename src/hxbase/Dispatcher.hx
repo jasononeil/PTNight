@@ -48,7 +48,6 @@ class Dispatcher
 		if (parts.length == 0) parts.push("");
 		
 		// Now pass control to whichever controller class we have
-		trace ("We're going to load " + controllerClass);
 		
 		var controller:BaseController = Type.createInstance(controllerClass, [parts]);
 		php.Lib.print(controller);
