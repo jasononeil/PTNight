@@ -1,4 +1,5 @@
 package basehx;
+import AppConfig;
 
 class App 
 {
@@ -9,6 +10,13 @@ class App
 		haxe.Log.trace = basehx.Log.trace;
 		var request:String = php.Web.getParams().get("request");
 		basehx.Dispatcher.dispatch(request);
+	}
+	
+	static public function initiatePageTemplate() 
+	{
+		var template = new HxTpl();
+		template.loadTemplateFromFile(AppConfig.pageTemplateFile);
+		return template;
 	}
 	
 	public static function redirect(url) {

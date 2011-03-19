@@ -7,12 +7,4 @@ class MainApp
 		App.initiate();
 	}
 	
-	static public var pageTemplateFile = "views/MainView.tpl";
-	
-	static public function initiatePageTemplate() 
-	{
-		var template = new HxTpl();
-		template.loadTemplateFromFile(pageTemplateFile);
-		return template;
-	}
 }
