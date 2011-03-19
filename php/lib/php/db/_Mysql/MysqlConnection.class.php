@@ -15,7 +15,7 @@ class php_db__Mysql_MysqlConnection implements php_db_Connection{
 		if($h === false) {
 			throw new HException((("Error while executing " . $s) . " (") . (mysql_error($this->c) . ")"));
 		}
-		return new php_db__Mysql_MysqlResultSet($h);
+		return new php_db__Mysql_MysqlResultSet($h, $this->c);
 	}
 	public function escape($s) {
 		return mysql_real_escape_string($s, $this->c);

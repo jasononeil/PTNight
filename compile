@@ -12,7 +12,7 @@ haxe compile.hxml
 
 # Dump SQL database (this gives us a flatfile backup and also keeps it in GIT)
 # Change your database name, username and password to make it work for yours.
-/usr/bin/mysqldump --create-options -B "hxbase" --force --user=hxbase --password=password > database.sql
+#/usr/bin/mysqldump --create-options -B "hxbase" --force --user=hxbase --password=password > database.sql
 
 # Creating the documentation
 cd doc

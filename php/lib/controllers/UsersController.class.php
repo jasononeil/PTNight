@@ -1,6 +1,6 @@
 <?php
 
-class controllers_UsersController extends hxbase_BaseController {
+class controllers_UsersController extends basehx_BaseController {
 	public function __construct($args) { if( !php_Boot::$skip_constructor ) {
 		parent::__construct($args);
 	}}

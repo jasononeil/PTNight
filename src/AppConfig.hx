@@ -8,7 +8,7 @@ class AppConfig
 	App config
 	=====================================*/
 	/** Default Controller */
-	public static var defaultController:Class<Dynamic> = controllers.AdminController;
+	public static var defaultController:Class<Dynamic> = basehx.BaseController;
 	
 	/*=====================================
 	Filesystem / URL config

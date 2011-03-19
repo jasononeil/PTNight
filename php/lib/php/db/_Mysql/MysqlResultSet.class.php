@@ -1,17 +1,19 @@
 <?php
 
 class php_db__Mysql_MysqlResultSet implements php_db_ResultSet{
-	public function __construct($r) {
+	public function __construct($r, $c) {
 		if( !php_Boot::$skip_constructor ) {
 		$this->__r = $r;
+		$this->__c = $c;
 	}}
 	public $length;
 	public $nfields;
 	public $__r;
+	public $__c;
 	public $cache;
 	public function getLength() {
 		if($this->__r === true) {
-			return mysql_affected_rows($this->__r);
+			return mysql_affected_rows($this->__c);
 		}
 		else {
 			if($this->__r === false) {

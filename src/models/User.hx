@@ -1,6 +1,6 @@
 package models;
 
-class User extends hxbase.BaseDbModel
+class User extends basehx.BaseDbModel
 {
 	public var id:Int;
 	public var username:String;

@@ -1,6 +1,6 @@
-package models;
+:qpackage models;
 
-class TodoItem extends hxbase.BaseDbModel
+class TodoItem extends basehx.BaseDbModel
 {
 	public var id:Int;
 	public var userId:Int;

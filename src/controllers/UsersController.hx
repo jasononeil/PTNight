@@ -1,10 +1,10 @@
 package controllers;
 
-class UsersController extends hxbase.BaseController
+class UsersController extends basehx.BaseController
 {
 	public static var aliases = [];
 	
-	function getDefaultAction()
+	override function getDefaultAction()
 	{
 		return list;
 	}

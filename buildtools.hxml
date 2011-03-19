@@ -4,8 +4,8 @@
 -main RegisterControllers
 --remap php:neko
 -neko tools/registercontrollers.n
--cp src/hxbase/tools/
+-cp src/basehx/tools/
 -cp src/
--resource src/hxbase/tools/RegisterControllers.tpl@template
+-resource src/basehx/tools/RegisterControllers.tpl@template
 #-xml doc/output.xml
 ##########################################################################

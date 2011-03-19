@@ -329,7 +329,7 @@ class php_Web {
 						throw new HException("The uploaded file was only partially uploaded");
 					}break;
 					case 4:{
-						throw new HException("No file was uploaded");
+						continue;
 					}break;
 					case 6:{
 						throw new HException("Missing a temporary folder");

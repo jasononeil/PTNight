@@ -1,17 +1,8 @@
-import hxbase.Dispatcher;
-import hxbase.DbControl;
+import basehx.Dispatcher;
+import basehx.DbControl;
 import AppConfig;
-import hxbase.Log;
-import hxbase.tpl.HxTpl;
-
-import models.Class_join_Student;
-import models.Parent;
-import models.Student;
-import models.Parent_join_Student;
-import models.Class;
-import models.Teacher;
-import models.Timeslot;
-import models.Interview;
+import basehx.Log;
+import basehx.tpl.HxTpl;
 
 class MainApp
 {
@@ -19,7 +10,7 @@ class MainApp
 	
 	public static function main()
 	{
-		haxe.Log.trace = hxbase.Log.trace;
+		haxe.Log.trace = basehx.Log.trace;
 		trace ("FATTY");
 		php.Lib.print('<pre>');
 		
