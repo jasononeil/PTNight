@@ -1,5 +1,6 @@
 package basehx;
 import AppConfig;
+import basehx.tpl.HxTpl;
 
 class App 
 {

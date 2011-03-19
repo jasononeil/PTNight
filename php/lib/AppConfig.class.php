@@ -3,6 +3,7 @@
 class AppConfig {
 	public function __construct(){}
 	static $defaultController;
+	static $pageTemplateFile = "views/MainView.tpl";
 	static $baseUrl = "http://localhost/ptinterviews/php";
 	static $subDir = "/ptinterviews/php";
 	static $baseFilePath;

@@ -5,11 +5,5 @@ class MainApp {
 	static function main() {
 		basehx_App::initiate();
 	}
-	static $pageTemplateFile = "views/MainView.tpl";
-	static function initiatePageTemplate() {
-		$template = new basehx_tpl_HxTpl();
-		$template->loadTemplateFromFile(MainApp::$pageTemplateFile);
-		return $template;
-	}
 	function __toString() { return 'MainApp'; }
 }

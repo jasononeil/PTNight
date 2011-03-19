@@ -1,5 +1,6 @@
 package basehx;
 import basehx.tpl.HxTpl;
+import basehx.App;
 using StringTools;
 
 /**
@@ -130,10 +131,10 @@ class BaseController
 			initiatePageTemplate();
 			view = template.include("content",viewPath);
 		}
-		else if (MainApp.pageTemplateFile != null)
+		else if (AppConfig.pageTemplateFile != null)
 		{
 			// Use the template for the App
-			template = MainApp.initiatePageTemplate();
+			template = App.initiatePageTemplate();
 			view = template.include("content",viewPath);
 		}
 		else
