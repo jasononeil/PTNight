@@ -1,51 +1,39 @@
-<?php
+package models;
+import models.BaseDbModel;
 
-class models_SchoolClass extends hxbase_BaseDbModel {
-	public function __construct() {
-		if( !php_Boot::$skip_constructor ) {
-		parent::__construct();
-	}}
-	public $id;
-	public $teacherID;
-	public $className;
-	public $students;
+class SchoolClass extends BaseDbModel {
+	public var id;
+	public var teacherID;
+	public var className;
+	public var students;
 	public function getter_students() {
-		$list = new HList();
-		if($this->id !== null) {
-			$jList = models_SchoolClass_join_Student::$manager->search(_hx_anonymous(array("classID" => $this->id)), null);
-			$»it = $jList->iterator();
-			while($»it->hasNext()) {
-			$join = $»it->next();
+		list = new List();
+		if(id != null) 
+		{
+			jList = SchoolClass_join_Student.manager.search({"classID": id});
+			for (join in jList)
 			{
-				$list->add($join->get_student());
-				;
-			}
+				list.add(join.student);
 			}
 		}
-		return $list;
+		return list;
 	}
-	public $interviews;
+	public var interviews;
 	public function getter_interviews() {
-		return models_Interview::$manager->search(_hx_anonymous(array("classID" => $this->id)), null);
+		return Interview.manager.search({"classID": id});
 	}
-	public function get_teacher() { return call_user_func($this->get_teacher); }
-	public $get_teacher;
-	public function set_teacher($v) { return call_user_func($this->set_teacher, $v); }
-	public $set_teacher;
-	public function __call($m, $a) {
-		if(isset($this->$m) && is_callable($this->$m))
-			return call_user_func_array($this->$m, $a);
-		else if(isset($this->»dynamics[$m]) && is_callable($this->»dynamics[$m]))
-			return call_user_func_array($this->»dynamics[$m], $a);
-		else if('toString' == $m)
-			return $this->__toString();
-		else
-			throw new HException('Unable to call «'.$m.'»');
+	
+	public var teacher;
+	
+	public static var manager = new hxbase.DbManager(SchoolClass);
+	
+	public function new() 
+	{
+		super();
 	}
-	static function RELATIONS() {
-		return new _hx_array(array(_hx_anonymous(array("prop" => "teacher", "key" => "teacherID", "manager" => models_Teacher::$manager))));
+	
+	static function RELATIONS() 
+	{
+		return new [{prop: "teacher", key: "teacherID", manager: Teacher.manager}]
 	}
-	static $manager;
-	function __toString() { return 'models.SchoolClass'; }
 }
-models_SchoolClass::$manager = new hxbase_DbManager(_hx_qtype("models.SchoolClass"));
