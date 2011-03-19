@@ -9,6 +9,10 @@ class AppConfig
 	=====================================*/
 	/** Default Controller */
 	public static var defaultController:Class<Dynamic> = basehx.BaseController;
+	/** Default Template - all others are inserted into this */
+	static public var pageTemplateFile = "views/MainView.tpl";
+	
+	
 	
 	/*=====================================
 	Filesystem / URL config
