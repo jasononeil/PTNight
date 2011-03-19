@@ -17,7 +17,7 @@
 -php php/
 --php-front index.php
 -cp src/
--xml doc/output.xml
+-xml doc/api/output.xml
 ##########################################################################
 
 
