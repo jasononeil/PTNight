@@ -15,6 +15,6 @@ haxe compile.hxml
 #/usr/bin/mysqldump --create-options -B "hxbase" --force --user=hxbase --password=password > database.sql
 
 # Creating the documentation
-cd doc
+cd doc/api
 haxedoc output.xml > /dev/null
-cd ..
+cd ../..
