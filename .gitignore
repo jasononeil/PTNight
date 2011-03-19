@@ -1,4 +1,9 @@
 # Ignore backup files from text editors
-/src/AppConfig.hx
-/php/
 *~
+
+# Ignore App specific config (but keep AppConfig.hx.sample in the repo)
+/src/AppConfig.hx
+
+# Ignore generated files
+/php/
+/doc/api/
