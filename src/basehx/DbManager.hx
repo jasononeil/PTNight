@@ -1,126 +1,164 @@
-<?php
+package basehx;
+import php.db.Manager;
+import php.db.Connection;
+using StringTools;
 
-class hxbase_DbManager extends php_db_Manager {
-	public function __construct($classval) {
-		if( !php_Boot::$skip_constructor ) {
-		parent::__construct($classval);
-	}}
-	public $limit;
-	public $groupBy;
-	public $orderBy;
-	public function setLimit($s, $c) {
-		$this->limit = _hx_anonymous(array("start" => $s, "count" => $c));
+class DbManager<T:php.db.Object> extends Manager<T>
+{
+	public function new(classval) 
+	{
+		super(classval);
 	}
-	public function setGroupBy($f, $o) {
-		$type = (($o === null) ? hxbase_OrderType::$ASC : $o);
-		$this->groupBy = _hx_anonymous(array("field" => $f, "type" => $type));
+	public var limit:Limit;
+	public var groupBy:GroupBy;
+	public var orderBy:OrderBy;
+	
+	public function setLimit(s, c) 
+	{
+		limit = {start: s, count: c};
 	}
-	public function setOrderBy($f, $o) {
-		$type = (($o === null) ? hxbase_OrderType::$ASC : $o);
-		$this->orderBy = _hx_anonymous(array("field" => $f, "type" => $type));
+	
+	public function setGroupBy(f, o) 
+	{
+		var type = (o == null) ? OrderType.ASC : o;
+		groupBy = {field: f, type: type};
 	}
-	public function objects($sql, $lock) {
-		$sqlEx = $sql;
-		$sqlEx = str_replace(php_db_Manager::$FOR_UPDATE, "", $sqlEx);
-		if(_hx_field($this, "groupBy") !== null) {
-			$sqlEx .= " GROUP BY " . $this->groupBy->field;
-			if($this->groupBy->type !== null) {
-				$sqlEx .= " " . Std::string($this->groupBy->type);
+	
+	public function setOrderBy(f, o) 
+	{
+		var type = (o == null) ? OrderType.ASC : o;
+		orderBy = {field: f, type: type};
+	}
+	
+	override public function objects( sql : String, lock : Bool ):List<T>
+	{
+		var sqlEx = sql;
+		sqlEx = sqlEx.replace(Manager.FOR_UPDATE, "");
+		if(groupBy != null) 
+		{
+			sqlEx += " GROUP BY " + groupBy.field;
+			if(groupBy.type != null) 
+			{
+				sqlEx += " " + Std.string(groupBy.type);
 			}
 		}
-		if(_hx_field($this, "orderBy") !== null) {
-			$sqlEx .= " ORDER BY " . $this->orderBy->field;
-			if($this->orderBy->type !== null) {
-				$sqlEx .= " " . Std::string($this->orderBy->type);
+		if(orderBy != null) 
+		{
+			sqlEx += " ORDER BY " + orderBy.field;
+			if(orderBy.type != null) 
+			{
+				sqlEx += " " + Std.string(orderBy.type);
 			}
 		}
-		if(_hx_field($this, "limit") !== null) {
-			$sqlEx .= " LIMIT " . $this->limit->start;
-			if($this->limit->count !== null) {
-				$sqlEx .= "," . $this->limit->count;
+		if(limit != null) 
+		{
+			sqlEx += " LIMIT " + limit.start;
+			if(limit.count != null) 
+			{
+				sqlEx += "," + limit.count;
 			}
 		}
-		$sqlEx = ($sqlEx . " ") . php_db_Manager::$FOR_UPDATE;
-		return parent::objects($sqlEx,false);
+		sqlEx = (sqlEx + " ") + Manager.FOR_UPDATE;
+		return super.objects(sqlEx,false);
 	}
-	public function getMultiple($ids, $lock) {
-		if($lock === null) {
-			$lock = true;
+	
+	public function getMultiple(ids:List<Int>, lock:Bool):List<T>
+	{
+		if(lock == null) 
+		{
+			lock = true;
 		}
-		if($this->table_keys->length !== 1) {
-			throw new HException("Invalid number of keys");
+		if(table_keys.length != 1) 
+		{
+			throw "Invalid number of keys";
 		}
-		if($ids === null) {
+		if(ids == null) 
+		{
 			return null;
 		}
-		$s = new StringBuf();
-		$s->b .= "SELECT * FROM ";
-		$s->b .= $this->table_name;
-		$s->b .= " WHERE ";
-		$onFirstValue = true;
-		$»it = $ids->iterator();
-		while($»it->hasNext()) {
-		$id = $»it->next();
+		var s = new StringBuf();
+		s.add("SELECT * FROM ");
+		s.add(table_name);
+		s.add(" WHERE ");
+		var onFirstValue = true;
+		for (id in ids)
 		{
-			$x = php_db_Manager::$object_cache->get($id . $this->table_name);
-			if($x !== null && (!$lock || !$x->__noupdate__)) {
-				return $x;
+			/*var x = Manager.object_cache.get(id + table_name);
+			if(x != null && (!lock || !x.__noupdate__)) 
+			{
+				//return x;
+			}*/
+			if(onFirstValue != null) 
+			{
+				onFirstValue = false;
 			}
-			if($onFirstValue) {
-				$onFirstValue = false;
+			else 
+			{
+				s.add(" OR ");
 			}
-			else {
-				$s->b .= " OR ";
-			}
-			$s->b .= "(" . $this->quoteField($this->table_keys[0]);
-			$s->b .= " = ";
-			php_db_Manager::$cnx->addValue($s, $id);
-			$s->b .= ")";
-			unset($x);
+			s.add("(" + quoteField(table_keys[0]));
+			s.add(" = ");
+			Manager.cnx.addValue(s, id);
+			s.add(")");
 		}
-		}
-		if($lock) {
-			$s->b .= php_db_Manager::$FOR_UPDATE;
-		}
-		return $this->objects($s->b, $lock);
-	}
-	public function searchForMultiple($values, $lock) {
-		if($lock === null) {
-			$lock = true;
-		}
-		$s = new StringBuf();
-		$s->b .= "SELECT * FROM ";
-		$s->b .= $this->table_name;
-		$s->b .= " WHERE ";
-		$onFirstValue = true;
-		$»it = $values->iterator();
-		while($»it->hasNext()) {
-		$x = $»it->next();
+		if(lock) 
 		{
-			if($onFirstValue) {
-				$onFirstValue = false;
-			}
-			else {
-				$s->b .= " OR ";
-			}
-			$this->addCondition($s, $x);
-			;
+			s.add(Manager.FOR_UPDATE);
 		}
-		}
-		if($lock) {
-			$s->b .= php_db_Manager::$FOR_UPDATE;
-		}
-		return $this->objects($s->b, $lock);
+		return objects(s.toString(), lock);
 	}
-	public function __call($m, $a) {
-		if(isset($this->$m) && is_callable($this->$m))
-			return call_user_func_array($this->$m, $a);
-		else if(isset($this->»dynamics[$m]) && is_callable($this->»dynamics[$m]))
-			return call_user_func_array($this->»dynamics[$m], $a);
-		else if('toString' == $m)
-			return $this->__toString();
-		else
-			throw new HException('Unable to call «'.$m.'»');
+	
+	public function searchForMultiple(values:List<{}>, lock):List<T>
+	{
+		if(lock == null) 
+		{
+			lock = true;
+		}
+		var s = new StringBuf();
+		s.add("SELECT * FROM ");
+		s.add(table_name);
+		s.add(" WHERE ");
+		var onFirstValue = true;
+		for (x in values)
+		{
+			if(onFirstValue) 
+			{
+				onFirstValue = false;
+			}
+			else 
+			{
+				s.add(" OR ");
+			}
+			addCondition(s, x);
+		}
+		if(lock) 
+		{
+			s.add(Manager.FOR_UPDATE);
+		}
+		return objects(s.toString(), lock);
 	}
-	function __toString() { return 'hxbase.DbManager'; }
+}
+
+typedef Limit = 
+{
+	var start:Int;
+	var count:Int;
+}
+
+typedef OrderBy = 
+{
+	var field:String;
+	var type:OrderType;
+}
+
+typedef GroupBy = 
+{
+	var field:String;
+	var type:OrderType;
+}
+
+enum OrderType
+{
+	ASC;
+	DESC;
 }
