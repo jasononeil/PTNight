@@ -145,12 +145,7 @@ class ParentController extends BaseController {
 				var teacherID = SchoolClass.manager.get(classID).teacherID;
 				return { teacherID: teacherID }
 			});
-			/*var allTeacherIDs = Lambda.map(selectedSchoolClasses, array(new _hx_lambda(array("allTeacherIDs": &allTeacherIDs, "categoryBlocks": &categoryBlocks, "selectedSchoolClasses": &selectedSchoolClasses, "teacherAvailability": &teacherAvailability, "timeslotsForCategory": &timeslotsForCategory), null, array('line'), "{
-				\classID = Std.parseInt(_hx_array_get(_hx_explode(\",\", \line), 2));
-				\teacherID = SchoolClass.\manager.get(\classID).teacherID;
-				return {\"teacherID\": \teacherID));
-			}"), 'execute1'));*/
-			//throw "fix the thing above";
+			
 			for (i in Interview.manager.searchForMultiple(allTeacherIDs))
 			{
 				var key = i.teacherID + "," + i.timeslotID;
@@ -279,10 +274,9 @@ class ParentController extends BaseController {
 		view.assignObject("parent", parent);
 		Interview.manager.setOrderBy("timeslotID");
 		var interviews = Lambda.array(parent.interviews);
-		/*interviews.sort(array(new _hx_lambda(array("categoryBlocks": &categoryBlocks, "interviews": &interviews, "parent": &parent, "parentID": &parentID), null, array('a','b'), "{
-			return intval(\a.timeslot.startTime.getTime() - \b.timeslot.startTime.getTime());
-		}"), 'execute2'));*/
-		throw "sort this out";
+		interviews.sort(function (a,b) {
+			return Std.int(a.timeslot.startTime.getTime() - b.timeslot.startTime.getTime());
+		});
 		for (interview in interviews)
 		{
 			var category = interview.student.category.name;

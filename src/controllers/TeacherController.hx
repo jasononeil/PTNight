@@ -49,36 +49,33 @@ class TeacherController extends BaseController
 		view.assignObject("teacher", teacher);
 		Interview.manager.setOrderBy("timeslotID");
 		var interviews = Lambda.array(teacher.interviews);
-	/*		interviews.sort(array(new _hx_lambda(array("categoryBlocks": &categoryBlocks, "interviews": &interviews, "teacher": &teacher, "teacherID": &teacherID), null, array('a','b'), "{
-			return intval(\a.timeslot.startTime.getTime() - \b.timeslot.startTime.getTime());
-		}"), 'execute2'));*/
-		throw "fix this";
+		interviews.sort(function (a,b) {
+			return Std.int(a.timeslot.startTime.getTime() - b.timeslot.startTime.getTime());
+		});
+		for (interview in interviews)
 		{
-			for (interview in interviews)
+			var category = interview.student.category.name;
+			var cat:HxTpl;
+			if(categoryBlocks.exists(category) == false) 
 			{
-				var category = interview.student.category.name;
-				var cat:HxTpl;
-				if(categoryBlocks.exists(category) == false) 
-				{
-					cat = view.newLoop("category");
-					categoryBlocks.set(category, cat);
-				}
-				else 
-				{
-					cat = categoryBlocks.get(category);
-				}
-				cat.assign("category", category);
-				var date = DateTools.format(interview.timeslot.startTime, "%A %d %B");
-				cat.assign("date", date);
-				var loop = cat.newLoop("interview");
-				loop.assignObject("class", interview.schoolClass);
-				loop.assignObject("parent", interview.parent);
-				loop.assignObject("student", interview.student);
-				var startTime = DateTools.format(interview.timeslot.startTime, "%I:%M");
-				var endTime = DateTools.format(interview.timeslot.endTime, "%I:%M");
-				loop.assign("startTime", startTime);
-				loop.assign("endTime", endTime);
+				cat = view.newLoop("category");
+				categoryBlocks.set(category, cat);
 			}
+			else 
+			{
+				cat = categoryBlocks.get(category);
+			}
+			cat.assign("category", category);
+			var date = DateTools.format(interview.timeslot.startTime, "%A %d %B");
+			cat.assign("date", date);
+			var loop = cat.newLoop("interview");
+			loop.assignObject("class", interview.schoolClass);
+			loop.assignObject("parent", interview.parent);
+			loop.assignObject("student", interview.student);
+			var startTime = DateTools.format(interview.timeslot.startTime, "%I:%M");
+			var endTime = DateTools.format(interview.timeslot.endTime, "%I:%M");
+			loop.assign("startTime", startTime);
+			loop.assign("endTime", endTime);
 		}
 		printTemplate();
 	}

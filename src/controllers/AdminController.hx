@@ -209,24 +209,23 @@ class AdminController extends basehx.BaseController {
 		view.assignObject("parent", parent);
 		Interview.manager.setOrderBy("timeslotID");
 		var interviews = Lambda.array(parent.interviews);
-		throw "sort this out";
-		/*interviews.sort(
+		interviews.sort(function (a,b) {
+			return Std.int(a.timeslot.startTime.getTime() - b.timeslot.startTime.getTime());
+		});
 		
-		array(new _hx_lambda(array("id_in": &id_in, "interviews": &interviews, "parent": &parent, "parentID": &parentID), null, array('a','b'), "{
-			return intval(\a.timeslot.startTime.getTime() - \b.timeslot.startTime.getTime());
-		}"), 'execute2'));*/
+		
+		
+		for (interview in interviews)
 		{
-			for (interview in interviews)
-			{
-				var loop = view.newLoop("interview");
-				loop.assign("interviewID", interview.id);
-				loop.assignObject("class", interview.schoolClass);
-				loop.assignObject("teacher", interview.teacher);
-				loop.assignObject("student", interview.student);
-				var startTime = DateTools.format(interview.timeslot.startTime, "%h %e %I:%M");
-				loop.assign("startTime", startTime);
-			}
+			var loop = view.newLoop("interview");
+			loop.assign("interviewID", interview.id);
+			loop.assignObject("class", interview.schoolClass);
+			loop.assignObject("teacher", interview.teacher);
+			loop.assignObject("student", interview.student);
+			var startTime = DateTools.format(interview.timeslot.startTime, "%h %e %I:%M");
+			loop.assign("startTime", startTime);
 		}
+		
 	}
 	public function newCustomAppointment(id_in) 
 	{
@@ -373,10 +372,9 @@ class AdminController extends basehx.BaseController {
 		view.assignObject("teacher", teacher);
 		Interview.manager.setOrderBy("timeslotID");
 		var interviews:Array<Interview> = Lambda.array(teacher.interviews);
-		/*interviews.sort(array(new _hx_lambda(array("categoryBlocks": &categoryBlocks, "id": &id, "interviews": &interviews, "teacher": &teacher, "teacherID": &teacherID), null, array('a','b'), "{
-			return intval(\a.timeslot().startTime.getTime() - \b.timeslot().startTime.getTime());
-		}"), 'execute2'));*/
-		throw "sort this out";
+		interviews.sort(function (a,b) {
+			return Std.int(a.timeslot.startTime.getTime() - b.timeslot.startTime.getTime());
+		});
 		
 		for (interview in interviews)
 		{
