@@ -18,13 +18,13 @@ class DbManager<T:php.db.Object> extends Manager<T>
 		limit = {start: s, count: c};
 	}
 	
-	public function setGroupBy(f, o) 
+	public function setGroupBy(f, ?o) 
 	{
 		var type = (o == null) ? OrderType.ASC : o;
 		groupBy = {field: f, type: type};
 	}
 	
-	public function setOrderBy(f, o) 
+	public function setOrderBy(f, ?o) 
 	{
 		var type = (o == null) ? OrderType.ASC : o;
 		orderBy = {field: f, type: type};
