@@ -184,11 +184,11 @@ class BaseController
 	to print all the output.*/
 	public function toString():String
 	{
-		return view.getOutput();
+		return output;
 	}
 	
 	/** In your methods, use print() to write to the output */
-	private function print(str)
+	private function print(str:Dynamic)
 	{
 		output = output + Std.string(str);
 	}
