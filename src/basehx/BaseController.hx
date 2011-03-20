@@ -1,4 +1,5 @@
 package basehx;
+import basehx.session.SessionHandler;
 import basehx.tpl.HxTpl;
 import basehx.App;
 using StringTools;
@@ -37,6 +38,8 @@ class BaseController
 	that you want to point to this controller.  */
 	static public var aliases = [];
 	
+	/** The current session, (SessionHandler object)*/
+	public var session:SessionHandler;
 	
 	/** The new() constructor will probably be called by the Dispatcher
 	if it decides this is the Controller to use.  The constructor should
@@ -46,6 +49,9 @@ class BaseController
 	{
 		// Make sure we don't have empty arguments
 		// MAKE SURE THIS HAPPENS --^
+		
+		session = new SessionHandler(AppConfig.sessionName, AppConfig.sessionTimeout);
+		checkPermissions();
 		
 		//
 		// This bit of code goes through all the properties of this
@@ -85,6 +91,12 @@ class BaseController
 			// use the default one...
 			Reflect.callMethod(this,this.getDefaultAction(),args);
 		}
+	}
+	
+	/** Override this with a function if permission checking is needed... */
+	public function checkPermissions()
+	{
+		//
 	}
 	
 	/** Override this method to set your default action.  

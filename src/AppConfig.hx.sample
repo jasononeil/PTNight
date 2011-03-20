@@ -12,6 +12,8 @@ class AppConfig
 	/** Default Template - all others are inserted into this */
 	static public var pageTemplateFile = "views/MainView.tpl";
 	
+	public static var sessionName = "BaseHxSession";
+	public static var sessionTimeout = 300;
 	
 	
 	/*=====================================

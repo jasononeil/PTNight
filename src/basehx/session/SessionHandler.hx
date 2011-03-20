@@ -1,6 +1,6 @@
 package basehx.session;
-
 import php.Session;
+import basehx.util.Error;
 
 class SessionHandler
 {
