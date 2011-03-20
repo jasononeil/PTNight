@@ -70,6 +70,16 @@ class HxTpl
 	// 
 	private var blocks:Hash<HxTpl>;
 	
+	/** move this somewhere else later */
+	private function copyHash<T>(inHash:Hash<T>)
+	{
+		var outHash = new Hash<T>();
+		for (key in inHash.keys())
+		{
+			outHash.set(key, inHash.get(key));
+		}
+		return outHash;
+	}
 	/***********************************************************************
 	Constructor: new
 	Initializes the template object.
@@ -80,22 +90,27 @@ class HxTpl
 	 * <p>Initializes the template object</p>
 	 */
 	
-	public function new()
+	
+	public function new(?parent:HxTpl = null)
 	{
-		assignedVariables = new Hash();
-		blocks = new Hash();
-		switches = new Hash();
-		loopCount = new Hash();
-		includeURLs = new Hash();
-		
-		this.assignObject('this', 
+		if (parent == null)
 		{
-			#if neko
-			URL : neko.Web.getURI()
-			#elseif php
-			URL : php.Web.getURI()
-			#end
-		});
+			assignedVariables = new Hash();
+			blocks = new Hash();
+			switches = new Hash();
+			loopCount = new Hash();
+			includeURLs = new Hash();
+		
+			this.assignObject('this', { URL : php.Web.getURI() });
+		}
+		else
+		{
+			assignedVariables = copyHash(parent.assignedVariables);
+			blocks = copyHash(parent.blocks);
+			switches = copyHash(parent.switches);
+			loopCount = copyHash(parent.loopCount);
+			includeURLs =copyHash(parent.includeURLs);
+		}
 		
 		ready = false;
 	}
@@ -740,7 +755,7 @@ class HxTpl
 		else
 		{
 			// create a new block
-			newBlock = new HxTpl();
+			newBlock = new HxTpl(this);
 			
 			// Save it for future reference
 			blocks.set(name, newBlock);
