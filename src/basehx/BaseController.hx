@@ -121,6 +121,11 @@ class BaseController
 	templates from databases. */
 	private function loadTemplate(?str:String = null, ?pos:haxe.PosInfos)
 	{
+		var controller = pos.className.replace("Controller","");
+		controller = controller.replace(".","/");
+		controller = controller.replace("controllers/","");
+		controller = controller.toLowerCase();
+		
 		// Find the path for the view template
 		var viewPath:String;
 		if (str != null) 
@@ -146,22 +151,27 @@ class BaseController
 		{
 			// Use the template for this controller
 			initiatePageTemplate();
+			template.assignObject("Controller", { URL: AppConfig.baseUrl + "/" + controller});
+			template.assignObject("App", { URL: AppConfig.baseUrl });
 			view = template.include("content",viewPath);
 		}
 		else if (AppConfig.pageTemplateFile != null)
 		{
 			// Use the template for the App
 			template = App.initiatePageTemplate();
+			template.assignObject("Controller", { URL: AppConfig.baseUrl + "/" + controller});
+			template.assignObject("App", { URL: AppConfig.baseUrl });
 			view = template.include("content",viewPath);
 		}
 		else
 		{
 			// Just use the view by itself
 			view = new HxTpl();
+			template.assignObject("Controller", { URL: AppConfig.baseUrl + "/" + controller});
+			template.assignObject("App", { URL: AppConfig.baseUrl });
 			view.loadTemplateFromFile(viewPath);
 			template = view; // for all purposes, they're the same now.
 		}
-		
 	}
 	
 	private function printTemplate()
