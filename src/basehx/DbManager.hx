@@ -62,12 +62,8 @@ class DbManager<T:php.db.Object> extends Manager<T>
 		return super.objects(sqlEx,false);
 	}
 	
-	public function getMultiple(ids:List<Int>, lock:Bool):List<T>
+	public function getMultiple(ids:List<Int>, ?lock:Bool = true):List<T>
 	{
-		if(lock == null) 
-		{
-			lock = true;
-		}
 		if(table_keys.length != 1) 
 		{
 			throw "Invalid number of keys";
@@ -108,12 +104,8 @@ class DbManager<T:php.db.Object> extends Manager<T>
 		return objects(s.toString(), lock);
 	}
 	
-	public function searchForMultiple(values:List<{}>, lock):List<T>
+	public function searchForMultiple(values:List<{}>, ?lock:Bool = true):List<T>
 	{
-		if(lock == null) 
-		{
-			lock = true;
-		}
 		var s = new StringBuf();
 		s.add("SELECT * FROM ");
 		s.add(table_name);
