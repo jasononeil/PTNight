@@ -212,8 +212,11 @@ class HxTpl
 		assign statements.
 	***********************************************************************/
 	
-	public function assign(name:String, value:String, ?useHTMLEncode:Bool = true):HxTpl
+	public function assign(name:String, value:Dynamic, ?useHTMLEncode:Bool = true):HxTpl
 	{
+		if (!Std.is(value, String)) 
+			value = Std.string(value);
+		
 		// do we add the HTML escaping?
 		value = (useHTMLEncode) ? StringTools.htmlEscape(value) : value;
 		
