@@ -1,15 +1,15 @@
 package models;
-import models.BaseDbModel;
+import basehx.BaseDbModel;
 
 class SchoolClass_join_Student extends BaseDbModel 
 {
-	public var id;
-	public var classID;
-	public var studentID;
-	public var schoolClass;
-	public var student;
+	public var id:Int;
+	public var classID:Int;
+	public var studentID:Int;
+	public var schoolClass:SchoolClass;
+	public var student:Student;
 	
-	public static var manager = new hxbase.DbManager(SchoolClass_join_Student);
+	public static var manager = new basehx.DbManager<SchoolClass_join_Student>(SchoolClass_join_Student);
 	
 	public function new() 
 	{
@@ -18,7 +18,7 @@ class SchoolClass_join_Student extends BaseDbModel
 	
 	static function RELATIONS() 
 	{
-		return new [{prop: "schoolClass", key: "classID", manager: SchoolClass.manager},
-					{prop: "student", key: "studentID", manager: Student.manager}]
+		return [{prop: "schoolClass", key: "classID", manager: SchoolClass.manager},
+					{prop: "student", key: "studentID", manager: Student.manager}];
 	}
 }

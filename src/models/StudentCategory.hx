@@ -1,5 +1,6 @@
 package models;
-import models.BaseDbModel;
+import basehx.BaseDbModel;
+import models.Timeslot;
 
 class StudentCategory extends BaseDbModel 
 {
@@ -7,15 +8,15 @@ class StudentCategory extends BaseDbModel
 	{
 		super();
 	}
-	public var id;
-	public var name;
-	
+	public var id:Int;
+	public var name:String;
+	public var timeslots(getter_timeslots,null):List<Timeslot>;
 	public function getter_timeslots() 
 	{
-		list = new List();
-		if (id !== null) 
+		var list = new List();
+		if (id != null) 
 		{
-			jList = Timeslot_join_StudentCategory.manager.search({"studentCategoryID": id});
+			var jList = Timeslot_join_StudentCategory.manager.search({studentCategoryID: id});
 			for (join in jList)
 			{
 				list.add(join.timeslot);
@@ -24,5 +25,5 @@ class StudentCategory extends BaseDbModel
 		return list;
 	}
 	
-	public static var manager = new hxbase.DbManager(StudentCategory);
+	public static var manager = new basehx.DbManager<StudentCategory>(StudentCategory);
 }

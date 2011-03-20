@@ -1,34 +1,35 @@
 package models;
-import models.BaseDbModel;
+import basehx.BaseDbModel;
+import models.Parent;
 
 class Student extends BaseDbModel 
 {
-	public var id;
-	public var username;
-	public var firstName;
-	public var lastName;
-	public var familyID;
-	public var categoryID;
-	public var category;
-	public var family;
-	public var parents;
+	public var id:Int;
+	public var username:String;
+	public var firstName:String;
+	public var lastName:String;
+	public var familyID:Int;
+	public var categoryID:Int;
+	public var category:StudentCategory;
+	public var family:Family;
+	public var parents:List<Parent>;
 	public function getter_parents() {
 		return Parent.manager.search({familyID: this.familyID});
 	}
-	public var classes;
+	public var classes:List<SchoolClass>;
 	public function getter_classes() {
-		list = new List();
+		var list = new List();
 		if(id != null) {
-			jList = SchoolClass_join_Student.manager.search({"studentID": id});
+			var jList = SchoolClass_join_Student.manager.search({studentID: id});
 			for (join in jList)
 			{
-				list.add(join.get_schoolClass());
+				list.add(join.schoolClass);
 			}
 		}
 		return list;
 	}
 	
-	public static var manager = new hxbase.DbManager(Student);
+	public static var manager = new basehx.DbManager<Student>(Student);
 	
 	public function new() 
 	{
@@ -37,6 +38,6 @@ class Student extends BaseDbModel
 	
 	static function RELATIONS() 
 	{
-		return new [{prop: "category", key: "categoryID", manager: StudentCategory.manager}]
+		return [{prop: "category", key: "categoryID", manager: StudentCategory.manager}];
 	}
 }

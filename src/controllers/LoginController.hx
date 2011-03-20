@@ -1,5 +1,10 @@
 package controllers;
 import basehx.BaseController;
+import basehx.App;
+import basehx.util.Error;
+import models.Student;
+import models.Teacher;
+import AppLogin;
 
 class LoginController extends BaseController 
 {
@@ -11,18 +16,18 @@ class LoginController extends BaseController
 	
 	override public function getDefaultAction() 
 	{
-		return (isset(login) ? login: array(this, "login"));
+		return this.login;
 	}
 	
 	public function login() 
 	{
-		message = null;
+		var message = null;
 		loadTemplate();
 		template.assign("pageTitle", "Parent Teacher Night");
-		userType = null;
+		var userType:String = null;
 		try 
 		{
-			session.check(); 
+			 AppLogin.session.check(); 
 		}
 		catch (e:Dynamic) 
 		{
@@ -30,7 +35,7 @@ class LoginController extends BaseController
 			//echo "no session";
 		}
 		if(session.get("userType") != null) {
-			userType = session.get("userType");
+			userType = AppLogin.session.get("userType");
 			//echo "userType is userType";
 		}
 		else 
@@ -38,42 +43,41 @@ class LoginController extends BaseController
 			if(params.exists("username") && params.exists("password")) 
 			{
 				//echo "we have params";
-				u = params.get("username");
-				p = params.get("password");
+				var u = params.get("username");
+				var p = params.get("password");
 				try {
-					applogin = new AppLogin();
-					applogin.login(u,p);
+					AppLogin.login(u,p);
 					session.set("username",u);
 					session.set("password",p);
-					yearAtEndOfUsername = ~/[0-9]{4}$/;
+					var yearAtEndOfUsername = ~/[0-9]{4}$/;
 					if(yearAtEndOfUsername.match(u)) 
 					{
 						userType = "parent";
-						student = Student.manager.search({username: u}).first();
+						var student = Student.manager.search({username: u}).first();
 						if(student != null) 
 						{
-							session.set("studentID", student.id);
+							 AppLogin.session.set("studentID", student.id);
 						}
 					}
 					else 
 					{
 						userType = "teacher";
-						teacher = Teacher.manager.search({username: u}).first();
+						var teacher = Teacher.manager.search({username: u}).first();
 						if(teacher != null) 
 						{
-							session.set("teacherID", teacher.id);
+							 AppLogin.session.set("teacherID", teacher.id);
 						}
 						if(u == "jason" || u == "joneil" || u == "dmckinnon" || u == "gmiddleton") 
 						{
 							userType = "admin";
 						}
 					}
-					session.set("userType", userType);
-					//echo "Died on userType " + session.get("userType") + session.get("studentID");
+					 AppLogin.session.set("userType", userType);
+					//echo "Died on userType " + AppLogin.session.get("userType") + AppLogin.session.get("studentID");
 				}
-				catch(e:ErrorObject) 
+				catch(e:Error) 
 				{
-					view.setSwitch("message", true, null).assign("explanation", e.explanation, null).assign("suggestion", e.suggestion);
+					view.setSwitch("message", true).assign("explanation", e.explanation).assign("suggestion", e.suggestion);
 				}
 			}
 		}
@@ -86,7 +90,7 @@ class LoginController extends BaseController
 
 	public function logout() 
 	{
-		session.end();
+		 AppLogin.session.end();
 		App.redirect("/");
 	}
 	public static var aliases = [];

@@ -1,5 +1,5 @@
 package models;
-import models.BaseDbModel;
+import basehx.BaseDbModel;
 
 class Timeslot extends BaseDbModel
 {
@@ -7,33 +7,34 @@ class Timeslot extends BaseDbModel
 	{
 		super();
 	}
-	public var id;
-	public var startTime;
-	public var length;
-	public var categoryID;
-	public var category;
+	public var id:Int;
+	public var startTime:Date;
+	public var length:Int;
+	public var categoryID:Int;
+	public var category:Int;
 	public function getter_categories() 
 	{
-		list = new List();
+		var list = new List();
 		if (id != null) 
 		{
-			jList = Timeslot_join_StudentCategory.manager.search({"timeslot": id});
+			var jList = Timeslot_join_StudentCategory.manager.search({timeslot: id});
 			for (join in jList)
 			{
-				list.add(join.get_studentCategory());
+				list.add(join.studentCategory);
 			}
 		}
 		return list;
 	}
-	public var endTime;
-	public function getter_endTime() {
+	public var endTime:Date;
+	public function getter_endTime() 
+	{
 		return DateTools.delta(this.startTime, this.length * 1000);
 	}
 	
 	static function RELATIONS() 
 	{
-		//return new [{prop: "timeslot", key: "categoryID", manager: StudentCategory.manager}]
-		return new [];
+		//return [{prop: "timeslot", key: "categoryID", manager: StudentCategory.manager}];
+		return [];
 	}
-	public static var manager = new hxbase.DbManager(Timeslot);
+	public static var manager = new basehx.DbManager<Timeslot>(Timeslot);
 }

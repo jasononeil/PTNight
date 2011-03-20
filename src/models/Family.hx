@@ -1,15 +1,16 @@
 package models;
-import models.BaseDbModel;
+import basehx.BaseDbModel;
+import models.Parent;
 
 class Family extends BaseDbModel 
 {
-	public var id;
-	public var mazeKey;
-	public var studentID;
-	public var children;
-	public var parents;
+	public var id:Int;
+	public var mazeKey:String;
+	public var studentID:Int;
+	public var children:List<Student>;
+	public var parents:List<Parent>;
 	
-	public static var manager = new hxbase.DbManager(Family);
+	public static var manager = new basehx.DbManager<Family>(Family);
 	
 	public function new() 
 	{

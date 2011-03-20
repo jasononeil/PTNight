@@ -1,15 +1,17 @@
 package models;
-import models.BaseDbModel;
+import basehx.BaseDbModel;
+import models.StudentCategory;
+import models.Timeslot;
 
 class Timeslot_join_StudentCategory extends BaseDbModel 
 {
-	public var id;
-	public var timeslotID;
-	public var studentCategoryID;
-	public var studentCategory;
-	public var timeslot;
+	public var id:Int;
+	public var timeslotID:Int;
+	public var studentCategoryID:Int;
+	public var studentCategory:StudentCategory;
+	public var timeslot:Timeslot;
 	
-	public static var manager = new hxbase.DbManager(Timeslot_join_StudentCategory);
+	public static var manager = new basehx.DbManager<Timeslot_join_StudentCategory>(Timeslot_join_StudentCategory);
 	
 	public function new() 
 	{
@@ -18,7 +20,7 @@ class Timeslot_join_StudentCategory extends BaseDbModel
 	
 	static function RELATIONS() 
 	{
-		return new [{prop: "timeslot", key: "timeslotID", manager: Timeslot.manager}, 
+		return [{prop: "timeslot", key: "timeslotID", manager: Timeslot.manager}, 
 					{prop: "studentCategory", key: "studentCategoryID", manager: StudentCategory.manager}];
 	}
 	

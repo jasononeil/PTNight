@@ -1,21 +1,21 @@
 package models;
-import models.BaseDbModel;
+import basehx.BaseDbModel;
 
 class Interview extends BaseDbModel 
 {
-	public var id;
-	public var parentID;
-	public var studentID;
-	public var classID;
-	public var timeslotID;
-	public var teacherID;
-	public var parent;
-	public var student;
-	public var schoolClass;
-	public var teacher;
-	public var timeslot;
+	public var id:Int;
+	public var parentID:Int;
+	public var studentID:Int;
+	public var classID:Int;
+	public var timeslotID:Int;
+	public var teacherID:Int;
+	public var parent:Parent;
+	public var student:Student;
+	public var schoolClass:SchoolClass;
+	public var teacher:Teacher;
+	public var timeslot:Timeslot;
 	
-	public static var manager = new hxbase.DbManager(Interview);
+	public static var manager = new basehx.DbManager<Interview>(Interview);
 	
 	public function new() 
 	{
@@ -24,7 +24,7 @@ class Interview extends BaseDbModel
 	
 	static function RELATIONS() 
 	{
-		return new [{prop: "parent", key: "parentID", manager: Parent.manager}, 
+		return [{prop: "parent", key: "parentID", manager: Parent.manager}, 
 					{prop: "student", key: "studentID", manager: Student.manager},
 					{prop: "schoolClass", key: "classID", manager: SchoolClass.manager},
 					{prop: "teacher", key: "teacherID", manager: Teacher.manager},

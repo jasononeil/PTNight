@@ -1,11 +1,17 @@
 package controllers;
 import basehx.BaseController;
+import basehx.tpl.HxTpl;
+import basehx.util.Error;
+import basehx.App;
+import AppLogin;
+import models.Teacher;
+import models.Interview;
 
 class TeacherController extends BaseController 
 {
 	public function new(args) 
 	{
-		super();
+		super(args);
 	}
 	
 	override public function getDefaultAction() 
@@ -13,12 +19,12 @@ class TeacherController extends BaseController
 		return this.viewTimetable;
 	}
 	
-	public function checkPermissions() 
+	override public function checkPermissions() 
 	{
 		try 
 		{
 			AppLogin.checkLoggedIn();
-			userType = AppLogin.session.get("userType");
+			var userType:String = AppLogin.session.get("userType");
 			if(userType != "teacher" && userType != "admin") 
 			{
 				throw "not a teacher - get out!";
@@ -37,21 +43,21 @@ class TeacherController extends BaseController
 	{
 		loadTemplate();
 		template.assign("pageTitle", "Your Timetable");
-		teacherID = AppLogin.session.get("teacherID");
-		teacher = Teacher.manager.get(teacherID);
-		categoryBlocks = new Hash();
+		var teacherID = AppLogin.session.get("teacherID");
+		var teacher = Teacher.manager.get(teacherID);
+		var categoryBlocks = new Hash();
 		view.assignObject("teacher", teacher);
 		Interview.manager.setOrderBy("timeslotID");
-		interviews = Lambda.harray(teacher.getter_interviews());
+		var interviews = Lambda.array(teacher.interviews);
 	/*		interviews.sort(array(new _hx_lambda(array("categoryBlocks": &categoryBlocks, "interviews": &interviews, "teacher": &teacher, "teacherID": &teacherID), null, array('a','b'), "{
-			return intval(\a.get_timeslot().startTime.getTime() - \b.get_timeslot().startTime.getTime());
+			return intval(\a.timeslot.startTime.getTime() - \b.timeslot.startTime.getTime());
 		}"), 'execute2'));*/
 		throw "fix this";
 		{
 			for (interview in interviews)
 			{
-				category = interview.get_student().get_category().name;
-				cat = null;
+				var category = interview.student.category.name;
+				var cat:HxTpl;
 				if(categoryBlocks.exists(category) == false) 
 				{
 					cat = view.newLoop("category");
@@ -62,17 +68,16 @@ class TeacherController extends BaseController
 					cat = categoryBlocks.get(category);
 				}
 				cat.assign("category", category);
-				date = DateTools.format(interview.get_timeslot().startTime, "%A %d %B");
+				var date = DateTools.format(interview.timeslot.startTime, "%A %d %B");
 				cat.assign("date", date);
-				loop = cat.newLoop("interview");
-				loop.assignObject("class", interview.get_schoolClass());
-				loop.assignObject("parent", interview.get_parent());
-				loop.assignObject("student", interview.get_student());
-				startTime = DateTools.format(interview.get_timeslot().startTime, "%I:%M");
-				endTime = DateTools.format(interview.get_timeslot().getter_endTime(), "%I:%M");
+				var loop = cat.newLoop("interview");
+				loop.assignObject("class", interview.schoolClass);
+				loop.assignObject("parent", interview.parent);
+				loop.assignObject("student", interview.student);
+				var startTime = DateTools.format(interview.timeslot.startTime, "%I:%M");
+				var endTime = DateTools.format(interview.timeslot.endTime, "%I:%M");
 				loop.assign("startTime", startTime);
 				loop.assign("endTime", endTime);
-				unset(startTime,loop,interview,endTime,date,category,cat);
 			}
 		}
 		printTemplate();

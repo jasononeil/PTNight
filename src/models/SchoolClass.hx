@@ -1,16 +1,16 @@
 package models;
-import models.BaseDbModel;
+import basehx.BaseDbModel;
 
 class SchoolClass extends BaseDbModel {
-	public var id;
-	public var teacherID;
-	public var className;
-	public var students;
+	public var id:Int;
+	public var teacherID:Int;
+	public var className:String;
+	public var students:List<Student>;
 	public function getter_students() {
-		list = new List();
+		var list = new List();
 		if(id != null) 
 		{
-			jList = SchoolClass_join_Student.manager.search({"classID": id});
+			var jList = SchoolClass_join_Student.manager.search({classID: id});
 			for (join in jList)
 			{
 				list.add(join.student);
@@ -18,14 +18,14 @@ class SchoolClass extends BaseDbModel {
 		}
 		return list;
 	}
-	public var interviews;
+	public var interviews:List<Interview>;
 	public function getter_interviews() {
-		return Interview.manager.search({"classID": id});
+		return Interview.manager.search({classID: id});
 	}
 	
-	public var teacher;
+	public var teacher:Teacher;
 	
-	public static var manager = new hxbase.DbManager(SchoolClass);
+	public static var manager = new basehx.DbManager<SchoolClass>(SchoolClass);
 	
 	public function new() 
 	{
@@ -34,6 +34,6 @@ class SchoolClass extends BaseDbModel {
 	
 	static function RELATIONS() 
 	{
-		return new [{prop: "teacher", key: "teacherID", manager: Teacher.manager}]
+		return [{prop: "teacher", key: "teacherID", manager: Teacher.manager}];
 	}
 }
