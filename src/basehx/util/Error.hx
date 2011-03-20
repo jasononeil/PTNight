@@ -1,4 +1,4 @@
-package hxbase.util;
+package basehx.util;
 class Error
 {
 	public function new(str:String, ?pos:haxe.PosInfos)
