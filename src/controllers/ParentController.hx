@@ -24,7 +24,7 @@ class ParentController extends BaseController {
 	
 	override public function checkPermissions() 
 	{
-		try 
+		/*try 
 		{
 			session.check();
 			var userType = session.get("userType");
@@ -37,7 +37,7 @@ class ParentController extends BaseController {
 		catch(e:Error) 
 		{
 			App.redirect("/login/");
-		}
+		}*/
 	}
 	
 	public function welcome() 
@@ -101,28 +101,30 @@ class ParentController extends BaseController {
 		var parent = Parent.manager.get(parentID);
 		for (child in parent.children)
 		{
-			//echo "child";
 			var category = StudentCategory.manager.get(child.categoryID,false);
+			// If there are timeslots for this category, ie, if bookings are open
 			if(category.timeslots.length > 0) 
 			{
-				//echo "has teacher";
 				var childBlock = view.newLoop("child");
 				childBlock.assignObject("child", child);
 				childBlock.assign("category", child.category.name);
 				for (schoolClass in child.classes)
 				{
-					var classBlock = childBlock.newLoop("class");
-					if(Interview.manager.search({parentID: parentID, studentID: child.id, classID: schoolClass.id}).length > 0) 
+					if (schoolClass.teacher.firstName != "NULL")
 					{
-						classBlock.newLoop("checkboxChecked");
+						var classBlock = childBlock.newLoop("class");
+						classBlock.assignObject("class", schoolClass);
+						classBlock.assign("parentID", Std.string(parentID));
+						classBlock.assignObject("teacher", schoolClass.teacher);
+						if(Interview.manager.search({parentID: parentID, studentID: child.id, classID: schoolClass.id}).length > 0) 
+						{
+							classBlock.newLoop("checkboxChecked");
+						}
+						else 
+						{
+							classBlock.newLoop("checkboxUnchecked");
+						}
 					}
-					else 
-					{
-						classBlock.newLoop("checkboxUnchecked");
-					}
-					classBlock.assignObject("class", schoolClass);
-					classBlock.assign("parentID", Std.string(parentID));
-					classBlock.assignObject("teacher", schoolClass.teacher);
 				}
 			}
 		}
@@ -178,6 +180,7 @@ class ParentController extends BaseController {
 				{
 					cat = view.newLoop("category");
 					categoryBlocks.set(category, cat);
+					// this loop adds the headers (the first row, with the time of each appointment)
 					for (t in timeslots)
 					{
 						var d = DateTools.format(t.startTime, "%l:%M");
@@ -197,6 +200,8 @@ class ParentController extends BaseController {
 				bookingLine.assignObject("class", schoolClass);
 				bookingLine.assignObject("teacher", schoolClass.teacher);
 				bookingLine.assign("category", category);
+				
+				// this loop adds the individual checkboxes
 				for (t2 in timeslots)
 				{
 					var checkBox = bookingLine.newLoop("timeslot");
