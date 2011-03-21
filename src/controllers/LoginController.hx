@@ -74,7 +74,7 @@ class LoginController extends BaseController
 						}
 					}
 					session.set("userType", userType);
-					//echo "Died on userType " + AppLogin.session.get("userType") + AppLogin.session.get("studentID");
+					//echo "Died on userType " + session.get("userType") + session.get("studentID");
 				}
 				catch(e:Error) 
 				{

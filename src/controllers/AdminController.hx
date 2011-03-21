@@ -196,7 +196,7 @@ class AdminController extends basehx.BaseController {
 	public function viewParent(id_in)
 	{
 		var parentID = Std.parseInt(id_in);
-		AppLogin.session.set("parentID", parentID);
+		session.set("parentID", parentID);
 		basehx.App.redirect("/parent/viewtimetable/");
 	}
 	
@@ -225,7 +225,7 @@ class AdminController extends basehx.BaseController {
 			var startTime = DateTools.format(interview.timeslot.startTime, "%h %e %I:%M");
 			loop.assign("startTime", startTime);
 		}
-		
+		printTemplate();
 	}
 	public function newCustomAppointment(id_in) 
 	{
@@ -364,7 +364,7 @@ class AdminController extends basehx.BaseController {
 	
 	public function viewTeacher(id) 
 	{
-		loadTemplate();
+		loadTemplate("views/teacher/viewTimetable.tpl");
 		template.assign("pageTitle", "Your Timetable");
 		var teacherID = Std.parseInt(id);
 		var teacher = Teacher.manager.get(teacherID);
@@ -372,6 +372,7 @@ class AdminController extends basehx.BaseController {
 		view.assignObject("teacher", teacher);
 		Interview.manager.setOrderBy("timeslotID");
 		var interviews:Array<Interview> = Lambda.array(teacher.interviews);
+		
 		interviews.sort(function (a,b) {
 			return Std.int(a.timeslot.startTime.getTime() - b.timeslot.startTime.getTime());
 		});
@@ -408,20 +409,19 @@ class AdminController extends basehx.BaseController {
 	public function printAllTeachers() 
 	{
 		var allTimetables = new StringBuf();
-		var pageTemplateFile = "views/Empty.tpl";
+		pageTemplateFile = "views/Empty.tpl";
 		Interview.manager.setOrderBy("timeslotID");
 		Teacher.manager.setOrderBy("lastName");
 		for (teacher in Teacher.manager.all())
 		{
-			php.Lib.print(" ");
 			viewTeacher(Std.string(teacher.id));
-			allTimetables.add(output);
 			allTimetables.add("\n<hr class=\"page-break\" />");
+			allTimetables.add(output);
 		}
 		pageTemplateFile = null;
 		loadTemplate();
 		template.assign("pageTitle", "All Teacher Timetables");
-		template.assign("printAll", allTimetables);
+		view.assign("printAll", allTimetables, false);
 		printTemplate();
 	}
 	public static var aliases = [];

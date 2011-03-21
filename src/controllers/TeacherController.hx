@@ -23,8 +23,8 @@ class TeacherController extends BaseController
 	{
 		try 
 		{
-			AppLogin.checkLoggedIn();
-			var userType:String = AppLogin.session.get("userType");
+			session.check();
+			var userType = session.get("userType");
 			if(userType != "teacher" && userType != "admin") 
 			{
 				throw "not a teacher - get out!";
@@ -43,7 +43,8 @@ class TeacherController extends BaseController
 	{
 		loadTemplate();
 		template.assign("pageTitle", "Your Timetable");
-		var teacherID = AppLogin.session.get("teacherID");
+		var teacherID = session.get("teacherID");
+		if (teacherID == null) throw "While you logged in okay, you don't appear to be in the database.  Please contact IT.";
 		var teacher = Teacher.manager.get(teacherID);
 		var categoryBlocks = new Hash();
 		view.assignObject("teacher", teacher);

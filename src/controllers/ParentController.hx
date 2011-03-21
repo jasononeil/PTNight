@@ -26,9 +26,8 @@ class ParentController extends BaseController {
 	{
 		try 
 		{
-			if (session == null) { throw "No session"; }
-			 AppLogin.session.check();
-			var userType = AppLogin.session.get("userType");
+			session.check();
+			var userType = session.get("userType");
 			
 			if(userType != "parent" && userType != "admin") 
 			{
@@ -45,7 +44,7 @@ class ParentController extends BaseController {
 	{
 		loadTemplate();
 		template.assign("pageTitle", "Step 01: Your Details");
-		var studentID = AppLogin.session.get("studentID");
+		var studentID = session.get("studentID");
 		var student = Student.manager.get(studentID);
 		for (parent in student.parents)
 		{
@@ -57,7 +56,7 @@ class ParentController extends BaseController {
 	
 	public function newParent() 
 	{
-		var studentID = AppLogin.session.get("studentID");
+		var studentID = session.get("studentID");
 		var student = Student.manager.get(studentID);
 		var parent = new Parent();
 		parent.firstName = params.get("first");
@@ -65,7 +64,7 @@ class ParentController extends BaseController {
 		parent.familyID = student.familyID;
 		parent.email = params.get("email");
 		parent.insert();
-		 AppLogin.session.set("parentID", parent.id);
+		 session.set("parentID", parent.id);
 		App.redirect("/parent/selectteachers/");
 	}
 	
@@ -73,7 +72,7 @@ class ParentController extends BaseController {
 	{
 		var parentID = Std.parseInt(parentID_in);
 		var parent = Parent.manager.get(parentID);
-		var studentID = AppLogin.session.get("studentID");
+		var studentID = session.get("studentID");
 		var student = Student.manager.get(studentID);
 		if(student.familyID != parent.familyID) 
 		{
@@ -83,7 +82,7 @@ class ParentController extends BaseController {
 		parent.lastName = params.get("last");
 		parent.email = params.get("email");
 		parent.update();
-		 AppLogin.session.set("parentID", parentID);
+		 session.set("parentID", parentID);
 		if(Interview.manager.search({parentID: parent.id}).length > 0) 
 		{
 			App.redirect("/parent/viewtimetable/");
@@ -98,7 +97,7 @@ class ParentController extends BaseController {
 	{
 		loadTemplate();
 		template.assign("pageTitle", "Step 02: The Teachers");
-		var parentID = AppLogin.session.get("parentID");
+		var parentID = session.get("parentID");
 		var parent = Parent.manager.get(parentID);
 		for (child in parent.children)
 		{
@@ -221,7 +220,7 @@ class ParentController extends BaseController {
 	}
 	public function makeBookings() 
 	{
-		var parentID = AppLogin.session.get("parentID");
+		var parentID = session.get("parentID");
 		Interview.manager.delete({parentID: parentID});
 		var selectedTimeslots = php.Web.getParamValues("Bookings");
 		
@@ -268,7 +267,7 @@ class ParentController extends BaseController {
 	public function viewTimetable() {
 		loadTemplate();
 		template.assign("pageTitle", "Step 04: Your Timetable");
-		var parentID = AppLogin.session.get("parentID");
+		var parentID = session.get("parentID");
 		var parent = Parent.manager.get(parentID);
 		var categoryBlocks = new Hash();
 		view.assignObject("parent", parent);

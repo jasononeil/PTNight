@@ -1,5 +1,6 @@
 package models;
 import basehx.BaseDbModel;
+import models.Interview;
 
 class Teacher extends BaseDbModel {
 	public var id:Int;
@@ -24,6 +25,12 @@ class Teacher extends BaseDbModel {
 				list.add(interview);
 			}
 		}
+		// it is possible some interviews exist that are not tied to a class...
+		for (interview in Interview.manager.search({ teacherID: id, classID: null }))
+		{
+				list.add(interview);
+		}
+		
 		return list;
 	}
 	
