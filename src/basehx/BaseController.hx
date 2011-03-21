@@ -141,7 +141,7 @@ class BaseController
 							.replace(".", "/")
 							.replace("controllers/", "")
 							.toLowerCase();
-			var action = pos.methodName.toLowerCase();
+			var action = pos.methodName;
 			viewPath = "views/" + controller + "/" + action + ".tpl";
 		}
 		
