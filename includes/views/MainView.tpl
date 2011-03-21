@@ -61,7 +61,7 @@
 			</div>
 			<div id="menubar">
 			</div>
-			<div class="container" id="container_submenu_body_pictures">
+			<div class="container submenu_body_pictures_ptnight" id="container_submenu_body_pictures">
 				
 				
 				
