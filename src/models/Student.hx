@@ -12,12 +12,14 @@ class Student extends BaseDbModel
 	public var categoryID:Int;
 	public var category:StudentCategory;
 	public var family:Family;
-	public var parents:List<Parent>;
-	public function getter_parents() {
+	public var parents(getter_parents,null):List<Parent>;
+	public function getter_parents() 
+	{
 		return Parent.manager.search({familyID: this.familyID});
 	}
-	public var classes:List<SchoolClass>;
-	public function getter_classes() {
+	public var classes(getter_classes,null):List<SchoolClass>;
+	public function getter_classes() 
+	{
 		var list = new List();
 		if(id != null) {
 			var jList = SchoolClass_join_Student.manager.search({studentID: id});

@@ -5,7 +5,7 @@ class SchoolClass extends BaseDbModel {
 	public var id:Int;
 	public var teacherID:Int;
 	public var className:String;
-	public var students:List<Student>;
+	public var students(getter_students,null):List<Student>;
 	public function getter_students() {
 		var list = new List();
 		if(id != null) 
@@ -18,7 +18,7 @@ class SchoolClass extends BaseDbModel {
 		}
 		return list;
 	}
-	public var interviews:List<Interview>;
+	public var interviews(getter_interviews,null):List<Interview>;
 	public function getter_interviews() {
 		return Interview.manager.search({classID: id});
 	}

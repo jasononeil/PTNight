@@ -12,6 +12,7 @@ class Timeslot extends BaseDbModel
 	public var length:Int;
 	public var categoryID:Int;
 	public var category:Int;
+	public var categories(getter_categories,null):List<StudentCategory>;
 	public function getter_categories() 
 	{
 		var list = new List();
@@ -25,7 +26,7 @@ class Timeslot extends BaseDbModel
 		}
 		return list;
 	}
-	public var endTime:Date;
+	public var endTime(getter_endTime,null):Date;
 	public function getter_endTime() 
 	{
 		return DateTools.delta(this.startTime, this.length * 1000);

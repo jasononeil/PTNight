@@ -7,11 +7,12 @@ class Teacher extends BaseDbModel {
 	public var lastName:String;
 	public var username:String;
 	public var email:String;
-	public var classes:List<SchoolClass>;
-	public function getter_classes() {
+	public var classes(getter_classes,null):List<SchoolClass>;
+	public function getter_classes() 
+	{
 		return SchoolClass.manager.search({teacherID: id});
 	}
-	public var interviews:List<Interview>;
+	public var interviews(getter_interviews,null):List<Interview>;
 	public function getter_interviews() 
 	{
 		var list = new List();
