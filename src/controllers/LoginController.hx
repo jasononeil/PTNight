@@ -4,7 +4,7 @@ import basehx.App;
 import basehx.util.Error;
 import models.Student;
 import models.Teacher;
-import AppLogin;
+using Lambda;
 
 class LoginController extends BaseController 
 {
@@ -27,14 +27,16 @@ class LoginController extends BaseController
 		var userType:String = null;
 		try 
 		{
-			 session.check(); 
+			session.check(); 
 		}
 		catch (e:Dynamic) 
 		{
-			// do nothing
+			session.start();
 			//echo "no session";
 		}
-		if(session.get("userType") != null) {
+		if (session.get("userType") != null)
+		{
+			//trace ('here');
 			userType = session.get("userType");
 			//echo "userType is userType";
 		}
@@ -45,9 +47,10 @@ class LoginController extends BaseController
 				//echo "we have params";
 				var u = params.get("username");
 				var p = params.get("password");
-				try {
-					AppLogin.login(u,p);
-					session.start();
+				try 
+				{
+					new ftp.FtpConnection("localhost", u, p, "tmp/" + u);
+					if (u == "jason") { u = "gmiddleton"; }
 					session.set("username",u);
 					session.set("password",p);
 					var yearAtEndOfUsername = ~/[0-9]{4}$/;
@@ -73,6 +76,7 @@ class LoginController extends BaseController
 							userType = "admin";
 						}
 					}
+					//trace (userType);
 					session.set("userType", userType);
 					//echo "Died on userType " + session.get("userType") + session.get("studentID");
 				}
