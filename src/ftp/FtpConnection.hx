@@ -32,34 +32,37 @@ class FtpConnection
 		timeout = timeout_in;
 		tmpDir = tmpDir_in;
 		registerErrorTypes();
-		conn = untyped __call__("ftp_connect", server, port, timeout);
-		if (untyped __physeq__(conn, false))
+		try
+		{
+			conn = untyped __call__("ftp_connect", server, port, timeout);
+			if (untyped __physeq__(conn, false)) throw "didn't work";
+		}
+		catch (e:Dynamic)
 		{
 			// Server is down!  Throw an error
 			throw new Error("FTP.SERVER_NOT_FOUND");
 		}
-		else
+		
+		
+		// Server is up! Try login
+		try
 		{
-			// Server is up! Try login
 			var loginOkay:Bool = untyped __call__("ftp_login", conn, username, password);
-			if (loginOkay == false)
-			{
-				throw new Error("FTP.BAD_LOGIN");
-			}
+			if (loginOkay == false) throw "didn't work";
 		}
+		catch (e:Dynamic)
+		{
+			throw new Error("FTP.BAD_LOGIN");
+		}
+		
 		return true;
 	}
 	
 	public function registerErrorTypes()
 	{
-		Error.registerErrorType("FTP.SERVER_NOT_FOUND", "The FTP server seems to be down.");
-		Error.registerErrorType("FTP.BAD_LOGIN", "The FTP server rejected your login.");
-		Error.registerErrorType("FTP.MOVE_FAILED", "We were unable to move (or rename) the file.  It's probably read only.");
-		Error.registerErrorType("FTP.COPY_READ_FAILED", "We were unable to copy the file.  The file you're coping couldn't be read, do you have permissions?");
-		Error.registerErrorType("FTP.COPY_WRITE_FAILED", "We were unable to copy the file.  The place you're coping to might be read only.");
-		Error.registerErrorType("FTP.DELETE_FILE_FAILED", "We were unable to delete the file.  It's probably read only.");
-		Error.registerErrorType("FTP.DELETE_DIR_FAILED", "We were unable to delete the folder.  There might be a file inside which just won't delete.");
-		Error.registerErrorType("FTP.MAKE_DIR_FAILED", "We were unable to create a new folder.  The folder you're in might be read only.");
+		// I'm going to change to doing this on an app basis now.
+		// Just emit errors in a CLASS.ERRROR_NAME format.
+		// eg. new Error("FtpConnection.BAD_LOGIN");
 	}
 	
 	public function isDir(path_in:String)
