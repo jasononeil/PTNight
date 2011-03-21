@@ -6,8 +6,8 @@ class SchoolClass_join_Student extends BaseDbModel
 	public var id:Int;
 	public var classID:Int;
 	public var studentID:Int;
-	public var schoolClass:SchoolClass;
-	public var student:Student;
+	public var schoolClass(dynamic,dynamic):SchoolClass;
+	public var student(dynamic,dynamic):Student;
 	
 	public static var manager = new basehx.DbManager<SchoolClass_join_Student>(SchoolClass_join_Student);
 	

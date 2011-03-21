@@ -9,11 +9,11 @@ class Interview extends BaseDbModel
 	public var classID:Int;
 	public var timeslotID:Int;
 	public var teacherID:Int;
-	public var parent:Parent;
-	public var student:Student;
-	public var schoolClass:SchoolClass;
-	public var teacher:Teacher;
-	public var timeslot:Timeslot;
+	public var parent(dynamic,dynamic):Parent;
+	public var student(dynamic,dynamic):Student;
+	public var schoolClass(dynamic,dynamic):SchoolClass;
+	public var teacher(dynamic,dynamic):Teacher;
+	public var timeslot(dynamic,dynamic):Timeslot;
 	
 	public static var manager = new basehx.DbManager<Interview>(Interview);
 	

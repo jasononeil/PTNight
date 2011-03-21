@@ -10,7 +10,7 @@ class Student extends BaseDbModel
 	public var lastName:String;
 	public var familyID:Int;
 	public var categoryID:Int;
-	public var category:StudentCategory;
+	public var category(dynamic,dynamic):StudentCategory;
 	public var family:Family;
 	public var parents(getter_parents,null):List<Parent>;
 	public function getter_parents() 

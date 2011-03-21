@@ -23,7 +23,7 @@ class SchoolClass extends BaseDbModel {
 		return Interview.manager.search({classID: id});
 	}
 	
-	public var teacher:Teacher;
+	public var teacher(dynamic,dynamic):Teacher;
 	
 	public static var manager = new basehx.DbManager<SchoolClass>(SchoolClass);
 	

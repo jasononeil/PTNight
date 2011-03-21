@@ -8,8 +8,8 @@ class Timeslot_join_StudentCategory extends BaseDbModel
 	public var id:Int;
 	public var timeslotID:Int;
 	public var studentCategoryID:Int;
-	public var studentCategory:StudentCategory;
-	public var timeslot:Timeslot;
+	public var studentCategory(dynamic,dynamic):StudentCategory;
+	public var timeslot(dynamic,dynamic):Timeslot;
 	
 	public static var manager = new basehx.DbManager<Timeslot_join_StudentCategory>(Timeslot_join_StudentCategory);
 	
