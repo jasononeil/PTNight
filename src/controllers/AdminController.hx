@@ -25,7 +25,7 @@ class AdminController extends basehx.BaseController {
 	}
 	
 	override public function checkPermissions() {
-		try 
+		/*try 
 		{
 			session.check();
 			if(session.get("userType") != "admin") 
@@ -36,7 +36,7 @@ class AdminController extends basehx.BaseController {
 		catch(e:Error) 
 		{
 			basehx.App.redirect("/login/");
-		}
+		}*/
 	}
 	
 	public function home() 
