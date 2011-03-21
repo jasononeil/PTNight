@@ -3,7 +3,6 @@ import basehx.BaseController;
 import basehx.tpl.HxTpl;
 import basehx.util.Error;
 import basehx.App;
-import AppLogin;
 import models.Teacher;
 import models.Interview;
 
@@ -21,7 +20,7 @@ class TeacherController extends BaseController
 	
 	override public function checkPermissions() 
 	{
-		try 
+		/*try 
 		{
 			session.check();
 			var userType = session.get("userType");
@@ -33,7 +32,7 @@ class TeacherController extends BaseController
 		catch(e:Error) 
 		{
 			App.redirect("/login/");
-		}
+		}*/
 	}
 	public function welcome() {
 		loadTemplate();
