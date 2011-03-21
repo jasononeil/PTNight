@@ -1,4 +1,9 @@
 /* Override main template */
+#container_submenu_body_pictures.submenu_body_pictures_ptnight
+{
+	margin-top: 20px;
+}
+
 #container_submenu_body_pictures #container_title_breadcrumbs_content.container
 {
         padding-left: 242px;
