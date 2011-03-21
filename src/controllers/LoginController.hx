@@ -27,7 +27,7 @@ class LoginController extends BaseController
 		var userType:String = null;
 		try 
 		{
-			 AppLogin.session.check(); 
+			 session.check(); 
 		}
 		catch (e:Dynamic) 
 		{
@@ -35,7 +35,7 @@ class LoginController extends BaseController
 			//echo "no session";
 		}
 		if(session.get("userType") != null) {
-			userType = AppLogin.session.get("userType");
+			userType = session.get("userType");
 			//echo "userType is userType";
 		}
 		else 
@@ -47,6 +47,7 @@ class LoginController extends BaseController
 				var p = params.get("password");
 				try {
 					AppLogin.login(u,p);
+					session.start();
 					session.set("username",u);
 					session.set("password",p);
 					var yearAtEndOfUsername = ~/[0-9]{4}$/;
@@ -56,7 +57,7 @@ class LoginController extends BaseController
 						var student = Student.manager.search({username: u}).first();
 						if(student != null) 
 						{
-							 AppLogin.session.set("studentID", student.id);
+							 session.set("studentID", student.id);
 						}
 					}
 					else 
@@ -65,14 +66,14 @@ class LoginController extends BaseController
 						var teacher = Teacher.manager.search({username: u}).first();
 						if(teacher != null) 
 						{
-							 AppLogin.session.set("teacherID", teacher.id);
+							 session.set("teacherID", teacher.id);
 						}
 						if(u == "jason" || u == "joneil" || u == "dmckinnon" || u == "gmiddleton") 
 						{
 							userType = "admin";
 						}
 					}
-					 AppLogin.session.set("userType", userType);
+					session.set("userType", userType);
 					//echo "Died on userType " + AppLogin.session.get("userType") + AppLogin.session.get("studentID");
 				}
 				catch(e:Error) 
@@ -90,7 +91,7 @@ class LoginController extends BaseController
 
 	public function logout() 
 	{
-		 AppLogin.session.end();
+		session.end();
 		App.redirect("/");
 	}
 	public static var aliases = [];

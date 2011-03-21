@@ -27,9 +27,9 @@ class AdminController extends basehx.BaseController {
 	override public function checkPermissions() {
 		try 
 		{
-			 AppLogin.session.check();
-			if(session.get("userType") == "admin") 
-			{
+			session.check();
+			if(session.get("userType") != "admin") 
+			{	
 				throw "You don't look very trustworthy!";
 			}
 		}
