@@ -51,6 +51,7 @@ class BaseController
 		// Make sure we don't have empty arguments
 		// MAKE SURE THIS HAPPENS --^
 		
+		basehx.DbControl.connect();
 		
 		params = php.Web.getParams();
 		
