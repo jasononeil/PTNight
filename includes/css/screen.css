@@ -1,0 +1,144 @@
+/* Override main template */
+#container_submenu_body_pictures #container_title_breadcrumbs_content.container
+{
+        padding-left: 242px;
+        *padding-left: 20px; /* IE7 */
+        padding-right: 0;
+        width: 738px;
+        *width: 718px; /* IE7 */
+}
+#container_submenu_body_pictures #container_pictures_news.container
+{
+	width: 202px;
+	float: left;
+}
+
+input.button
+{
+	padding: 0.5em;
+}
+
+fieldset, p, ul
+{
+	width: 480px;
+}
+
+fieldset > label
+{
+	display: block;
+	width: 48%;
+	margin: 1%; padding: 0;
+	float: left;
+	height: 2em;
+}
+fieldset > input, fieldset > select
+{
+	display: block;
+	width: 48%;
+	padding: 0.5em;
+	margin: 0; 
+	float: right;
+}
+fieldset > input.left
+{
+	float: left;
+}
+fieldset br
+{
+	width: 100%;
+	clear: both;
+	
+}
+
+input.text
+{
+	padding: 0.5em;
+}
+
+table
+{
+	width: 480px;
+}	
+
+table.scrollOverflow
+{
+	width: 100%;
+	overflow: auto;
+	display: block;
+	background-color: white;
+}
+
+table td
+{
+	padding: 0 2px;
+}
+
+table.checkbox td
+{
+	padding: 0 0;
+}
+
+/* Rotate 90deg Counterclockwise.  Used on table headings */
+.rotate90CCW
+{
+	-webkit-transform: rotate(-90deg); 
+	-moz-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	display: block;
+}
+
+/* Turn word wrap off */
+.nobreak
+{
+	white-space: no-wrap;
+}
+
+.zebra tr:nth-child(odd)  /* same */
+{
+	background-color: rgb(255, 250, 243);
+}
+.zebra tr:nth-child(even)  /* same */
+{
+	background-color: rgb(245, 226, 196);
+}
+.checkbox tr:hover
+{
+	background-color: rgb(245, 216, 170);
+}
+
+.verticalZebra td:nth-child(odd), .verticalZebra th:nth-child(odd)
+{
+	background-color: rgb(255, 250, 243);
+}
+.verticalZebra td:nth-child(even), .verticalZebra th:nth-child(even) 
+{
+	background-color: rgb(245, 226, 196);
+}
+.verticalZebra tr:hover td:nth-child(odd), .verticalZebra tr:hover th
+{
+	background-color: rgb(245, 216, 170);
+}
+.verticalZebra tr:hover td:nth-child(even), .verticalZebra tr:hover th
+{
+	background-color: rgb(225, 196, 150);
+}
+
+#container_content .checkbox label
+{
+	display: block;
+	width: 100%;
+	margin: 0;padding:0;
+}
+
+.small
+{
+	font-size: 0.70em;
+}
+
+hr.page-break
+{
+	color: rgb(80,80,80);
+	background-color: rgb(80,80,80);
+	height: 3px;
+	width: 20px;
+}

@@ -1,0 +1,53 @@
+#header, .accessibility, #menubar, #container_pictures_news, #footer
+{
+	display: none;
+}
+
+#container_content, 
+#container_submenu_body_pictures #container_title_breadcrumbs_content.container,
+#container_submenu_body_pictures
+{
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	margin: 0;
+	float: none;
+}
+
+.noprint
+{
+	display: none;
+}
+
+table
+{
+	width: 100%;
+	border-width: 0 0 1px 1px;
+	border-style: solid;
+	border-color: rgb(80,80,80);
+	border-collapse: collapse;
+
+}
+
+table td, table th
+{
+	border-color: rgb(80,80,80);
+	border-width: 1px 1px 0 0;
+	border-style: solid;
+	margin: 0;
+	padding: 4px;
+}
+
+
+hr.page-break
+{
+	display:block; 
+	page-break-before:always; 
+	height: 1px;
+	width: 1px;
+	color: white;
+	background-color: white;
+}
+
+
+

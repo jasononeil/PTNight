@@ -1,0 +1,18 @@
+<h2>New Appointment</h2>
+<p>Booking a custom appointment with {parent.firstName} {parent.lastName}</p>
+<form method="post" action="{Controller.URL}/settimescustomappointment/">
+<fieldset>
+	<input type="hidden" name="parentID" value="{parent.id}" />
+	<label for="studentID">Child:</label>
+	<select id="studentID" name="studentID">
+		<hxLoop name="student"><option value="{student.id}">{student.firstName} {student.lastName}</option></hxLoop>
+	</select>
+	
+	<br /><label for="teacherID">Teacher:</label>
+	<select id="teacherID" name="teacherID">
+		<hxLoop name="teacher"><option value="{teacher.id}">{teacher.firstName} {teacher.lastName}</option></hxLoop>
+	</select>
+	
+	<br /><input type="submit" value="Select Times" class="button next" />
+</fieldset>
+</form>

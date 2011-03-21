@@ -1,0 +1,1 @@
+<hxInclude name="content" />
