@@ -37,7 +37,7 @@ class AppLogin
 	
 	public static function initiateFTP(username, password) 
 	{
-		var server = "172.16.55.1";
+		var server = "localhost";
 		var home = "/home/students/";
 		var tmpFolder = "tmp/" + username;
 		try 
