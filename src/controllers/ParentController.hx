@@ -2,7 +2,7 @@ package controllers;
 import basehx.BaseController;
 import basehx.util.Error;
 import basehx.App;
-import basehx.tpl.HxTpl;
+import basehx.tpl.Tpl;
 import models.Student;
 import models.Parent;
 import models.Interview;
@@ -175,7 +175,7 @@ class ParentController extends BaseController {
 					//timeslots = Timeslot.manager.search({"categoryID": student.category.id});
 					timeslotsForCategory.set(category, timeslots);
 				}
-				var cat:HxTpl;
+				var cat:Tpl;
 				if(categoryBlocks.exists(category) == false) 
 				{
 					cat = view.newLoop("category");
@@ -284,7 +284,7 @@ class ParentController extends BaseController {
 		for (interview in interviews)
 		{
 			var category = interview.student.category.name;
-			var cat:HxTpl;
+			var cat:Tpl;
 			if(categoryBlocks.exists(category) == false) 
 			{
 				cat = view.newLoop("category");

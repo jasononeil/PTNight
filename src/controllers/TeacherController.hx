@@ -1,6 +1,6 @@
 package controllers;
 import basehx.BaseController;
-import basehx.tpl.HxTpl;
+import basehx.tpl.Tpl;
 import basehx.util.Error;
 import basehx.App;
 import models.Teacher;
@@ -55,7 +55,7 @@ class TeacherController extends BaseController
 		for (interview in interviews)
 		{
 			var category = interview.student.category.name;
-			var cat:HxTpl;
+			var cat:Tpl;
 			if(categoryBlocks.exists(category) == false) 
 			{
 				cat = view.newLoop("category");

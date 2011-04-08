@@ -385,7 +385,7 @@ trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/he
 		}
 		
 		// clear the whitespace (should make this optional.  especially considering it's probably dodgy)
-		this.clearWhitespace(); 
+		//this.clearWhitespace(); 
 	}
 	
 	/*
@@ -830,9 +830,14 @@ trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/he
 	*/
 	public function getAtt(attName:String):String
 	{
-		var value:String;
-		value = "";
-		return this.xml.get(attName);
+		var value = "";
+		try {
+			value = this.xml.get(attName);
+		}
+		catch (e:Dynamic) {
+			// do nothing;
+		}
+		return value;
 	}
 	
 	/*
@@ -878,14 +883,7 @@ trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/he
 	
 	public function getParent():XmlNode
 	{
-		var parent:XmlNode;
-		parent = null;
-		if (this.xml.parent != null)
-		{
-			parent = new XmlNode(this.xml.parent);
-		}
-		
-		return parent;
+		return (this.xml.parent != null) ? new XmlNode(this.xml.parent) : null;
 	}
 	
 	public function getDocument():XmlNode
@@ -977,6 +975,11 @@ trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/he
 	{
 		//return new XmlNode(this.xml.lastChild());
 		return this.children.getAt(this.numChildren);
+	}
+	
+	public function replaceWithChildren()
+	{
+		this.outerXML = this.innerXML;
 	}
 	
 	/**
@@ -1206,7 +1209,21 @@ trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/he
 	
 	public function setOuterXML(str:String):XmlNode
 	{
-		this.outerXML = str;
+		var ret = null;
+		if (this.parent == null)
+		{
+			this.x = Xml.parse(str);
+			ret = new XmlList(this);
+		}
+		else
+		{
+			var parent = this.parent;
+			var index = this.index;
+			var newXml = new XmlNode(str);
+			ret = newXml.children;
+			newXml.addThisTo(parent, index);
+			parent.removeChild(this);
+		}
 		return this;
 	}
 	
@@ -1412,41 +1429,7 @@ trace (xml);       	    	// "&lt;body&gt;&lt;header size='1'&gt;New Title&lt;/he
 	//
 	function setter_outerXml(str:String):String
 	{
-		// Parse and create a new XmlNode object (whether it's a single element or many, it will be wrapped in a document node)
-		// newElement.addThisTo(this.parent, this.index);
-		// parent.removeChild(this);
-		
-		if (this.parent == null)
-		{
-			// This is creating a new document, probably from new XmlNode();
-			// What this means
-			//   - We just parse the XML, and the document node we produce is all good
-			
-			this.x = Xml.parse(str);
-		}
-		else
-		{
-			// This is changing the outerXML of an element in a document
-			// What that means:
-			//   - We need to filter out any document elements
-			//   - We need to append the new content to the parent, in the old ones place
-			
-			var newXml:XmlNode;
-			var parent:XmlNode;
-			var index:Int;
-			
-			parent = this.parent;
-			index = this.index;
-			
-			// Parse the new data into an object
-			newXml = new XmlNode(str);
-			
-			// Add the new data in place of this one
-			newXml.addThisTo(parent, index);
-			
-			// Delete this one
-			parent.removeChild(this);
-		}
+		this.setOuterXML(str);
 		return str;
 	}
 	

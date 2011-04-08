@@ -49,7 +49,7 @@ class LoginController extends BaseController
 				var p = params.get("password");
 				try 
 				{
-					new ftp.FtpConnection("localhost", u, p, "tmp/" + u);
+					new ftp.FtpConnection("192.168.55.1", u, p, "tmp/" + u);
 					if (u == "jason") { u = "gmiddleton"; }
 					session.set("username",u);
 					session.set("password",p);
@@ -82,6 +82,7 @@ class LoginController extends BaseController
 				}
 				catch(e:Error) 
 				{
+					throw e;
 					view.setSwitch("message", true).assign("explanation", e.explanation).assign("suggestion", e.suggestion);
 				}
 			}

@@ -1,5 +1,6 @@
 package basehx;
 import basehx.session.SessionHandler;
+import basehx.tpl.Tpl;
 import basehx.tpl.HxTpl;
 import basehx.App;
 using StringTools;
@@ -16,7 +17,7 @@ class BaseController
 	private var output:String;
 	
 	/** View is the bit of the template specific to this action */
-	private var view:HxTpl;
+	private var view:Tpl;
 	/** Template is the overall HTML of the page.  Either a site wide 
 	or controller wide template.  */
 	private var template:HxTpl;
@@ -170,8 +171,10 @@ class BaseController
 			view = new HxTpl();
 			template.assignObject("Controller", { URL: AppConfig.baseUrl + "/" + controller});
 			template.assignObject("App", { URL: AppConfig.baseUrl });
-			view.loadTemplateFromFile(viewPath);
-			template = view; // for all purposes, they're the same now.
+			
+			// had to run these as untyped, I know they are HxTpl, but the definition is Tpl.  Clean up later?
+			untyped view.loadTemplateFromFile(viewPath);
+			untyped template = view; // for all purposes, they're the same now.
 		}
 	}
 	
@@ -180,7 +183,7 @@ class BaseController
 		clearOutput();
 		if (view != null)
 		{
-			print(template.getOutput());
+			print(template);
 		}
 		else
 		{

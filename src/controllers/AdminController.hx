@@ -1,7 +1,7 @@
 package controllers;
 import basehx.BaseController;
 import basehx.util.Error;
-import basehx.tpl.HxTpl;
+import basehx.tpl.Tpl;
 import models.Teacher;
 import models.Student;
 import models.Parent;
@@ -380,7 +380,7 @@ class AdminController extends basehx.BaseController {
 		for (interview in interviews)
 		{
 			var category = interview.student.category.name;
-			var cat:HxTpl;
+			var cat:Tpl;
 			if(categoryBlocks.exists(category) == false) 
 			{
 				cat = view.newLoop("category");
