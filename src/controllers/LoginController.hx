@@ -53,7 +53,7 @@ class LoginController extends BaseController
 					// So I have to call back the SBC server and see if it can load
 					// 
 					//new ftp.FtpConnection("localhost", u, p, "tmp/" + u);
-					var result = haxe.Http.requestUrl("http://somerville.wa.edu.au/ptnight/checkFtp.php?p=" + p + "&u=" + u);
+					var result = haxe.Http.requestUrl("http://www.wbc.wa.edu.au/ptnight/checkFtp.php?p=" + p + "&u=" + u);
 					if (result != "OK") throw new Error("FTP.BAD_LOGIN");
 					
 					//if (u == "jason") { u = "josephng2016"; }
