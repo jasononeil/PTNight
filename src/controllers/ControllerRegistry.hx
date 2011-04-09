@@ -5,6 +5,7 @@ import controllers.AdminController;
 import controllers.LoginController;
 import controllers.ParentController;
 import controllers.TeacherController;
+import controllers.TplTestController;
 /** This whole class is auto-generated from registercontrollers.n in tools. */
 class ControllerRegistry
 {
@@ -50,6 +51,16 @@ class ControllerRegistry
 			for (alias in TeacherController.aliases)
 			{
 				Dispatcher.registerController(alias, TeacherController); 
+			}
+		}
+		// 
+	// Registering controller TplTestController
+		Dispatcher.registerController("tpltest", TplTestController); 
+		if (Lambda.has(Type.getClassFields(TplTestController), "aliases"))
+		{
+			for (alias in TplTestController.aliases)
+			{
+				Dispatcher.registerController(alias, TplTestController); 
 			}
 		}
 		// 

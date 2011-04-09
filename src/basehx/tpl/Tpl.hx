@@ -11,6 +11,8 @@ class Tpl
 	private var loopCount:Hash<Int>;
 	private var includeURLs:Hash<String>;
 	
+	public var blockID:Int;
+	
 	//
 	// Switches, Loops and Includes all will occupy the same namespace
 	// And so they are all kept in this same hash object.
@@ -26,13 +28,15 @@ class Tpl
 	
 	public function new(?template_in:Tpl = null, ?parent_in:Tpl = null)
 	{
-		template = template_in;
+		template = (template_in != null) ? template_in : this;
 		parent = parent_in;
 		assignedVariables = new Hash();
 		blocks = new Hash();
 		switches = new Hash();
 		loopCount = new Hash();
 		includeURLs = new Hash();
+		
+		blockID = 0;
 	}
 	
 	/***********************************************************************
@@ -322,6 +326,7 @@ class Tpl
 		return getBlock(name, parent);
 	}
 	
+	static var blockAutoID:Int = 0;
 	public function getBlock(name:String, ?parent:Tpl):Tpl
 	{
 		// create a HxTpl object if one doesn't exist, or get an existing one
@@ -337,10 +342,11 @@ class Tpl
 		else
 		{
 			// create a new block
-			newBlock = new Tpl(this, parent);
+			newBlock = new Tpl(this.template, parent);
 			
 			// Save it for future reference
 			blocks.set(name, newBlock);
+			newBlock.blockID = blockAutoID++;
 		}
 		
 		// return it

@@ -228,9 +228,9 @@ class HxTpl extends basehx.tpl.Tpl
 		var varValue:String;
 		
 		varName = child.getAtt("name");
-		if((varName != null) && currentTplBlock.assignedVariables.exists(varName))
+		varValue = currentTplBlock.getAssignedVariable(varName);
+		if(varValue != "")
 		{
-			varValue = currentTplBlock.assignedVariables.get(varName);
 			child.outerXML = varValue;
 		}
 		else
@@ -282,39 +282,43 @@ class HxTpl extends basehx.tpl.Tpl
 			if (count > 0)
 			{
 				var allLoopItems = new StringBuf();
+				var loopName = elm.getAtt("name");
 				for (i in 1...count+1)
 				{
-					//var itemPrefix = prefix + name + ":" + i + "::";
-					var itemContents = contents;
-					/*var matchBlock = ~/<(hxVar|hxSwitch|hxLoop|hxInclude) name=\"([A-Za-z0-9.:]+)\">/g;
-					var matchVar = ~/{([.A-Za-z0-9]*)}/g;
-					var matchVarWithPrefix = ~/{(?:[a-zA-Z0-9.:]*::)?([.A-Za-z0-9]*)}/g;
-					var matchBlockWithPrefix = ~/<(hxVar|hxSwitch|hxLoop|hxInclude) name=\"(?:[a-zA-Z0-9.:]*::)+([A-Za-z0-9]*)\">/g;
-					
-					itemContents = matchBlockWithPrefix.replace(itemContents, '<$1 name="$2">');
-					itemContents = matchBlock.replace(itemContents, '<$1 name="' + itemPrefix + '$2">');
-					itemContents = matchVarWithPrefix.replace(itemContents, "{" + itemPrefix + "$1}");
-					itemContents = matchVar.replace(itemContents, '{' + itemPrefix + '$1}');*/
-					allLoopItems.add(itemContents);
-					
+					// create child xml
 					var child = new XmlNode(contents);
 					
-					//
-					// create child xml (as above)
 					// attach, place it just before the current elm
+					//elm.parent.addChildBefore(child, elm);
+					
 					// go a level deeper (like in the include)
-					// process it
-					// come a level up
+					var blockName = loopName + ":" + i;
+					currentTplBlock = currentTplBlock.getBlock(blockName);
+					
 					//
+					// we have a child
+					// this is in fact a document node, because we made it from a text fragment
+					// if we add this using addChildBefore, the children (the actual elements we care about, and whitespace) 
+					// are moved from this document tree, into the other document tree.
+					// so they are now no longer in child, but in elm.document.
+					// so when we try to read child, it's empty.
+					// so when we try to process child, it's empty.
+					//
+					// so rather than add "child" and process "child", let's add and process the actual child nodes that we care about
+					for (childNode in child)
+					{
+						elm.parent.addChildBefore(childNode, elm);
+						process(childNode);
+					
+					}
+					
+					// come a level up
+					currentTplBlock = currentTplBlock.parent;
+					
 					// do this, and then cancel out the processing / setOuterXMLing below
 				}
-				var listOfLoopItems;
-				var i = 0;
-				listOfLoopItems = elm.setOuterXML(allLoopItems.toString());
-				for (loopItem in listOfLoopItems)
-				{
-					process(loopItem);
-				}
+				elm.parent.removeChild(elm);
+				
 			}
 		}
 		else

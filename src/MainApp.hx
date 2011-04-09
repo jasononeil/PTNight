@@ -4,6 +4,7 @@ class MainApp
 	static public function main() 
 	{
 		App.initiate();
+		
 	}
 	
 }

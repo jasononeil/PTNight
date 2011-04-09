@@ -25,12 +25,10 @@ class App
 	}
 	
 	public static function printStats() {
-		php.Lib.print("<pre>");
 		var memory = untyped __call__("memory_get_peak_usage");
 		memory = Std.int(memory / 1000);
-		trace("Memory usage: " + memory + "kb");
+		haxe.Firebug.trace("Memory usage: " + memory + "kb");
 		var executionTime = php.Sys.time() - startTime;
-		trace("Execution Time: " + executionTime);
-		php.Lib.print("</pre>");
+		haxe.Firebug.trace("Execution Time: " + executionTime);
 	}
 }
