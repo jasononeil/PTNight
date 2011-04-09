@@ -206,7 +206,6 @@ class HxTpl extends basehx.tpl.Tpl
 			var varName = templateVariable.matched(1);
 			var varValue = currentTplBlock.getAssignedVariable(varName);
 			string = templateVariable.replace(string,varValue);
-			trace ("str_in " + str_in + " str_out " + string);
 		}
 		return string;
 	}
@@ -297,6 +296,17 @@ class HxTpl extends basehx.tpl.Tpl
 					itemContents = matchVarWithPrefix.replace(itemContents, "{" + itemPrefix + "$1}");
 					itemContents = matchVar.replace(itemContents, '{' + itemPrefix + '$1}');*/
 					allLoopItems.add(itemContents);
+					
+					var child = new XmlNode(contents);
+					
+					//
+					// create child xml (as above)
+					// attach, place it just before the current elm
+					// go a level deeper (like in the include)
+					// process it
+					// come a level up
+					//
+					// do this, and then cancel out the processing / setOuterXMLing below
 				}
 				var listOfLoopItems;
 				var i = 0;
@@ -322,7 +332,6 @@ class HxTpl extends basehx.tpl.Tpl
 		{
 			url = elm.getAtt("url");
 		}
-		trace (name + url);
 		if (url != "")
 		{
 			var includedFile:String;

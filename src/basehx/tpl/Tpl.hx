@@ -316,7 +316,6 @@ class Tpl
 	{
 		// Set the URL in our hash of include URLs
 		includeURLs.set(name, url);
-		trace (name + " " + url + " count is " + includeURLs.count());
 		
 		// create a HxTpl object if one doesn't exist, or get an existing one
 		// return it
@@ -332,13 +331,11 @@ class Tpl
 		
 		if (blocks.exists(name))
 		{
-			trace ("loading an existing block " + name);
 			// get the existing block
 			newBlock = blocks.get(name);
 		}
 		else
 		{
-			trace ("creating a new block " + name);
 			// create a new block
 			newBlock = new Tpl(this, parent);
 			
@@ -357,15 +354,13 @@ class Tpl
 		var value = "";
 		if (assignedVariables.exists(name))
 		{
-			trace ("Value in first");
 			value = assignedVariables.get(name);
 		}
 		else if (parent != null)
 		{
 			value = parent.getAssignedVariable(name);
-			trace ("Value in a parent");
 		}
-		else trace ('here');
+		else { /* nothing? */}
 		return value;
 	}
 	
@@ -400,11 +395,9 @@ class Tpl
 	public function getIncludeURL(name:String):String
 	{
 		var url = "";
-		trace ("searching for " + name + " from this many entries " + includeURLs.count());
 		if (includeURLs.exists(name))
 		{
 			url = includeURLs.get(name);
-			trace ("in here?");
 		}
 		else if (parent != null)
 		{
