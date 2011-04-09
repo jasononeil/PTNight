@@ -49,8 +49,15 @@ class LoginController extends BaseController
 				var p = params.get("password");
 				try 
 				{
-					new ftp.FtpConnection("192.168.55.1", u, p, "tmp/" + u);
-					if (u == "jason") { u = "gmiddleton"; }
+					// Super frustratingly - I have to run this on the vose server
+					// So I have to call back the SBC server and see if it can load
+					// 
+					//new ftp.FtpConnection("localhost", u, p, "tmp/" + u);
+					var result = haxe.Http.requestUrl("http://somerville.wa.edu.au/ptnight/checkFtp.php?p=" + p + "&u=" + u);
+					if (result != "OK") throw new Error("FTP.BAD_LOGIN");
+					
+					//if (u == "jason") { u = "josephng2016"; }
+					
 					session.set("username",u);
 					session.set("password",p);
 					var yearAtEndOfUsername = ~/[0-9]{4}$/;
