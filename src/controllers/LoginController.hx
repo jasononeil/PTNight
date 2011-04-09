@@ -78,7 +78,7 @@ class LoginController extends BaseController
 						{
 							 session.set("teacherID", teacher.id);
 						}
-						if(u == "jason" || u == "joneil" || u == "dmckinnon" || u == "gmiddleton") 
+						if(u == "jason" || u == "joneil" || u == "ncornford" || u == "gthiele") 
 						{
 							userType = "admin";
 						}
@@ -89,7 +89,6 @@ class LoginController extends BaseController
 				}
 				catch(e:Error) 
 				{
-					throw e;
 					view.setSwitch("message", true).assign("explanation", e.explanation).assign("suggestion", e.suggestion);
 				}
 			}

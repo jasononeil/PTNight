@@ -1,108 +1,123 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
-
-
-<!-- May the way I do this work be glory to God -->
-
-<link href="http://www.somerville.wa.edu.au/modules/Album/css/stylesheet.css" type="text/css" rel="stylesheet" />
-
-	<title>Parent Teacher Night - Somerville Baptist College</title>
-		
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name = "viewport" content = "width = device-width, height = device-height, user-scalable = no" />
+	<title>Winthrop Baptist College - Parent Teacher Night</title>
 	
 	
-<base href="http://www.somerville.wa.edu.au/" />
-<meta content="CMS Made Simple" name="Generator" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
- 
-<!-- Add code here that should appear in the metadata section of all new pages -->
-		
-<link href="http://www.somerville.wa.edu.au/stylesheet.php?templateid=18&amp;mediatype=screen" media="screen" type="text/css" rel="stylesheet" />
-<link href="{App.URL}/css/screen.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" href="{App.URL}/css/print.css" type="text/css" media="print" />
+<base href="http://www.wbc.wa.edu.au/" />
+<meta name="Generator" content="CMS Made Simple - Copyright (C) 2004-6 Ted Kulp. All rights reserved." />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   	
+	<link rel="stylesheet" type="text/css" media="projection,screen,tv" href="http://www.wbc.wa.edu.au/stylesheet.php?cssid=42&amp;mediatype=projection,screen,tv" />
 
-	<link type="image/png" href="/favicon.png" rel="shortcut icon" />
-	<link href="http://www.somerville.wa.edu.au/" title="Introducing Somerville" rel="start" />
-	<link href="http://www.somerville.wa.edu.au/parents/canteen-menu" title="Canteen Menu" rel="prev" />
-	<link href="http://www.somerville.wa.edu.au/college-life" title="College Life" rel="next" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://www.voseonline.com:8080/wbc-ptnight/css/screen.css" />
+<link rel="stylesheet" type="text/css" media="print" href="http://www.wbc.wa.edu.au/stylesheet.php?cssid=30&amp;mediatype=print" />
+<link rel="stylesheet" type="text/css" media="handheld" href="http://www.wbc.wa.edu.au/stylesheet.php?cssid=41&amp;mediatype=handheld" />
 
+	 	
+		<script type="text/javascript" src="js/scripts.php">; </script>
+
+	<link rel="start" title="Home Page of Winthrop Baptist College, with slideshow, sitemap, and featured links." href="http://www.wbc.wa.edu.au/" /> 	<link rel="prev" title="Home Page of Winthrop Baptist College, with slideshow, sitemap, and featured links." href="http://www.wbc.wa.edu.au/" /> 	<link rel="next" title="A video welcome from Peter Burton, Principal of Winthrop Baptist College" href="http://www.wbc.wa.edu.au/index.php?page=principal-s-message" />
 	
+	<link rel="icon" type="image/png" href="favicon.png" />
 
-	<script src="{App.URL}/js/ieRollovers.js" type="text/javascript">/**/</script>
-	<script src="{App.URL}/js/IE9.js" type="text/javascript">/**/</script>
-	
-<link href="http://www.somerville.wa.edu.au/News/rss/" title="RSS 2.0" type="application/rss+xml" rel="alternate" />
 <!-- TinyMCE Session vars empty -->
-</head><body>
-	<div class="accessibility"><a title="Skip to content" href="#content">Skip to Content</a>
-	<a title="Skip to navigation" href="#content">Skip to Navigation</a></div>
+</head>
+<body>
+<div id="container">
+	
+	<p class="accessibility">
 
+		<a href="/index.php?page=about-us#content" title="Skip to content" accesskey="s">Skip to content</a><br />
+		<a href="/index.php?page=about-us#menubar" title="Skip to navigation" accesskey="n">Skip to navigation</a>
+	</p>
+	
+	<div id="breadcrumbs" class="topLinks">
+		<span class="accessibility">You are here: </span>
+		<a href="http://www.wbc.wa.edu.au/">Home</a> <span class="del">&gt;</span> <span class="lastitem">Parent Teacher Night</span>
 
-	<div class="container" id="container_main">
-		<div class="container" id="container_centre">
-			<div class="container" id="header">
-				<h1 class="accessibility"><a title="Introducing Somerville" href="http://www.somerville.wa.edu.au/">Somerville Baptist College</a></h1>
-				<h2 class="accessibility">Faith, Wisdom, Courage</h2>
-				<div class="container" id="container_contact_search">
-						<div id="contact_details">
-							<p>Farrington Road, Murdoch, WA 
-							<br />Phone: (08) 9314 7754 
-							<br />Fax: (08) 9314 6513 
-							<br /><a title="Contact Details" href="http://www.somerville.wa.edu.au/information/contact-details">Email</a>
-							| <a title="Location" href="http://www.somerville.wa.edu.au/introducing-somerville/location">Map</a> 
-							| <a title="Contact Details" href="http://www.somerville.wa.edu.au/information/contact-details">Contact Details</a>
-							</p>
-						</div>
-				</div>
-				<div id="main_menu_container">	
-				<ul id="main_menu">
-					<li class="current"><a href="{App.URL}">Parent Teacher Night</a></li>
-					<li><a href="{App.URL}/login/logout/">Logout</a></li>
-				</ul>
-				</div>
 			</div>
-			<div id="menubar">
-			</div>
-			<div class="container submenu_body_pictures_ptnight" id="container_submenu_body_pictures">
-				
-				
-				
-				<div class="container" id="container_pictures_news">
-					<img class="landscape" alt="friends_1.jpg" src="uploads/images/Sidebar Images/landscape/friends_1.jpg" />
-					<img class="portrait" alt="sailing.jpg" src="uploads/images/Sidebar Images/portrait/sailing.jpg" />
-					
-					
-				</div>
-				<div class="container" id="container_title_breadcrumbs_content">
-					
-					<h1 class="container" id="page_title">
-						{pageTitle}
-					</h1>
-					<div class="container" id="container_content">
-						
-						<hxInclude name="content" />
 
+	<div id="utilityLinks" class="topLinks noprint">
+		<a href="about-us/faq/">FAQ</a>
+		<span class="del"> : </span>
+		<a href="Sitemap/">Sitemap</a>
+		<span class="del"> : </span>
 
-
-
-						
-					</div>
-					
-					
-				</div>
-			</div>
-			<div id="centre_bottom_line">
-				
-			</div>
-		</div>
+		<a href="information/contact-details">Contact</a>
 	</div>
-	<div class="container" id="footer">
-		<div class="container" id="footer_centre">
+	<p class="forprint">http://www.wbc.wa.edu.au/index.php?page=about-us</p>
+	<div class="top">
+		<h1 id="title" class="noprint"><a href="http://www.wbc.wa.edu.au/" title="Home Page of Winthrop Baptist College, with slideshow, sitemap, and featured links." >Winthrop Baptist College</a></h1>
+	</div>
+
+	<p class="forhandheld">
+
+		<a href="/index.php?page=about-us#menubar" title="Skip to navigation" accesskey="n">Skip to navigation</a>
+	</p>
+
+	<div class="centre">
+		<img alt="Winthrop Baptist College" class="noprint" id="pageImage" src="http://www.wbc.wa.edu.au/weblive/uploads/images/sidebar/sidebar-outdoor-class.jpg" />
+		<div id="pageImageSpacer"><!-- Leave here --></div>		
+
+		
+
+		
+		<div id="content">
 			
-			<div class="container" id="footer_copyright">
-				<p>Copyright 2008. Somerville Baptist College.  All rights reserved.</p>
-			</div>
-		</div>
-	</div>
+			
+		
+			
+			
+			<h1>{pageTitle}</h1>
 
+			<hxInclude name="content" />
+
+			<hr class="clear" />
+		</div>
+		
+		 
+
+<ul id="menubar" class="menu">
+	<li class="mBtn1"><dfn>1: </dfn><a href="http://www.wbc.wa.edu.au/" accesskey="1" title="Home Page of Winthrop Baptist College, with slideshow, sitemap, and featured links.">Home</a></li>
+	<li class="currentpage mBtn2"><dfn>Current page is 2: </dfn><span class="currentpage">Parent Teacher Night</span></li>
+	<li class="mBtn3"><dfn>3: </dfn><a href="{App.URL}/logout/" title="logout">Logout</a></li>
+</ul>
+
+		<form id="cntnt01moduleform_1" method="get" action="http://www.wbc.wa.edu.au/index.php?page=search-results">
+
+<div class="hidden">
+<input type="hidden" name="mact" value="Search,cntnt01,dosearch,0" />
+<input type="hidden" name="cntnt01returnid" value="77" />
+</div>
+
+<div class="searchform">
+
+
+<input type="text" id="cntnt01searchinput" name="cntnt01searchinput" size="20" maxlength="50" value="Search Website..." class="text" onfocus="if(this.value==this.defaultValue) this.value='';" onblur="if(this.value=='') this.value=this.defaultValue;"/><input name="submit" value="Search" type="submit" class="submit" />
+<input type="hidden" name="cntnt01origreturnid" value="16" />
+
+
+
+</div>
+</form>
+
+		
+	<p class="forhandheld greybg">
+
+		<a href="/index.php?page=about-us#content" title="Skip to content" accesskey="s">Back to content</a><br />
+		<a href="/index.php?page=about-us#menubar" title="Skip to navigation" accesskey="n">Back to navigation</a>
+	</p>
+	
+	</div>
+	
+	<div class="bottom">c. Copyright 2009-2011 - Winthrop Baptist College.  All rights reserved.<br />This website is the work of one of <a href="http://www.jasononeil.com.au/" onclick="this.target='_blank'">our graduates</a>.</div>
 
 	
-</body></html>
+
+</div>
+
+</body>
+</html>

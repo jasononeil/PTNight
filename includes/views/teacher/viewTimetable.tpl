@@ -1,6 +1,6 @@
 <h2>{teacher.firstName} {teacher.lastName}</h2>
 <hxLoop name="category">
-<h3>{category}: {date}</h3>
+<h3>{date}</h3>
 <table class="zebra">
 	<tr>
 		<th>Time</th>
@@ -11,8 +11,8 @@
 	<hxLoop name="interview">
 	<tr>
 		<td>{startTime}</td>
-		<td><b>{parent.firstName} {parent.lastName}</b></td>
-		<td>{class.className}</td>
+		<td><b><hxVar name="parent.firstName">Unavailable</hxVar> {parent.lastName}</b></td>
+		<td>{classCategory}: {class.className}</td>
 		<td>{student.firstName} {student.lastName}</td>
 	</tr>
 	</hxLoop>

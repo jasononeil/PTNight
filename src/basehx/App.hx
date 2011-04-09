@@ -9,6 +9,11 @@ class App
 	public static function initiate() {
 		startTime = php.Sys.time();
 		haxe.Log.trace = basehx.Log.trace;
+		if (AppConfig.errorRegistry != null)
+		{
+			AppConfig.errorRegistry();
+		}
+		
 		var request:String = php.Web.getParams().get("request");
 		basehx.Dispatcher.dispatch(request);
 	}

@@ -13,19 +13,11 @@ class SessionHandler
 		name = name_in;
 		timeout = timeout_in;
 		
-		registerErrorMessages();
-		
 		Session.setName(name);
 		isSessionOkay = false;
 		
 	}
 	
-	
-	function registerErrorMessages()
-	{
-		Error.registerErrorType("SESSION.TIMEOUT", "Session timed out.");
-		Error.registerErrorType("SESSION.NO_SESSION", "No existing session found.");
-	}
 	
 	public function check():Void
 	{

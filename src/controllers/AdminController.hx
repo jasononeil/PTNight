@@ -12,6 +12,7 @@ import models.Timeslot;
 import models.Interview;
 import models.SchoolClass_join_Student;
 import models.Timeslot_join_StudentCategory;
+using DateTools;
 
 class AdminController extends basehx.BaseController {
 	public function new(args)
@@ -25,7 +26,7 @@ class AdminController extends basehx.BaseController {
 	}
 	
 	override public function checkPermissions() {
-		/*try 
+		try 
 		{
 			session.check();
 			if(session.get("userType") != "admin") 
@@ -36,7 +37,7 @@ class AdminController extends basehx.BaseController {
 		catch(e:Error) 
 		{
 			basehx.App.redirect("/login/");
-		}*/
+		}
 	}
 	
 	public function home() 
@@ -113,8 +114,10 @@ class AdminController extends basehx.BaseController {
 		Family.manager.delete([]);
 		Teacher.manager.delete([]);
 		var lines = csv.split("\n");
+		var i = 0;
 		for (line in lines)
 		{
+			trace ("Processing line " + (i++) + " of CSV");
 			if(line != "") 
 			{
 				var parts = line.split(",");
@@ -315,6 +318,16 @@ class AdminController extends basehx.BaseController {
 		basehx.App.redirect(("/admin/customappointment/" + i.parentID) + "/");
 	}
 	
+	public function makeTeacherUnavailable(teacher_in, timeslot_in)
+	{
+		var i = new Interview();
+		i.parentID = null;
+		i.teacherID = Std.parseInt(teacher_in);
+		i.studentID = null;
+		i.timeslotID = Std.parseInt(timeslot_in);
+		i.insert();
+	}
+	
 	public function editCustomAppointment(id_in) 
 	{
 		loadTemplate();
@@ -368,7 +381,7 @@ class AdminController extends basehx.BaseController {
 		template.assign("pageTitle", "Your Timetable");
 		var teacherID = Std.parseInt(id);
 		var teacher = Teacher.manager.get(teacherID);
-		var categoryBlocks = new Hash();
+		var dateBlocks = new Hash();
 		view.assignObject("teacher", teacher);
 		Interview.manager.setOrderBy("timeslotID");
 		var interviews:Array<Interview> = Lambda.array(teacher.interviews);
@@ -379,24 +392,29 @@ class AdminController extends basehx.BaseController {
 		
 		for (interview in interviews)
 		{
-			var category = interview.student.category.name;
-			var cat:Tpl;
-			if(categoryBlocks.exists(category) == false) 
+			var category = (interview.studentID != null) ? interview.student.category.name : "Unavailable";
+			var date = interview.timeslot.startTime.format("%A %d %B");
+			var dateBlock:Tpl;
+			if(dateBlocks.exists(date) == false) 
 			{
-				cat = view.newLoop("category");
-				categoryBlocks.set(category, cat);
+				dateBlock = view.newLoop("category");
+				dateBlocks.set(date, dateBlock);
 			}
 			else 
 			{
-				cat = categoryBlocks.get(category);
+				dateBlock = dateBlocks.get(date);
 			}
-			cat.assign("category", category);
-			var date = DateTools.format(interview.timeslot.startTime, "%A %d %B");
-			cat.assign("date", date);
-			var loop = cat.newLoop("interview");
-			loop.assignObject("class", interview.schoolClass);
-			loop.assignObject("parent", interview.parent);
-			loop.assignObject("student", interview.student);
+			dateBlock.assign("category", category);
+			dateBlock.assign("date", date);
+			var loop = dateBlock.newLoop("interview");
+			var i_schoolClass = (interview.classID != null) ? interview.schoolClass : null;
+			var i_schoolClassCategory = (interview.classID != null) ? interview.schoolClass.category : null;
+			var i_parent = (interview.parentID != null) ? interview.parent : null;
+			var i_student = (interview.studentID != null) ? interview.student : null;
+			loop.assignObject("class", i_schoolClass);
+			loop.assign("classCategory", i_schoolClassCategory.name);
+			loop.assignObject("parent", i_parent);
+			loop.assignObject("student", i_student);
 			var startTime = DateTools.format(interview.timeslot.startTime, "%I:%M");
 			var endTime = DateTools.format(interview.timeslot.endTime, "%I:%M");
 			loop.assign("startTime", startTime);

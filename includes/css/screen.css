@@ -1,7 +1,7 @@
 /* Override main template */
 #container_submenu_body_pictures.submenu_body_pictures_ptnight
 {
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 }
 
 #container_submenu_body_pictures #container_title_breadcrumbs_content.container
@@ -63,9 +63,10 @@ input.text
 table
 {
 	width: 480px;
+	background: rgb(255,255,255);
 }	
 
-table.scrollOverflow
+html body table.scrollOverflow
 {
 	width: 100%;
 	overflow: auto;
@@ -100,11 +101,11 @@ table.checkbox td
 
 .zebra tr:nth-child(odd)  /* same */
 {
-	background-color: rgb(255, 250, 243);
+	background-color: rgb(250, 243, 250);
 }
 .zebra tr:nth-child(even)  /* same */
 {
-	background-color: rgb(245, 226, 196);
+	background-color: rgb(226,196,226);
 }
 .checkbox tr:hover
 {
@@ -113,19 +114,19 @@ table.checkbox td
 
 .verticalZebra td:nth-child(odd), .verticalZebra th:nth-child(odd)
 {
-	background-color: rgb(255, 250, 243);
+	background-color: rgb(233, 233, 255);
 }
 .verticalZebra td:nth-child(even), .verticalZebra th:nth-child(even) 
 {
-	background-color: rgb(245, 226, 196);
+	background-color: rgb(250, 250, 250);
 }
 .verticalZebra tr:hover td:nth-child(odd), .verticalZebra tr:hover th
 {
-	background-color: rgb(245, 216, 170);
+	background-color: rgb(170, 170, 245);
 }
 .verticalZebra tr:hover td:nth-child(even), .verticalZebra tr:hover th
 {
-	background-color: rgb(225, 196, 150);
+	background-color: rgb(150, 150, 245);
 }
 
 #container_content .checkbox label

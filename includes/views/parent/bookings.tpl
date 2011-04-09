@@ -4,11 +4,11 @@ interviews back to back.</p>
 <form method="post" action="{Controller.URL}/makebookings/">
 <fieldset>
 <hxLoop name="category">
-<h3>{category}: {date}</h3>
+<p><b>Please note, you can scroll to the right to view more times.</b></p>
 <table class="verticalZebra scrollOverflow">
 	<tr>
 		<th><span class="rotate90CCW small"> </span></th>
-		<hxLoop name="timeslot">
+		<hxLoop name="timeslotHeader">
 		<th><span class="rotate90CCW small">{time}</span></th>
 		</hxLoop>
 	</tr>

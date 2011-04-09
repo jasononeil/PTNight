@@ -10,6 +10,8 @@ import models.StudentCategory;
 import models.SchoolClass;
 import models.Timeslot;
 import basehx.Log;
+using Lambda;
+using DateTools;
 
 class ParentController extends BaseController {
 	public function new(args) 
@@ -24,7 +26,7 @@ class ParentController extends BaseController {
 	
 	override public function checkPermissions() 
 	{
-		/*try 
+		try 
 		{
 			session.check();
 			var userType = session.get("userType");
@@ -37,7 +39,7 @@ class ParentController extends BaseController {
 		catch(e:Error) 
 		{
 			App.redirect("/login/");
-		}*/
+		}
 	}
 	
 	public function welcome() 
@@ -45,6 +47,10 @@ class ParentController extends BaseController {
 		loadTemplate();
 		template.assign("pageTitle", "Step 01: Your Details");
 		var studentID = session.get("studentID");
+		if (studentID == null)
+		{
+			throw new Error("While you logged in okay, you don't appear to be in the database.  Please contact IT.");
+		}
 		var student = Student.manager.get(studentID);
 		for (parent in student.parents)
 		{
@@ -103,6 +109,7 @@ class ParentController extends BaseController {
 		{
 			var category = StudentCategory.manager.get(child.categoryID,false);
 			// If there are timeslots for this category, ie, if bookings are open
+			// Add a clause to this if condition to make timeslots unavailable for certain groups.  eg && categoryName !=  "Y07"
 			if(category.timeslots.length > 0) 
 			{
 				var childBlock = view.newLoop("child");
@@ -136,12 +143,12 @@ class ParentController extends BaseController {
 		template.assign("pageTitle", "Step 03: The Times");
 		if(params.exists("teacher")) 
 		{
-			var categoryBlocks = new Hash();
+			var dateBlocks = new Hash();
 			var timeslotsForCategory = new Hash();
 			var selectedSchoolClasses = php.Web.getParamValues("teacher");
 			var teacherAvailability = new Hash();
 			
-			var allTeacherIDs:List<{}> = Lambda.map(selectedSchoolClasses, function(line:String):{} {
+			var allTeacherIDs:List<{}> = selectedSchoolClasses.map(function(line:String):{} {
 				var classID = Std.parseInt(line.split(",")[2]);
 				var teacherID = SchoolClass.manager.get(classID).teacherID;
 				return { teacherID: teacherID }
@@ -175,26 +182,26 @@ class ParentController extends BaseController {
 					//timeslots = Timeslot.manager.search({"categoryID": student.category.id});
 					timeslotsForCategory.set(category, timeslots);
 				}
-				var cat:Tpl;
-				if(categoryBlocks.exists(category) == false) 
+				var dateBlock:Tpl;
+				var date = timeslots.first().startTime.format("%A %d %B");
+				if (dateBlocks.exists(date) == false)
 				{
-					cat = view.newLoop("category");
-					categoryBlocks.set(category, cat);
+					dateBlock = view.newLoop("category");
+					dateBlocks.set(date,dateBlock);
 					// this loop adds the headers (the first row, with the time of each appointment)
 					for (t in timeslots)
 					{
-						var d = DateTools.format(t.startTime, "%l:%M");
-						cat.newLoop("timeslot").assign("time", d);
+						var d = t.startTime.format("%l:%M");
+						dateBlock.newLoop("timeslotHeader").assign("time", d);
 					}
 				}
 				else 
 				{
-					cat = categoryBlocks.get(category);
+					dateBlock = dateBlocks.get(date);
 				}
-				cat.assign("category", category);
-				var date = DateTools.format(timeslots.first().startTime, "%A %d %B");
-				cat.assign("date", date);
-				var bookingLine = cat.newLoop("bookingLine");
+				dateBlock.assign("category", category);
+				dateBlock.assign("date", date);
+				var bookingLine = dateBlock.newLoop("bookingLine");
 				bookingLine.assignObject("student", student);
 				bookingLine.assignObject("parent", parent);
 				bookingLine.assignObject("class", schoolClass);
@@ -274,7 +281,7 @@ class ParentController extends BaseController {
 		template.assign("pageTitle", "Step 04: Your Timetable");
 		var parentID = session.get("parentID");
 		var parent = Parent.manager.get(parentID);
-		var categoryBlocks = new Hash();
+		var dateBlocks = new Hash();
 		view.assignObject("parent", parent);
 		Interview.manager.setOrderBy("timeslotID");
 		var interviews = Lambda.array(parent.interviews);
@@ -284,20 +291,20 @@ class ParentController extends BaseController {
 		for (interview in interviews)
 		{
 			var category = interview.student.category.name;
-			var cat:Tpl;
-			if(categoryBlocks.exists(category) == false) 
+			var date = interview.timeslot.startTime.format("%A %d %B");
+			var dateBlock:Tpl;
+			if(dateBlocks.exists(date) == false) 
 			{
-				cat = view.newLoop("category");
-				categoryBlocks.set(category, cat);
+				dateBlock = view.newLoop("category");
+				dateBlocks.set(date, dateBlock);
 			}
 			else 
 			{
-				cat = categoryBlocks.get(category);
+				dateBlock = dateBlocks.get(date);
 			}
-			cat.assign("category", category);
-			var date = DateTools.format(interview.timeslot.startTime, "%A %d %B");
-			cat.assign("date", date);
-			var loop = cat.newLoop("interview");
+			dateBlock.assign("category", category);
+			dateBlock.assign("date", date);
+			var loop = dateBlock.newLoop("interview");
 			loop.assignObject("class", interview.schoolClass);
 			loop.assignObject("teacher", interview.teacher);
 			loop.assignObject("student", interview.student);

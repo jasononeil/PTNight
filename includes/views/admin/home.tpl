@@ -1,8 +1,8 @@
 <div class="hidden">
 	<h3>Add timeslots for:</h3>
 	<ul>
-	<li><a href="{Controller.URL}/addtimeslots/2011-03-29/16:00:00/18:30:00/300/Y07,Y08/">Add year 7s and 8s, 29th March, 4-6:30pm, 5min slots.</a></li>
-	<li><a href="{Controller.URL}/addtimeslots/2011-03-30/16:00:00/18:00:00/300/Y11,Y12/">Add year 11s and 12s, 30th March, 4-6pm, 5min slots.</a></li>
+	<li><a href="{Controller.URL}/addtimeslots/2011-05-03/16:00:00/20:00:00/300/Y08,Y09,Y10,Y11,Y12/">Add all years, 3rd May, 4-8pm, 5min slots.</a></li>
+	<li><a href="{Controller.URL}/addtimeslots/2011-05-11/16:00:00/20:00:00/300/Y08,Y09,Y10,Y11,Y12/">Add allyears, 11th May, 4-8pm, 5min slots.</a></li>
 	</ul>
 	<div class="hidden">
 	<form method="post" action="{Controller.URL}/addtimeslots/">

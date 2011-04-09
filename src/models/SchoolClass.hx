@@ -18,9 +18,16 @@ class SchoolClass extends BaseDbModel {
 		}
 		return list;
 	}
+	
 	public var interviews(getter_interviews,null):List<Interview>;
 	public function getter_interviews() {
 		return Interview.manager.search({classID: id});
+	}
+	
+	public var category(getter_category,null):StudentCategory;
+	public function getter_category()
+	{
+		return students.first().category;
 	}
 	
 	public var teacher(dynamic,dynamic):Teacher;

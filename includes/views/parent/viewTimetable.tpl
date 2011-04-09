@@ -1,6 +1,6 @@
 <h2>{parent.firstName} {parent.lastName}</h2>
 <hxLoop name="category">
-<h3>{category}: {date}</h3>
+<h3>{date}</h3>
 <table class="zebra">
 	<tr>
 		<th>Time</th>

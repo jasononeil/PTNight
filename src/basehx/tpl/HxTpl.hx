@@ -163,6 +163,12 @@ class HxTpl extends basehx.tpl.Tpl
 	//
 	private function process(element:XmlNode)  // later add attribute tplVariables
 	{
+		// if this is an element, check the attributes
+		if (element.isElement)
+		{
+			processAttributes(element);
+		}
+		
 		// Go through every item in the XML, elements, PCData, Comments, all of it
 		for (child in element)
 		{
@@ -187,7 +193,6 @@ class HxTpl extends basehx.tpl.Tpl
 			}
 			else if (child.isElement || child.isDocument)
 			{
-				processAttributes(child);
 				process(child);
 			}
 			else
